@@ -20,14 +20,16 @@
         {{--  all roles belongs to this user  --}}
         @foreach ($role->permissions as $role_permission) 
             <span>
-                <input type="checkbox" name="permission_id[]" id="permission" value="{{ $role_permission->id }}" checked>&nbsp;{{ $role_permission->name }}
+                <input type="checkbox" name="permission_id[]" id="permission_{{$role_permission->id}}" value="{{ $role_permission->id }}" checked>
+                <label for="permission_{{$role_permission->id}}">{{ $role_permission->name }}</label>
             </span><br>
         @endforeach
         {{--  all roles belongs to this user  --}}
 
         @foreach ($permissions as $permission)
         <span>
-            <input type="checkbox" name="permission_id[]" id="permission" value="{{ $permission->id }}" >&nbsp;{{ $permission->name }}
+            <input type="checkbox" name="permission_id[]" id="permission_{{$permission->id}}" value="{{ $permission->id }}" >
+            <label for="permission_{{$permission->id}}">{{ $permission->name }}</label>
         </span><br>
         @endforeach
         <br><br>
