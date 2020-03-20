@@ -12,5 +12,11 @@ class HomeController extends Controller
     //     $this->middleware('auth');
     // }
 
+    public $path = 'backend.';
+    
+    public function index()
+    {
+        return view($this->path.'index');
+    }
     
 }

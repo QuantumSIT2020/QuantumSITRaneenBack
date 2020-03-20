@@ -50,6 +50,12 @@ class RolesController extends Controller
         return view($this->path.'Roles.show',compact('role','users','roles'));
     }
 
+    public function edit($id)
+    {
+        $role =  Role::findOrfail($id);
+        return view($this->path.'Roles.edit',compact('role'));
+    }
+
     public function update(Request $request)
     {
         $request->validate([
