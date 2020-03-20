@@ -8,6 +8,7 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\User;
 use Auth;
+use DB;
 
 class RolesController extends Controller
 {
@@ -81,7 +82,7 @@ class RolesController extends Controller
         }else{
             $permissions = Permission::all();
         }
-        return view($this->path.'Roles.index.assign_permissions',compact('permissions','role'));
+        return view($this->path.'Roles.assign_permissions',compact('permissions','role'));
     }
 
     public function assignPermissionPost($id,Request $request){
