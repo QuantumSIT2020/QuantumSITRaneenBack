@@ -83,6 +83,26 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::get('/blogs/status/{id}', 'BlogsController@status')->name('status');
 
 
+        //Customers
+        Route::get('/customers','UsersController@customers')->name('customers');
+        Route::get('/customers/create','UsersController@createCustomers')->name('create_customers');
+        Route::post('/customers/store','UsersController@storeCustomers')->name('store_customers');
+        Route::get('/customers/edit/{id}','UsersController@editCustomers')->name('edit_customers');
+        Route::post('/customers/update','UsersController@updateCustomers')->name('update_customers');
+        Route::get('/customers/delete/{id}','UsersController@destroyCustomers')->name('delete_customers');
+        Route::get('/customers/show/{id}','UsersController@showCustomers')->name('show_customers');
+        Route::get('/customers/search','UsersController@searchCustomers')->name('search_customers');
+        
+        //Buyers
+        Route::get('/buyers','UsersController@buyers')->name('customers');
+        Route::get('/buyers/create','UsersController@createBuyers')->name('create_buyers');
+        Route::post('/buyers/store','UsersController@storeBuyers')->name('store_buyers');
+        Route::get('/buyers/edit/{id}','UsersController@editBuyers')->name('edit_buyers');
+        Route::post('/buyers/update','UsersController@updateBuyers')->name('update_buyers');
+        Route::get('/buyers/delete/{id}','UsersController@destroyBuyers')->name('delete_buyers');
+        Route::get('/buyers/show/{id}','UsersController@showBuyers')->name('show_buyers');
+        Route::get('/buyers/search','UsersController@searchBuyers')->name('search_buyers');
+
 
 
     });
