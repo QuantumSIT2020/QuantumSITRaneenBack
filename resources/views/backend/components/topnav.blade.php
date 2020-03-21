@@ -109,11 +109,14 @@
                     <a href="javascript:void(0);" class="dropdown-toggle icon-menu" data-toggle="dropdown">
                         <i class="fa fa-language"></i>
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item pt-2 pb-2" href="#"><img src="{{ asset('backend/assets/images/flag/gb.svg') }} " class="w20 mr-2 rounded-circle"> English</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item pt-2 pb-2" href="#"><img src="{{ asset('backend/assets/images/flag/arabia.svg') }} " class="w20 mr-2 rounded-circle"> Arabic</a>
 
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @if(\Lang::getLocale() == 'ar')
+                        <a class="dropdown-item pt-2 pb-2" href="{{ route('dashboard_changelang','en') }}"><img src="{{ asset('backend/assets/images/flag/gb.svg') }} " class="w20 mr-2 rounded-circle"> @lang('tr.English')</a>
+                        <div class="dropdown-divider"></div>
+                        @else
+                        <a class="dropdown-item pt-2 pb-2" href="{{ route('dashboard_changelang','ar') }}"><img src="{{ asset('backend/assets/images/flag/arabia.svg') }} " class="w20 mr-2 rounded-circle">@lang('tr.Arabic')</a>
+                        @endif
                     </div>
                 </li>
                 <!-- <li><a href="javascript:void(0);" class="megamenu_toggle icon-menu" title="Mega Menu">Mega</a></li> -->

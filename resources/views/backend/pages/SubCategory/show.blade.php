@@ -1,126 +1,125 @@
+@extends('backend.layouts.master')
 
-<div class="row">
-    <div class="col-lg-12">
+@section('title',__('tr.ChildCategory Details'))
 
-        <!--begin::Portlet-->
-        <div class="m-portlet m-portlet--last m-portlet--head-lg m-portlet--responsive-mobile" id="main_portlet">
-            <div class="m-portlet__head">
-                <div class="m-portlet__head-progress">
+{{-- additional stylesheets --}}
+@section('stylesheet')
 
-                    <!-- here can place a progress bar-->
+@endsection
+{{-- end additional stylesheets --}}
+
+{{-- content --}}
+@section('content')
+
+    <div class="container-fluid">
+        <div class="block-header">
+            <div class="row clearfix">
+
+                <div class="col-md-6 col-sm-12">
+                    <h2>@lang('tr.MainCategory Details')</h2>
                 </div>
-                <div class="m-portlet__head-wrapper">
-                    <div class="m-portlet__head-caption">
-                        <div class="m-portlet__head-title">
-													<span class="m-portlet__head-icon">
-														<i class="flaticon-map-location"></i>
-													</span>
-                            <h3 class="m-portlet__head-text">
-                                @lang('tr.show SubCategory')
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="m-portlet__head-tools">
-                        <a href="{{ route('SubCategory') }}" class="btn btn-secondary m-btn m-btn--icon m-btn--wide m-btn--md m--margin-right-10">
-													<span>
-														<i class="la la-arrow-left"></i>
-														<span>@lang('tr.Back To List')</span>
-													</span>
-                        </a>
-
-
-                    </div>
+                <div class="col-md-6 col-sm-12 text-right hidden-xs">
+                    <a href="{{route('SubCategory')}}" class="btn btn btn-info" title="Themeforest">@lang('tr.Back To List')</a>
                 </div>
             </div>
-            <div class="m-portlet__body">
-                <form class="m-form m-form--label-align-left- m-form--state-" id="m_form">
-
-                    <!--begin: Form Body -->
-                    <div class="m-portlet__body">
-                        <div class="row">
-                            <div class="col-xl-8 offset-xl-2">
-                                <div class="m-form__section m-form__section--first">
-                                    <div class="m-form__heading">
-                                        <h3 class="m-form__heading-title">@lang('tr.SubCategory Details')</h3>
-                                    </div>
-
-                                    <div class="form-group m-form__group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">*@lang('tr.main_category_name'):</label>
-                                        <div class="col-xl-9 col-lg-9">
-                                            <input type="text" name="main_category_id" class="form-control m-input"  disabled value="{{ $subCategory_data->ChildCategory->MainCategory->en_name}}">
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="form-group m-form__group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">*@lang('tr.main_category_name'):</label>
-                                        <div class="col-xl-9 col-lg-9">
-                                            <input type="text" name="main_category_id" class="form-control m-input"  disabled value="{{ $subCategory_data->ChildCategory->en_name}}">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group m-form__group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">*@lang('tr.en_name'):</label>
-                                        <div class="col-xl-9 col-lg-9">
-                                            <input type="text" name="en_name" class="form-control m-input"  disabled  value="{{ $subCategory_data->en_name}}">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group m-form__group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">*@lang('tr.ar_name'):</label>
-                                        <div class="col-xl-9 col-lg-9">
-                                            <input type="text" name="ar_name" class="form-control m-input"  disabled  value="{{ $subCategory_data->ar_name}}">
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="form-group m-form__group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">@lang('tr.en_description'):</label>
-                                        <div class="col-xl-9 col-lg-9">
-
-                                                    <textarea name="en_desc" id="en_desc" cols="30" rows="10" class="form-control m-input" disabled >
-                                                       {{ $subCategory_data->en_desc }}</textarea>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group m-form__group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">@lang('tr.ar_description'):</label>
-                                        <div class="col-xl-9 col-lg-9">
-
-                                                    <textarea name="ar_desc" id="ar_desc" cols="30" rows="10" class="form-control m-input" disabled >
-                                                       {{ $subCategory_data->ar_desc }}</textarea>
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="form-group m-form__group row">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">*@lang('tr.Show main_image')</label>
-                                        <div class="col-xl-9 col-lg-9">
-                                            <div class="input-group">
-
-                                                <img src="{{ URL::to('/') }}/backend/dashboard_images/SubCategory/{{$subCategory_data->sub_image }}" class="img-thumbnail" />
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="m-separator m-separator--dashed m-separator--lg"></div>
-
+        </div>
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <div class="card social">
+                    <div class="profile-header d-flex justify-content-between justify-content-center">
+                        <div class="d-flex">
+                            <div class="mr-3">
+                                <img src="{{ URL::to('/') }}/backend/dashboard_images/ChildCategory/{{$subCategory_data->ChildCategory->child_image }}" class="rounded" alt="">
+                            </div>
+                            <div class="details">
+                                <h5 class="mb-0">        MainCategory::         {{ $subCategory_data->ChildCategory->MainCategory->en_name}}</h5>
+                                <span class="text-light">ChildCategory::        {{ $subCategory_data->ChildCategory->en_name}}</span>
 
                             </div>
                         </div>
+
                     </div>
-                </form>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-5">
+                <div class="card">
+                    <div class="header">
+                        <h2>@lang('tr.Info')</h2>
+                        <ul class="header-dropdown dropdown">
+                            <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <small class="text-muted">@lang('tr.Sub Image'): </small>
+
+                        <div>
+                            <img src="{{ URL::to('/') }}/backend/dashboard_images/SubCategory/{{$subCategory_data->sub_image }}" class="img-thumbnail"  frameborder="0" style="border:0;height:500px;width: 100%;" allowfullscreen>
+                        </div>
+                        <hr>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-8 col-lg-8 col-md-7">
+                <div class="card">
+                    <div class="header">
+                        <h2>@lang('tr.Basic Information')</h2>
+                        <ul class="header-dropdown dropdown">
+                            <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
+
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <div class="row clearfix">
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label>*@lang('tr.en_name'):</label>
+                                    <input type="text" name="en_name" class="form-control m-input"  disabled  value="{{ $subCategory_data->en_name}}">
+
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label>*@lang('tr.ar_name'):</label>
+                                    <input type="text" name="ar_name" class="form-control m-input"  disabled  value="{{ $subCategory_data->ar_name}}">
+
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <label>@lang('tr.en_description'):</label>
+
+                                    <textarea name="en_desc" id="en_desc" cols="30" rows="10" class="form-control m-input" disabled >
+                                                       {{ $subCategory_data->en_desc }}</textarea>                                    </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <label>@lang('tr.ar_description'):</label>
+
+                                    <textarea name="ar_desc" id="ar_desc" cols="30" rows="10" class="form-control m-input" disabled >
+                                                       {{ $subCategory_data->ar_desc }}</textarea>                                    </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
         </div>
-
-        <!--end::Portlet-->
     </div>
-</div>
-</div>
+
+@endsection
+{{-- end content --}}
+
+
+{{-- additional scripts --}}
+@section('stylesheet')
+
+@endsection
+{{-- end additional scripts --}}
 

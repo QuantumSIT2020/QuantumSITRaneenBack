@@ -21,7 +21,8 @@ class PagesController extends Controller
 //    }
     public function index()
     {
-        $page_data = pages::all();
+        $lang = \Lang::getLocale();
+        $page_data = pages::select($lang.'_name as name',$lang.'_desc as description','page_image','id')->get();
         return view('backend.pages.pages.index',compact('page_data'));
 
     }
@@ -85,8 +86,8 @@ class PagesController extends Controller
      */
     public function show($id)
     {
-        $page_data = pages::findOrfail($id);
-        return view('backend.pages.pages.show',compact('page_data'));
+        $pages = pages::findOrfail($id);
+        return view('backend.pages.pages.show',compact('pages'));
     }
 
     /**

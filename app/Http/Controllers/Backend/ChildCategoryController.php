@@ -24,8 +24,10 @@ class ChildCategoryController extends Controller
 //    }
     public function index()
     {
-        $childCategory_data = ChildCategory::all();
-        return view('backend.pages.ChildCategory.index',compact('childCategory_data'));
+        $lang = \Lang::getLocale();
+        $MainCategories = MainCategory::select($lang.'_name as name',$lang.'_desc as description','main_image','id')->get();
+        $childCategory_data = ChildCategory::select($lang.'_name as ChildCategory',$lang.'_desc as description','main_category_id','child_image','id')->get();
+        return view('backend.pages.ChildCategory.index',compact('childCategory_data','MainCategories'));
 
     }
 

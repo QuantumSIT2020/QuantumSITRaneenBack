@@ -23,8 +23,10 @@ class SubCategoryController extends Controller
 //    }
     public function index()
     {
-        $subCategory_data = SubCategory::all();
-        return view('backend.pages.SubCategory.index',compact('subCategory_data'));
+        $lang = \Lang::getLocale();
+        $subCategory_data = SubCategory::select($lang.'_name as SubCategory',$lang.'_desc as description','sub_image','child_category_id','id')->get();
+        $ChildCategories = ChildCategory::select($lang.'_name as name',$lang.'_desc as description','main_category_id','child_image','id')->get();
+        return view('backend.pages.SubCategory.index',compact('subCategory_data','ChildCategories'));
 
     }
 

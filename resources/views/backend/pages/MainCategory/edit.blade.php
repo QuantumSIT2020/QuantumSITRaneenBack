@@ -1,81 +1,73 @@
+@extends('backend.layouts.master')
 
+@section('title',__('tr.Update Main Category'))
 
-    <!--begin::Portlet-->
-    <div class="m-portlet">
+{{-- additional stylesheets --}}
+@section('stylesheet')
 
-        <div class="m-portlet__head">
-            <div class="m-portlet__head-progress">
+@endsection
+{{-- end additional stylesheets --}}
 
-                <!-- here can place a progress bar-->
+{{-- content --}}
+@section('content')
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="header">
+                <h2> @yield('title')</h2>
             </div>
-            <div class="m-portlet__head-wrapper">
-                <div class="m-portlet__head-caption">
-                    <div class="m-portlet__head-title">
-													<span class="m-portlet__head-icon">
-														<i class="flaticon-map-location"></i>
-													</span>
-                        <h3 class="m-portlet__head-text">
-                            @lang('tr.Update section')
-                        </h3>
-                    </div>
-                </div>
-                <div class="m-portlet__head-tools">
-                    <a href="{{ route('MainCategory') }}" class="btn btn-secondary m-btn m-btn--icon m-btn--wide m-btn--md m--margin-right-10">
-													<span>
-														<i class="la la-arrow-left"></i>
-														<span>@lang('tr.back to list')</span>
-													</span>
-                    </a>
-
-
-                </div>
+            <div class="col-md-6 col-sm-12 text-right hidden-xs">
+                <a href= "{{route('MainCategory')}}" class="btn btn-sm btn-primary btn-round" title="">@lang('tr.Back To List')</a>
             </div>
-        </div>
 
-        <!--begin::Form-->
-
-        <form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed" action="{{ route('update_MainCategory',$MainCategory_data->id) }}" method="post" enctype="multipart/form-data" id="selectform">
-            @csrf
-            <div class="m-portlet__body">
-
-                <div class="form-group m-form__group row">
-
-                    <div class="col-lg-6">
-                        <label for="en_name">@lang('tr.en_name'):</label>
-                        <div class="m-input-icon m-input-icon--right">
-                            <input type="text" name="en_name" id="en_name"  value="{{ $MainCategory_data->en_name }}" class="form-control m-input">
-
+            <div class="body">
+                <form style="padding:20px;" action="{{ route('update_MainCategory',$MainCategory_data->id) }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">@lang('tr.en_name')</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input class="form-control" name="en_name" id="en_name" type="text" value="{{ $MainCategory_data->en_name }}" >
                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="ar_name">@lang('tr.ar_name'):</label>
-                        <div class="m-input-icon m-input-icon--right">
-                            <input type="text" name="ar_name" id="ar_name"  value="{{ $MainCategory_data->ar_name }}" class="form-control m-input">
-                        </div>
+
                     </div>
 
+                    <hr>
 
-
-                    <div class="col-lg-6">
-                        <label for="en_desc">@lang('tr.en_description'):</label>
-                        <div class="m-input-icon m-input-icon--right">
-                            <textarea name="en_desc" id="en_desc" cols="30" rows="10" class="form-control m-input"  value="">{{ $MainCategory_data->en_desc }}</textarea>
-
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">@lang('tr.ar_name')</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input class="form-control" name="ar_name" id="ar_name" type="text" value="{{ $MainCategory_data->ar_name }}" >
                         </div>
+
                     </div>
-                    <div class="col-lg-6">
-                        <label for="ar_desc">@lang('tr.ar_description'):</label>
-                        <div class="m-input-icon m-input-icon--right">
+
+                    <hr>
+
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">@lang('tr.en_description')</label>
+                        <div class="col-sm-12 col-md-10">
+                            <textarea name="en_desc" id="en_desc" cols="30" rows="10" class="form-control m-input" value="">{{ $MainCategory_data->en_desc}}</textarea>
+                        </div>
+
+                    </div>
+
+                    <hr>
+
+
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">@lang('tr.ar_description')</label>
+                        <div class="col-sm-12 col-md-10">
                             <textarea name="ar_desc" id="ar_desc" cols="30" rows="10" class="form-control m-input" value="">{{ $MainCategory_data->ar_desc }}</textarea>
 
                         </div>
+
                     </div>
 
+                    <hr>
 
-
-                    <div class="col-lg-6">
-                        <label class="col-lg-4 file">@lang('tr.Select another Image')</label>
-                        <div class="col-md-8">
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">@lang('tr.Select another Image')</label>
+                        <div class="col-sm-12 col-md-10">
                             <input type="file" name="main_image" id="file" aria-label="File browser example"  onchange="readURL(this);"  />
                             <img src="{{ URL::to('/') }}/backend/dashboard_images/MainCategory/{{ $MainCategory_data->main_image }}" class="img-thumbnail" width="100" />
 
@@ -83,32 +75,27 @@
                             <span class="file-custom"></span>
                         </div>
 
-
-
                     </div>
-                </div>
+
+                    <hr>
 
 
-
-
-                <div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
-                    <div class="m-form__actions m-form__actions--solid">
-                        <div class="row">
-                            <div class="col-lg-4"></div>
-                            <div class="col-lg-8">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-save"></i>&nbsp;@lang('tr.update')
-                                </button>
-
-                            </div>
-                        </div>
+                    <div class="form-group row">
+                        <input type="submit" value="@lang('tr.Update')" class="btn btn-primary col-sm-12 col-md-2">
                     </div>
-                </div>
-            </div>
-        </form>
 
-        <!--end::Form-->
+                </form>
+            </div>N
+        </div>
     </div>
 
-    <!--end::Portlet-->
+@endsection
+{{-- end content --}}
+
+
+{{-- additional scripts --}}
+@section('stylesheet')
+
+@endsection
+{{-- end additional scripts --}}
 

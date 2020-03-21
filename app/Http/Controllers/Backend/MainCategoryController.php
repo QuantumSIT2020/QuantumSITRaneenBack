@@ -22,8 +22,8 @@ class MainCategoryController extends Controller
 //        $this->middleware('auth');
 //    }
     public function index()
-    {
-        $MainCategory_data = MainCategory::all();
+    {   $lang = \Lang::getLocale();
+        $MainCategory_data = MainCategory::select($lang.'_name as name',$lang.'_desc as description','main_image','id')->get();
         return view('backend.pages.MainCategory.index',compact('MainCategory_data'));
 
     }

@@ -1,100 +1,134 @@
+@extends('backend.layouts.master')
+
+@section('title',__('tr.Sub Categories'))
+
+{{-- additional stylesheets --}}
+@section('stylesheet')
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css">
+@endsection
+{{-- end additional stylesheets --}}
 
 
-<link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+@section('morebtn')
+    <div class="col-md-6 col-sm-12 text-right hidden-xs">
+        <a href="{{ route('create_SubCategory') }}" class="btn btn-sm btn-info" title=""><i class="fa fa-plus"></i>@lang('tr.Create New ChildCategory')</a>
+    </div>
+@endsection
 
-<div class="m-portlet m-portlet--mobile m-portlet--body-progress-">
+{{-- content --}}
+@section('content')
 
-    <div class="m-portlet__head">
-        <div class="m-portlet__head-caption">
-            <div class="m-portlet__head-title">
-                <h3 class="m-portlet__head-text">
-                    @lang('tr.SubCategory')
-                </h3>
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="header">
+                <h2>@yield('title')</h2>
+                <ul class="header-dropdown dropdown">
+
+                    <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
+                </ul>
+            </div>
+            <div class="body">
+                <div class="table-responsive">
+                    <table id="example" class="display" style="width:100%">
+                        <thead>
+                        <tr>
+
+                            <th class="border_cell">@lang('tr.Sub Image')             </th>
+                            <th class="border_cell">@lang('tr.Main category')         </th>
+                            <th class="border_cell">@lang('tr.Child category')        </th>
+                            <th class="border_cell">@lang('tr.Sub category')          </th>
+                            <th class="border_cell">@lang('tr.Action')                </th>
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        @foreach ($subCategory_data as $index => $subCategory)
+                            <tr>
+
+                                <td  class="border_cell"><img src="{{ URL::to('/') }}/backend/dashboard_images/SubCategory/{{$subCategory->sub_image }}" class="img-thumbnail" width="200" /></td>
+                                <td  class="border_cell">{{ $subCategory->ChildCategory->MainCategory->en_name }} </td>
+                                <td  class="border_cell">{{ $subCategory->ChildCategory->en_name }}                </td>
+                                <td  class="border_cell">{{ $subCategory->SubCategory }}                           </td>
+                                <td class="border_cell">
+                                    <a href="{{ route('show_SubCategory',   $subCategory->id) }}" class="btn btn-primary" style="border-radius: 0;font-weight: bold;font-size: 10px;"  title="@lang('tr.Show SubCategory')"><i class="fa fa-eye"></i></a>
+                                    <a href="{{ route('edit_SubCategory',   $subCategory->id) }}"  class="btn btn-warning updateRoleBtn" style="border-radius: 0;font-weight: bold;font-size: 10px;"  title="@lang('tr.Update SubCategory')"><i class="fa fa-edit"></i></a>
+                                    <a href="{{ route('delete_SubCategory', $subCategory->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-danger" style="border-radius: 0;font-weight: bold;font-size: 10px;"  title="@lang('tr.Delete SubCategory')"><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+
+                        <tfoot>
+                        <tr>
+                            <th class="border_cell">@lang('tr.Sub Image')             </th>
+                            <th class="border_cell">@lang('tr.Main category')         </th>
+                            <th class="border_cell">@lang('tr.Child category')        </th>
+                            <th class="border_cell">@lang('tr.Sub category')          </th>
+                            <th class="border_cell">@lang('tr.Action')                </th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
         </div>
-        <div class="m-portlet__head-tools">
-            <ul class="m-portlet__nav">
-                <li class="m-portlet__nav-item">
-                    <a href="{{ route('create_SubCategory') }}" class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air">
-												<span>
-													<i class="la la-plus"></i>
-													<span>@lang('tr.Add New ')</span>
-												</span>
-                    </a>
-                </li>
-
-            </ul>
-        </div>
     </div>
 
 
-    <div class="m-portlet__body">
-        <table id="example"  class="table table-bordered table table-hover">
-            <thead >
-            <tr>
-                <th>@lang('tr.sub_image')</th>
-                <th>@lang('tr.main_category_name')</th>
-                <th>@lang('tr.child_category_name')</th>
-                <th>@lang('tr.en_name')</th>
-                <th>@lang('tr.ar_name') </th>
-                <th>@lang('tr.en_desc')</th>
-                <th>@lang('tr.ar_desc')</th>
-                <th>@lang('tr.Action')</th>
 
-            </tr>
-            </thead>
-            <tbody>
-            @foreach ($subCategory_data as $index => $subCategory)
-                <td ><img src="{{ URL::to('/') }}/backend/dashboard_images/SubCategory/{{$subCategory->sub_image }}" class="img-thumbnail" width="200" /></td>
-                <td >{{ $subCategory->ChildCategory->MainCategory->en_name }}</td>
-                <td >{{ $subCategory->ChildCategory->en_name }}</td>
-                <td >{{ $subCategory->en_name }}</td>
-                <td >{{ $subCategory->ar_name }}</td>
-                <td >{{ $subCategory->en_desc }}</td>
-                <td >{{ $subCategory->ar_desc }}</td>
-
-                <td>
-                    <a href="{{ route('show_SubCategory', $subCategory->id) }}" class="btn btn-primary">Show</a>
-                    <a href="{{ route('edit_SubCategory', $subCategory->id) }}" class="btn btn-warning">Edit</a>
-                    <form  onclick="return confirm('Are You Sure ?')"  action="{{ route('delete_SubCategory', $subCategory->id) }}">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                </td>
-                </tr>
-            @endforeach
-            </tbody>
-            <tfoot>
-            <tr>
-                <th>@lang('tr.sub_image')</th>
-                <th>@lang('tr.main_category_name')</th>
-                <th>@lang('tr.child_category_name')</th>
-                <th>@lang('tr.en_name')</th>
-                <th>@lang('tr.ar_name') </th>
-                <th>@lang('tr.en_desc')</th>
-                <th>@lang('tr.ar_desc')</th>
-                <th>@lang('tr.Action')</th>
+@endsection
+{{-- end content --}}
 
 
+{{-- additional scripts --}}
+@section('javascript')
 
-            </tr>
-            </tfoot>
-        </table>
-    </div>
-</div>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
 
+    <script>
+        $(document).ready(function() {
+            var url = '';
+            var lang = '{{ \Lang::getLocale() }}';
+            if (lang == 'ar') {
+                url = '//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json';
+            }else{
+                url = '//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/English.json';
+            }
 
+            $('#example').DataTable( {
+                "language": {
+                    "url": url
+                },
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'copy',
+                        text: "@lang('tr.Copy')",
+                        key: {
+                            key: 'c',
+                            altKey: true
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        text: "@lang('tr.Print')",
+                        key: {
+                            key: 'p',
+                            altKey: true
+                        }
+                    },
 
-
-<script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" type="text/javascript"></script>
-
-
-<script>
-    $(document).ready(function() {
-        $('#example').DataTable();
-    } );
-
-</script>
+                ]
+            } );
+        } );
+    </script>
+@endsection
+{{-- end additional scripts --}}
 

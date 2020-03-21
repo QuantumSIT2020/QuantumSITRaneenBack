@@ -31,8 +31,46 @@
                         <li><a href="{{ route('roles') }}">@lang('tr.All Roles')</a></li>
                     </ul>
                 </li>
-                
-                <li><a href="page-blank.html"><i class="icon-diamond"></i><span> Blank </span></a></li>
+
+
+
+
+
+{{--                categories--}}
+
+
+                <li class="header">Categories</li>
+                <li>
+                    <a href="#Authentication" class="has-arrow"><i class="icon-lock"></i><span>Categories</span></a>
+                    <ul>
+                        <li><a href="{{ route('MainCategory') }}">Main Category</a></li>
+                        <li><a href="{{ route('ChildCategory') }}">Child Category</a></li>
+                        <li><a href="{{ route('SubCategory') }}">Sub Category</a></li>
+
+                    </ul>
+                </li>
+
+
+
+                {{--                pages--}}
+
+
+                <li class="header">Pages</li>
+
+                <li><a href="{{route('pages')}}"><i class="icon-puzzle"></i><span>Pages</span></a></li>
+
+
+
+                {{--                blogs--}}
+
+
+                <li class="header">Blogs</li>
+
+                <li><a href="{{route('blogs')}}"><i class="icon-puzzle"></i><span>Blogs</span></a></li>
+
+
+
+
 
 
             </ul>

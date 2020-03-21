@@ -16,7 +16,8 @@ class BlogsController extends Controller
 //    }
     public function index()
     {
-        $blog_data = Blog::all();
+        $lang = \Lang::getLocale();
+        $blog_data = Blog::select($lang.'_name as name',$lang.'_desc as description','blog_image','isactive','type','id')->get();
         return view('backend.pages.blogs.index',compact('blog_data'));
     }
 
