@@ -1,6 +1,12 @@
 @extends('backend.layouts.master')
 
-@section('title',__('tr.All Buyers'))
+@if(isset($_GET['search']))
+@php($search = $_GET['search'])
+@else
+@php($search = '')
+@endif
+
+@section('title',__('tr.Search').' - '.$search)
 
 {{-- additional stylesheets --}}
 @section('stylesheet')
@@ -12,7 +18,7 @@
 
 @section('morebtn')
 <div class="col-md-6 col-sm-12 text-right hidden-xs">
-    <a href="{{ route('create_buyers') }}" class="btn btn-sm btn-primary" title="">@lang('tr.Create New Buyer')</a>
+    <a href="{{ route('dataentry') }}" class="btn btn-sm btn-primary" title="">@lang('tr.Data Entry')</a>
 </div>
 @endsection
 
@@ -27,9 +33,9 @@
         <div class="body">
             <div class="row">
                 <div class="col-lg-12">
-                    <form  action="{{ route('search_buyers') }}" method="GET">
+                    <form  action="{{ route('search_dataentry') }}" method="GET">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="search" placeholder="@lang('tr.Search')" aria-label="@lang('tr.Search')" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control" value="{{ old('search') }}" name="search" placeholder="@lang('tr.Search')" aria-label="@lang('tr.Search')" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="submit">@lang('tr.Search')</button>
                             </div>
@@ -51,36 +57,35 @@
             </ul>
         </div>
         <div class="body">
-            
+            @if(count($data) > 0)
             <div class="row">
-                @foreach ($buyers as $buyer)
+                @foreach ($data as $d)
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="card c_grid c_yellow">
                         <div class="body text-center ribbon">
-                            
                             <div class="circle">
-                                @if($buyer->gender == 1)
+                                @if($d->gender == 1)
                                 <img class="rounded-circle" src="{{ asset('backend/assets/man.png') }}" alt="">
                                 @else
                                 <img class="rounded-circle" src="{{ asset('backend/assets/woman.png') }}" alt="">
                                 @endif
                                 
                             </div>
-                            <h6 class="mt-3 mb-0">{{ $buyer->first_name.' '.$buyer->last_name }}</h6>
-                            <span>{{ $buyer->user->email }}</span><br><br>
+                            <h6 class="mt-3 mb-0">{{ $d->first_name.' '.$d->last_name }}</h6>
+                            <span>{{ $d->user->email }}</span><br><br>
                             
-                            <a href="{{ route('show_buyers',$buyer->id) }}" class="btn btn-success btn-sm">@lang('tr.View')</a>
-                            <a href="{{ route('edit_buyers',$buyer->id) }}" class="btn btn-success btn-sm">@lang('tr.Edit')</a>
-                            <a href="{{ route('delete_buyers',$buyer->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-success btn-sm">@lang('tr.Delete')</a>
+                            <a href="{{ route('show_dataentry',$d->data_id) }}" class="btn btn-success btn-sm">@lang('tr.View')</a>
+                            <a href="{{ route('edit_dataentry',$d->data_id) }}" class="btn btn-success btn-sm">@lang('tr.Edit')</a>
+                            <a href="{{ route('delete_dataentry',$d->data_id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-success btn-sm">@lang('tr.Delete')</a>
 
                             <div class="row text-center mt-4">
                                 <div class="col-lg-6 border-right">
                                     <label class="mb-0">@lang('tr.Mobile')</label>
-                                    <h4 class="font-20">{{ $buyer->mobile }}</h4>
+                                    <h4 class="font-20">{{ $d->mobile }}</h4>
                                 </div>
                                 <div class="col-lg-6">
                                     <label class="mb-0">@lang('tr.Age') </label>
-                                    <h4 class="font-20">{{ date_diff(date_create($buyer->birth_date), date_create('today'))->y }}</h4>
+                                    <h4 class="font-20">{{ date_diff(date_create($d->birth_date), date_create('today'))->y }}</h4>
                                 </div>
                             </div>
                         </div>
@@ -91,9 +96,25 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    {{ $buyers->links() }}
+                    {{ $data->links() }}
                 </div>
             </div>
+
+            @else
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="card w_card3">
+                        <div class="body">
+                            <div class="text-center"><i class="fa fa-warning text-info"></i>
+                                <h4 class="m-t-25 mb-0">@lang('tr.There are no results')</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @endif
 
             
         </div>

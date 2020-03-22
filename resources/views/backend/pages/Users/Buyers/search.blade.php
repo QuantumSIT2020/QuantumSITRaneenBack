@@ -18,7 +18,7 @@
 
 @section('morebtn')
 <div class="col-md-6 col-sm-12 text-right hidden-xs">
-    <a href="{{ route('customers') }}" class="btn btn-sm btn-primary" title="">@lang('tr.Customers')</a>
+    <a href="{{ route('buyers') }}" class="btn btn-sm btn-primary" title="">@lang('tr.Buyers')</a>
 </div>
 @endsection
 
@@ -33,7 +33,7 @@
         <div class="body">
             <div class="row">
                 <div class="col-lg-12">
-                    <form  action="{{ route('search_customers') }}" method="GET">
+                    <form  action="{{ route('search_buyers') }}" method="GET">
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" value="{{ old('search') }}" name="search" placeholder="@lang('tr.Search')" aria-label="@lang('tr.Search')" aria-describedby="basic-addon2">
                             <div class="input-group-append">
@@ -57,36 +57,35 @@
             </ul>
         </div>
         <div class="body">
-            @if(count($customers) > 0)
+            @if(count($buyers) > 0)
             <div class="row">
-                @foreach ($customers as $customer)
+                @foreach ($buyers as $buyer)
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="card c_grid c_yellow">
                         <div class="body text-center ribbon">
-                            <div class="ribbon-box green">{{ $customer->country()[$customer->country] }}</div>
                             <div class="circle">
-                                @if($customer->gender == 1)
+                                @if($buyer->gender == 1)
                                 <img class="rounded-circle" src="{{ asset('backend/assets/man.png') }}" alt="">
                                 @else
                                 <img class="rounded-circle" src="{{ asset('backend/assets/woman.png') }}" alt="">
                                 @endif
                                 
                             </div>
-                            <h6 class="mt-3 mb-0">{{ $customer->first_name.' '.$customer->last_name }}</h6>
-                            <span>{{ $customer->user->email }}</span><br><br>
+                            <h6 class="mt-3 mb-0">{{ $buyer->first_name.' '.$buyer->last_name }}</h6>
+                            <span>{{ $buyer->user->email }}</span><br><br>
                             
-                            <a href="{{ route('show_customers',$customer->customer_id) }}" class="btn btn-success btn-sm">@lang('tr.View')</a>
-                            <a href="{{ route('edit_customers',$customer->customer_id) }}" class="btn btn-success btn-sm">@lang('tr.Edit')</a>
-                            <a href="{{ route('delete_customers',$customer->customer_id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-success btn-sm">@lang('tr.Delete')</a>
+                            <a href="{{ route('show_buyers',$buyer->buyer_id) }}" class="btn btn-success btn-sm">@lang('tr.View')</a>
+                            <a href="{{ route('edit_buyers',$buyer->buyer_id) }}" class="btn btn-success btn-sm">@lang('tr.Edit')</a>
+                            <a href="{{ route('delete_buyers',$buyer->buyer_id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-success btn-sm">@lang('tr.Delete')</a>
 
                             <div class="row text-center mt-4">
                                 <div class="col-lg-6 border-right">
                                     <label class="mb-0">@lang('tr.Mobile')</label>
-                                    <h4 class="font-20">{{ $customer->mobile }}</h4>
+                                    <h4 class="font-20">{{ $buyer->mobile }}</h4>
                                 </div>
                                 <div class="col-lg-6">
                                     <label class="mb-0">@lang('tr.Age') </label>
-                                    <h4 class="font-20">{{ date_diff(date_create($customer->birth_date), date_create('today'))->y }}</h4>
+                                    <h4 class="font-20">{{ date_diff(date_create($buyer->birth_date), date_create('today'))->y }}</h4>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +96,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    {{ $customers->links() }}
+                    {{ $buyers->links() }}
                 </div>
             </div>
 

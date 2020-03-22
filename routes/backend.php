@@ -94,7 +94,7 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::get('/customers/search','UsersController@searchCustomers')->name('search_customers');
         
         //Buyers
-        Route::get('/buyers','UsersController@buyers')->name('customers');
+        Route::get('/buyers','UsersController@buyers')->name('buyers');
         Route::get('/buyers/create','UsersController@createBuyers')->name('create_buyers');
         Route::post('/buyers/store','UsersController@storeBuyers')->name('store_buyers');
         Route::get('/buyers/edit/{id}','UsersController@editBuyers')->name('edit_buyers');
@@ -102,6 +102,36 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::get('/buyers/delete/{id}','UsersController@destroyBuyers')->name('delete_buyers');
         Route::get('/buyers/show/{id}','UsersController@showBuyers')->name('show_buyers');
         Route::get('/buyers/search','UsersController@searchBuyers')->name('search_buyers');
+        
+        //Data Entry
+        Route::get('/data-entry','UsersController@dataEntries')->name('dataentry');
+        Route::get('/data-entry/create','UsersController@createdataEntries')->name('create_dataentry');
+        Route::post('/data-entry/store','UsersController@storedataEntries')->name('store_dataentry');
+        Route::get('/data-entry/edit/{id}','UsersController@editdataEntries')->name('edit_dataentry');
+        Route::post('/data-entry/update','UsersController@updatedataEntries')->name('update_dataentry');
+        Route::get('/data-entry/delete/{id}','UsersController@destroydataEntries')->name('delete_dataentry');
+        Route::get('/data-entry/show/{id}','UsersController@showdataEntries')->name('show_dataentry');
+        Route::get('/data-entry/search','UsersController@searchdataEntries')->name('search_dataentry');
+
+        //Inventory
+        Route::get('/inventory','InventoryController@index')->name('inventories');
+        Route::get('/inventory/create','InventoryController@create')->name('create_inventories');
+        Route::post('/inventory/store','InventoryController@store')->name('store_inventories');
+        Route::get('/inventory/edit/{id}','InventoryController@edit')->name('edit_inventories');
+        Route::post('/inventory/update','InventoryController@update')->name('update_inventories');
+        Route::get('/inventory/delete/{id}','InventoryController@destroy')->name('delete_inventories');
+        Route::get('/inventory/show/{id}','InventoryController@show')->name('show_inventories');
+        Route::get('/inventory/search','InventoryController@search')->name('search_inventories');
+
+        //Manufacturer
+        Route::get('/manufacturer','ManufacturerController@index')->name('manufacturers');
+        Route::get('/manufacturer/create','ManufacturerController@create')->name('create_manufacturers');
+        Route::post('/manufacturer/store','ManufacturerController@store')->name('store_manufacturers');
+        Route::get('/manufacturer/edit/{id}','ManufacturerController@edit')->name('edit_manufacturers');
+        Route::post('/manufacturer/update','ManufacturerController@update')->name('update_manufacturers');
+        Route::get('/manufacturer/delete/{id}','ManufacturerController@destroy')->name('delete_manufacturers');
+        Route::get('/manufacturer/show/{id}','ManufacturerController@show')->name('show_manufacturers');
+        Route::get('/manufacturer/search','ManufacturerController@search')->name('search_manufacturers');
 
 
 

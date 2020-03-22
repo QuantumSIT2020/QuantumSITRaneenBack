@@ -1,6 +1,6 @@
 <div id="left-sidebar" class="sidebar">
     <div class="navbar-brand">
-        <a href="index.html"><img src="{{ asset('backend/assets/images/icon.svg') }}" alt="Raneen Logo" class="img-fluid logo"><span>Raneen</span></a>
+        <a href="{{ route('dashboard_index') }}"><img src="{{ asset('backend/assets/images/icon.svg') }}" alt="Raneen Logo" class="img-fluid logo"><span>Raneen</span></a>
         <button type="button" class="btn-toggle-offcanvas btn btn-sm float-right"><i class="lnr lnr-menu icon-close"></i></button>
     </div>
     <div class="sidebar-scroll">
@@ -23,12 +23,27 @@
         <nav id="left-sidebar-nav" class="sidebar-nav">
             <ul id="main-menu" class="metismenu">
                 
-                <li class="active open"><a href="index2.html"><i class="icon-speedometer"></i><span>Dashboard</span></a></li>
+                <li class="active open"><a href="{{ route('dashboard_index') }}"><i class="icon-speedometer"></i><span>Dashboard</span></a></li>
+
+                <li class="header">@lang('tr.Users Management')</li>
+
                 <li>
                     <a href="#myPage" class="has-arrow"><i class="icon-user-follow"></i><span>@lang('tr.Roles')</span></a>
                     <ul>
                         <li><a href="{{ route('create_roles') }}">@lang('tr.Create Roles')</a></li>
                         <li><a href="{{ route('roles') }}">@lang('tr.All Roles')</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#myPage" class="has-arrow"><i class="icon-users"></i><span>@lang('tr.Users')</span></a>
+                    <ul>
+                        <li><a href="{{ route('create_customers') }}">@lang('tr.Create Customer')</a></li>
+                        <li><a href="{{ route('customers') }}">@lang('tr.All Customers')</a></li>
+                        <li><a href="{{ route('create_buyers') }}">@lang('tr.Create Buyer')</a></li>
+                        <li><a href="{{ route('buyers') }}">@lang('tr.All Buyers')</a></li>
+                        <li><a href="{{ route('create_dataentry') }}">@lang('tr.Create Data Entry')</a></li>
+                        <li><a href="{{ route('dataentry') }}">@lang('tr.All Data Entries')</a></li>
                     </ul>
                 </li>
 
@@ -39,13 +54,33 @@
 {{--                categories--}}
 
 
-                <li class="header">Categories</li>
+                <li class="header">@lang('tr.Categories Management')</li>
                 <li>
-                    <a href="#Authentication" class="has-arrow"><i class="icon-lock"></i><span>Categories</span></a>
+                    <a href="#Authentication" class="has-arrow"><i class="icon-lock"></i><span>@lang('tr.Categories')</span></a>
                     <ul>
                         <li><a href="{{ route('MainCategory') }}">Main Category</a></li>
                         <li><a href="{{ route('ChildCategory') }}">Child Category</a></li>
                         <li><a href="{{ route('SubCategory') }}">Sub Category</a></li>
+
+                    </ul>
+                </li>
+
+                <li class="header">@lang('tr.Product Management')</li>
+
+                <li>
+                    <a href="#Authentication" class="has-arrow"><i class="fa fa-industry"></i><span>@lang('tr.Manufacturer')</span></a>
+                    <ul>
+                        <li><a href="{{ route('create_manufacturers') }}">@lang('tr.Create Manufacturer')</a></li>
+                        <li><a href="{{ route('manufacturers') }}">@lang('tr.Manufacturer')</a></li>
+
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#Authentication" class="has-arrow"><i class="fa fa-database"></i><span>@lang('tr.Inventory')</span></a>
+                    <ul>
+                        <li><a href="{{ route('create_inventories') }}">@lang('tr.Create Item')</a></li>
+                        <li><a href="{{ route('inventories') }}">@lang('tr.Inventory')</a></li>
 
                     </ul>
                 </li>

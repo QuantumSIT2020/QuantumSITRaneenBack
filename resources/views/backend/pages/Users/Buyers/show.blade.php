@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 
-@section('title',__('tr.Show Customer '.$customer->first_name))
+@section('title',__('tr.Show Buyer '.$buyer->first_name))
 
 {{-- additional stylesheets --}}
 @section('stylesheet')
@@ -12,8 +12,8 @@
 
 @section('morebtn')
 <div class="col-md-6 col-sm-12 text-right hidden-xs">
-    <a href="{{ route('customers') }}" class="btn btn-sm btn-primary" title="">@lang('tr.Customers')</a>
-    <a href="{{ route('create_customers') }}" class="btn btn-sm btn-primary" title="">@lang('tr.Create New Customer')</a>
+    <a href="{{ route('buyers') }}" class="btn btn-sm btn-primary" title="">@lang('tr.Buyers')</a>
+    <a href="{{ route('create_buyers') }}" class="btn btn-sm btn-primary" title="">@lang('tr.Create New Buyer')</a>
 </div>
 @endsection
 
@@ -33,53 +33,39 @@
             
             <div class="row">
                 
-                <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="col-lg-4 col-md-4 col-sm-4">
                     <div class="card c_grid c_yellow">
                         <div class="body text-center ribbon">
-                            <div class="ribbon-box green">{{ $customer->country()[$customer->country] }}</div>
+                            <div class="ribbon-box green">{{ $buyer->created_at->diffForHumans() }}</div>
                             <div class="circle">
-                                @if($customer->gender == 1)
+                                @if($buyer->gender == 1)
                                 <img class="rounded-circle" src="{{ asset('backend/assets/man.png') }}" alt="">
                                 @else
                                 <img class="rounded-circle" src="{{ asset('backend/assets/woman.png') }}" alt="">
                                 @endif
                                 
                             </div>
-                            <h6 class="mt-3 mb-0">{{ $customer->first_name.' '.$customer->last_name }}</h6>
-                            <span>{{ $customer->user->email }}</span><br><br>
+                            <h6 class="mt-3 mb-0">{{ $buyer->first_name.' '.$buyer->last_name }}</h6>
+                            <span>{{ $buyer->user->email }}</span><br><br>
                             
-                            <a href="{{ route('edit_customers',$customer->id) }}" class="btn btn-success btn-sm">@lang('tr.Edit')</a>
-                            <a href="{{ route('delete_customers',$customer->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-success btn-sm">@lang('tr.Delete')</a>
+                            <a href="{{ route('edit_buyers',$buyer->id) }}" class="btn btn-success btn-sm">@lang('tr.Edit')</a>
+                            <a href="{{ route('delete_buyers',$buyer->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-success btn-sm">@lang('tr.Delete')</a>
 
                             <div class="row text-center mt-4">
                                 <div class="col-lg-6 border-right">
                                     <label class="mb-0">@lang('tr.Mobile')</label>
-                                    <h4 class="font-20">{{ $customer->mobile }}</h4>
+                                    <h4 class="font-20">{{ $buyer->mobile }}</h4>
                                 </div>
                                 <div class="col-lg-6">
                                     <label class="mb-0">@lang('tr.Age') </label>
-                                    <h4 class="font-20">{{ date_diff(date_create($customer->birth_date), date_create('today'))->y }}</h4>
+                                    <h4 class="font-20">{{ date_diff(date_create($buyer->birth_date), date_create('today'))->y }}</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="card c_grid c_yellow">
-                        <div class="body ribbon">
-                            <ul class="list-group">
-                                <li class="list-group-item d-flex justify-content-between align-items-center">@lang('tr.Order Mobile')<span class="badge badge-info">{{ $customer->order_mobile }}</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">@lang('tr.Order Email')<span class="badge badge-info">{{ $customer->order_email }}</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">@lang('tr.City')<span class="badge badge-info">{{ $customer->city()[$customer->city] }}</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">@lang('tr.Address')<span class="badge badge-info">{{ $customer->address }}</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">@lang('tr.Postal Code')<span class="badge badge-info">{{ $customer->postal_code }}</span></li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">@lang('tr.Join At')<span class="badge badge-info">{{ $customer->created_at->diffForHumans() }}</span></li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
+                
                 
                 
             </div>

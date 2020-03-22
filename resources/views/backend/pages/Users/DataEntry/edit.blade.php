@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 
-@section('title',__('tr.Update Buyers'))
+@section('title',__('tr.Update Data entry'))
 
 {{-- additional stylesheets --}}
 @section('stylesheet')
@@ -9,7 +9,7 @@
 
 @section('morebtn')
 <div class="col-md-6 col-sm-12 text-right hidden-xs">
-    <a href="{{ route('buyers') }}" class="btn btn-sm btn-primary" title="">@lang('tr.Buyers')</a>
+    <a href="{{ route('dataentry') }}" class="btn btn-sm btn-primary" title="">@lang('tr.Data entry')</a>
 </div>
 @endsection
 {{-- end additional stylesheets --}}
@@ -24,21 +24,21 @@
         </div>
         
         <div class="body">
-            <form id="advanced-form" action="{{ route('update_buyers') }}" method="POST" data-parsley-validate="" novalidate="" autocomplete="off">
+            <form id="advanced-form" action="{{ route('update_dataentry') }}" method="POST" data-parsley-validate="" novalidate="" autocomplete="off">
                 @csrf
-                <input type="hidden" name="buyer_id" value="{{ $buyer->id }}">
+                <input type="hidden" name="data_id" value="{{ $data->id }}">
                 {{-- First & Last Name --}}
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="text-input1">@lang('tr.First Name')</label>
-                            <input type="text" id="text-input1" value="{{ $buyer->first_name }}" name="first_name" class="form-control" required="" data-parsley-minlength="3">
+                            <input type="text" id="text-input1" value="{{ $data->first_name }}" name="first_name" class="form-control" required="" data-parsley-minlength="3">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="text-input2">@lang('tr.Last Name')</label>
-                            <input type="text" id="text-input2" value="{{ $buyer->last_name }}" name="last_name" class="form-control" required="" data-parsley-minlength="3">
+                            <input type="text" id="text-input2" value="{{ $data->last_name }}" name="last_name" class="form-control" required="" data-parsley-minlength="3">
                         </div>
                     </div>
                 </div>
@@ -48,14 +48,14 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="text-input3">@lang('tr.Email Address')</label>
-                            <input type="email" id="text-input3" value="{{ $buyer->user->email }}" name="email" class="form-control" required="" data-parsley-email="">
+                            <input type="email" id="text-input3" value="{{ $data->user->email }}" name="email" class="form-control" required="" data-parsley-email="">
                         </div>
                     </div>
 
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="text-input5">@lang('tr.Mobile')</label>
-                            <input type="text" id="text-input5" value="{{ $buyer->mobile }}" name="mobile" class="form-control" required="">
+                            <input type="text" id="text-input5" value="{{ $data->mobile }}" name="mobile" class="form-control" required="">
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                     <div class="col-lg-6 col-md-12">
                         <label>@lang('tr.Gender')</label>
                         <br>
-                        @if($buyer->gender == 1)
+                        @if($data->gender == 1)
                         <label class="fancy-radio">
                             <input type="radio" name="gender" value="1" required="" checked data-parsley-errors-container="#error-radio" data-parsley-multiple="gender">
                             <span><i></i>@lang('tr.Male')</span>
@@ -106,7 +106,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="text-input5">@lang('tr.Date Of Birth')</label>
-                            <input type="date" id="text-input5" value="{{ $buyer->birth_date }}" name="birth_date" class="form-control" required="">
+                            <input type="date" id="text-input5" value="{{ $data->birth_date }}" name="birth_date" class="form-control" required="">
                         </div>
                     </div>
                 </div>

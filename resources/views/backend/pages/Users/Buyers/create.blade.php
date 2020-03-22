@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 
-@section('title',__('tr.Create Customers'))
+@section('title',__('tr.Create Buyers'))
 
 {{-- additional stylesheets --}}
 @section('stylesheet')
@@ -10,7 +10,7 @@
 
 @section('morebtn')
 <div class="col-md-6 col-sm-12 text-right hidden-xs">
-    <a href="{{ route('customers') }}" class="btn btn-sm btn-primary" title="">@lang('tr.Customers')</a>
+    <a href="{{ route('buyers') }}" class="btn btn-sm btn-primary" title="">@lang('tr.Buyers')</a>
 </div>
 @endsection
 
@@ -24,7 +24,7 @@
         </div>
         
         <div class="body">
-            <form id="advanced-form" action="{{ route('store_customers') }}" method="POST" data-parsley-validate="" novalidate="" autocomplete="off">
+            <form id="advanced-form" action="{{ route('store_buyers') }}" method="POST" data-parsley-validate="" novalidate="" autocomplete="off">
                 @csrf
                 {{-- First & Last Name --}}
                 <div class="row">
@@ -50,10 +50,11 @@
                             <input type="email" id="text-input3" value="{{ old('email') }}" name="email" class="form-control" required="" data-parsley-email="">
                         </div>
                     </div>
+
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label for="text-input4">@lang('tr.Order Email Address')</label>
-                            <input type="email" id="text-input4" value="{{ old('order_email') }}" name="order_email" class="form-control" required="" data-parsley-email="">
+                            <label for="text-input5">@lang('tr.Mobile')</label>
+                            <input type="text" id="text-input5" value="{{ old('mobile') }}" name="mobile" class="form-control" required="">
                         </div>
                     </div>
                 </div>
@@ -98,57 +99,7 @@
                     </div>
                 </div>
 
-                {{-- Mobiles --}}
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="text-input5">@lang('tr.Mobile')</label>
-                            <input type="text" id="text-input5" value="{{ old('mobile') }}" name="mobile" class="form-control" required="">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="text-input6">@lang('tr.Order Mobile')</label>
-                            <input type="text" id="text-input6" value="{{ old('order_mobile') }}" name="order_mobile" class="form-control" required="">
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Country & City --}}
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="text-input5">@lang('tr.Country')</label>
-                            @php($countries = \App\Models\Customer::country())
-                            {!! Form::select('country', $countries, null, ['class'=>'custom-select','required'=>'']) !!}
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="text-input6">@lang('tr.City')</label>
-                            @php($cities = \App\Models\Customer::city())
-                            {!! Form::select('city', $cities, null, ['class'=>'custom-select','required'=>'']) !!}
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Address & Postal Code --}}
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="text-input7">@lang('tr.Address')</label>
-                            <input type="text" id="text-input7" value="{{ old('address') }}" name="address" class="form-control" required="">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="text-input8">@lang('tr.Postal Code')</label>
-                            <input type="text" id="text-input8" value="{{ old('postal_code') }}" name="postal_code" class="form-control" required="">
-                        </div>
-                    </div>
-                </div>
-                
-                
+               
               
                 <button type="submit" class="btn btn-primary">@lang('tr.Save')</button>
             </form>
