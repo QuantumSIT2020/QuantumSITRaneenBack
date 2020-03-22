@@ -1,6 +1,12 @@
 @extends('backend.layouts.master')
 
-@section('title',__('tr.Pages'))
+@if(isset($_GET['search']))
+    @php($search = $_GET['search'])
+@else
+    @php($search = '')
+@endif
+
+@section('title',__('tr.Search').' - '.$search)
 
 {{-- additional stylesheets --}}
 @section('stylesheet')
@@ -12,14 +18,12 @@
 
 @section('morebtn')
     <div class="col-md-6 col-sm-12 text-right hidden-xs">
-        <a href="{{ route('create_pages') }}" class="btn btn-sm btn-info" title=""><i class="fa fa-plus"></i>@lang('tr.Create New page')</a>
+        <a href="{{ route('SubCategory') }}" class="btn btn-sm btn-primary" title="">@lang('tr.SubCategory')</a>
     </div>
 @endsection
 
 {{-- content --}}
 @section('content')
-
-
 
     <div class="col-lg-12">
         <div class="card">
@@ -29,7 +33,7 @@
             <div class="body">
                 <div class="row">
                     <div class="col-lg-12">
-                        <form  action="{{ route('search_pages') }}" method="GET">
+                        <form  action="{{ route('search_SubCategory') }}" method="GET">
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" name="search" placeholder="@lang('tr.Search')" aria-label="@lang('tr.Search')" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
@@ -56,25 +60,33 @@
             <div class="body">
 
                 <div class="row">
-                    @foreach ($page_data as $index => $page)
+                    @foreach ($subCategory_data as $index => $subCategory)
                         <div class="col-lg-4 col-md-4 col-sm-6">
                             <div class="card c_grid c_yellow">
                                 <div class="body text-center ribbon">
                                     <div class="ribbon-box info">New</div>
                                     <div class="circle">
-                                        <img class="rounded-circle" src="{{ URL::to('/') }}/backend/dashboard_images/pages/{{$page->page_image }}" alt="">
+                                        <img class="rounded-circle" src="{{ URL::to('/') }}/backend/dashboard_images/SubCategory/{{$subCategory->sub_image }}" alt="">
                                     </div>
                                     @if(\Lang::getLocale() == 'en')
-                                        <h5 class="mt-3 mb-0">{{ $page->en_name }}</h5>
+                                        <h5 class="mt-3 mb-0">{{ $subCategory->en_name }}</h5>
                                     @else
-                                        <h5 class="mt-3 mb-0">{{ $page->ar_name }}</h5>
+                                        <h5 class="mt-3 mb-0">{{ $subCategory->ar_name }}</h5>
                                     @endif
 
                                     <br><Br>
 
-                                    <a href="{{ route('show_pages',   $page->id) }}" class="btn btn-success btn-sm">@lang('tr.View')</a>
-                                    <a href="{{ route('edit_pages',   $page->id) }}" class="btn btn-warning btn-sm">@lang('tr.Edit')</a>
-                                    <a href="{{ route('delete_pages', $page->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-danger btn-sm">@lang('tr.Delete')</a>
+                                    <a href="{{ route('show_SubCategory',   $subCategory->id) }}" class="btn btn-success btn-sm">@lang('tr.View')</a>
+                                    <a href="{{ route('edit_SubCategory',   $subCategory->id) }}" class="btn btn-warning btn-sm">@lang('tr.Edit')</a>
+                                    <a href="{{ route('delete_SubCategory', $subCategory->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-danger btn-sm">@lang('tr.Delete')</a>
+
+                                    @if(\Lang::getLocale() == 'en')
+                                        <h5 class="mt-3 mb-0">{{ $subCategory->ChildCategory->en_name }}</h5>
+                                        <h5 class="mt-3 mb-0">{{ $subCategory->ChildCategory->MainCategory->ar_name }}</h5>
+                                    @else
+                                        <h5 class="mt-3 mb-0">{{ $subCategory->ChildCategory->en_name }}</h5>
+                                        <h5 class="mt-3 mb-0">{{ $subCategory->ChildCategory->MainCategory->ar_name }}</h5>
+                                    @endif
 
 
 
@@ -86,7 +98,7 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        {{ $page_data->links() }}
+                        {{ $subCategory_data->links() }}
                     </div>
                 </div>
 
@@ -95,55 +107,6 @@
         </div>
     </div>
 
-{{--    <div class="col-lg-12">--}}
-{{--        <div class="card">--}}
-{{--            <div class="header">--}}
-{{--                <h2>@yield('title')</h2>--}}
-{{--                <ul class="header-dropdown dropdown">--}}
-
-{{--                    <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--            <div class="body">--}}
-{{--                <div class="table-responsive">--}}
-{{--                    <table id="example" class="display" style="width:100%">--}}
-{{--                        <thead>--}}
-{{--                        <tr>--}}
-
-{{--                            <th class="border_cell">@lang('tr.Image')          </th>--}}
-{{--                            <th class="border_cell">@lang('tr.Content')        </th>--}}
-{{--                            <th class="border_cell">@lang('tr.Action')         </th>--}}
-{{--                        </tr>--}}
-{{--                        </thead>--}}
-
-{{--                        <tbody>--}}
-{{--                        @foreach ($page_data as $index => $data)--}}
-{{--                            <tr>--}}
-
-{{--                                <td  class="border_cell"><img src="{{ URL::to('/') }}/backend/dashboard_images/pages/{{$data->page_image }}" class="img-thumbnail" width="200" /></td>--}}
-{{--                                <td  class="border_cell">{{ $data->name }}</td>--}}
-
-{{--                                <td class="border_cell">--}}
-{{--                                    <a href="{{ route('show_pages',     $data->id) }}" class="btn btn-primary" style="border-radius: 0;font-weight: bold;font-size: 10px;"  title="@lang('tr.Show Page')"><i class="fa fa-eye"></i></a>--}}
-{{--                                    <a href="{{ route('edit_pages',     $data->id) }}"  class="btn btn-warning updateRoleBtn" style="border-radius: 0;font-weight: bold;font-size: 10px;"  title="@lang('tr.Update Page')"><i class="fa fa-edit"></i></a>--}}
-{{--                                    <a href="{{ route('delete_pages',   $data->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-danger" style="border-radius: 0;font-weight: bold;font-size: 10px;"  title="@lang('tr.Delete Page')"><i class="fa fa-trash"></i></a>--}}
-{{--                                </td>--}}
-{{--                            </tr>--}}
-{{--                        @endforeach--}}
-{{--                        </tbody>--}}
-
-{{--                        <tfoot>--}}
-{{--                        <tr>--}}
-{{--                            <th class="border_cell">@lang('tr.Image')          </th>--}}
-{{--                            <th class="border_cell">@lang('tr.Content')        </th>--}}
-{{--                            <th class="border_cell">@lang('tr.Action')         </th>--}}
-{{--                        </tr>--}}
-{{--                        </tfoot>--}}
-{{--                    </table>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
 
 
 
@@ -201,5 +164,3 @@
     </script>
 @endsection
 {{-- end additional scripts --}}
-
-

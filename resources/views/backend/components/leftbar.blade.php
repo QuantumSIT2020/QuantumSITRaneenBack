@@ -105,7 +105,19 @@
 
 
 
+                {{--                settings--}}
 
+
+                <li class="header">Settings</li>
+                <li>
+                    <a href="#Authentication" class="has-arrow"><i class="icon-lock"></i><span>Settings</span></a>
+                    <ul>
+                        <li><a href="{{ route('testseo_index') }}">Seo</a></li>
+                        <li><a href="{{ route('soicalmedia_index') }}">Soicalmedia</a></li>
+
+
+                    </ul>
+                </li>
 
 
             </ul>

@@ -21,10 +21,32 @@ class PagesController extends Controller
 //    }
     public function index()
     {
-        $lang = \Lang::getLocale();
-        $page_data = pages::select($lang.'_name as name',$lang.'_desc as description','page_image','id')->get();
+//        $lang = \Lang::getLocale();
+//        $page_data = pages::select($lang.'_name as name',$lang.'_desc as description','page_image','id')->get();
+        $page_data = pages::paginate(15);
+
         return view('backend.pages.pages.index',compact('page_data'));
 
+    }
+
+    public function searchPages(Request $request)
+    {
+        $search = $request->search;
+        $page_data = pages::select('pages.id as id',
+            'pages.en_name',
+            'pages.ar_name',
+            'pages.en_desc',
+            'pages.ar_desc',
+            'pages.page_image')
+            ->where('pages.id','like','%'.$search.'%')
+            ->orWhere('pages.en_name','like','%'.$search.'%')
+            ->orWhere('pages.ar_name','like','%'.$search.'%')
+            ->orWhere('pages.en_desc','like','%'.$search.'%')
+            ->orWhere('pages.ar_desc','like','%'.$search.'%')
+            ->orWhere('pages.page_image','like','%'.$search.'%')
+            ->paginate(15);
+
+        return view('backend.pages.pages.search',compact('page_data'));
     }
 
     /**

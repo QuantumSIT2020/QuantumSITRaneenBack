@@ -1,6 +1,12 @@
 @extends('backend.layouts.master')
 
-@section('title',__('tr.blogs'))
+@if(isset($_GET['search']))
+    @php($search = $_GET['search'])
+@else
+    @php($search = '')
+@endif
+
+@section('title',__('tr.Search').' - '.$search)
 
 {{-- additional stylesheets --}}
 @section('stylesheet')
@@ -12,13 +18,12 @@
 
 @section('morebtn')
     <div class="col-md-6 col-sm-12 text-right hidden-xs">
-        <a href="{{ route('create_blogs') }}" class="btn btn-sm btn-info" title=""><i class="fa fa-plus"></i>@lang('tr.Create New blog')</a>
+        <a href="{{ route('MainCategory') }}" class="btn btn-sm btn-primary" title="">@lang('tr.MainCategory')</a>
     </div>
 @endsection
 
 {{-- content --}}
 @section('content')
-
 
 
 
@@ -31,7 +36,7 @@
                 <div class="body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form  action="{{ route('search_blogs') }}" method="GET">
+                            <form  action="{{ route('search_MainCategory') }}" method="GET">
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control" name="search" placeholder="@lang('tr.Search')" aria-label="@lang('tr.Search')" aria-describedby="basic-addon2">
                                     <div class="input-group-append">
@@ -44,32 +49,24 @@
                 </div>
             </div>
         </div>
-        @foreach ($blog_data as $index => $blog)
-            <div class="col-lg-4 col-md-4 col-sm-6">
+        @foreach ($MainCategory_data as $index => $MainCategory)
+            <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="card c_grid c_yellow">
                     <div class="body text-center ribbon">
-                        <div class="ribbon-box info">{{ $blog->type }}</div>
+                        <div class="ribbon-box green">New</div>
                         <div class="circle">
-                            <img class="rounded-circle" src="{{ URL::to('/') }}/backend/dashboard_images/blogs/{{$blog->blog_image }}" alt="">
+                            <img class="rounded-circle" src="{{ URL::to('/') }}/backend/dashboard_images/MainCategory/{{$MainCategory->main_image }}" alt="">
                         </div>
                         @if(\Lang::getLocale() == 'en')
-                            <h5 class="mt-3 mb-0">{{ $blog->en_name }}</h5>
+                            <h5 class="mt-3 mb-0">{{ $MainCategory->en_name }}</h5>
                         @else
-                            <h5 class="mt-3 mb-0">{{ $blog->ar_name }}</h5>
+                            <h5 class="mt-3 mb-0">{{ $MainCategory->ar_name }}</h5>
                         @endif
 
-                        <br><Br>
-
-                        <a href="{{ route('show_blogs', $blog->id) }}" class="btn btn-success btn-sm">@lang('tr.View')</a>
-                        <a href="{{ route('edit_blogs', $blog->id) }}" class="btn btn-warning btn-sm">@lang('tr.Edit')</a>
-                        <a href="{{ route('delete_blogs', $blog->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-danger btn-sm">@lang('tr.Delete')</a>
-                        <button type="button" class="btn btn-danger change_status" BlogID="{{$blog->id}}">
-                                                                @if($blog->isactive ==1)
-                                                                    <?="DeActive"?>
-                                                                @else
-                                                                    <?="Active" ?>
-                                                                @endif
-                                                            </button>
+                           <br><br>
+                        <a href="{{ route('show_MainCategory', $MainCategory->id) }}" class="btn btn-success btn-sm">@lang('tr.View')</a>
+                        <a href="{{ route('edit_MainCategory', $MainCategory->id) }}" class="btn btn-warning btn-sm">@lang('tr.Edit')</a>
+                        <a href="{{ route('delete_MainCategory', $MainCategory->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-danger btn-sm">@lang('tr.Delete')</a>
 
 
                     </div>
@@ -81,11 +78,9 @@
 
     <div class="row">
         <div class="col-lg-12">
-            {{ $blog_data->links() }}
+            {{ $MainCategory_data->links() }}
         </div>
     </div>
-
-
 
 
 
@@ -103,39 +98,6 @@
     <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
-
-
-
-    <script>
-
-
-        $(".change_status").click(function () {
-
-            var BlogID = $(this).attr('BlogID');
-            var url = '{{route("status", ":id")}}';
-            url=url.replace(":id",BlogID);
-            jQuery.ajax({
-                type:"get",
-                url: url,
-                data: {},
-                success: function(data) {
-                    if (data > 0 ){
-                        alert("update successfully");
-                        location.reload();
-                    }
-                },
-                error: function(data) {
-
-                },
-            });
-
-        })
-
-
-
-
-
-    </script>
 
     <script>
         $(document).ready(function() {
@@ -176,4 +138,3 @@
     </script>
 @endsection
 {{-- end additional scripts --}}
-
