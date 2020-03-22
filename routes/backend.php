@@ -31,6 +31,8 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::post('/MainCategory/update/{id}','MainCategoryController@update')->name('update_MainCategory');
         Route::get('/MainCategory/delete/{id}','MainCategoryController@destroy')->name('delete_MainCategory');
         Route::get('/MainCategory/view','MainCategoryController@view')->name('view_MainCategory');
+        Route::get('/MainCategory/search','MainCategoryController@searchMainCategory')->name('search_MainCategory');
+
 
 
 
@@ -45,6 +47,8 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::get('/ChildCategory/show/{id}','ChildCategoryController@show')->name('show_ChildCategory');
         Route::get('/ChildCategory/delete/{id}','ChildCategoryController@destroy')->name('delete_ChildCategory');
         Route::get('/ChildCategory/view','ChildCategoryController@view')->name('view_ChildCategory');
+        Route::get('/ChildCategory/search','ChildCategoryController@searchChildCatgory')->name('search_ChildCategory');
+
 
 
 
@@ -57,6 +61,10 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::post('/SubCategory/update/{id}','SubCategoryController@update')->name('update_SubCategory');
         Route::get('/SubCategory/show/{id}','SubCategoryController@show')->name('show_SubCategory');
         Route::get('/SubCategory/delete/{id}','SubCategoryController@destroy')->name('delete_SubCategory');
+        Route::get('/SubCategory/search','SubCategoryController@searchSubCategory')->name('search_SubCategory');
+
+
+
 
 
 
@@ -70,6 +78,9 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::post('/pages/update/{id}','PagesController@update')->name('update_pages');
         Route::get('/pages/show/{id}','PagesController@show')->name('show_pages');
         Route::get('/pages/delete/{id}','PagesController@destroy')->name('delete_pages');
+        Route::get('/pages/search','PagesController@searchPages')->name('search_pages');
+
+
 
         //blogs
 
@@ -81,6 +92,8 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::get('/blogs/show/{id}','BlogsController@show')->name('show_blogs');
         Route::get('/blogs/delete/{id}','BlogsController@destroy')->name('delete_blogs');
         Route::get('/blogs/status/{id}', 'BlogsController@status')->name('status');
+        Route::get('/blogs/search','BlogsController@searchBlogs')->name('search_blogs');
+
 
 
         //Customers
@@ -92,7 +105,8 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::get('/customers/delete/{id}','UsersController@destroyCustomers')->name('delete_customers');
         Route::get('/customers/show/{id}','UsersController@showCustomers')->name('show_customers');
         Route::get('/customers/search','UsersController@searchCustomers')->name('search_customers');
-        
+
+
         //Buyers
         Route::get('/buyers','UsersController@buyers')->name('customers');
         Route::get('/buyers/create','UsersController@createBuyers')->name('create_buyers');
@@ -102,6 +116,19 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::get('/buyers/delete/{id}','UsersController@destroyBuyers')->name('delete_buyers');
         Route::get('/buyers/show/{id}','UsersController@showBuyers')->name('show_buyers');
         Route::get('/buyers/search','UsersController@searchBuyers')->name('search_buyers');
+
+
+
+        //seo
+
+        Route::get('/testseo', 'SeoController@index')->name('testseo_index');
+        Route::post('/testseo/update', 'SeoController@update')->name('testseo_update');
+
+
+        //soicalmedia
+
+        Route::get('/soicalmedia', 'SoicalMediaController@index')->name('soicalmedia_index');
+        Route::post('/soicalmedia/update', 'SoicalMediaController@update')->name('soicalmedia_update');
 
 
 

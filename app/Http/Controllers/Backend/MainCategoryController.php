@@ -22,9 +22,31 @@ class MainCategoryController extends Controller
 //        $this->middleware('auth');
 //    }
     public function index()
-    {   $lang = \Lang::getLocale();
-        $MainCategory_data = MainCategory::select($lang.'_name as name',$lang.'_desc as description','main_image','id')->get();
+    {
+        $MainCategory_data = MainCategory::paginate(15);
         return view('backend.pages.MainCategory.index',compact('MainCategory_data'));
+
+    }
+
+    public function searchMainCategory(Request $request)
+    {
+
+        $search = $request->search;
+        $MainCategory_data = MainCategory::select('main_categories.id as id',
+            'main_categories.en_name',
+            'main_categories.ar_name',
+            'main_categories.en_desc',
+            'main_categories.ar_desc',
+            'main_categories.main_image')
+            ->where('main_categories.id','like','%'.$search.'%')
+            ->orWhere('main_categories.en_name','like','%'.$search.'%')
+            ->orWhere('main_categories.ar_name','like','%'.$search.'%')
+            ->orWhere('main_categories.en_desc','like','%'.$search.'%')
+            ->orWhere('main_categories.ar_desc','like','%'.$search.'%')
+            ->orWhere('main_categories.main_image','like','%'.$search.'%')
+            ->paginate(15);
+
+        return view('backend.pages.MainCategory.search',compact('MainCategory_data'));
 
     }
 
@@ -160,4 +182,7 @@ class MainCategoryController extends Controller
 
         return redirect()->route('MainCategory')->with('success',__('tr.MainCategory Deleted successfully'));
     }
+
+
+
 }

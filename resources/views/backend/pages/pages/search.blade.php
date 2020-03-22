@@ -1,6 +1,12 @@
 @extends('backend.layouts.master')
 
-@section('title',__('tr.Pages'))
+@if(isset($_GET['search']))
+    @php($search = $_GET['search'])
+@else
+    @php($search = '')
+@endif
+
+@section('title',__('tr.Search').' - '.$search)
 
 {{-- additional stylesheets --}}
 @section('stylesheet')
@@ -12,14 +18,12 @@
 
 @section('morebtn')
     <div class="col-md-6 col-sm-12 text-right hidden-xs">
-        <a href="{{ route('create_pages') }}" class="btn btn-sm btn-info" title=""><i class="fa fa-plus"></i>@lang('tr.Create New page')</a>
+        <a href="{{ route('pages') }}" class="btn btn-sm btn-primary" title="">@lang('tr.pages')</a>
     </div>
 @endsection
 
 {{-- content --}}
 @section('content')
-
-
 
     <div class="col-lg-12">
         <div class="card">
@@ -95,55 +99,6 @@
         </div>
     </div>
 
-{{--    <div class="col-lg-12">--}}
-{{--        <div class="card">--}}
-{{--            <div class="header">--}}
-{{--                <h2>@yield('title')</h2>--}}
-{{--                <ul class="header-dropdown dropdown">--}}
-
-{{--                    <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--            <div class="body">--}}
-{{--                <div class="table-responsive">--}}
-{{--                    <table id="example" class="display" style="width:100%">--}}
-{{--                        <thead>--}}
-{{--                        <tr>--}}
-
-{{--                            <th class="border_cell">@lang('tr.Image')          </th>--}}
-{{--                            <th class="border_cell">@lang('tr.Content')        </th>--}}
-{{--                            <th class="border_cell">@lang('tr.Action')         </th>--}}
-{{--                        </tr>--}}
-{{--                        </thead>--}}
-
-{{--                        <tbody>--}}
-{{--                        @foreach ($page_data as $index => $data)--}}
-{{--                            <tr>--}}
-
-{{--                                <td  class="border_cell"><img src="{{ URL::to('/') }}/backend/dashboard_images/pages/{{$data->page_image }}" class="img-thumbnail" width="200" /></td>--}}
-{{--                                <td  class="border_cell">{{ $data->name }}</td>--}}
-
-{{--                                <td class="border_cell">--}}
-{{--                                    <a href="{{ route('show_pages',     $data->id) }}" class="btn btn-primary" style="border-radius: 0;font-weight: bold;font-size: 10px;"  title="@lang('tr.Show Page')"><i class="fa fa-eye"></i></a>--}}
-{{--                                    <a href="{{ route('edit_pages',     $data->id) }}"  class="btn btn-warning updateRoleBtn" style="border-radius: 0;font-weight: bold;font-size: 10px;"  title="@lang('tr.Update Page')"><i class="fa fa-edit"></i></a>--}}
-{{--                                    <a href="{{ route('delete_pages',   $data->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-danger" style="border-radius: 0;font-weight: bold;font-size: 10px;"  title="@lang('tr.Delete Page')"><i class="fa fa-trash"></i></a>--}}
-{{--                                </td>--}}
-{{--                            </tr>--}}
-{{--                        @endforeach--}}
-{{--                        </tbody>--}}
-
-{{--                        <tfoot>--}}
-{{--                        <tr>--}}
-{{--                            <th class="border_cell">@lang('tr.Image')          </th>--}}
-{{--                            <th class="border_cell">@lang('tr.Content')        </th>--}}
-{{--                            <th class="border_cell">@lang('tr.Action')         </th>--}}
-{{--                        </tr>--}}
-{{--                        </tfoot>--}}
-{{--                    </table>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
 
 
 
@@ -201,5 +156,3 @@
     </script>
 @endsection
 {{-- end additional scripts --}}
-
-

@@ -24,10 +24,45 @@ class SubCategoryController extends Controller
     public function index()
     {
         $lang = \Lang::getLocale();
-        $subCategory_data = SubCategory::select($lang.'_name as SubCategory',$lang.'_desc as description','sub_image','child_category_id','id')->get();
-        $ChildCategories = ChildCategory::select($lang.'_name as name',$lang.'_desc as description','main_category_id','child_image','id')->get();
+        $subCategory_data = SubCategory::paginate(15);
+        $ChildCategories = ChildCategory::paginate(15);
         return view('backend.pages.SubCategory.index',compact('subCategory_data','ChildCategories'));
 
+    }
+    public function searchSubCategory(Request $request)
+    {
+
+
+        $search = $request->search;
+        $subCategory_data = SubCategory::select('sub_categories.id as id',
+            'sub_categories.en_name',
+            'sub_categories.ar_name',
+            'sub_categories.en_desc',
+            'sub_categories.ar_desc',
+            'sub_categories.sub_image',
+            'sub_categories.child_category_id as child_category_id',
+            'child_categories.id as child_category_id',
+            'child_categories.en_name as enChildCaregory',
+            'child_categories.ar_name as arChildCaregory',
+            'main_categories.id as main_category_id',
+            'main_categories.en_name as en_MainCaregory',
+            'main_categories.ar_name as ar_MainCaregory'
+
+        )
+            ->join('child_categories','child_categories.id','sub_categories.child_category_id')
+            ->join('main_categories','main_categories.id','child_categories.main_category_id')
+            ->where('sub_categories.en_name','like','%'.$search.'%')
+            ->orWhere('sub_categories.ar_name','like','%'.$search.'%')
+            ->orWhere('sub_categories.en_desc','like','%'.$search.'%')
+            ->orWhere('sub_categories.ar_desc','like','%'.$search.'%')
+            ->orWhere('sub_categories.sub_image','like','%'.$search.'%')
+            ->orWhere('child_categories.en_name','like','%'.$search.'%')
+            ->orWhere('child_categories.ar_name','like','%'.$search.'%')
+            ->orWhere('main_categories.en_name','like','%'.$search.'%')
+            ->orWhere('main_categories.ar_name','like','%'.$search.'%')
+            ->paginate(15);
+
+        return view('backend.pages.SubCategory.search',compact('subCategory_data'));
     }
 
     /**

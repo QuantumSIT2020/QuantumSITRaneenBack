@@ -24,11 +24,35 @@ class ChildCategoryController extends Controller
 //    }
     public function index()
     {
-        $lang = \Lang::getLocale();
-        $MainCategories = MainCategory::select($lang.'_name as name',$lang.'_desc as description','main_image','id')->get();
-        $childCategory_data = ChildCategory::select($lang.'_name as ChildCategory',$lang.'_desc as description','main_category_id','child_image','id')->get();
+        $MainCategories = MainCategory::paginate(15);
+        $childCategory_data = ChildCategory::paginate(15);
         return view('backend.pages.ChildCategory.index',compact('childCategory_data','MainCategories'));
 
+    }
+
+    public function searchChildCatgory(Request $request)
+    {
+        $search = $request->search;
+        $childCategory_data = ChildCategory::select('child_categories.id as id',
+            'child_categories.en_name',
+            'child_categories.ar_name',
+            'child_categories.en_desc',
+            'child_categories.ar_desc',
+            'child_categories.child_image',
+            'main_categories.id as main_category_id',
+            'main_categories.en_name as En_MainCaregory',
+            'main_categories.ar_name as Ar_MainCaregory')
+            ->join('main_categories','main_categories.id','child_categories.main_category_id')
+            ->where('child_categories.en_name','like','%'.$search.'%')
+            ->orWhere('child_categories.ar_name','like','%'.$search.'%')
+            ->orWhere('child_categories.en_desc','like','%'.$search.'%')
+            ->orWhere('child_categories.ar_desc','like','%'.$search.'%')
+            ->orWhere('child_categories.child_image','like','%'.$search.'%')
+            ->orWhere('main_categories.en_name','like','%'.$search.'%')
+            ->orWhere('main_categories.ar_name','like','%'.$search.'%')
+            ->paginate(15);
+
+        return view('backend.pages.ChildCategory.search',compact('childCategory_data'));
     }
 
     /**

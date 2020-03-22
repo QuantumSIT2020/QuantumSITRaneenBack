@@ -16,9 +16,31 @@ class BlogsController extends Controller
 //    }
     public function index()
     {
-        $lang = \Lang::getLocale();
-        $blog_data = Blog::select($lang.'_name as name',$lang.'_desc as description','blog_image','isactive','type','id')->get();
+        //$lang = \Lang::getLocale();
+        //$blog_data = Blog::select($lang.'_name as name',$lang.'_desc as description','blog_image','isactive','type','id')->get();
+        $blog_data = Blog::paginate(15);
         return view('backend.pages.blogs.index',compact('blog_data'));
+    }
+
+    public function searchBlogs(Request $request)
+    {
+        $search = $request->search;
+        $blog_data = Blog::select('blogs.id as id',
+            'blogs.en_name',
+            'blogs.ar_name',
+            'blogs.en_desc',
+            'blogs.ar_desc',
+            'blogs.blog_image')
+            ->where('blogs.id', 'like', '%' . $search . '%')
+            ->orWhere('blogs.en_name', 'like', '%' . $search . '%')
+            ->orWhere('blogs.ar_name', 'like', '%' . $search . '%')
+            ->orWhere('blogs.en_desc', 'like', '%' . $search . '%')
+            ->orWhere('blogs.ar_desc', 'like', '%' . $search . '%')
+            ->orWhere('blogs.blog_image', 'like', '%' . $search . '%')
+            ->paginate(15);
+
+        return view('backend.pages.blogs.search', compact('blog_data'));
+
     }
 
     /**

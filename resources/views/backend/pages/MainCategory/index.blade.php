@@ -19,55 +19,134 @@
 {{-- content --}}
 @section('content')
 
-    <div class="col-lg-12">
-        <div class="card">
-            <div class="header">
-                <h2>@yield('title')</h2>
-                <ul class="header-dropdown dropdown">
 
-                    <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
-                </ul>
-            </div>
-            <div class="body">
-                <div class="table-responsive">
-                    <table id="example" class="display" style="width:100%">
-                        <thead>
-                        <tr>
 
-                            <th class="border_cell">@lang('tr.Main Image')  </th>
-                            <th class="border_cell">@lang('tr.Name')        </th>
-                            <th class="border_cell">@lang('tr.Action')      </th>
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                        @foreach ($MainCategory_data as $index => $MainCategory)
-                            <tr>
-
-                                <td  class="border_cell"><img src="{{ URL::to('/') }}/backend/dashboard_images/MainCategory/{{$MainCategory->main_image }}" class="img-thumbnail" width="200" /></td>
-                                <td  class="border_cell">{{ $MainCategory->name }}</td>
-
-                                <td class="border_cell">
-                                    <a href="{{ route('show_MainCategory', $MainCategory->id) }}" class="btn btn-primary" style="border-radius: 0;font-weight: bold;font-size: 10px;"  title="@lang('tr.Show MainCategory')"><i class="fa fa-eye"></i></a>
-                                    <a href="{{ route('edit_MainCategory', $MainCategory->id) }}"  class="btn btn-warning updateRoleBtn" style="border-radius: 0;font-weight: bold;font-size: 10px;"  title="@lang('tr.Update MainCategory')"><i class="fa fa-edit"></i></a>
-                                    <a href="{{ route('delete_MainCategory', $MainCategory->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-danger" style="border-radius: 0;font-weight: bold;font-size: 10px;"  title="@lang('tr.Delete MainCategory')"><i class="fa fa-trash"></i></a>
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-
-                        <tfoot>
-                        <tr>
-                            <th class="border_cell">@lang('tr.Main Image')  </th>
-                            <th class="border_cell">@lang('tr.Name')        </th>
-                            <th class="border_cell">@lang('tr.Action')      </th>
-                        </tr>
-                        </tfoot>
-                    </table>
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="header">
+                    @lang('tr.Search')
+                </div>
+                <div class="body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form  action="{{ route('search_MainCategory') }}" method="GET">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" name="search" placeholder="@lang('tr.Search')" aria-label="@lang('tr.Search')" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="submit">@lang('tr.Search')</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+
+
+
+
+
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="header">
+                    <h2>@yield('title')</h2>
+                    <ul class="header-dropdown dropdown">
+
+                        <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
+                    </ul>
+                </div>
+                <div class="body">
+
+                    <div class="row">
+                        @foreach ($MainCategory_data as $index => $MainCategory)
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="card c_grid c_yellow">
+                                    <div class="body text-center ribbon">
+                                        <div class="ribbon-box info">New</div>
+                                        <div class="circle">
+                                            <img class="rounded-circle" src="{{ URL::to('/') }}/backend/dashboard_images/MainCategory/{{$MainCategory->main_image }}" alt="">
+                                        </div>
+                                        @if(\Lang::getLocale() == 'en')
+                                            <h5 class="mt-3 mb-0">{{ $MainCategory->en_name }}</h5>
+                                        @else
+                                            <h5 class="mt-3 mb-0">{{ $MainCategory->ar_name }}</h5>
+                                        @endif
+
+                                        <br><br>
+                                        <a href="{{ route('show_MainCategory', $MainCategory->id) }}" class="btn btn-success btn-sm">@lang('tr.View')</a>
+                                        <a href="{{ route('edit_MainCategory', $MainCategory->id) }}" class="btn btn-warning btn-sm">@lang('tr.Edit')</a>
+                                        <a href="{{ route('delete_MainCategory', $MainCategory->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-danger btn-sm">@lang('tr.Delete')</a>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            {{ $MainCategory_data->links() }}
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+{{--    <div class="col-lg-12">--}}
+{{--        <div class="card">--}}
+{{--            <div class="header">--}}
+{{--                <h2>@yield('title')</h2>--}}
+{{--                <ul class="header-dropdown dropdown">--}}
+
+{{--                    <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>--}}
+{{--                </ul>--}}
+{{--            </div>--}}
+{{--            <div class="body">--}}
+{{--                <div class="table-responsive">--}}
+{{--                    <table id="example" class="display" style="width:100%">--}}
+{{--                        <thead>--}}
+{{--                        <tr>--}}
+
+{{--                            <th class="border_cell">@lang('tr.Main Image')  </th>--}}
+{{--                            <th class="border_cell">@lang('tr.Name')        </th>--}}
+{{--                            <th class="border_cell">@lang('tr.Action')      </th>--}}
+{{--                        </tr>--}}
+{{--                        </thead>--}}
+
+{{--                        <tbody>--}}
+{{--                        @foreach ($MainCategory_data as $index => $MainCategory)--}}
+{{--                            <tr>--}}
+
+{{--                                <td  class="border_cell"><img src="{{ URL::to('/') }}/backend/dashboard_images/MainCategory/{{$MainCategory->main_image }}" class="img-thumbnail" width="200" /></td>--}}
+{{--                                <td  class="border_cell">{{ $MainCategory->name }}</td>--}}
+
+{{--                                <td class="border_cell">--}}
+{{--                                    <a href="{{ route('show_MainCategory', $MainCategory->id) }}" class="btn btn-primary" style="border-radius: 0;font-weight: bold;font-size: 10px;"  title="@lang('tr.Show MainCategory')"><i class="fa fa-eye"></i></a>--}}
+{{--                                    <a href="{{ route('edit_MainCategory', $MainCategory->id) }}"  class="btn btn-warning updateRoleBtn" style="border-radius: 0;font-weight: bold;font-size: 10px;"  title="@lang('tr.Update MainCategory')"><i class="fa fa-edit"></i></a>--}}
+{{--                                    <a href="{{ route('delete_MainCategory', $MainCategory->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-danger" style="border-radius: 0;font-weight: bold;font-size: 10px;"  title="@lang('tr.Delete MainCategory')"><i class="fa fa-trash"></i></a>--}}
+{{--                                </td>--}}
+{{--                            </tr>--}}
+{{--                        @endforeach--}}
+{{--                        </tbody>--}}
+
+{{--                        <tfoot>--}}
+{{--                        <tr>--}}
+{{--                            <th class="border_cell">@lang('tr.Main Image')  </th>--}}
+{{--                            <th class="border_cell">@lang('tr.Name')        </th>--}}
+{{--                            <th class="border_cell">@lang('tr.Action')      </th>--}}
+{{--                        </tr>--}}
+{{--                        </tfoot>--}}
+{{--                    </table>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
 
 
