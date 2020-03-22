@@ -64,13 +64,13 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="text-input9">@lang('tr.Manufacturer')</label>
-                            {!! Form::select('manufacturer_id', $subCat, null, ['class'=>'custom-select','required'=>'']) !!}
+                            {!! Form::select('manufacturer_id', $mans, null, ['class'=>'custom-select','required'=>'']) !!}
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="text-input9">@lang('tr.Brand')</label>
-                            {!! Form::select('sub_categories_id', $mans, null, ['class'=>'custom-select','required'=>'']) !!}
+                            {!! Form::select('sub_categories_id', $subCat, null, ['class'=>'custom-select','required'=>'']) !!}
                         </div>
                     </div>
                 </div>

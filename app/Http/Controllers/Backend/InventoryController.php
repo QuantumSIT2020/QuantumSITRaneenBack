@@ -75,19 +75,21 @@ class InventoryController extends Controller
 
     public function edit($id)
     {
+        $lang = \Lang::locale();
+        $subCat = SubCategory::select('*')->pluck($lang.'_name','id');
+        $mans = Manufacturer::select('*')->pluck($lang.'_name','id');
         $inventory = Inventory::findOrfail($id);
-        return view($this->path.'edit',compact('inventory'));
+        return view($this->path.'edit',compact('inventory','subCat','mans'));
     }
 
     public function update(Request $request)
     {
-        $inventory = Inventory::findOrfail($id);
+        $inventory = Inventory::findOrfail($request->inv_id);
 
         $request->validate([
             'en_name'                     => 'required|max:255|min:2',
             'ar_name'                     => 'required|max:255|min:2',
-            'manufacturer'                => 'required|email|unique:users',
-            'qty'                         => 'required|email',
+            'qty'                         => 'required|numeric',
             'price'                       => 'required',
             'inventory_image'             => 'image|mimes:jpeg,png,jpg,gif,svg|max:4196',
         ]);
@@ -124,27 +126,26 @@ class InventoryController extends Controller
     public function search(Request $request)
     {
         $search = $request->search;
-        $inventory = Customer::select('inventories.id',
-                                 'inventories.ar_name',
-                                 'inventories.en_name',
-                                 'inventories.manufacturer',
-                                 'inventories.qty',
-                                 'inventories.price',
+        $inventory = Inventory::select('inventories.*',
                                  'sub_categories.id as sub_categories_id',
                                  'sub_categories.en_name as sub_en_name',
                                  'sub_categories.ar_name as sub_ar_name',
                                  'sub_categories.en_desc as sub_en_desc',
-                                 'sub_categories.ar_desc as sub_ar_desc')
+                                 'sub_categories.ar_desc as sub_ar_desc',
+                                 'manufacturers.en_name as man_en_name',
+                                 'manufacturers.ar_name as man_ar_name')
                         ->join('sub_categories','sub_categories.id','inventories.sub_categories_id')
+                        ->join('manufacturers','manufacturers.id','inventories.manufacturer_id')
                         ->where('inventories.ar_name','like','%'.$search.'%')
                         ->orWhere('inventories.en_name','like','%'.$search.'%')
-                        ->orWhere('inventories.manufacturer','like','%'.$search.'%')
                         ->orWhere('inventories.qty','like','%'.$search.'%')
                         ->orWhere('inventories.price','like','%'.$search.'%')
                         ->orWhere('sub_categories.en_name','like','%'.$search.'%')
                         ->orWhere('sub_categories.ar_name','like','%'.$search.'%')
                         ->orWhere('sub_categories.en_desc','like','%'.$search.'%')
                         ->orWhere('sub_categories.ar_desc','like','%'.$search.'%')
+                        ->orWhere('manufacturers.en_name','like','%'.$search.'%')
+                        ->orWhere('manufacturers.ar_name','like','%'.$search.'%')
                         ->paginate(16);
 
                         

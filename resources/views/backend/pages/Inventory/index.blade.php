@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 
-@section('title',__('tr.All Data Entry'))
+@section('title',__('tr.All Inventory'))
 
 {{-- additional stylesheets --}}
 @section('stylesheet')
@@ -12,7 +12,7 @@
 
 @section('morebtn')
 <div class="col-md-6 col-sm-12 text-right hidden-xs">
-    <a href="{{ route('create_dataentry') }}" class="btn btn-sm btn-primary" title="">@lang('tr.Create New Data Entry')</a>
+    <a href="{{ route('create_inventories') }}" class="btn btn-sm btn-primary" title="">@lang('tr.Create New Inventory')</a>
 </div>
 @endsection
 
@@ -27,7 +27,7 @@
         <div class="body">
             <div class="row">
                 <div class="col-lg-12">
-                    <form  action="{{ route('search_dataentry') }}" method="GET">
+                    <form  action="{{ route('search_inventories') }}" method="GET">
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" name="search" placeholder="@lang('tr.Search')" aria-label="@lang('tr.Search')" aria-describedby="basic-addon2">
                             <div class="input-group-append">
@@ -53,34 +53,30 @@
         <div class="body">
             
             <div class="row">
-                @foreach ($data as $d)
+                @foreach ($inventory as $inv)
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="card c_grid c_yellow">
                         <div class="body text-center ribbon">
-                            
+                            @php($langName = \Lang::getLocale().'_name')
+                            <div class="ribbon-box green">{{ $inv->subcategory->$langName }}</div>
                             <div class="circle">
-                                @if($d->gender == 1)
-                                <img class="rounded-circle" src="{{ asset('backend/assets/man.png') }}" alt="">
-                                @else
-                                <img class="rounded-circle" src="{{ asset('backend/assets/woman.png') }}" alt="">
-                                @endif
-                                
+                                <img class="rounded-circle" src="{{ asset('backend/dashboard_images/Inventory/'.$inv->inventory_image) }}" alt="">
                             </div>
-                            <h6 class="mt-3 mb-0">{{ $d->first_name.' '.$d->last_name }}</h6>
-                            <span>{{ $d->user->email }}</span><br><br>
+                            <h6 class="mt-3 mb-0">{{ $inv->$langName }}</h6>
+                            <span>@lang('tr.Manufacturer'): {{ $inv->manufacturer->$langName }}</span><br><br>
                             
-                            <a href="{{ route('show_dataentry',$d->id) }}" class="btn btn-success btn-sm">@lang('tr.View')</a>
-                            <a href="{{ route('edit_dataentry',$d->id) }}" class="btn btn-success btn-sm">@lang('tr.Edit')</a>
-                            <a href="{{ route('delete_dataentry',$d->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-success btn-sm">@lang('tr.Delete')</a>
+                            {{-- <a href="{{ route('show_inventories',$inv->id) }}" class="btn btn-success btn-sm">@lang('tr.View')</a> --}}
+                            <a href="{{ route('edit_inventories',$inv->id) }}" class="btn btn-success btn-sm">@lang('tr.Edit')</a>
+                            <a href="{{ route('delete_inventories',$inv->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-success btn-sm">@lang('tr.Delete')</a>
 
                             <div class="row text-center mt-4">
                                 <div class="col-lg-6 border-right">
-                                    <label class="mb-0">@lang('tr.Mobile')</label>
-                                    <h4 class="font-20">{{ $d->mobile }}</h4>
+                                    <label class="mb-0">@lang('tr.Quantity')</label>
+                                    <h4 class="font-20">{{ $inv->qty }}</h4>
                                 </div>
                                 <div class="col-lg-6">
-                                    <label class="mb-0">@lang('tr.Age') </label>
-                                    <h4 class="font-20">{{ date_diff(date_create($d->birth_date), date_create('today'))->y }}</h4>
+                                    <label class="mb-0">@lang('tr.Price') </label>
+                                    <h4 class="font-20">{{ $inv->price }}</h4>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +87,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    {{ $data->links() }}
+                    {{ $inventory->links() }}
                 </div>
             </div>
 
