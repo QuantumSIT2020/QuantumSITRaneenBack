@@ -102,7 +102,11 @@ class ProductsController extends Controller
     
     public function show($id)
     {
-        //
+        $product = Product::findOrfail($id);
+        $attribute = Product_attribute::where('product_id',$id)->get();
+        $gallery = Product_Gallery::where('product_id',$id)->get();
+
+        return view($this->path.'show',compact('gallery','attribute','product')); 
     }
 
     public function edit($id)

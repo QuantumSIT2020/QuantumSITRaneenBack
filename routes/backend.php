@@ -146,30 +146,6 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::get('/Attributes/show/{id}','AttributesController@show')->name('show_Attributes');
 //        Route::get('/Attributes/search','AttributesController@search')->name('search_Attributes');
 
-<<<<<<< HEAD
-
-
-
-        //wishlist
-
-        Route::get('/wishlist','WishListController@index')->name('wishlist');
-        Route::get('/wishlist/create','ChildCategoryController@create')->name('create_wishlist');
-        Route::post('/wishlist/store','ChildCategoryController@store')->name('store_wishlist');
-//        Route::get('/ChildCategory/show/{id}','ChildCategoryController@show')->name('show_ChildCategory');
-        Route::get('/wishlist/delete/{id}','ChildCategoryController@destroy')->name('wishlist');
-
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> origin/master
         //pages
 
         Route::get('/pages','PagesController@index')->name('pages');
@@ -206,6 +182,7 @@ Route::group(['middleware' => 'Lang'], function () {
 
         Route::get('/soicalmedia', 'SoicalMediaController@index')->name('soicalmedia_index');
         Route::post('/soicalmedia/update', 'SoicalMediaController@update')->name('soicalmedia_update');
+        
 
         //Products
         Route::get('/products','ProductsController@index')->name('products');
