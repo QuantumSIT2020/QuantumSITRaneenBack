@@ -20,7 +20,7 @@
 {{-- content --}}
 @section('content')
  <div class="row">
-    <div class="col-lg-5">
+    <div class="col-lg-4">
         <div class="card">
             <div class="body">
                 @php($langName = \Lang::getLocale().'_name')
@@ -48,7 +48,7 @@
         </div>
     </div>
 
-    <div class="col-lg-7">
+    <div class="col-lg-8">
         <div class="card">
             <div class="body">
                 <h4>@lang('tr.Gallery')</h4><hr>
