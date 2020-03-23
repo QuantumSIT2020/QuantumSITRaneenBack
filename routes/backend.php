@@ -149,6 +149,15 @@ Route::group(['middleware' => 'Lang'], function () {
 
 
 
+        //wishlist
+
+        Route::get('/wishlist','WishListController@index')->name('wishlist');
+        Route::get('/wishlist/create','ChildCategoryController@create')->name('create_wishlist');
+        Route::post('/wishlist/store','ChildCategoryController@store')->name('store_wishlist');
+//        Route::get('/ChildCategory/show/{id}','ChildCategoryController@show')->name('show_ChildCategory');
+        Route::get('/wishlist/delete/{id}','ChildCategoryController@destroy')->name('wishlist');
+
+
 
 
 

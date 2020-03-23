@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\WishList;
 
 class Customer extends Model
 {
@@ -47,5 +48,10 @@ class Customer extends Model
             "26" => __("tr.South"),
             "27" => __("tr.Suez"),
         ];
+    }
+
+
+    public function WishList(){
+        return $this->hasMany(WishList::class);
     }
 }
