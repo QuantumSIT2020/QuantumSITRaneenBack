@@ -66,20 +66,18 @@
                 </li>
 
 
-<br>
+                <br>
 
 
                 {{--                GroupAttributes--}}
 
 
-                <li class="header">@lang('tr.GroupAttributes Management') </li>
+                <li class="header">@lang('tr.Attribute Management') </li>
                 <li>
-                    <a href="#Authentication" class="has-arrow"><i class="icon-lock"></i><span>@lang('tr.GroupAttributes')</span></a>
+                    <a href="#Authentication" class="has-arrow"><i class="fa fa-gears"></i><span>@lang('tr.GroupAttributes')</span></a>
                     <ul>
                         <li><a href="{{ route('GroupAttributes') }}">GroupAttributes</a></li>
                         <li><a href="{{ route('Attributes') }}">Attributes</a></li>
-
-
                     </ul>
                 </li>
 
@@ -109,38 +107,15 @@
 
                 {{--                pages--}}
 
-
-                <li class="header">Pages</li>
-
-                <li><a href="{{route('pages')}}"><i class="icon-puzzle"></i><span>Pages</span></a></li>
-
-                <br>
-
-                {{--                blogs--}}
-
-
-                <li class="header">Blogs</li>
-
-                <li><a href="{{route('blogs')}}"><i class="icon-puzzle"></i><span>Blogs</span></a></li>
-
-
-                <br>
-                {{--                settings--}}
-
-
-                <li class="header">Settings</li>
                 <li>
-                    <a href="#Authentication" class="has-arrow"><i class="icon-lock"></i><span>Settings</span></a>
+                    <a href="#Authentication" class="has-arrow"><i class="fa fa-file"></i><span>@lang('tr.Others')</span></a>
                     <ul>
-                        <li><a href="{{ route('testseo_index') }}">Seo</a></li>
-                        <li><a href="{{ route('soicalmedia_index') }}">Soicalmedia</a></li>
-
-
+                        <li><a href="{{route('pages')}}">@lang('tr.Pages')</a></li>
+                        <li><a href="{{route('blogs')}}">@lang('tr.Blogs')</a></li>
+                        <li><a href="{{ route('testseo_index') }}">@lang('tr.SEO')</a></li>
+                        <li><a href="{{ route('soicalmedia_index') }}">@lang('tr.Social Media')</a></li>
                     </ul>
                 </li>
-
-
-
 
 
 
