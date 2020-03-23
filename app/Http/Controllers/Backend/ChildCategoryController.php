@@ -24,8 +24,8 @@ class ChildCategoryController extends Controller
 //    }
     public function index()
     {
-        $MainCategories = MainCategory::paginate(15);
-        $childCategory_data = ChildCategory::paginate(15);
+        $MainCategories = MainCategory::paginate(16);
+        $childCategory_data = ChildCategory::paginate(16);
         return view('backend.pages.ChildCategory.index',compact('childCategory_data','MainCategories'));
 
     }
@@ -50,7 +50,7 @@ class ChildCategoryController extends Controller
             ->orWhere('child_categories.child_image','like','%'.$search.'%')
             ->orWhere('main_categories.en_name','like','%'.$search.'%')
             ->orWhere('main_categories.ar_name','like','%'.$search.'%')
-            ->paginate(15);
+            ->paginate(16);
 
         return view('backend.pages.ChildCategory.search',compact('childCategory_data'));
     }

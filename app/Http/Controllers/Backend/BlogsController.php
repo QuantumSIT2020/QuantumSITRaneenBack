@@ -18,7 +18,7 @@ class BlogsController extends Controller
     {
         //$lang = \Lang::getLocale();
         //$blog_data = Blog::select($lang.'_name as name',$lang.'_desc as description','blog_image','isactive','type','id')->get();
-        $blog_data = Blog::paginate(15);
+        $blog_data = Blog::paginate(16);
         return view('backend.pages.blogs.index',compact('blog_data'));
     }
 
@@ -37,7 +37,7 @@ class BlogsController extends Controller
             ->orWhere('blogs.en_desc', 'like', '%' . $search . '%')
             ->orWhere('blogs.ar_desc', 'like', '%' . $search . '%')
             ->orWhere('blogs.blog_image', 'like', '%' . $search . '%')
-            ->paginate(15);
+            ->paginate(16);
 
         return view('backend.pages.blogs.search', compact('blog_data'));
 

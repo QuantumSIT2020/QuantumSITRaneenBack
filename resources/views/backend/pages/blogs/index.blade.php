@@ -45,7 +45,7 @@
             </div>
         </div>
         @foreach ($blog_data as $index => $blog)
-            <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="col-lg-6 col-md-4 col-sm-6">
                 <div class="card c_grid c_yellow">
                     <div class="body text-center ribbon">
                         <div class="ribbon-box info">{{ $blog->type }}</div>
