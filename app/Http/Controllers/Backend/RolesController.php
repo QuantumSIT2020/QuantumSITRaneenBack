@@ -80,6 +80,7 @@ class RolesController extends Controller
     public function assignPermission($id){
         $role = Role::findOrfail($id);
         $roles_permissions = array();
+        
         if (count($role->permissions) > 0) {
             foreach ($role->permissions as $permission) {
                 array_push($roles_permissions,$permission->id);

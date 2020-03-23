@@ -76,14 +76,14 @@
                     </ul>
                 </li>
 
-                <li>
+                {{-- <li>
                     <a href="#Authentication" class="has-arrow"><i class="fa fa-database"></i><span>@lang('tr.Inventory')</span></a>
                     <ul>
                         <li><a href="{{ route('create_inventories') }}">@lang('tr.Create Item')</a></li>
                         <li><a href="{{ route('inventories') }}">@lang('tr.Inventory')</a></li>
 
                     </ul>
-                </li>
+                </li> --}}
 
 
 
