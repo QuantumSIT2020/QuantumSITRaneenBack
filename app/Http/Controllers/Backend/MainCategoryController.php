@@ -23,7 +23,7 @@ class MainCategoryController extends Controller
 //    }
     public function index()
     {
-        $MainCategory_data = MainCategory::paginate(15);
+        $MainCategory_data = MainCategory::paginate(16);
         return view('backend.pages.MainCategory.index',compact('MainCategory_data'));
 
     }
@@ -44,7 +44,7 @@ class MainCategoryController extends Controller
             ->orWhere('main_categories.en_desc','like','%'.$search.'%')
             ->orWhere('main_categories.ar_desc','like','%'.$search.'%')
             ->orWhere('main_categories.main_image','like','%'.$search.'%')
-            ->paginate(15);
+            ->paginate(16);
 
         return view('backend.pages.MainCategory.search',compact('MainCategory_data'));
 

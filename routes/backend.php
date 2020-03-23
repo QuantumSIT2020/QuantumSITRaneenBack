@@ -69,32 +69,6 @@ Route::group(['middleware' => 'Lang'], function () {
 
 
 
-        //pages
-
-        Route::get('/pages','PagesController@index')->name('pages');
-        Route::get('/pages/create','PagesController@create')->name('create_pages');
-        Route::post('/pages/create','PagesController@store')->name('store_pages');
-        Route::get('/pages/edit/{id}','PagesController@edit')->name('edit_pages');
-        Route::post('/pages/update/{id}','PagesController@update')->name('update_pages');
-        Route::get('/pages/show/{id}','PagesController@show')->name('show_pages');
-        Route::get('/pages/delete/{id}','PagesController@destroy')->name('delete_pages');
-        Route::get('/pages/search','PagesController@searchPages')->name('search_pages');
-
-
-
-        //blogs
-
-        Route::get('/blogs','BlogsController@index')->name('blogs');
-        Route::get('/blogs/create','BlogsController@create')->name('create_blogs');
-        Route::post('/blogs/create','BlogsController@store')->name('store_blogs');
-        Route::get('/blogs/edit/{id}','BlogsController@edit')->name('edit_blogs');
-        Route::post('/blogs/update/{id}','BlogsController@update')->name('update_blogs');
-        Route::get('/blogs/show/{id}','BlogsController@show')->name('show_blogs');
-        Route::get('/blogs/delete/{id}','BlogsController@destroy')->name('delete_blogs');
-        Route::get('/blogs/status/{id}', 'BlogsController@status')->name('status');
-        Route::get('/blogs/search','BlogsController@searchBlogs')->name('search_blogs');
-
-
 
         //Customers
         Route::get('/customers','UsersController@customers')->name('customers');
@@ -146,6 +120,70 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::get('/manufacturer/delete/{id}','ManufacturerController@destroy')->name('delete_manufacturers');
         Route::get('/manufacturer/show/{id}','ManufacturerController@show')->name('show_manufacturers');
         Route::get('/manufacturer/search','ManufacturerController@search')->name('search_manufacturers');
+
+
+
+
+        //GroupAttributes
+        Route::get('/GroupAttributes','GroupAttributeController@index')->name('GroupAttributes');
+        Route::get('/GroupAttributes/create','GroupAttributeController@create')->name('create_GroupAttributes');
+        Route::post('/GroupAttributes/store','GroupAttributeController@store')->name('store_GroupAttributes');
+        Route::get('/GroupAttributes/edit/{id}','GroupAttributeController@edit')->name('edit_GroupAttributes');
+        Route::post('/GroupAttributes/update/{id}','GroupAttributeController@update')->name('update_GroupAttributes');
+        Route::get('/GroupAttributes/delete/{id}','GroupAttributeController@destroy')->name('delete_GroupAttributes');
+        Route::get('/GroupAttributes/show/{id}','GroupAttributeController@show')->name('show_GroupAttributes');
+//        Route::get('/GroupAttributes/search','GroupAttributeController@search')->name('search_GroupAttributes');
+
+
+
+        //Attributes
+        Route::get('/Attributes','AttributesController@index')->name('Attributes');
+        Route::get('/Attributes/create','AttributesController@create')->name('create_Attributes');
+        Route::post('/Attributes/store','AttributesController@store')->name('store_Attributes');
+        Route::get('/Attributes/edit/{id}','AttributesController@edit')->name('edit_Attributes');
+        Route::post('/Attributes/update/{id}','AttributesController@update')->name('update_Attributes');
+        Route::get('/Attributes/delete/{id}','AttributesController@destroy')->name('delete_Attributes');
+        Route::get('/Attributes/show/{id}','AttributesController@show')->name('show_Attributes');
+//        Route::get('/Attributes/search','AttributesController@search')->name('search_Attributes');
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //pages
+
+        Route::get('/pages','PagesController@index')->name('pages');
+        Route::get('/pages/create','PagesController@create')->name('create_pages');
+        Route::post('/pages/create','PagesController@store')->name('store_pages');
+        Route::get('/pages/edit/{id}','PagesController@edit')->name('edit_pages');
+        Route::post('/pages/update/{id}','PagesController@update')->name('update_pages');
+        Route::get('/pages/show/{id}','PagesController@show')->name('show_pages');
+        Route::get('/pages/delete/{id}','PagesController@destroy')->name('delete_pages');
+        Route::get('/pages/search','PagesController@searchPages')->name('search_pages');
+
+
+
+        //blogs
+
+        Route::get('/blogs','BlogsController@index')->name('blogs');
+        Route::get('/blogs/create','BlogsController@create')->name('create_blogs');
+        Route::post('/blogs/create','BlogsController@store')->name('store_blogs');
+        Route::get('/blogs/edit/{id}','BlogsController@edit')->name('edit_blogs');
+        Route::post('/blogs/update/{id}','BlogsController@update')->name('update_blogs');
+        Route::get('/blogs/show/{id}','BlogsController@show')->name('show_blogs');
+        Route::get('/blogs/delete/{id}','BlogsController@destroy')->name('delete_blogs');
+        Route::get('/blogs/status/{id}', 'BlogsController@status')->name('status');
+        Route::get('/blogs/search','BlogsController@searchBlogs')->name('search_blogs');
+
+
 
 
 

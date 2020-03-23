@@ -61,10 +61,10 @@
 
                     <div class="row">
                         @foreach ($MainCategory_data as $index => $MainCategory)
-                            <div class="col-lg-4 col-md-4 col-sm-6">
+                            <div class="col-lg-6 col-md-4 col-sm-6">
                                 <div class="card c_grid c_yellow">
                                     <div class="body text-center ribbon">
-                                        <div class="ribbon-box info">New</div>
+                                        <div class="ribbon-box info">{{ $MainCategory->created_at->diffForHumans() }}</div>
                                         <div class="circle">
                                             <img class="rounded-circle" src="{{ URL::to('/') }}/backend/dashboard_images/MainCategory/{{$MainCategory->main_image }}" alt="">
                                         </div>

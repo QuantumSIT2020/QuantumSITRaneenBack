@@ -65,6 +65,26 @@
                     </ul>
                 </li>
 
+
+<br>
+
+
+                {{--                GroupAttributes--}}
+
+
+                <li class="header">@lang('tr.GroupAttributes Management') </li>
+                <li>
+                    <a href="#Authentication" class="has-arrow"><i class="icon-lock"></i><span>@lang('tr.GroupAttributes')</span></a>
+                    <ul>
+                        <li><a href="{{ route('GroupAttributes') }}">GroupAttributes</a></li>
+                        <li><a href="{{ route('Attributes') }}">Attributes</a></li>
+
+
+                    </ul>
+                </li>
+
+                <br>
+
                 <li class="header">@lang('tr.Product Management')</li>
 
                 <li>
@@ -85,7 +105,7 @@
                     </ul>
                 </li> --}}
 
-
+                <br>
 
                 {{--                pages--}}
 
@@ -94,7 +114,7 @@
 
                 <li><a href="{{route('pages')}}"><i class="icon-puzzle"></i><span>Pages</span></a></li>
 
-
+                <br>
 
                 {{--                blogs--}}
 
@@ -104,7 +124,7 @@
                 <li><a href="{{route('blogs')}}"><i class="icon-puzzle"></i><span>Blogs</span></a></li>
 
 
-
+                <br>
                 {{--                settings--}}
 
 
@@ -118,6 +138,10 @@
 
                     </ul>
                 </li>
+
+
+
+
 
 
             </ul>

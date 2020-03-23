@@ -24,8 +24,8 @@ class SubCategoryController extends Controller
     public function index()
     {
         $lang = \Lang::getLocale();
-        $subCategory_data = SubCategory::paginate(15);
-        $ChildCategories = ChildCategory::paginate(15);
+        $subCategory_data = SubCategory::paginate(16);
+        $ChildCategories = ChildCategory::paginate(16);
         return view('backend.pages.SubCategory.index',compact('subCategory_data','ChildCategories'));
 
     }
@@ -60,7 +60,7 @@ class SubCategoryController extends Controller
             ->orWhere('child_categories.ar_name','like','%'.$search.'%')
             ->orWhere('main_categories.en_name','like','%'.$search.'%')
             ->orWhere('main_categories.ar_name','like','%'.$search.'%')
-            ->paginate(15);
+            ->paginate(16);
 
         return view('backend.pages.SubCategory.search',compact('subCategory_data'));
     }

@@ -23,7 +23,7 @@ class PagesController extends Controller
     {
 //        $lang = \Lang::getLocale();
 //        $page_data = pages::select($lang.'_name as name',$lang.'_desc as description','page_image','id')->get();
-        $page_data = pages::paginate(15);
+        $page_data = pages::paginate(16);
 
         return view('backend.pages.pages.index',compact('page_data'));
 
@@ -44,7 +44,7 @@ class PagesController extends Controller
             ->orWhere('pages.en_desc','like','%'.$search.'%')
             ->orWhere('pages.ar_desc','like','%'.$search.'%')
             ->orWhere('pages.page_image','like','%'.$search.'%')
-            ->paginate(15);
+            ->paginate(16);
 
         return view('backend.pages.pages.search',compact('page_data'));
     }
