@@ -2,13 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0960f54d-98e9-43ee-b7f0-ab5e168da537" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/wishlist/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/wishlist/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/wishlist/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Customer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/backend/assets/imageUpload/fonts/iu.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/backend/assets/imageUpload/fonts/iu.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/backend/assets/imageUpload/fonts/iu.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/backend/assets/imageUpload/fonts/iu.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/backend/assets/imageUpload/image-uploader.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/backend/assets/imageUpload/image-uploader.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/backend/dashboard_images/Products/1584982141.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/backend/dashboard_images/Products/1584982167.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/backend/dashboard_images/Products/1584982167.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/components/products/attributes.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/components/products/brand.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/components/products/gallery.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/components/products/mainInfo.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/Products/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/Products/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/Products/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/Products/search.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/Products/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/ProductsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/RolesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/RolesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/components/leftbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/components/leftbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/pages/Roles/assign_permissions.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/pages/Roles/assign_permissions.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/backend.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/backend.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/WishListController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="827">
-              <caret line="78" column="69" selection-start-line="78" selection-start-column="69" selection-end-line="78" selection-end-column="69" />
+            <state relative-caret-position="13">
+              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
               <folding>
                 <element signature="e#48#84#0#PHP" expanded="true" />
               </folding>
@@ -38,19 +53,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/backend/components/leftbar.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="129" selection-start-line="129" selection-end-line="129" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/backend.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="157" column="96" lean-forward="true" selection-start-line="157" selection-start-column="96" selection-end-line="157" selection-end-column="96" />
+            <state relative-caret-position="3313">
+              <caret line="158" column="96" selection-start-line="158" selection-start-column="96" selection-end-line="158" selection-end-column="96" />
             </state>
           </provider>
         </entry>
@@ -387,12 +393,12 @@
       <workItem from="1584749546257" duration="7194000" />
       <workItem from="1584791083149" duration="38308000" />
       <workItem from="1584886071269" duration="14309000" />
-      <workItem from="1584968656068" duration="7685000" />
+      <workItem from="1584968656068" duration="8256000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107019000" />
+    <option name="totallyTimeSpent" value="107590000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
@@ -752,23 +758,6 @@
     <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/wishlist/index.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/backend.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="157" column="96" lean-forward="true" selection-start-line="157" selection-start-column="96" selection-end-line="157" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/WishListController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="827">
-          <caret line="78" column="69" selection-start-line="78" selection-start-column="69" selection-end-line="78" selection-end-column="69" />
-          <folding>
-            <element signature="e#48#84#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/AttributesController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -778,8 +767,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/backend/components/leftbar.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="129" selection-start-line="129" selection-end-line="129" />
+        <state relative-caret-position="542">
+          <caret line="128" selection-start-line="128" selection-end-line="128" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/WishListController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+          <folding>
+            <element signature="e#48#84#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/backend.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3313">
+          <caret line="158" column="96" selection-start-line="158" selection-start-column="96" selection-end-line="158" selection-end-column="96" />
         </state>
       </provider>
     </entry>

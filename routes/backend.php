@@ -146,6 +146,7 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::get('/Attributes/show/{id}','AttributesController@show')->name('show_Attributes');
 //        Route::get('/Attributes/search','AttributesController@search')->name('search_Attributes');
 
+<<<<<<< HEAD
 
 
 
@@ -167,6 +168,8 @@ Route::group(['middleware' => 'Lang'], function () {
 
 
 
+=======
+>>>>>>> origin/master
         //pages
 
         Route::get('/pages','PagesController@index')->name('pages');
@@ -193,9 +196,6 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::get('/blogs/search','BlogsController@searchBlogs')->name('search_blogs');
 
 
-
-
-
         //seo
 
         Route::get('/testseo', 'SeoController@index')->name('testseo_index');
@@ -206,6 +206,15 @@ Route::group(['middleware' => 'Lang'], function () {
 
         Route::get('/soicalmedia', 'SoicalMediaController@index')->name('soicalmedia_index');
         Route::post('/soicalmedia/update', 'SoicalMediaController@update')->name('soicalmedia_update');
+
+        //Products
+        Route::get('/products','ProductsController@index')->name('products');
+        Route::get('/products/create','ProductsController@create')->name('create_products');
+        Route::post('/products/store','ProductsController@store')->name('store_products');
+        Route::get('/products/edit/{id}','ProductsController@edit')->name('edit_products');
+        Route::post('/products/update/{id}','ProductsController@update')->name('update_products');
+        Route::get('/products/delete/{id}','ProductsController@destroy')->name('delete_products');
+        Route::get('/products/show/{id}','ProductsController@show')->name('show_products');
 
 
 
