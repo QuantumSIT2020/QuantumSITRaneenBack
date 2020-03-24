@@ -218,11 +218,17 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::get('products/delete_attribute/{id}','ProductsController@delete_attribute')->name('delete_attribute');
         Route::get('/products/search','ProductsController@search_product')->name('search_products');
 
+        //isActive
+
+        Route::get('/products/status/{id}', 'ProductsController@status')->name('products_status');
+
         //reviews
 
         Route::get('/reviews','ProductsController@viewReview')->name('reviews');
         Route::get('/reviews/create','ProductsController@createReview')->name('create_reviews');
         Route::post('/reviews/store','ProductsController@storeReview')->name('store_reviews');
+
+
 
 
 

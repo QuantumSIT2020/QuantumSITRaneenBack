@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->text('video');
             $table->integer('price');
             $table->integer('quantity');
+            $table->boolean('isactive')->default(0); //0 not active - 1 active
             $table->unsignedBigInteger('manufacturer_id');
             $table->foreign('manufacturer_id')->references('id')->on('manufacturers')->onDelete('cascade');
             $table->unsignedBigInteger('sub_categories_id');
