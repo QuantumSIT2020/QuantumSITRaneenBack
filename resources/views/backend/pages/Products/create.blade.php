@@ -55,6 +55,11 @@
 
 <script>
     $(document).ready(function() {
+        
+    });
+
+
+    $(document).ready(function() {
         var max_fields      = 100;
         var wrapper         = $(".container1"); 
         var add_button      = $(".add_form_field"); 
@@ -64,20 +69,25 @@
             e.preventDefault();
             if(x < max_fields){ 
                 x++;
+                
+                // var result= productQuantity - newQuantity;
+                // skillHtml += 'new Qty = '+result;
                 skillHtml += '<div style="border: 1px solid #e4e4e4; padding: 15px;margin-top:10px;">';
                 skillHtml += '<div class="row">';
                 skillHtml += '<div class="col-lg-6"><div class="form-group"><label for="attribute">@lang("tr.Attribute")</label><select id="attributes" class="custom-select required" name="attribute[]" required> <option value="">@lang("tr.Select Attribute")</option> @foreach($groups as $group) <optgroup label="{{ $group->name }}"> @foreach($attributes as $attribute)  @if($group->id == $attribute->attribute_group_id) <option value="{{ $attribute->id }}">{{ $attribute->name }}</option>  @endif  @endforeach</optgroup> @endforeach</select></div></div>';
-                skillHtml += '<div class="col-lg-6"><div class="form-group"><label for="qty">@lang("tr.Quantity")</label><input type="number" name="quantity[]" id="follow_mobile" class="form-control required" placeholder="@lang("tr.Quantity")" required></div></div>';
+                skillHtml += '<div class="col-lg-6"><div class="form-group"><label for="qty">@lang("tr.Quantity")</label><input type="number" name="quantity[]" id="follow_mobile" class="form-control required attributeQty" max="'+productQuantity+'" placeholder="@lang("tr.Quantity")"  required></div></div>';
                 skillHtml += '</div><br>';
 
-
+                
                 skillHtml += '<a href="#" class="delete btn btn-danger">@lang("tr.Delete")</a></div>'; //add input box
 
 
                 $(wrapper).append(skillHtml);
 
                 skillHtml = '';
-                $('.save_btn').html('<button type="submit" class="btn btn-sm btn-success"><i class="fa fa-plus"></i>&nbsp; @lang("tr.Save")</button>');
+                // var productQuantity = parseInt(productQty);
+                // var newQuantity = parseInt($('.attributeQty_'+x).val());
+                // alert($(this).find('.attributeQty').val());
             }
             else
             {
@@ -105,7 +115,7 @@ $(document).ready(function(){
 
 <script>
     var form = $("#example-advanced-form").show();
- 
+    var productQty = '';
  form.steps({
      headerTag: "h3",
      bodyTag: "fieldset",
@@ -125,6 +135,7 @@ $(document).ready(function(){
          // Needed in some cases if the user went back (clean up)
          if (currentIndex < newIndex)
          {
+             productQty = $('.productQuantity').val();
              // To remove error styles
              form.find(".body:eq(" + newIndex + ") label.error").remove();
              form.find(".body:eq(" + newIndex + ") .error").removeClass("error");
@@ -162,6 +173,8 @@ $(document).ready(function(){
          }
      }
  });
+
+
 </script>
 
 @endsection
