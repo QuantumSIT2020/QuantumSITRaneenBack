@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
-
+use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
@@ -11,8 +11,12 @@ use App\Models\GroupAttributes;
 use App\Models\Attributes;
 use App\Models\Product_Gallery;
 use App\Models\Product_attribute;
+use App\Models\Review;
 use File;
 use Auth;
+use App\Models\User;
+use Hash;
+
 
 class ProductsController extends Controller
 {
@@ -24,6 +28,21 @@ class ProductsController extends Controller
 
     public function index()
     {
+//        $user = new User();
+//        $user->name = 'Admin';
+//        $user->email = 'ramadona.bian@gmail.com';
+//        $user->password = Hash::make(12345678);
+//        $user->save();
+//
+//        if (Role::where('name','Admin')->count() > 0) {
+//            $user->assignRole('Admin');
+//        }else{
+//            Role::create(['name' => 'Admin']);
+//            $user->assignRole('Admin');
+//        }
+
+
+
         $products = Product::paginate(16);
         return view($this->path.'index',compact('products'));
     }
@@ -264,4 +283,44 @@ class ProductsController extends Controller
 
         return redirect()->route('products')->with('success',__('tr.product Deleted Successfully'));
     }
+
+
+
+    public function  viewReview()
+    {
+        $Reviews = Review::all();
+        return view($this->path.'productreview',compact('Reviews'));
+    }
+
+
+    public function  createReview()
+    {
+        $lang = \Lang::getLocale();
+        $products = Product::select($lang.'_name as name','description','manufacturer_id','product_image','id','video','sub_categories_id')->get();
+        return view($this->path.'createreview',compact('products'));
+    }
+
+
+
+    public function  storeReview(Request $request)
+    {
+        $request->validate([
+            'reviews' => 'numeric|min:1|max:5',
+            'comments' => 'required|min:2|max:255',
+
+        ]);
+
+        $Review = new Review();
+        $Review->reviews           = strip_tags($request->reviews);
+        $Review->comments          = strip_tags($request->comments);
+        $Review->product_id        = $request->product_id;
+        $Review->user_id           = Auth::user()->id;
+
+        $Review->save();
+
+        return redirect()->route('reviews')->with('success',__('tr.Review Saved Successfully'));
+
+    }
+
+
 }
