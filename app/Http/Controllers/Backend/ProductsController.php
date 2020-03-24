@@ -142,7 +142,15 @@ class ProductsController extends Controller
     
     public function show($id)
     {
+<<<<<<< HEAD
 
+=======
+        $product = Product::findOrfail($id);
+        $attribute = Product_attribute::where('product_id',$id)->get();
+        $gallery = Product_Gallery::where('product_id',$id)->get();
+
+        return view($this->path.'show',compact('gallery','attribute','product')); 
+>>>>>>> 7743d011ec326004a07f7d154d0162f0c912ff61
     }
 
     public function edit($id)
