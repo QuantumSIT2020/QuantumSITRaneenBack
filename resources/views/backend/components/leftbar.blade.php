@@ -88,7 +88,7 @@
 
                 <br>
 
-                <li class="header">@lang('tr.Product Management')</li>
+                <li class="header">@lang('tr.manufacturer Management')</li>
 
                 <li>
                     <a href="#Authentication" class="has-arrow"><i class="fa fa-industry"></i><span>@lang('tr.Manufacturer')</span></a>
@@ -98,6 +98,25 @@
 
                     </ul>
                 </li>
+
+
+
+                <li class="header">@lang('tr.products Management')</li>
+
+                <li>
+                    <a href="#Authentication" class="has-arrow"><i class="fa fa-industry"></i><span>@lang('tr.Products')</span></a>
+                    <ul>
+
+<<<<<<< HEAD
+                        <li><a href="{{ route('products') }}">@lang('tr.products')</a></li>
+
+                    </ul>
+                </li>
+
+
+
+
+
 
                 {{-- <li>
                     <a href="#Authentication" class="has-arrow"><i class="fa fa-database"></i><span>@lang('tr.Inventory')</span></a>
@@ -112,6 +131,8 @@
 
                 {{--                pages--}}
 
+=======
+>>>>>>> 7743d011ec326004a07f7d154d0162f0c912ff61
                 <li>
                     <a href="#Authentication" class="has-arrow"><i class="fa fa-file"></i><span>@lang('tr.Others')</span></a>
                     <ul>

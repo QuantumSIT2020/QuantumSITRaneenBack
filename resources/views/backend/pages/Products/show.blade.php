@@ -28,8 +28,8 @@
                 <h5 class="mt-4">{{ $product->$langName }}</h5>
                 <p>{!! $product->description !!}</p>
                 <div class="mt-3">
-                    <div><strong class="d-inline-block w-70px">@lang('tr.Manufacturer'):</strong> {{ $product->manufacturer->$langName }}</div>
-                    <div><strong class="d-inline-block w-70px">@lang('tr.Brand'):</strong> {{ $product->subcategory->$langName }}</div>
+                    <div><strong class="d-inline-block w-70px">@lang('tr.Manufacturer'):</strong> {{ $product->Manufacturer->$langName }}</div>
+                    <div><strong class="d-inline-block w-70px">@lang('tr.Brand'):</strong> {{ $product->SubCategory->$langName }}</div>
                     <div><strong class="d-inline-block w-70px">@lang('tr.Price'):</strong> {{ $product->price }}</div>
                     <div><strong class="d-inline-block w-70px">@lang('tr.Quantity'):</strong> {{ $product->quantity }}</div>
                     <div><strong class="d-inline-block w-70px">@lang('tr.Video'):</strong> {{ $product->video }}</div>

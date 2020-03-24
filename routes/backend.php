@@ -146,6 +146,27 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::get('/Attributes/show/{id}','AttributesController@show')->name('show_Attributes');
 //        Route::get('/Attributes/search','AttributesController@search')->name('search_Attributes');
 
+
+
+
+
+        //wishlist
+
+        Route::get('/wishlist','WishListController@index')->name('wishlist');
+        Route::get('/wishlist/create','ChildCategoryController@create')->name('create_wishlist');
+        Route::post('/wishlist/store','ChildCategoryController@store')->name('store_wishlist');
+//        Route::get('/ChildCategory/show/{id}','ChildCategoryController@show')->name('show_ChildCategory');
+        Route::get('/wishlist/delete/{id}','ChildCategoryController@destroy')->name('wishlist');
+
+
+
+
+
+
+
+
+
+
         //pages
 
         Route::get('/pages','PagesController@index')->name('pages');
@@ -192,6 +213,14 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::post('/products/update/{id}','ProductsController@update')->name('update_products');
         Route::get('/products/delete/{id}','ProductsController@destroy')->name('delete_products');
         Route::get('/products/show/{id}','ProductsController@show')->name('show_products');
+
+        Route::get('products/delete_img/{id}','ProductsController@delete_img')->name('delete_product_img');
+        Route::get('products/delete_attribute/{id}','ProductsController@delete_attribute')->name('delete_attribute');
+        Route::get('/products/search','ProductsController@search_product')->name('search_products');
+
+
+
+
 
 
 

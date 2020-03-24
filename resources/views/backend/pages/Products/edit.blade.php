@@ -1,125 +1,168 @@
 @extends('backend.layouts.master')
 
-@section('title',__('tr.Update Manufacturer'))
+@section('title',__('tr.update Product'))
 
 {{-- additional stylesheets --}}
 @section('stylesheet')
-    
+    <link rel="stylesheet" href="{{ asset('backend/assets/vendor/jquery-steps/jquery.steps.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/imageUpload/image-uploader.min.css') }}">
+    <style>
+        .wizard > .content{
+            min-height: 35em;
+        }
+    </style>
 @endsection
 {{-- end additional stylesheets --}}
 
 @section('morebtn')
-<div class="col-md-6 col-sm-12 text-right hidden-xs">
-    <a href="{{ route('manufacturers') }}" class="btn btn-sm btn-primary" title="">@lang('tr.Manufacturer')</a>
-</div>
+    <div class="col-md-6 col-sm-12 text-right hidden-xs">
+        <a href="{{ route('products') }}" class="btn btn-sm btn-primary" title="">@lang('tr.Products')</a>
+    </div>
 @endsection
 
 {{-- content --}}
 @section('content')
-
-<div class="col-lg-12">
-    <div class="card">
-        <div class="header">
-            <h2> @yield('title')</h2>
+    <div class="row">
+        <div class="card">
+            <div class="header">
+                @yield('title')
+            </div>
+            <div class="body">
+                <form id="example-advanced-form" action="{{ route('update_products',$product->id) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @include('backend.components.products_update.mainInfo')
+                    @include('backend.components.products_update.brand')
+                    @include('backend.components.products_update.gallery')
+                    @include('backend.components.products_update.attributes')
+                </form>
+            </div>
         </div>
-        
-        <div class="body">
-            <form id="advanced-form" action="{{ route('update_manufacturers') }}" method="POST" enctype="multipart/form-data" data-parsley-validate="" novalidate="" autocomplete="off">
-                @csrf
-                <input type="hidden" name="man_id" value="{{ $man->id }}">
-                {{-- First & Last Name --}}
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="text-input1">@lang('tr.Arabic Name')</label>
-                            <input type="text" id="text-input1" value="{{ $man->ar_name }}" name="ar_name" class="form-control" required="" data-parsley-minlength="2">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="text-input2">@lang('tr.English Name')</label>
-                            <input type="text" id="text-input2" value="{{ $man->en_name }}" name="en_name" class="form-control" required="" data-parsley-minlength="2">
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Emails --}}
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="text-input3">@lang('tr.Mobile')</label>
-                            <input type="text" id="text-input3" value="{{ $man->mobile }}" name="mobile" class="form-control">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="text-input5">@lang('tr.Email')</label>
-                            <input type="email" id="text-input3" value="{{ $man->email }}" name="email" class="form-control">
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Emails --}}
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="text-input3">@lang('tr.Address')</label>
-                            <input type="text" id="text-input3" value="{{ $man->address }}" name="address" class="form-control">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="text-input5">@lang('tr.Website')</label>
-                            <input type="url" id="text-input3" value="{{ $man->website }}" name="website" class="form-control">
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Passwords --}}
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label for="text-input9">@lang('tr.Other Info')</label>
-                            <textarea id="ckeditor" name="other_info">
-                                {{ $man->other_info }}
-                            </textarea>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Gender & Date of Birth --}}
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label for="text-input5">@lang('tr.Logo')</label>
-                            <input type="file" id="text-input5" name="manufacturer_logo" class="custom-select">
-                        </div>
-                    </div>
-                </div>
-
-               
-              
-                <button type="submit" class="btn btn-primary">@lang('tr.Save')</button>
-            </form>
-        </div>
-        
     </div>
-</div>
-
-
-
-
-    
 @endsection
 {{-- end content --}}
 
 
 {{-- additional scripts --}}
 @section('javascript')
-<script src="{{ asset('backend/assets/vendor/parsleyjs/js/parsley.min.js') }}"></script>
-<script src="{{ asset('backend/assets/vendor/ckeditor/ckeditor.js') }}"></script><!-- Ckeditor -->
-<script src="{{ asset('backend/assets/js/pages/forms/editors.js') }}"></script>
+    <script src="{{ asset('backend/assets/vendor/parsleyjs/js/parsley.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/vendor/ckeditor/ckeditor.js') }}"></script><!-- Ckeditor -->
+    <script src="{{ asset('backend/assets/js/pages/forms/editors.js') }}"></script>
+    <script src="{{ asset('backend/assets/vendor/jquery-validation/jquery.validate.js') }}"></script><!-- Jquery Validation Plugin Css -->
+    <script src="{{ asset('backend/assets/vendor/jquery-steps/jquery.steps.js') }}"></script><!-- JQuery Steps Plugin Js -->
+    <script src="{{ asset('backend/assets/js/pages/forms/form-wizard.js') }}"></script>
+    <script src="{{ asset('backend/assets/imageUpload/image-uploader.min.js') }}"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            var max_fields      = 100;
+            var wrapper         = $(".container1");
+            var add_button      = $(".add_form_field");
+            var skillHtml       = '';
+            var x = 1;
+            $(add_button).click(function(e){
+                e.preventDefault();
+                if(x < max_fields){
+                    x++;
+                    skillHtml += '<div style="border: 1px solid #e4e4e4; padding: 15px;margin-top:10px;">';
+                    skillHtml += '<div class="row">';
+                    skillHtml += '<div class="col-lg-6"><div class="form-group"><label for="attribute">@lang("tr.Attribute")</label><select id="attributes" class="custom-select required" name="attribute[]" required> <option value="">@lang("tr.Select Attribute")</option> @foreach($groups as $group) <optgroup label="{{ $group->name }}"> @foreach($attributes as $attribute)  @if($group->id == $attribute->attribute_group_id) <option value="{{ $attribute->id }}">{{ $attribute->name }}</option>  @endif  @endforeach</optgroup> @endforeach</select></div></div>';
+                    skillHtml += '<div class="col-lg-6"><div class="form-group"><label for="qty">@lang("tr.Quantity")</label><input type="number" name="quantity[]" id="follow_mobile" class="form-control required" placeholder="@lang("tr.Quantity")" required></div></div>';
+                    skillHtml += '</div><br>';
+
+
+                    skillHtml += '<a href="#" class="delete btn btn-danger">@lang("tr.Delete")</a></div>'; //add input box
+
+
+                    $(wrapper).append(skillHtml);
+
+                    skillHtml = '';
+                    $('.save_btn').html('<button type="submit" class="btn btn-sm btn-success"><i class="fa fa-plus"></i>&nbsp; @lang("tr.Save")</button>');
+                }
+                else
+                {
+                    alert('You Reached the limits')
+                }
+            });
+
+            $(wrapper).on("click",".delete", function(e){
+                e.preventDefault(); $(this).parent('div').remove(); x--;
+            })
+        });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+
+            $('.input-images').imageUploader({
+                imagesInputName: 'image',
+                preloadedInputName: 'old',
+                maxSize: 2 * 1024 * 1024,
+                maxFiles: 10
+            });
+        });
+    </script>
+
+    <script>
+        var form = $("#example-advanced-form").show();
+
+        form.steps({
+            headerTag: "h3",
+            bodyTag: "fieldset",
+            transitionEffect: "slideLeft",
+            onStepChanging: function (event, currentIndex, newIndex)
+            {
+                // Allways allow previous action even if the current form is not valid!
+                if (currentIndex > newIndex)
+                {
+                    return true;
+                }
+                // Forbid next action on "Warning" step if the user is to young
+                if (newIndex === 3 && Number($("#age-2").val()) < 18)
+                {
+                    return false;
+                }
+                // Needed in some cases if the user went back (clean up)
+                if (currentIndex < newIndex)
+                {
+                    // To remove error styles
+                    form.find(".body:eq(" + newIndex + ") label.error").remove();
+                    form.find(".body:eq(" + newIndex + ") .error").removeClass("error");
+                }
+                form.validate().settings.ignore = ":disabled,:hidden";
+                return form.valid();
+            },
+            onStepChanged: function (event, currentIndex, priorIndex)
+            {
+                // Used to skip the "Warning" step if the user is old enough.
+                if (currentIndex === 2 && Number($("#age-2").val()) >= 18)
+                {
+                    form.steps("next");
+                }
+                // Used to skip the "Warning" step if the user is old enough and wants to the previous step.
+                if (currentIndex === 2 && priorIndex === 3)
+                {
+                    form.steps("previous");
+                }
+            },
+            onFinishing: function (event, currentIndex)
+            {
+                form.validate().settings.ignore = ":disabled";
+                return form.valid();
+            },
+            onFinished: function (event, currentIndex)
+            {
+                $("#example-advanced-form").submit();
+            }
+        }).validate({
+            errorPlacement: function errorPlacement(error, element) { element.before(error); },
+            rules: {
+                confirm: {
+                    equalTo: "#password-2"
+                }
+            }
+        });
+    </script>
+
 @endsection
 {{-- end additional scripts --}}
