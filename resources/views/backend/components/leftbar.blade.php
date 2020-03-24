@@ -108,6 +108,7 @@
                     <ul>
 
                         <li><a href="{{ route('products') }}">@lang('tr.products')</a></li>
+                        <li><a href="{{ route('reviews') }}">@lang('tr.reviews')</a></li>
 
                     </ul>
                 </li>
