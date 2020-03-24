@@ -107,7 +107,6 @@
                     <a href="#Authentication" class="has-arrow"><i class="fa fa-industry"></i><span>@lang('tr.Products')</span></a>
                     <ul>
 
-<<<<<<< HEAD
                         <li><a href="{{ route('products') }}">@lang('tr.products')</a></li>
 
                     </ul>
@@ -131,8 +130,6 @@
 
                 {{--                pages--}}
 
-=======
->>>>>>> 7743d011ec326004a07f7d154d0162f0c912ff61
                 <li>
                     <a href="#Authentication" class="has-arrow"><i class="fa fa-file"></i><span>@lang('tr.Others')</span></a>
                     <ul>
