@@ -75,6 +75,14 @@
                                         <a href="{{ route('edit_products',$product->id) }}" class="btn btn-warning btn-sm">@lang('tr.Edit')</a>
                                         <a href="{{ route('delete_products',$product->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-danger btn-sm">@lang('tr.Delete')</a>
 
+                                        <button type="button" class="btn btn-info change_status" productID="{{$product->id}}">
+                                            @if($product->isactive ==1)
+                                                <?="DeActive"?>
+                                            @else
+                                                <?="Active" ?>
+                                            @endif
+                                        </button>
+
                                         <div class="row text-center mt-4">
                                             <div class="col-lg-6 border-right">
                                                 <label class="mb-0">@lang('tr.Brand')</label>
@@ -129,6 +137,40 @@
 <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+
+
+<script>
+
+
+    $(".change_status").click(function () {
+
+        var productID = $(this).attr('productID');
+        var url = '{{route("products_status", ":id")}}';
+        url=url.replace(":id",productID);
+        jQuery.ajax({
+            type:"get",
+            url: url,
+            data: {},
+            success: function(data) {
+                if (data > 0 ){
+                    alert("update successfully");
+                    location.reload();
+                }
+            },
+            error: function(data) {
+
+            },
+        });
+
+    })
+
+
+
+
+
+</script>
+
+
 
 <script>
     $(document).ready(function() {

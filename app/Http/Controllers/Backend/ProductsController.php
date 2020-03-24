@@ -40,7 +40,7 @@ class ProductsController extends Controller
 //            Role::create(['name' => 'Admin']);
 //            $user->assignRole('Admin');
 //        }
-
+//
 
 
         $products = Product::paginate(16);
@@ -305,7 +305,7 @@ class ProductsController extends Controller
     public function  storeReview(Request $request)
     {
         $request->validate([
-            'reviews' => 'numeric|min:1|max:5',
+            'reviews'  => 'numeric|min:1|max:5',
             'comments' => 'required|min:2|max:255',
 
         ]);
@@ -322,5 +322,23 @@ class ProductsController extends Controller
 
     }
 
+
+    public function status($id)
+    {
+
+        $data = Product::findOrFail($id);
+        $status = $data->isactive;
+        $new_status = ($status+1)%2;
+
+        $form_data = array(
+            'isactive'       =>   $new_status
+        );
+        $result=  Product::whereId($id)->update($form_data);
+
+        echo  $result;
+
+
+
+    }
 
 }
