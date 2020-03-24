@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 
-@section('title',__('tr.Manufacturers'))
+@section('title',__('tr.products'))
 
 {{-- additional stylesheets --}}
 @section('stylesheet')
@@ -12,7 +12,7 @@
 
 @section('morebtn')
 <div class="col-md-6 col-sm-12 text-right hidden-xs">
-    <a href="{{ route('create_manufacturers') }}" class="btn btn-sm btn-primary" title="">@lang('tr.Create Manufacturers')</a>
+    <a href="{{ route('create_products') }}" class="btn btn-sm btn-info" title="">@lang('tr.Create products')</a>
 </div>
 @endsection
 
@@ -27,7 +27,7 @@
         <div class="body">
             <div class="row">
                 <div class="col-lg-12">
-                    <form  action="{{ route('search_manufacturers') }}" method="GET">
+                    <form  action="{{ route('search_products') }}" method="GET">
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" name="search" placeholder="@lang('tr.Search')" aria-label="@lang('tr.Search')" aria-describedby="basic-addon2">
                             <div class="input-group-append">
@@ -41,61 +41,74 @@
     </div>
 </div>
 
-<div class="col-lg-12">
-    <div class="card">
-        <div class="header">
-            <h2>@yield('title')</h2>
-            <ul class="header-dropdown dropdown">
-                
-                <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
-            </ul>
-        </div>
-        <div class="body">
-            
-            <div class="row">
-                @foreach ($man as $m)
-                <div class="col-lg-6 col-md-4 col-sm-6">
-                    <div class="card c_grid c_yellow">
-                        <div class="body text-center ribbon">
-                            <div class="ribbon-box green">{{ $m->created_at->diffForHumans() }}</div>
-                            <div class="circle">
-                                @if($m->manufacturer_logo != null)
-                                <img class="rounded-circle" src="{{ asset('backend/dashboard_images/Manufacturer/'.$m->manufacturer_logo) }}" alt="">
-                                @else
-                                <img class="rounded-circle" src="{{ asset('backend/assets/building.png') }}" alt="">
-                                @endif
-                                
-                            </div>
-                            <h6 class="mt-3 mb-0">{{ $m->en_name.' | '.$m->ar_name }}</h6>
-                            <span>{{ $m->address }}</span><br><br>
-                            
-                            <a href="{{ route('show_manufacturers',$m->id) }}" class="btn btn-success btn-sm">@lang('tr.View')</a>
-                            <a href="{{ route('edit_manufacturers',$m->id) }}" class="btn btn-success btn-sm">@lang('tr.Edit')</a>
-                            <a href="{{ route('delete_manufacturers',$m->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-success btn-sm">@lang('tr.Delete')</a>
+<div class="body">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="header">
+                    <h2>@yield('title')</h2>
+                    <ul class="header-dropdown dropdown">
 
-                            <div class="row text-center mt-4">
-                                <div class="col-lg-6 border-right">
-                                    <label class="mb-0">@lang('tr.Mobile')</label>
-                                    <h4 class="font-20">{{ $m->mobile }}</h4>
-                                </div>
-                                <div class="col-lg-6">
-                                    <label class="mb-0">@lang('tr.Email') </label>
-                                    <h4 class="font-20">{{ $m->email }}</h4>
+                        <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
+                    </ul>
+                </div>
+                <div class="body">
+
+                    <div class="row">
+                        @foreach ($products as $product)
+                            <div class="col-lg-6 col-md-4 col-sm-6">
+                                <div class="card c_grid c_yellow">
+                                    <div class="body text-center ribbon">
+                                        <div class="ribbon-box info">{{ $product->created_at->diffForHumans() }}</div>
+                                        <div class="circle">
+
+                                            <img class="rounded-circle" src="{{ asset('backend/dashboard_images/products/'.$product->product_image) }}" alt="">
+
+
+                                        </div>
+                                        <h6 class="mt-3 mb-0">{{ $product->en_name.' | '.$product->ar_name }}</h6>
+                                        <br>
+                                        <span><strong>Price:</strong> </span><span style="color: red;">{{ $product->price }}</span><br><br>
+                                        <span><strong>Quantity:</strong> </span><span style="color: red;">{{ $product->quantity }}</span><br><br>
+
+                                        <a href="{{ route('show_products',$product->id) }}" class="btn btn-success btn-sm">@lang('tr.View')</a>
+                                        <a href="{{ route('edit_products',$product->id) }}" class="btn btn-warning btn-sm">@lang('tr.Edit')</a>
+                                        <a href="{{ route('delete_products',$product->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-danger btn-sm">@lang('tr.Delete')</a>
+
+                                        <div class="row text-center mt-4">
+                                            <div class="col-lg-6 border-right">
+                                                <label class="mb-0">@lang('tr.Brand')</label>
+                                                @if(\Lang::getLocale() == 'en')
+                                                    <h4 class="font-20">{{ $product->SubCategory->en_name }}</h4>
+                                                @else
+                                                    <h4 class="font-20">{{ $product->SubCategory->ar_name }}</h4>
+                                                @endif
+
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <label class="mb-0">@lang('tr.Manufacturer') </label>
+                                                @if(\Lang::getLocale() == 'en')
+                                                    <h4 class="font-20">{{ $product->Manufacturer->en_name }}</h4>
+                                                @else
+                                                    <h4 class="font-20">{{ $product->Manufacturer->ar_name }}</h4>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                        @endforeach
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            {{ $products->links() }}
                         </div>
                     </div>
-                </div>
-                @endforeach
-            </div>
 
-            <div class="row">
-                <div class="col-lg-12">
-                    {{ $man->links() }}
+
                 </div>
             </div>
-
-            
         </div>
     </div>
 </div>

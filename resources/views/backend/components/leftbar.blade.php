@@ -83,7 +83,7 @@
 
                 <br>
 
-                <li class="header">@lang('tr.Product Management')</li>
+                <li class="header">@lang('tr.manufacturer Management')</li>
 
                 <li>
                     <a href="#Authentication" class="has-arrow"><i class="fa fa-industry"></i><span>@lang('tr.Manufacturer')</span></a>
@@ -93,6 +93,24 @@
 
                     </ul>
                 </li>
+
+
+
+                <li class="header">@lang('tr.products Management')</li>
+
+                <li>
+                    <a href="#Authentication" class="has-arrow"><i class="fa fa-industry"></i><span>@lang('tr.Products')</span></a>
+                    <ul>
+
+                        <li><a href="{{ route('products') }}">@lang('tr.products')</a></li>
+
+                    </ul>
+                </li>
+
+
+
+
+
 
                 {{-- <li>
                     <a href="#Authentication" class="has-arrow"><i class="fa fa-database"></i><span>@lang('tr.Inventory')</span></a>
@@ -107,34 +125,6 @@
 
                 {{--                pages--}}
 
-<<<<<<< HEAD
-
-                <li class="header">Pages</li>
-
-                <li><a href="{{route('pages')}}"><i class="icon-puzzle"></i><span>Pages</span></a></li>
-
-                <br>
-
-                {{--                blogs--}}
-
-
-                <li class="header">Blogs</li>
-
-                <li><a href="{{route('blogs')}}"><i class="icon-puzzle"></i><span>Blogs</span></a></li>
-
-
-                <br>
-
-
-
-
-
-                {{--                settings--}}
-
-
-                <li class="header">Settings</li>
-=======
->>>>>>> origin/master
                 <li>
                     <a href="#Authentication" class="has-arrow"><i class="fa fa-file"></i><span>@lang('tr.Others')</span></a>
                     <ul>
