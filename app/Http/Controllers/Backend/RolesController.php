@@ -13,10 +13,10 @@ use DB;
 class RolesController extends Controller
 {
     public $path = 'backend.pages.';
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index()
     {

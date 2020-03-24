@@ -9,14 +9,19 @@
                 <img src="{{ asset('backend/assets/images/user.png') }}" class="user-photo" alt="User Profile Picture">
             </div>
             <div class="dropdown">
-                <span>Welcome,</span>
-                <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>Louis Pierce</strong></a>
+                <span>@lang('tr.Welcome'),</span>
+                <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>{{ Auth::user()->name }}</strong></a>
                 <ul class="dropdown-menu dropdown-menu-right account vivify flipInY">
                     <li><a href="page-profile.html"><i class="icon-user"></i>My Profile</a></li>
                     <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>
                     <li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li>
                     <li class="divider"></li>
-                    <li><a href="page-login.html"><i class="icon-power"></i>Logout</a></li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i>{{  __('tr.Logout')  }}</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -102,7 +107,6 @@
                     <a href="#Authentication" class="has-arrow"><i class="fa fa-industry"></i><span>@lang('tr.Products')</span></a>
                     <ul>
 
-<<<<<<< HEAD
                         <li><a href="{{ route('products') }}">@lang('tr.products')</a></li>
 
                     </ul>
@@ -126,8 +130,6 @@
 
                 {{--                pages--}}
 
-=======
->>>>>>> 7743d011ec326004a07f7d154d0162f0c912ff61
                 <li>
                     <a href="#Authentication" class="has-arrow"><i class="fa fa-file"></i><span>@lang('tr.Others')</span></a>
                     <ul>

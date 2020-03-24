@@ -17,10 +17,10 @@ class MainCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
+   public function __construct()
+   {
+       $this->middleware('auth');
+   }
     public function index()
     {
         $MainCategory_data = MainCategory::paginate(16);

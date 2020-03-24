@@ -20,7 +20,7 @@
 {{-- content --}}
 @section('content')
  <div class="row">
-    <div class="col-lg-4">
+    <div class="col-lg-12">
         <div class="card">
             <div class="body">
                 @php($langName = \Lang::getLocale().'_name')
@@ -48,13 +48,17 @@
         </div>
     </div>
 
-    <div class="col-lg-8">
+    
+ </div>
+
+ <div class="row">
+    <div class="col-lg-12">
         <div class="card">
             <div class="body">
                 <h4>@lang('tr.Gallery')</h4><hr>
                 <div id="lightgallery" class="row clearfix lightGallery">
                     @foreach ($gallery as $image)
-                        <div class="col-lg-3 col-md-6 m-b-30"><a class="light-link" href="{{ asset('backend/dashboard_images/Products/'.$image->image) }}"><img class="img-fluid rounded img-thumbnail" src="{{ asset('backend/dashboard_images/Products/'.$image->image) }}" style="width:400px;height:200px;" alt=""></a></div>
+                        <div class="col-lg-3 col-md-6 m-b-30"><a class="light-link" href="{{ asset('backend/dashboard_images/Products/'.$image->image) }}"><img class="img-fluid rounded img-thumbnail" src="{{ asset('backend/dashboard_images/Products/'.$image->image) }}" style="width:300px;height:300px;" alt=""></a></div>
                     @endforeach
                 </div>
             </div>
