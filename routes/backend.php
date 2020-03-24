@@ -146,7 +146,7 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::get('/Attributes/show/{id}','AttributesController@show')->name('show_Attributes');
 //        Route::get('/Attributes/search','AttributesController@search')->name('search_Attributes');
 
-<<<<<<< HEAD
+
 
 
 
@@ -167,9 +167,6 @@ Route::group(['middleware' => 'Lang'], function () {
 
 
 
-
-=======
->>>>>>> 7743d011ec326004a07f7d154d0162f0c912ff61
         //pages
 
         Route::get('/pages','PagesController@index')->name('pages');

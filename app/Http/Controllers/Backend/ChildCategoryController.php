@@ -39,6 +39,7 @@ class ChildCategoryController extends Controller
             'child_categories.en_desc',
             'child_categories.ar_desc',
             'child_categories.child_image',
+            'child_categories.created_at',
             'main_categories.id as main_category_id',
             'main_categories.en_name as En_MainCaregory',
             'main_categories.ar_name as Ar_MainCaregory')

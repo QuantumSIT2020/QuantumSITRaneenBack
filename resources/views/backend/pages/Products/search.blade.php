@@ -74,7 +74,7 @@
                                     <div class="col-lg-6 col-md-4 col-sm-6">
                                         <div class="card c_grid c_yellow">
                                             <div class="body text-center ribbon">
-                                                <div class="ribbon-box info">{{ $product->created_at->diffForHumans() }}</div>
+                                                <div class="ribbon-box info">{{ $product->created_at->diffForHumans()}}</div>
                                                 <div class="circle">
 
                                                     <img class="rounded-circle" src="{{ asset('backend/dashboard_images/products/'.$product->product_image) }}" alt="">

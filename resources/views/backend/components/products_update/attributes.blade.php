@@ -21,16 +21,16 @@
                                             @foreach($Product_attribute as $attribute)
                                             <tr>
                                                 @if(\Lang::getLocale() == 'en')
-                                                <td>{{ $attribute->Attributes->GroupAttributes->en_name }}</td>
+                                                    <td>{{ $attribute->attribute->GroupAttributes->en_name }}</td>
                                                 @else
-                                                    <td>{{ $attribute->Attributes->GroupAttributes->ar_name }}</td>
+                                                    <td>{{ $attribute->attribute->GroupAttributes->ar_name }}</td>
 
                                                 @endif
 
                                                     @if(\Lang::getLocale() == 'en')
-                                                        <td>{{ $attribute->Attributes->en_name }}</td>
+                                                        <td>{{ $attribute->attribute->en_name }}</td>
                                                     @else
-                                                        <td>{{ $attribute->Attributes->ar_name }}</td>
+                                                        <td>{{ $attribute->attribute->ar_name }}</td>
 
                                                     @endif
                                                 <td>{{ $attribute->values }}</td>
