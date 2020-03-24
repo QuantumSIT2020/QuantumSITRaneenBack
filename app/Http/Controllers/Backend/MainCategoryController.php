@@ -37,6 +37,7 @@ class MainCategoryController extends Controller
             'main_categories.ar_name',
             'main_categories.en_desc',
             'main_categories.ar_desc',
+            'main_categories.created_at',
             'main_categories.main_image')
             ->where('main_categories.id','like','%'.$search.'%')
             ->orWhere('main_categories.en_name','like','%'.$search.'%')

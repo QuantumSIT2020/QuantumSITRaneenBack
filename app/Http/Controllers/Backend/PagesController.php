@@ -37,6 +37,7 @@ class PagesController extends Controller
             'pages.ar_name',
             'pages.en_desc',
             'pages.ar_desc',
+            'pages.created_at',
             'pages.page_image')
             ->where('pages.id','like','%'.$search.'%')
             ->orWhere('pages.en_name','like','%'.$search.'%')
