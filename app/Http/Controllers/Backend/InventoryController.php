@@ -12,10 +12,10 @@ use File;
 class InventoryController extends Controller
 {
     public $path = 'backend.pages.Inventory.';
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index()
     {

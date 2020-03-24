@@ -11,10 +11,10 @@ use App\Models\User;
 class PermissionsController extends Controller
 {
     public $path = 'backend.pages.';
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index()
     {

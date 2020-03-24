@@ -12,14 +12,15 @@ use App\Models\Attributes;
 use App\Models\Product_Gallery;
 use App\Models\Product_attribute;
 use File;
+use Auth;
 
 class ProductsController extends Controller
 {
     public $path = 'backend.pages.Products.';
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index()
     {
@@ -66,6 +67,7 @@ class ProductsController extends Controller
         $product->quantity = $request->first_quantity;
         $product->manufacturer_id = $request->manufacturer_id;
         $product->sub_categories_id = $request->sub_categories_id;
+        $product->user_id = Auth::user()->id;
         
         if ($request->hasFile('product_image')){
             $imageName = time().'.'.request()->product_image->getClientOriginalExtension();

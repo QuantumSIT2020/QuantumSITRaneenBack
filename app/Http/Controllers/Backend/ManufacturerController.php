@@ -10,10 +10,10 @@ use File;
 class ManufacturerController extends Controller
 {
     public $path = 'backend.pages.Manufacturer.';
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index()
     {

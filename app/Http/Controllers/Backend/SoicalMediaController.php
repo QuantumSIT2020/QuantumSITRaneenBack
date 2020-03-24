@@ -9,6 +9,11 @@ use App\Models\Soicalmedia;
 class SoicalMediaController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $soicalmedia_data = Soicalmedia::findOrfail(1);

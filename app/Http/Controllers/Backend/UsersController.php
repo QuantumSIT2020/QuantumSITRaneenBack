@@ -15,10 +15,10 @@ use Hash;
 class UsersController extends Controller
 {
     public $path = 'backend.pages.Users.';
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function customers()
     {

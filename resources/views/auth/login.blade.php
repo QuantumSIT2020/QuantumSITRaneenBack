@@ -1,72 +1,76 @@
-@extends('layouts.app')
+@extends('backend.layouts.auth')
+
+@section('title',__('tr.Login'))
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<div class="overlaye"></div>
+<div class="auth_div vivify popIn">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+        
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
+    <div class="card">
+        @if(Session::has('active'))
+        <div class="row">
+            <div class="col-lg-12" style="margin-top: 20px; font-size: 17px; background: #b22827; padding: 8px; color: white; border-right: 20px solid white; border-left: 20px solid white; text-align: center;">
+                {{ Session::get('active') }}
             </div>
+        </div>
+        @endif
+        <div class="pattern">
+            <span class="red"></span>
+            <span class="indigo"></span>
+            <span class="blue"></span>
+            <span class="green"></span>
+            <span class="orange"></span>
+        </div>
+
+        <div class="auth_brand">
+            <a class="navbar-brand" href="javascript:void(0);"><img src="{{ asset('backend/assets/images/coin/logo.png') }}" class="logo_Login_img" alt=""></a>
+        </div>
+
+        <div class="body login_card">
+            <!-- <p class="lead">Login to your account</p> -->
+            <form method="POST" class="form-auth-small m-t-20" action="{{ route('login') }}">
+                @csrf
+                <div class="form-group">
+                    <label for="signin-email" class="control-label sr-only">@lang('tr.Email')</label>
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="signin-email"  placeholder="@lang('tr.Email')">
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="signin-password" class="control-label sr-only">@lang('tr.Password')</label>
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="signin-password"  placeholder="@lang('tr.Password')">
+                    @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class="form-group clearfix">
+                    <label class="fancy-checkbox element-left">
+                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                        <span>{{ __('tr.Remember Me') }}</span>
+                    </label>
+                    <span class="helper-text element-right ">
+                         <a  href="{{ route('password.request') }}">@lang('tr.Forget Password ?')</a></span>
+                </div>
+                <button type="submit" class="btn btn-primary login_sumit_btn btn-block">@lang('tr.Login')</button>
+                <div class="bottom">
+
+                    {{-- <span>Don't have an account? <a class="login_Register_link" href="page-register.html">Register</a></span> --}}
+                </div>
+            </form>
+        </div>
+        <div class="pattern">
+            <span class="red"></span>
+            <span class="indigo"></span>
+            <span class="blue"></span>
+            <span class="green"></span>
+            <span class="orange"></span>
         </div>
     </div>
 </div>
