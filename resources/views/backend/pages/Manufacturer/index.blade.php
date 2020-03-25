@@ -12,7 +12,7 @@
 
 @section('morebtn')
 <div class="col-md-6 col-sm-12 text-right hidden-xs">
-    <a href="{{ route('create_manufacturers') }}" class="btn btn-sm btn-primary" title="">@lang('tr.Create Manufacturers')</a>
+    <a href="{{ route('create_manufacturers') }}" class="btn btn-sm btn-info" title="">@lang('tr.Create Manufacturers')</a>
 </div>
 @endsection
 
@@ -57,7 +57,7 @@
                 <div class="col-lg-6 col-md-4 col-sm-6">
                     <div class="card c_grid c_yellow">
                         <div class="body text-center ribbon">
-                            <div class="ribbon-box green">{{ $m->created_at->diffForHumans() }}</div>
+                            <div class="ribbon-box info">{{ $m->created_at->diffForHumans() }}</div>
                             <div class="circle">
                                 @if($m->manufacturer_logo != null)
                                 <img class="rounded-circle" src="{{ asset('backend/dashboard_images/Manufacturer/'.$m->manufacturer_logo) }}" alt="">
@@ -70,8 +70,8 @@
                             <span>{{ $m->address }}</span><br><br>
                             
                             <a href="{{ route('show_manufacturers',$m->id) }}" class="btn btn-success btn-sm">@lang('tr.View')</a>
-                            <a href="{{ route('edit_manufacturers',$m->id) }}" class="btn btn-success btn-sm">@lang('tr.Edit')</a>
-                            <a href="{{ route('delete_manufacturers',$m->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-success btn-sm">@lang('tr.Delete')</a>
+                            <a href="{{ route('edit_manufacturers',$m->id) }}" class="btn btn-warning btn-sm">@lang('tr.Edit')</a>
+                            <a href="{{ route('delete_manufacturers',$m->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-danger btn-sm">@lang('tr.Delete')</a>
 
                             <div class="row text-center mt-4">
                                 <div class="col-lg-6 border-right">

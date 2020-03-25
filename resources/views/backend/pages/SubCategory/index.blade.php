@@ -56,7 +56,7 @@
 
                 <div class="row">
                     @foreach ($subCategory_data as $index => $subCategory)
-                        <div class="col-lg-6 col-md-4 col-sm-6">
+                        <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="card c_grid c_yellow">
                                 <div class="body text-center ribbon">
                                     <div class="ribbon-box info">{{ $subCategory->created_at->diffForHumans() }}</div>
@@ -77,7 +77,7 @@
 
                                     @if(\Lang::getLocale() == 'en')
                                         <h5 class="mt-3 mb-0">{{ $subCategory->ChildCategory->en_name }}</h5>
-                                        <h5 class="mt-3 mb-0">{{ $subCategory->ChildCategory->MainCategory->ar_name }}</h5>
+                                        <h5 class="mt-3 mb-0">{{ $subCategory->ChildCategory->MainCategory->en_name }}</h5>
                                     @else
                                         <h5 class="mt-3 mb-0">{{ $subCategory->ChildCategory->en_name }}</h5>
                                         <h5 class="mt-3 mb-0">{{ $subCategory->ChildCategory->MainCategory->ar_name }}</h5>

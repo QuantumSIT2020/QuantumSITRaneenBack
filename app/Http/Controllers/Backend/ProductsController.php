@@ -40,8 +40,6 @@ class ProductsController extends Controller
 //            Role::create(['name' => 'Admin']);
 //            $user->assignRole('Admin');
 //        }
-//
-
 
         $products = Product::paginate(16);
         return view($this->path.'index',compact('products'));
