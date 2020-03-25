@@ -105,7 +105,7 @@ class SliderController extends Controller
         $request->validate([
             'en_name'                                       => 'required|max:255|min:2',
             'ar_name'                                       => 'required|max:255|min:2',
-            
+
         ]);
 
 
