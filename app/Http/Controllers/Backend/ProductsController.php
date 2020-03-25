@@ -233,7 +233,7 @@ class ProductsController extends Controller
         if (isset($request->image)){
             for ($i=0; $i < count($request->image); $i++) {
                 $gallery = new Product_Gallery();
-                $imageName = time().'.'.$request->image[$i]->getClientOriginalExtension();
+                $imageName = rand(1,999).'_'.time().'.'.$request->image[$i]->getClientOriginalExtension();
                 $request->image[$i]->move($path_product_gallery, $imageName);
                 $gallery->image = $imageName;
                 $gallery->product_id = $product->id;
