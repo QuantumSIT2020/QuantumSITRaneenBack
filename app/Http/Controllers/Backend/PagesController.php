@@ -75,7 +75,6 @@ class PagesController extends Controller
             'ar_name'                                       => 'required|max:255|min:2',
             'en_desc'                                       => 'required|min:2',
             'ar_desc'                                       => 'required|min:2',
-            'page_image'                                    =>  'image|mimes:jpeg,png,jpg,gif,svg|max:4196|required',
 
         ]);
 
