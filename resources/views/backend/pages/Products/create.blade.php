@@ -69,13 +69,11 @@
             e.preventDefault();
             if(x < max_fields){ 
                 x++;
-                
-                // var result= productQuantity - newQuantity;
-                // skillHtml += 'new Qty = '+result;
+
                 skillHtml += '<div style="border: 1px solid #e4e4e4; padding: 15px;margin-top:10px;">';
                 skillHtml += '<div class="row">';
                 skillHtml += '<div class="col-lg-6"><div class="form-group"><label for="attribute">@lang("tr.Attribute")</label><select id="attributes" class="custom-select required" name="attribute[]" required> <option value="">@lang("tr.Select Attribute")</option> @foreach($groups as $group) <optgroup label="{{ $group->name }}"> @foreach($attributes as $attribute)  @if($group->id == $attribute->attribute_group_id) <option value="{{ $attribute->id }}">{{ $attribute->name }}</option>  @endif  @endforeach</optgroup> @endforeach</select></div></div>';
-                skillHtml += '<div class="col-lg-6"><div class="form-group"><label for="qty">@lang("tr.Quantity")</label><input type="number" name="quantity[]" id="follow_mobile" class="form-control required attributeQty" max="'+productQuantity+'" placeholder="@lang("tr.Quantity")"  required></div></div>';
+                skillHtml += '<div class="col-lg-6"><div class="form-group"><label for="qty">@lang("tr.Quantity")</label><input type="number" name="quantity[]" id="follow_mobile" class="form-control required attributeQty"  placeholder="@lang("tr.Quantity")"  required></div></div>';
                 skillHtml += '</div><br>';
 
                 
@@ -84,10 +82,8 @@
 
                 $(wrapper).append(skillHtml);
 
-                skillHtml = '';
-                // var productQuantity = parseInt(productQty);
-                // var newQuantity = parseInt($('.attributeQty_'+x).val());
-                // alert($(this).find('.attributeQty').val());
+                // skillHtml = '';
+                
             }
             else
             {

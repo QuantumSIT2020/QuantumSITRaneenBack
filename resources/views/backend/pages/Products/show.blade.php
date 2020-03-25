@@ -13,7 +13,7 @@
 @section('morebtn')
 <div class="col-md-6 col-sm-12 text-right hidden-xs">
     <a href="{{ route('products') }}" class="btn btn-sm btn-primary" title="">@lang('tr.Products')</a>
-    <a href="{{ route('create_dataentry') }}" class="btn btn-sm btn-primary" title="">@lang('tr.Create New Products')</a>
+    <a href="{{ route('create_products') }}" class="btn btn-sm btn-primary" title="">@lang('tr.Create New Products')</a>
 </div>
 @endsection
 

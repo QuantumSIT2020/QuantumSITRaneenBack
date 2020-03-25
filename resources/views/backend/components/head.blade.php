@@ -19,6 +19,13 @@
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{{ asset('backend/assets/css/site.min.css') }}">
 
+    <style>
+        .c_grid .circle img {
+            max-width: 100%;
+            height: 100%;
+        }
+    </style>
+
     @yield('stylesheet')
 
 </head>
