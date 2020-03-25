@@ -1,0 +1,14 @@
+@import 'theme/variables';
+$theme-color1:#00baf2;
+$theme-color2:#1c3481;
+$body-back:#f2f8f9 ;
+$bg-light : #f9f9f9 ;
+$light-green1:rgba($theme-color2, 0.45);
+.bg-light{
+  background-color: $bg-light !important;
+}
+@import 'theme/style';
+@import 'theme/menu';
+@import 'theme/theme-rtl';
+@import 'theme/responsive';
+@import 'theme/theme-dark';

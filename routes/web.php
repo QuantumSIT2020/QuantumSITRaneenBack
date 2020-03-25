@@ -2,11 +2,10 @@
 
 
 Route::get('/lang/{lang}','LanguageController@index')->name('dashboard_changelang');
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'Frontend\HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'Frontend\HomeController@index')->name('home');
 
