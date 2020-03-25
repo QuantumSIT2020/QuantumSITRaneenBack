@@ -242,7 +242,19 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::post('/discount/update/{id}','ProductSaleController@update')->name('update_discount');
         Route::get('/discount/delete/{id}','ProductSaleController@destroy')->name('delete_discount');
         Route::get('/discount/show/{id}','ProductSaleController@show')->name('show_discount');
-        Route::get('/discount/status/{id}', 'ProductSaleController@status')->name('discount_status');
+
+
+
+        //slider
+
+        Route::get('/sliders','SliderController@index')->name('sliders');
+        Route::get('/sliders/create','SliderController@create')->name('create_sliders');
+        Route::post('/sliders/store','SliderController@store')->name('store_sliders');
+        Route::get('/sliders/edit/{id}','SliderController@edit')->name('edit_sliders');
+        Route::post('/sliders/update/{id}','SliderController@update')->name('update_sliders');
+        Route::get('/sliders/delete/{id}','SliderController@destroy')->name('delete_sliders');
+        Route::get('/sliders/show/{id}','SliderController@show')->name('show_sliders');
+
 
 
 
