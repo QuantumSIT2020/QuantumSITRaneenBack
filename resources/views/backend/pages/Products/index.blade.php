@@ -68,14 +68,7 @@
                                         </div>
                                         <h6 class="mt-3 mb-0">{{ $product->$langName }}</h6>
                                         <br>
-                                        <span><strong>@lang('tr.Price'):&nbsp;</strong> </span><span style="color: red;">{{ $product->price }}</span> | <strong>@lang('tr.Quantity'):&nbsp;</strong><span style="color: red;">{{ $product->quantity }}</span><br>
-                                        @foreach ($hotSale as $index => $hot)
-                                            @if ( $hot->product_id == $product->id)
-                                                @if ($index == count($hotSale) - 1)
-                                                    <span class="badge badge-danger">@lang('tr.Hot Sale'):&nbsp;{{ $hot->offer }}</span><br><br>
-                                                @endif
-                                            @endif
-                                        @endforeach
+                                        <span><strong>@lang('tr.Price'):&nbsp;</strong> </span><span style="color: red;">{{ $product->price }}</span> | <strong>@lang('tr.Quantity'):&nbsp;</strong><span style="color: red;">{{ $product->quantity }}</span><br><br>
                                         
 
                                         <a href="{{ route('show_products',$product->id) }}" class="btn btn-success btn-sm">@lang('tr.View')</a>
