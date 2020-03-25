@@ -43,7 +43,7 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label for="first_quantity">@lang('tr.Quantity')</label>
-                                <input type="number" step="1" min="1" name="first_quantity" id="first_quantity" class="form-control  required" value="{{ old('first_quantity') }}">
+                                <input type="number" step="1" min="1" name="first_quantity" id="first_quantity" class="form-control  required productQuantity" value="{{ old('quantity') }}">
                             </div>
                         </div>
 

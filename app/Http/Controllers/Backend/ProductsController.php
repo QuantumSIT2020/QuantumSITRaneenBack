@@ -100,6 +100,7 @@ class ProductsController extends Controller
     
     public function store(Request $request)
     {
+        
         $request->validate([
             'en_name' => 'required|min:2|max:255',
             'ar_name' => 'required|min:2|max:255',
@@ -138,7 +139,7 @@ class ProductsController extends Controller
         if ($request->hasFile('image')){
             for ($i=0; $i < count($request->image); $i++) { 
                 $gallery = new Product_Gallery();
-                $imageName = time().'.'.$request->image[$i]->getClientOriginalExtension();
+                $imageName = rand(1,999).'_'.time().'.'.$request->image[$i]->getClientOriginalExtension();
                 $request->image[$i]->move($path_product_gallery, $imageName);
                 $gallery->image = $imageName;
                 $gallery->product_id = $product->id;

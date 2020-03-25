@@ -1,0 +1,130 @@
+.menulevel{
+    background: white;
+    position: absolute;
+    left: 242px;
+    z-index: 999;
+    width: 100%;
+    top: 87px;
+    height: 672px;
+    padding-top: 15px;
+    display: none;
+
+}
+
+.rtl .menulevel{
+    background: white;
+    position: absolute;
+   right: 242px;
+    z-index: 999;
+    width: 100%;
+    top: 87px;
+    height: 672px;
+    padding-top: 15px;
+    display: none;
+
+}
+
+.secondmenulevel{
+    background: white;
+    position: absolute;
+    left: 264px;
+    z-index: 999;
+    width: 100%;
+    top: 0px;
+    height: 672px;
+    padding-top: 15px;
+    display: none;
+}
+
+.rtl .secondmenulevel{
+    background: white;
+    position: absolute;
+    right: 264px;
+    z-index: 999;
+    width: 100%;
+    top: 0px;
+    height: 672px;
+    padding-top: 15px;
+    display: none;
+}
+.category-header .navbar-menu .category-left .nav-block .nav-left{
+
+    z-index: 999;
+    overflow: visible;
+}
+
+.carousel-indicators li{
+    width: 13px !important;
+    height: 13px !important;
+    margin-right: 5px !important;
+    margin-left: 5px !important;
+    background-color: rgb(178, 40, 39) !important;
+    border-radius: 50px !important;
+}
+
+.carousel-indicators .active{
+
+    background-color: #fff !important;
+}
+
+.carousel-indicators{
+    z-index: 1 !important;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1bf;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b22827;
+}
+
+.nav-cat{
+    height: 668px !important;
+    overflow-y: auto !important;
+}
+
+.slidertl{
+
+
+    margin-left: 1rem !important;}
+
+.rtl .pr-3{
+    padding-left: 3rem !important;
+}
+
+.rtl .pl-3{
+    padding-right: 3rem !important;
+}
+
+@media (max-width: 600px){
+
+    #rtlslide{
+
+        height: 200px !important;
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .carousel-inner{
+
+          height: 200px !important;
+
+      }
+
+    .carousel-inner img{
+
+        height: 200px !important;
+
+    }
+}

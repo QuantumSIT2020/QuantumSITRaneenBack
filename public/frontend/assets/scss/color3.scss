@@ -1,0 +1,10 @@
+@import 'theme/variables';
+$theme-color1:#f1bb3a;
+$theme-color2:#0083c1;
+$insta-hover1:rgba(241,187,58,.87);
+$light-green1:rgba($theme-color2, 0.45);
+@import 'theme/style';
+@import 'theme/menu';
+@import 'theme/theme-rtl';
+@import 'theme/responsive';
+@import 'theme/theme-dark';
