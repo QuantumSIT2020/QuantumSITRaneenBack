@@ -217,6 +217,10 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::get('products/delete_img/{id}','ProductsController@delete_img')->name('delete_product_img');
         Route::get('products/delete_attribute/{id}','ProductsController@delete_attribute')->name('delete_attribute');
         Route::get('/products/search','ProductsController@search_product')->name('search_products');
+        Route::get('/products/hotsaleproducts','ProductsController@hot_sale')->name('hotsale_products');
+        Route::get('/products/hotsale/{id}','ProductsController@hot_sale_create')->name('create_hotsale_products');
+        Route::post('/products/hotsale/{id}','ProductsController@hot_sale_store')->name('store_hotsale_products');
+        Route::get('/products/hotsale/delete/{id}','ProductsController@delete_hotsale')->name('delete_hotsale');
 
         //isActive
 

@@ -15,6 +15,7 @@ use App\Models\Review;
 use File;
 use Auth;
 use App\Models\User;
+use App\Models\Product_HotOffer;
 use Hash;
 
 
@@ -42,7 +43,8 @@ class ProductsController extends Controller
         }
 
         $products = Product::paginate(16);
-        return view($this->path.'index',compact('products'));
+        $hotSale = Product_HotOffer::all();
+        return view($this->path.'index',compact('products','hotSale'));
     }
 
 
@@ -338,6 +340,41 @@ class ProductsController extends Controller
 
 
 
+    }
+
+    public function hot_sale(){
+        $hotSales = Product_HotOffer::all();
+        return view($this->path.'hotsale',compact('hotSales'));
+    }
+
+    public function hot_sale_create($id)
+    {
+        $product = Product::findOrfail($id);
+        return view($this->path.'createhotsale',compact('product'));
+    }
+
+    public function hot_sale_store($id,Request $request)
+    {
+        $request->validate([
+            'offer' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+        ]);
+
+        $hotSale = new Product_HotOffer();
+        $hotSale->offer = $request->offer;
+        $hotSale->start_date = $request->start_date;
+        $hotSale->end_date = $request->end_date;
+        $hotSale->product_id = $id;
+
+        $hotSale->save();
+        return redirect()->route('products')->with('success',__('tr.New Offer has added To Product'));
+    }
+
+    public function delete_hotsale($id)
+    {
+        Product_HotOffer::findOrfail($id)->delete();
+        return redirect()->route('products')->with('success',__('tr.New Offer has deleted To Product'));
     }
 
 }

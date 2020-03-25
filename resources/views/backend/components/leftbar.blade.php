@@ -107,11 +107,11 @@
                     <a href="#Authentication" class="has-arrow"><i class="fa fa-industry"></i><span>@lang('tr.Products')</span></a>
                     <ul>
 
-                        <li><a href="{{ route('products') }}">@lang('tr.products')</a></li>
+                        <li><a href="{{ route('create_products') }}">@lang('tr.Create Products')</a></li>
+                        <li><a href="{{ route('products') }}">@lang('tr.Products')</a></li>
+                        <li><a href="{{ route('hotsale_products') }}">@lang('tr.Hot Sale')</a></li>
                         <li><a href="{{ route('discount') }}">@lang('tr.Discount')</a></li>
-
                         <li><a href="{{ route('reviews') }}">@lang('tr.reviews')</a></li>
-
                     </ul>
                 </li>
 

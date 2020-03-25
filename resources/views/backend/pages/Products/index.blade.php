@@ -53,7 +53,7 @@
                     </ul>
                 </div>
                 <div class="body">
-
+                    @php($langName = \Lang::getLocale().'_name')
                     <div class="row">
                         @foreach ($products as $product)
                             <div class="col-lg-6 col-md-4 col-sm-6">
@@ -66,22 +66,31 @@
 
 
                                         </div>
-                                        <h6 class="mt-3 mb-0">{{ $product->en_name.' | '.$product->ar_name }}</h6>
+                                        <h6 class="mt-3 mb-0">{{ $product->$langName }}</h6>
                                         <br>
-                                        <span><strong>Price:</strong> </span><span style="color: red;">{{ $product->price }}</span><br><br>
-                                        <span><strong>Quantity:</strong> </span><span style="color: red;">{{ $product->quantity }}</span><br><br>
+                                        <span><strong>@lang('tr.Price'):&nbsp;</strong> </span><span style="color: red;">{{ $product->price }}</span> | <strong>@lang('tr.Quantity'):&nbsp;</strong><span style="color: red;">{{ $product->quantity }}</span><br>
+                                        @foreach ($hotSale as $index => $hot)
+                                            @if ( $hot->product_id == $product->id)
+                                                @if ($index == count($hotSale) - 1)
+                                                    <span class="badge badge-danger">@lang('tr.Hot Sale'):&nbsp;{{ $hot->offer }}</span><br><br>
+                                                @endif
+                                            @endif
+                                        @endforeach
+                                        
 
                                         <a href="{{ route('show_products',$product->id) }}" class="btn btn-success btn-sm">@lang('tr.View')</a>
                                         <a href="{{ route('edit_products',$product->id) }}" class="btn btn-warning btn-sm">@lang('tr.Edit')</a>
                                         <a href="{{ route('delete_products',$product->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-danger btn-sm">@lang('tr.Delete')</a>
 
-                                        <button type="button" class="btn btn-info change_status" productID="{{$product->id}}">
+                                        <button type="button" class="btn btn-info btn-sm change_status" productID="{{$product->id}}">
                                             @if($product->isactive ==1)
-                                                <?="DeActive"?>
+                                                @lang('tr.Deactive')
                                             @else
-                                                <?="Active" ?>
+                                                @lang('tr.Active')
                                             @endif
                                         </button>
+
+                                        <a href="{{ route('create_hotsale_products',$product->id) }}" class="btn btn-primary btn-sm">@lang('tr.Hot Sale')</a>
 
                                         <div class="row text-center mt-4">
                                             <div class="col-lg-6 border-right">
@@ -153,7 +162,7 @@
             data: {},
             success: function(data) {
                 if (data > 0 ){
-                    alert("update successfully");
+                    // alert("update successfully");
                     location.reload();
                 }
             },
