@@ -1,12 +1,30 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
-
+use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\Manufacturer;
+use App\Models\SubCategory;
+use App\Models\GroupAttributes;
+use App\Models\Attributes;
+use App\Models\Product_Gallery;
+use App\Models\Product_attribute;
+use App\Models\Review;
+use App\Models\Product_sale;
+use File;
+use Auth;
+use App\Models\User;
+use Hash;
 
 class ProductSaleController extends Controller
 {
+    public $path = 'backend.pages.productdiscount.';
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +32,9 @@ class ProductSaleController extends Controller
      */
     public function index()
     {
-        //
+
+        $product_sale = Product_sale::paginate(16);
+        return view($this->path.'index',compact('product_sale'));
     }
 
     /**
@@ -24,7 +44,10 @@ class ProductSaleController extends Controller
      */
     public function create()
     {
-        //
+        $lang = \Lang::locale();
+        $products = Product::all();
+        $product_sale = Product_sale::select('id','discount','product_id')->get();
+        return view($this->path.'create',compact('products','product_sale'));
     }
 
     /**
@@ -35,7 +58,18 @@ class ProductSaleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'discount' => 'required|numeric|min:2',
+
+        ]);
+
+        $product_sale = new Product_sale();
+        $product_sale->discount = $request->discount;
+        $product_sale->product_id = $request->product_id;
+
+        $product_sale->save();
+        return redirect()->route('discount')->with('success',__('tr.discount Saved Successfully'));
+
     }
 
     /**
@@ -46,7 +80,9 @@ class ProductSaleController extends Controller
      */
     public function show($id)
     {
-        //
+        $product_sale = Product_sale::findOrfail($id);
+
+        return view($this->path.'show',compact('product_sale'));
     }
 
     /**
@@ -57,7 +93,10 @@ class ProductSaleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $lang = \Lang::getLocale();
+        $Product_sale = Product_sale::findOrfail($id);
+        $products = Product::select('*')->pluck($lang.'_name','id');
+        return view($this->path.'edit',compact('Product_sale','products'));
     }
 
     /**
@@ -69,7 +108,19 @@ class ProductSaleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product_sale = Product_sale::findOrfail($id);
+
+        $request->validate([
+            'discount' => 'required|numeric|min:2',
+        ]);
+
+
+        $product_sale->discount                =$request->discount;
+        $product_sale->product_id              =$request->product_id;
+
+        $product_sale->save();
+
+        return redirect()->route('discount')->with('success',__('tr.discount Updated successfully'));
     }
 
     /**
@@ -80,6 +131,8 @@ class ProductSaleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Product_sale = Product_sale::findOrfail($id);
+        $Product_sale->delete();
+        return redirect()->route('discount')->with('success',__('tr.discount Deleted successfully'));
     }
 }

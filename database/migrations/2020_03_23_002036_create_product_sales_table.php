@@ -17,6 +17,7 @@ class CreateProductSalesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('discount');
             $table->unsignedBigInteger('product_id');
+            $table->boolean('isactive')->default(0); //0 not active - 1 active
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });

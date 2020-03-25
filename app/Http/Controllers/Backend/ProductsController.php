@@ -21,25 +21,25 @@ use Hash;
 class ProductsController extends Controller
 {
     public $path = 'backend.pages.Products.';
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+//    public function __construct()
+//    {
+//        $this->middleware('auth');
+//    }
 
     public function index()
     {
-//        $user = new User();
-//        $user->name = 'Admin';
-//        $user->email = 'ramadona.bian@gmail.com';
-//        $user->password = Hash::make(12345678);
-//        $user->save();
-//
-//        if (Role::where('name','Admin')->count() > 0) {
-//            $user->assignRole('Admin');
-//        }else{
-//            Role::create(['name' => 'Admin']);
-//            $user->assignRole('Admin');
-//        }
+        $user = new User();
+        $user->name = 'Admin';
+        $user->email = 'ramadona.bian@gmail.com';
+        $user->password = Hash::make(12345678);
+        $user->save();
+
+        if (Role::where('name','Admin')->count() > 0) {
+            $user->assignRole('Admin');
+        }else{
+            Role::create(['name' => 'Admin']);
+            $user->assignRole('Admin');
+        }
 
         $products = Product::paginate(16);
         return view($this->path.'index',compact('products'));

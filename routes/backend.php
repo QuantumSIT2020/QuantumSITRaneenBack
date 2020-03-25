@@ -229,7 +229,16 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::post('/reviews/store','ProductsController@storeReview')->name('store_reviews');
 
 
+        //discount
 
+        Route::get('/discount','ProductSaleController@index')->name('discount');
+        Route::get('/discount/create','ProductSaleController@create')->name('create_discount');
+        Route::post('/discount/store','ProductSaleController@store')->name('store_discount');
+        Route::get('/discount/edit/{id}','ProductSaleController@edit')->name('edit_discount');
+        Route::post('/discount/update/{id}','ProductSaleController@update')->name('update_discount');
+        Route::get('/discount/delete/{id}','ProductSaleController@destroy')->name('delete_discount');
+        Route::get('/discount/show/{id}','ProductSaleController@show')->name('show_discount');
+        Route::get('/discount/status/{id}', 'ProductSaleController@status')->name('discount_status');
 
 
 

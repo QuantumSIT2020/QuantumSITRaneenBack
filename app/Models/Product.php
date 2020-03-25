@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\WishList;
 use App\Models\SubCategory;
 use App\Models\Manufacturer;
+use App\Models\Product_sale;
 
 class Product extends Model
 {
@@ -24,6 +25,9 @@ class Product extends Model
     public function Manufacturer(){
         return $this->belongsTo('App\Models\Manufacturer','manufacturer_id');
     }
+
+
+
 
 
 }
