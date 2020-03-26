@@ -29,7 +29,7 @@
                         <h3>{{ $child->$langName }}</h3>
                         <p>
                         {{ substr($child->$langDesc,0,77) }}
-                        </p><a href="{{ route('frontend_subcategory',$child->id) }}" class="btn btn-normal">@lang('tr.Shop Now')</a></div>
+                        </p><a href="{{ route('frontend_brandcategory',$child->id) }}" class="btn btn-normal">@lang('tr.Shop Now')</a></div>
                 </div>
             </div>
 
@@ -41,6 +41,8 @@
         
     </div>
 </section>
+
+@include('frontend.components.contactbanner')
 
 
 @endsection

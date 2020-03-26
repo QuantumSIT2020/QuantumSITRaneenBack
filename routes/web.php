@@ -16,6 +16,7 @@ Route::post('/blogs/comment/{id}', 'Frontend\BlogsController@addComment')->name(
 Route::get('/main-category', 'Frontend\ProductsController@mainCategory')->name('frontend_maincategory');
 Route::get('/main-category/{id}', 'Frontend\ProductsController@childCategory')->name('frontend_childcategory');
 Route::get('/child-category/{id}', 'Frontend\ProductsController@subCategory')->name('frontend_subcategory');
+Route::get('/sub-category/{id}', 'Frontend\ProductsController@brandProducts')->name('frontend_brandcategory');
 
 
 Route::get('/prod/{id}', 'Frontend\BlogsController@show')->name('frontend_show_blogs');
