@@ -89,6 +89,10 @@ class PagesController extends Controller
         $pages->ar_desc =strip_tags($request->ar_desc);
 
 
+
+
+
+
         if ($request->hasFile('page_image')){
             $imageName = time().'.'.request()->page_image->getClientOriginalExtension();
             $request->page_image->move($path_page_image, $imageName);
@@ -176,5 +180,14 @@ class PagesController extends Controller
         $page_data->delete();
 
         return redirect()->route('pages')->with('success',__('tr.page Deleted successfully'));
+    }
+
+
+       public function viewpages($id)
+    {
+        $lang = \Lang::getLocale();
+        $viewpages = pages::select($lang.'_name as name',$lang.'_desc as description','page_image','id as id')->orderBy('id', 'asc')->where('id',$id)->get()->first();
+
+        return view('frontend.allpages.view',compact('viewpages'));
     }
 }

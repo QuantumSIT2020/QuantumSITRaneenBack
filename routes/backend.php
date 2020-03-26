@@ -177,6 +177,7 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::get('/pages/show/{id}','PagesController@show')->name('show_pages');
         Route::get('/pages/delete/{id}','PagesController@destroy')->name('delete_pages');
         Route::get('/pages/search','PagesController@searchPages')->name('search_pages');
+        Route::get('/pages/viewpages/{id}','PagesController@viewpages')->name('viewpages');
 
 
 

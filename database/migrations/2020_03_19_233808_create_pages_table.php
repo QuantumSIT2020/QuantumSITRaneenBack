@@ -19,7 +19,7 @@ class CreatePagesTable extends Migration
             $table->string('ar_name');
             $table->text('en_desc');
             $table->text('ar_desc');
-            $table->string('page_image');
+            $table->string('page_image')->nullable();
             $table->timestamps();
         });
     }

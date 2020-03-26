@@ -5,6 +5,7 @@
 {{-- additional stylesheets --}}
 @section('stylesheet')
 
+
 @endsection
 {{-- end additional stylesheets --}}
 
@@ -44,16 +45,24 @@
                                     <input type="text" class="form-control" name="ar_name"  id ="ar_name"  value="{{ old('ar_name') }}"  placeholder="@lang('tr.Enter Arabic Name')"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="en_desc">@lang('tr.en_description'):</label>
-                                    <textarea name="en_desc" id="en_desc" cols="30" rows="5" class="form-control m-input" placeholder="@lang('tr.Enter English description')" required>{{ old('en_desc') }}</textarea>
+                                    <label for="text-input9">@lang('tr.en_description')</label>
+                                    <textarea  name="en_desc">
 
+                            </textarea>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="ar_desc">@lang('tr.ar_description'):</label>
-                                    <textarea name="ar_desc" id="ar_desc" cols="30" rows="5" class="form-control m-input" placeholder="@lang('tr.Enter Arabic description')" required>{{ old('ar_desc') }}</textarea>
+                                    <div class="form-group">
+                                        <label for="text-input9">@lang('tr.ar_description')</label>
+                                        <textarea  name="ar_desc">
 
+                            </textarea>
+                                    </div>
                                 </div>
+
+
+
+
 
                                 <div class="form-group">
                                     <label class="col-lg-4 file">@lang('tr.Select   Image')</label>
@@ -87,24 +96,39 @@
 
 
 {{-- additional scripts --}}
-@section('stylesheet')
+@section('javascript')
+    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
+                reader.onload = function (e) {
+                    $(input).siblings("img").attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+    <script>
+        CKEDITOR.replace( 'en_desc' );
+    </script>
+
+    <script>
+        CKEDITOR.replace( 'ar_desc' );
+    </script>
 @endsection
 {{-- end additional scripts --}}
 
-<script type="text/javascript">
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
 
-            reader.onload = function (e) {
-                $(input).siblings("img").attr('src', e.target.result);
-            }
 
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-</script>
+
+
+
+
+
+
 
 
 
