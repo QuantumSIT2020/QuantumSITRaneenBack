@@ -157,14 +157,14 @@
 
                                         <!--blog-meu start-->
                                         <li>
-                                            <a href="#">More <i style="color:#B22827;" class="fa fa-question-circle fa-1x"></i></a>
+                                            <a href="#">@lang('tr.More')</a>
 
                                             <ul>
 
                                                 @php($viewpages =  App\Models\pages::select('page_image','id as id','en_name','ar_name')->orderBy('id', 'asc')->get())
                                                 @foreach($viewpages as $page)
 
-                                                    <a class="dropdown-item hidden-lg hidden-md" href="{{ route('viewpages',$page->id) }}" target="_blank">{{ $page->en_name }}</a>
+                                                    <a class="dropdown-item hidden-lg hidden-md" href="{{ route('frontend_pages',$page->id) }}" target="_blank">{{ $page->en_name }}</a>
                                                 @endforeach
 
                                             </ul>
@@ -183,10 +183,10 @@
                                                     @csrf
                                                 </form>    
                                             @else
-                                                <li class="mobile-user onhover-dropdown" onclick="openAccount()"><a href="#"><i class="icon-user"></i> <div class="cart-item"><div> <span>login</span></div></div></a></li>
+                                                <li class="mobile-user onhover-dropdown" ><a href="{{ route('frontend_login') }}"><i class="icon-user"></i> <div class="cart-item"><div> <span>login</span></div></div></a></li>
                                             @endif
                                         @else
-                                            <li class="mobile-user onhover-dropdown" onclick="openAccount()"><a href="#"><i class="icon-user"></i> <div class="cart-item"><div> <span>login</span></div></div></a></li>
+                                            <li class="mobile-user onhover-dropdown" ><a href="{{ route('frontend_login') }}"><i class="icon-user"></i> <div class="cart-item"><div> <span>login</span></div></div></a></li>
                                         @endif
                                                 
                                         

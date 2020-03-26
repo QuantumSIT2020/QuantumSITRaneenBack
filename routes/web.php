@@ -20,9 +20,14 @@ Route::get('/main-category/{id}', 'Frontend\ProductsController@childCategory')->
 Route::get('/child-category/{id}', 'Frontend\ProductsController@subCategory')->name('frontend_subcategory');
 Route::get('/sub-category/{id}', 'Frontend\ProductsController@brandProducts')->name('frontend_brandcategory');
 
+//Pages
+Route::get('/pages/{id}','Frontend\PagesController@index')->name('frontend_pages');
 
-Route::get('/prod/{id}', 'Frontend\BlogsController@show')->name('frontend_show_blogs');
-Route::post('/prod/comment/{id}', 'Frontend\BlogsController@addComment')->name('frontend_comment_blogs');
+//Auth
+Route::get('/user/login','Frontend\AuthController@login')->name('frontend_login');
+Route::get('/user/register','Frontend\AuthController@register')->name('frontend_register');
+Route::post('/user/register','Frontend\AuthController@registerPost')->name('frontend_register_post');
+Route::get('/user/forget','Frontend\AuthController@forget')->name('frontend_forget');
 
 Auth::routes();
 
