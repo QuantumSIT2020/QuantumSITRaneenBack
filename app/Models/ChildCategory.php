@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\MainCategory;
+use App\Models\SubCategory;
 
 class ChildCategory extends Model
 {
@@ -11,5 +11,10 @@ class ChildCategory extends Model
 
     public function MainCategory(){
         return $this->belongsTo('App\Models\MainCategory','main_category_id');
+    }
+
+    public static function countSubCategory($id)
+    {
+        return SubCategory::where('child_category_id',$id)->count();
     }
 }

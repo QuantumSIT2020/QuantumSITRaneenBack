@@ -53,9 +53,9 @@
                             <img class="rounded-circle" src="{{ URL::to('/') }}/backend/dashboard_images/blogs/{{$blog->blog_image }}" alt="">
                         </div>
                         @if(\Lang::getLocale() == 'en')
-                            <h5 class="mt-3 mb-0">{{ $blog->en_name }}</h5>
+                            <h5 class="mt-3 mb-0">{{ substr($blog->en_name,0,20) }}</h5>
                         @else
-                            <h5 class="mt-3 mb-0">{{ $blog->ar_name }}</h5>
+                            <h5 class="mt-3 mb-0">{{ substr($blog->ar_name,0,20) }}</h5>
                         @endif
 
                         <br><Br>
@@ -63,11 +63,11 @@
                         <a href="{{ route('show_blogs', $blog->id) }}" class="btn btn-success btn-sm">@lang('tr.View')</a>
                         <a href="{{ route('edit_blogs', $blog->id) }}" class="btn btn-warning btn-sm">@lang('tr.Edit')</a>
                         <a href="{{ route('delete_blogs', $blog->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-danger btn-sm">@lang('tr.Delete')</a>
-                        <button type="button" class="btn btn-danger change_status" BlogID="{{$blog->id}}">
+                        <button type="button" class="btn btn-primary btn-sm change_status" BlogID="{{$blog->id}}">
                                                                 @if($blog->isactive ==1)
-                                                                    <?="DeActive"?>
+                                                                    @lang('tr.Deactive')
                                                                 @else
-                                                                    <?="Active" ?>
+                                                                @lang('tr.Active')
                                                                 @endif
                                                             </button>
 
@@ -120,7 +120,7 @@
                 data: {},
                 success: function(data) {
                     if (data > 0 ){
-                        alert("update successfully");
+                        //alert("update successfully");
                         location.reload();
                     }
                 },

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Blog;
 use File;
+use Auth;
 
 class BlogsController extends Controller
 {
@@ -83,6 +84,7 @@ class BlogsController extends Controller
         $blogs->en_desc =strip_tags($request->en_desc);
         $blogs->ar_desc =strip_tags($request->ar_desc);
         $blogs->type    =strip_tags($request->type);
+        $blogs->user_id    = Auth::user()->id;
 
 
         if ($request->hasFile('blog_image')){

@@ -1,6 +1,7 @@
 
 <section class="theme-slider pb-0 pl-3 pt-3">
     <div class="custom-container">
+    
         <div class="row">
             <div class="col-xl-8 col-lg-9 offset-xl-2 " id="rtlslide">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

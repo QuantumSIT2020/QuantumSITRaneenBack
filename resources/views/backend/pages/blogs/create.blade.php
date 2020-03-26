@@ -98,11 +98,14 @@
 
 
 {{-- additional scripts --}}
-@section('stylesheet')
-
-@endsection
-{{-- end additional scripts --}}
-
+@section('javascript')
+<script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'en_desc' );
+</script>
+<script>
+    CKEDITOR.replace( 'ar_desc' );
+</script>
 <script type="text/javascript">
     function readURL(input) {
         if (input.files && input.files[0]) {
@@ -116,4 +119,8 @@
         }
     }
 </script>
+@endsection
+{{-- end additional scripts --}}
+
+
 
