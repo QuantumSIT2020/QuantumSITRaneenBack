@@ -22,6 +22,22 @@ Route::get('/sub-category/{id}', 'Frontend\ProductsController@brandProducts')->n
 Route::get('/prod/{id}', 'Frontend\BlogsController@show')->name('frontend_show_blogs');
 Route::post('/prod/comment/{id}', 'Frontend\BlogsController@addComment')->name('frontend_comment_blogs');
 
+
+//faq
+
+
+Route::get('/faq','Frontend\FaqController@index')->name('faq');
+Route::get('/faq/create','Frontend\FaqController@create')->name('create_faq');
+Route::post('/faq/create','Frontend\FaqController@store')->name('store_faq');
+Route::get('/faq/edit/{id}','Frontend\FaqController@edit')->name('edit_faq');
+Route::post('/faq/update/{id}','Frontend\FaqController@update')->name('update_faq');
+Route::get('/faq/show/{id}','Frontend\FaqController@show')->name('show_faq');
+Route::get('/faq/delete/{id}','Frontend\FaqController@destroy')->name('delete_faq');
+Route::get('/faq/search','Frontend\FaqController@searchPages')->name('search_faq');
+Route::get('/faq/viewfaq','Frontend\FaqController@viewfaq')->name('viewfaq');
+
+
+
 Auth::routes();
 
 

@@ -188,6 +188,6 @@ class PagesController extends Controller
         $lang = \Lang::getLocale();
         $viewpages = pages::select($lang.'_name as name',$lang.'_desc as description','page_image','id as id')->orderBy('id', 'asc')->where('id',$id)->get()->first();
 
-        return view('frontend.allpages.view',compact('viewpages'));
+        return view('frontend.pages.allpages.view',compact('viewpages'));
     }
 }
