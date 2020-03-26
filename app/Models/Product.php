@@ -8,6 +8,7 @@ use App\Models\WishList;
 use App\Models\SubCategory;
 use App\Models\Manufacturer;
 use App\Models\Product_sale;
+use App\Models\Review;
 
 class Product extends Model
 {
@@ -26,6 +27,15 @@ class Product extends Model
         return $this->belongsTo('App\Models\Manufacturer','manufacturer_id');
     }
 
+    public static function getReview($id)
+    {
+        return Review::where('product_id',$id)->avg('reviews');
+    }
+
+    public static function checkDiscount($id)
+    {
+        return Product_sale::where('product_id',$id)->orderBy('id','desc')->get()->first();
+    }
 
 
 

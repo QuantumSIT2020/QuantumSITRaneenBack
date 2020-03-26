@@ -258,6 +258,14 @@ Route::group(['middleware' => 'Lang'], function () {
 
 
 
+        //partners
+
+        Route::get('/partners','PartnersController@index')->name('partners');
+        Route::get('/partners/create','PartnersController@create')->name('create_partners');
+        Route::post('/partners/create','PartnersController@store')->name('store_partners');
+        Route::get('/partners/edit/{id}','PartnersController@edit')->name('edit_partners');
+        Route::post('/partners/update/{id}','PartnersController@update')->name('update_partners');
+        Route::get('/partners/delete/{id}','PartnersController@destroy')->name('delete_partners');
 
     });
     

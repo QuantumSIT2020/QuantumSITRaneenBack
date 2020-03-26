@@ -21,7 +21,8 @@ use Hash;
 
 class ProductsController extends Controller
 {
-    public $path = 'backend.pages.Products.';
+   public $path = 'backend.pages.Products.';
+   
    public function __construct()
    {
        $this->middleware('auth');

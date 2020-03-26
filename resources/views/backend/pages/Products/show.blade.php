@@ -58,7 +58,7 @@
                 <h4>@lang('tr.Gallery')</h4><hr>
                 <div id="lightgallery" class="row clearfix lightGallery">
                     @foreach ($gallery as $image)
-                        <div class="col-lg-3 col-md-6 m-b-30"><img class="img-fluid rounded img-thumbnail" src="{{ asset('backend/dashboard_images/Products/'.$image->image) }}" style="width:300px;height:300px;" alt=""></a></div>
+                    <div class="col-lg-3 col-md-6 m-b-30"><a class="light-link" href="{{ asset('backend/dashboard_images/Products/'.$image->image) }}"><img class="img-fluid rounded" src="{{ asset('backend/dashboard_images/Products/'.$image->image) }}" style="width:800px;height:300px;" alt=""></a></div>
                     @endforeach
                 </div>
             </div>

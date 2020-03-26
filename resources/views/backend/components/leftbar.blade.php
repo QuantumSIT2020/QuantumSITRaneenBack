@@ -136,6 +136,7 @@
                 <li>
                     <a href="#Authentication" class="has-arrow"><i class="fa fa-file"></i><span>@lang('tr.Others')</span></a>
                     <ul>
+                        <li><a href="{{route('partners')}}">@lang('tr.Partners')</a></li>
                         <li><a href="{{route('pages')}}">@lang('tr.Pages')</a></li>
                         <li><a href="{{route('sliders')}}">@lang('tr.sliders')</a></li>
 

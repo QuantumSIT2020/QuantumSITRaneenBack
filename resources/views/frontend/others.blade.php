@@ -1,22 +1,24 @@
-@extends('frontend.layouts.master')
+@include('frontend.components.allcategory')
 
-@section('title',__('tr.Raneen'))
-
-@section('allcategories')
-    @include('frontend.components.allcategory')
-@endsection
-
-@section('content')
-
+<!--slider start-->
 @include('frontend.components.slider')
+<!--End slider start-->
 
+<!--collectionbanner-->
 @include('frontend.components.collectionbanner')
+<!--End collectionbanner-->
 
+<!--top brand-->
 @include('frontend.components.topbrand')
+<!--End top brand-->
 
+<!--services-->
 @include('frontend.components.services')
+<!--End services-->
 
+<!--hot deal-->
 @include('frontend.components.hotdeal')
+<!--End hot deal-->
 
 <!--tab product-->
 @include('frontend.components.tabproduct')
@@ -59,32 +61,30 @@
 @include('frontend.components.contactbanner')
     <!--End contact banner-->
 
-<!--add to cart bar-->
-@include('frontend.components.addcartbar')
-<!--End add to cart bar-->
-
-<!--news letter modal-->
-@include('frontend.components.newslettermodal')
-<!--End news letter modal-->
-
-<!--quick view modal-->
-@include('frontend.components.quickviewmodal')
-<!--End quick view modal-->
-
-<!--my account-->
-@include('frontend.components.myaccount')
-<!--End my account-->
-
-<!--add wishlist-->
-@include('frontend.components.addwishlist')
-<!--End add wishlist-->
-
-<!--add settingbar-->
-@include('frontend.components.addsettingbar')
-<!--End add settingbar-->
 
 
 
-<!--slider start-->
+
+    <!--add to cart bar-->
+    @include('frontend.components.addcartbar')
+    <!--End add to cart bar-->
     
-@endsection
+    <!--news letter modal-->
+    @include('frontend.components.newslettermodal')
+    <!--End news letter modal-->
+    
+    <!--quick view modal-->
+    @include('frontend.components.quickviewmodal')
+    <!--End quick view modal-->
+    
+    <!--my account-->
+    @include('frontend.components.myaccount')
+    <!--End my account-->
+    
+    <!--add wishlist-->
+    @include('frontend.components.addwishlist')
+    <!--End add wishlist-->
+    
+    <!--add settingbar-->
+    @include('frontend.components.addsettingbar')
+    <!--End add settingbar-->
