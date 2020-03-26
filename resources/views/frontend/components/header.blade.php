@@ -1,3 +1,4 @@
+
 <header>
     <div class="mobile-fix-option"></div>
     <div class="top-header ">
@@ -94,6 +95,7 @@
                                 </ul>
                             </div>
                             <div class="brand-logo">
+
                                 <a href="#">
                                     <img class="logo-width-top" src="{{ asset('frontend/assets/images/layout-2/logo/logo-ranen.png') }}" class="img-fluid  " alt="logo-header">
                                 </a>
@@ -138,11 +140,7 @@
                                         </li>
                                         <!--product-end end-->
 
-                                        <!--mega-meu start-->
-                                        <li class="mega">
-                                            <a href="about-page.html">about us</a>
 
-                                        </li>
                                         <!--mega-meu end-->
 
                                         <!--mega-meu start-->
@@ -159,14 +157,16 @@
 
                                         <!--blog-meu start-->
                                         <li>
-                                            <a href="#">help <i style="color:#B22827;" class="fa fa-question-circle fa-1x"></i></a>
+                                            <a href="#">More <i style="color:#B22827;" class="fa fa-question-circle fa-1x"></i></a>
 
                                             <ul>
-                                                <li><a href="faq.html">FAQ</a></li>
-                                                <li><a href="contact.html">Contact Us</a></li>
-                                                <li><a href="terms&condition.html">Terms and Conditions</a></li>
-                                                <li><a href="blog-details.html">shipping&payment policy</a></li>
-                                                <li><a href="blog-details.html">How to </a></li>
+
+                                                @php($viewpages =  App\Models\pages::select('page_image','id as id','en_name','ar_name')->orderBy('id', 'asc')->get())
+                                                @foreach($viewpages as $page)
+
+                                                    <a class="dropdown-item hidden-lg hidden-md" href="{{ route('viewpages',$page->id) }}" target="_blank">{{ $page->en_name }}</a>
+                                                @endforeach
+
                                             </ul>
                                         </li>
                                         <!--blog-meu end-->
