@@ -17124,9 +17124,7 @@ body.rtl {
     .theme-slider .slider-banner.slide-banner-3 .slider-img {
         height: 350px;
     }
-    .offer-banner {
-        display: inline-block;
-    }
+
     .theme-slider .offset-xl-2 {
         max-width: calc(100% - 270px);
     }
@@ -17292,9 +17290,6 @@ body.rtl {
     }
     .collection-layout1>div:nth-child(2) {
         max-width: 29.5%;
-    }
-    .offer-banner {
-        display:inline-block;
     }
     .category-header .navbar-menu .category-left .nav-block .nav-left .nav-cat li {
         padding-bottom: 7px;
@@ -17705,9 +17700,7 @@ body.rtl {
         flex: 0 0 33.33333%;
         max-width: 33.33333%;
     }
-    .offer-banner {
-        display:none;
-    }
+
     .collection-banner .offset-xl-2 {
         margin-left: 0;
     }
