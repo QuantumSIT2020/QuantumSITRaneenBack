@@ -184,10 +184,10 @@
                                                         <div class="product-imgbox">
                                                             <a href="product-details-bundels.html">
                                                                 <div class="product-front">
-                                                                    <img src="{{ asset('backend/dashboard_images/Products/'.$product->product_image) }}" class="img-fluid  " alt="product">
+                                                                    <img style="width: 768px;height: 250px;" src="{{ asset('backend/dashboard_images/Products/'.$product->product_image) }}" class="img-fluid  " alt="product">
                                                                 </div>
                                                                 <div class="product-back">
-                                                                    <img src="{{ asset('backend/dashboard_images/Products/'.$product->product_image) }}" class="img-fluid  " alt="product">
+                                                                    <img style="width: 768px;height: 250px;" src="{{ asset('backend/dashboard_images/Products/'.$product->product_image) }}" class="img-fluid  " alt="product">
                                                                 </div>
                                                             </a>
                                                         </div>
@@ -262,5 +262,7 @@
         </div>
     </div>
 </section>
+
+@include('frontend.components.contactbanner')
 
 @endsection

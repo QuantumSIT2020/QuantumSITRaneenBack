@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('title',__('tr.Blogs'))
+@section('title',__('tr.News'))
 
 @section('content')
 
@@ -16,8 +16,8 @@
         <div class="row">
             <div class="col-12">
                 
-                @if (count($blogs) > 0)
-                @foreach ($blogs as $blog)
+                @if (count($news) > 0)
+                @foreach ($news as $blog)
 
                 @php($langName = \Lang::getLocale().'_name')
                 @php($langDesc = \Lang::getLocale().'_desc')
@@ -25,7 +25,7 @@
                 <div class="row blog-media">
                     <div class="col-xl-6 ">
                         <div class="blog-left">
-                            <a href="{{ route('frontend_show_blogs',$blog->id) }}"><img src="{{ asset('backend/dashboard_images/blogs/'.$blog->blog_image) }}" class="img-fluid  " alt="blog"></a>
+                            <a href="{{ route('frontend_show_news',$blog->id) }}"><img src="{{ asset('backend/dashboard_images/blogs/'.$blog->blog_image) }}" class="img-fluid  " alt="blog"></a>
                             <div class="date-label">
                                 {{ $blog->created_at->diffForHumans() }}
                             </div>
@@ -34,7 +34,7 @@
                     <div class="col-xl-6 ">
                         <div class="blog-right">
                             <div>
-                                <a href="{{ route('frontend_show_blogs',$blog->id) }}">
+                                <a href="{{ route('frontend_show_news',$blog->id) }}">
                                     <h4>{{ $blog->$langName }}</h4>
                                 </a>
                                 <ul class="post-social">
@@ -42,7 +42,7 @@
                         
                                 </ul>
                                 <p>{!! substr($blog->$langDesc,0,250) !!}</p>
-                                <a href="{{ route('frontend_show_blogs',$blog->id) }}" class="read-blog" style="color:#b22827; margin-top: 10px; font-size: 18px; text-decoration: underline;">@lang('tr.Read more')</a>
+                                <a href="{{ route('frontend_show_news',$blog->id) }}" class="read-blog" style="color:#b22827; margin-top: 10px; font-size: 18px; text-decoration: underline;">@lang('tr.Read more')</a>
                             </div>
                         </div>
                     </div>
@@ -52,11 +52,11 @@
                 @endforeach
 
                 <div class="row">
-                    {{ $blogs->links() }}
+                    {{ $news->links() }}
                 </div>
 
                 @else
-                <h1 style="text-align: center; font-size: 30px; color: #b22827; font-weight: bold;">@lang('tr.There No Blogs')</h1>
+                <h1 style="text-align: center; font-size: 30px; color: #b22827; font-weight: bold;">@lang('tr.There No News')</h1>
                 @endif
 
                                 
@@ -65,7 +65,5 @@
     </div>
 </section>
 
-
 @include('frontend.components.contactbanner')
-
 @endsection

@@ -109,7 +109,7 @@
                                         </li>
                                         <!--HOME-->
                                         <li>
-                                            <a href="#">Home</a>
+                                            <a href="{{ route('home') }}">@lang('tr.Home')</a>
 
                                         </li>
                                         <!--HOME-END-->
@@ -133,7 +133,7 @@
                                         <!--product-meu end-->
 
                                         <!--pages-meu start-->
-                                        <li><a href="All_Category.html">products</a>
+                                        <li><a href="{{ route('frontend_maincategory') }}">@lang('tr.Products')</a>
 
                                         </li>
                                         <!--product-end end-->
@@ -146,10 +146,16 @@
                                         <!--mega-meu end-->
 
                                         <!--mega-meu start-->
-                                        <li class="mega">
-                                            <a href="All_Blogs.html">blog</a>
+                                        <li>
+                                            <a href="#">@lang('tr.Blogs')</a>
 
+                                            <ul>
+                                                <li><a href="{{ route('frontend_blogs') }}">@lang('tr.Blogs')</a></li>
+                                                <li><a href="{{ route('frontend_news') }}">@lang('tr.News')</a></li>
+                                            </ul>
                                         </li>
+
+
 
                                         <!--blog-meu start-->
                                         <li>
@@ -170,9 +176,20 @@
                             <div>
                                 <div class="icon-nav">
                                     <ul>
-                                        <li class="mobile-user onhover-dropdown" onclick="openAccount()"><a href="#"><i class="icon-user"></i> <div class="cart-item"><div> <span>login</span></div></div></a>
-
-                                        </li>
+                                        @if(isset(Auth::user()->id))
+                                            @if(Auth::user()->id != null)
+                                            <li class="mobile-user onhover-dropdown"><a  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="icon-user"></i> <div class="cart-item"><div> <span>{{ Auth::user()->name }}</span></div></div></a></li>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                    @csrf
+                                                </form>    
+                                            @else
+                                                <li class="mobile-user onhover-dropdown" onclick="openAccount()"><a href="#"><i class="icon-user"></i> <div class="cart-item"><div> <span>login</span></div></div></a></li>
+                                            @endif
+                                        @else
+                                            <li class="mobile-user onhover-dropdown" onclick="openAccount()"><a href="#"><i class="icon-user"></i> <div class="cart-item"><div> <span>login</span></div></div></a></li>
+                                        @endif
+                                                
+                                        
                                         <li class="mobile-wishlist" onclick="openWishlist()">
                                             <a href="#">
                                                 <i class="icon-heart"></i>
@@ -330,7 +347,6 @@
     </div>
 
 
-    
 
 </header>
 

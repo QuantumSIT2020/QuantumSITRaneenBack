@@ -11,6 +11,7 @@ use App\Models\BlogComment;
 class BlogsController extends Controller
 {
     public $path = 'frontend.pages.blogs.';
+    public $pathNews = 'frontend.pages.news.';
     
     public function index()
     {
@@ -44,5 +45,17 @@ class BlogsController extends Controller
 
         return back();
 
+    }
+
+    public function news()
+    {
+        $news = Blog::where('type','news')->where('isactive',1)->paginate(4);
+        return view($this->pathNews.'index',compact('news'));
+    }
+
+    public function showNews($id)
+    {
+        $news = Blog::findOrfail($id);
+        return view($this->pathNews.'show',compact('news'));
     }
 }

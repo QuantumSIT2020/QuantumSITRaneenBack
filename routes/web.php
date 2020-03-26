@@ -11,8 +11,10 @@ Route::get('/home', 'Frontend\HomeController@index')->name('home');
 Route::get('/blogs', 'Frontend\BlogsController@index')->name('frontend_blogs');
 Route::get('/blogs/{id}', 'Frontend\BlogsController@show')->name('frontend_show_blogs');
 Route::post('/blogs/comment/{id}', 'Frontend\BlogsController@addComment')->name('frontend_comment_blogs');
+Route::get('/news', 'Frontend\BlogsController@news')->name('frontend_news');
+Route::get('/news/{id}', 'Frontend\BlogsController@showNews')->name('frontend_show_news');
 
-//Products as arrange 1 2 3
+//Products as arrange 1 2 3 4
 Route::get('/main-category', 'Frontend\ProductsController@mainCategory')->name('frontend_maincategory');
 Route::get('/main-category/{id}', 'Frontend\ProductsController@childCategory')->name('frontend_childcategory');
 Route::get('/child-category/{id}', 'Frontend\ProductsController@subCategory')->name('frontend_subcategory');

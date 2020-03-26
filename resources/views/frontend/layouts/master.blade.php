@@ -19,7 +19,6 @@
     @yield('content')
     
     
-    
     <!--footer-->
     @include('frontend.components.footer')
     <!--End footer-->
