@@ -139,6 +139,7 @@
                         <li><a href="{{route('partners')}}">@lang('tr.Partners')</a></li>
                         <li><a href="{{route('pages')}}">@lang('tr.Pages')</a></li>
                         <li><a href="{{route('sliders')}}">@lang('tr.sliders')</a></li>
+                        <li><a href="{{route('faq')}}">@lang('tr.faq')</a></li>
 
                         <li><a href="{{route('blogs')}}">@lang('tr.Blogs')</a></li>
                         <li><a href="{{ route('testseo_index') }}">@lang('tr.SEO')</a></li>

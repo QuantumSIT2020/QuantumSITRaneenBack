@@ -94,7 +94,7 @@
                                                                 <li><a href="#"> my account</a></li>
                                                                 <li><a href="#"> orders tracking</a></li>
                                                                 <li><a href="#"> size guide</a></li>
-                                                                <li><a href="#">FAQ </a></li>
+                                                                <li><a href="{{route('viewfaq')}}">FAQ </a></li>
                                                             </ul>
                                                         </div>
                                                     </div>
