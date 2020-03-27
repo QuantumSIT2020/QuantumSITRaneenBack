@@ -31,5 +31,8 @@
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/css/color2.css') }}" media="screen" id="color">
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/css/mystyle.css') }}" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+    @yield('stylesheet')
 
 </head>

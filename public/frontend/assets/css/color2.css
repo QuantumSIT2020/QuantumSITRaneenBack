@@ -1,3 +1,6 @@
+body {
+    transition-timing-function: ease-in-out !important;
+}
 .bg-light {
     background-color: #fff !important;
 }
@@ -85,14 +88,14 @@ p {
 }
 
 a {
-    -webkit-transition: 0.5s ease;
-    transition: 0.5s ease;
+    -webkit-transition: 1s ease;
+    transition: 1s ease;
 }
 
 a:hover {
     text-decoration: none;
-    -webkit-transition: 0.5s ease;
-    transition: 0.5s ease;
+    -webkit-transition: 1s ease;
+    transition: 1s ease;
 }
 
 a:focus {
@@ -127,6 +130,7 @@ button:focus {
     padding: 15px 0 30px 0;
     max-width: 1600px;
     margin: auto;
+    transition-timing-function: ease-in-out;
 }
 
 .section-pb-space {
@@ -489,8 +493,8 @@ button {
     height: 30px;
     fill: #fff;
     margin-right: 12px;
-    -webkit-transition: 0.5s linear;
-    transition: 0.5s linear;
+    -webkit-transition: 1s linear;
+    transition: 1s linear;
 }
 
 .services .service-block .media h5 {
@@ -540,16 +544,16 @@ button {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
     opacity: 0;
 }
 
 .instagram .insta-contant .instagram-box .insta-cover i {
     font-size: 20px;
     color: #fff;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
     -webkit-transform: rotate(-217deg);
     transform: rotate(-217deg);
 }
@@ -616,16 +620,16 @@ button {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
     opacity: 0;
 }
 
 .instagram .insta-contant1 .instagram-box .insta-cover i {
     font-size: 20px;
     color: #fff;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .instagram .insta-contant1 .instagram-box:hover .insta-cover {
@@ -688,16 +692,16 @@ button {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
     opacity: 0;
 }
 
 .instagram .insta-contant2 .instagram-box .insta-cover i {
     font-size: 20px;
     color: #fff;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .instagram .insta-contant2 .instagram-box:hover .insta-cover {
@@ -1042,8 +1046,8 @@ button {
     height: 110px;
     border-radius: 50%;
     margin: 0 auto;
-    -webkit-transition: 0.5s ease;
-    transition: 0.5s ease;
+    -webkit-transition: 1s ease;
+    transition: 1s ease;
 }
 
 .rounded-category .category-contain .header-wrapper {
@@ -1055,8 +1059,8 @@ button {
     padding-top: 38px;
     border-radius: 50%;
     margin: 0 auto;
-    -webkit-transition: 0.5s ease;
-    transition: 0.5s ease;
+    -webkit-transition: 1s ease;
+    transition: 1s ease;
 }
 
 .rounded-category .category-contain .img-wrapper img {
@@ -1172,8 +1176,8 @@ button {
 }
 
 .blog .blog-contain .blog-img img {
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .blog .blog-contain .blog-details {
@@ -1308,8 +1312,8 @@ button {
 .collection-banner .collection-banner-main .collection-img {
     width: 100%;
     height: 272px;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .collection-banner .collection-banner-main .collection-img img {
@@ -1703,6 +1707,10 @@ button {
         opacity: 0;
     }
 }
+.collection2 {
+    max-width: 1600px;
+    margin: auto;
+}
 
 .collection2>div:nth-child(2) {
     padding-right: 0;
@@ -1751,8 +1759,8 @@ button {
 .product .product-box .product-imgbox .product-front {
     left: 0;
     top: 0;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .product .product-box .product-imgbox .product-back {
@@ -1761,8 +1769,8 @@ button {
     left: 0;
     -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .product .product-box .product-imgbox .on-sale {
@@ -1813,8 +1821,8 @@ button {
     bottom: 0;
     right: 0;
     opacity: 0;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .product .product-box .product-imgbox .product-icon button {
@@ -1844,8 +1852,8 @@ button {
     -ms-flex-align: center;
     align-items: center;
     opacity: 0;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
     width: 100%;
 }
 
@@ -1904,8 +1912,8 @@ button {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
     text-transform: uppercase;
     font-weight: 700;
     font-size: calc(10px + (14 - 10) * ((100vw - 320px) / (1920 - 320)));
@@ -1929,8 +1937,8 @@ button {
     top: 15px;
     left: 15px;
     color: #b22827;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
     text-transform: uppercase;
     font-weight: 700;
     font-size: calc(10px + (14 - 10) * ((100vw - 320px) / (1920 - 320)));
@@ -2110,13 +2118,13 @@ button {
     overflow: hidden;
     padding: calc(10px + (15 - 10) * ((100vw - 320px) / (1920 - 320)));
     background-color: #fff;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .product .product-box .product-detail.detail-center .detail-title {
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
     display: block;
 }
 
@@ -2201,8 +2209,8 @@ button {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
     opacity: 0;
 }
 
@@ -2839,6 +2847,7 @@ button {
 
 .layout-header1 .main-menu-block .menu-left .sm-nav-block span i {
     font-size: 24px;
+    color: black;
 }
 
 .layout-header1 .main-menu-block .menu-left .sm-nav-block .nav-slide {
@@ -3032,6 +3041,7 @@ button {
     -ms-flex-align: center;
     align-items: center;
     z-index: 9;
+    max-height: 73px;
 }
 
 .category-header .navbar-menu .category-left {
@@ -3118,12 +3128,15 @@ button {
     border-radius: 50%;
     padding: 3px;
     height: 46.5px;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .category-header .navbar-menu .category-left .nav-block .nav-left .nav-cat li:hover>a {
     color: #b22827;
+}
+.category-header {
+    max-height: 73px;
 }
 
 .category-header .navbar-menu .category-left .nav-block .nav-left .nav-cat li:hover>img {
@@ -3210,6 +3223,7 @@ button {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    max-height: 73px;
 }
 
 .category-header .navbar-menu .category-right .gift-block {
@@ -3583,8 +3597,8 @@ button {
     border: 2px solid #f0f0f0;
     border-radius: 50%;
     padding: 3px;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .category-header-2 .navbar-menu .category-left .nav-block .nav-left .nav-cat li:hover>a {
@@ -3904,8 +3918,8 @@ button {
     border: 2px solid #f0f0f0;
     border-radius: 50%;
     padding: 3px;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .layout-header3 .main-menu .menu-left .nav-block .nav-left .nav-cat li:hover>a {
@@ -4629,8 +4643,8 @@ button {
     position: absolute;
     z-index: 10;
     background-color: #fff;
-    -webkit-transition: all linear 0.5s;
-    transition: all linear 0.5s;
+    -webkit-transition: all linear 1s;
+    transition: all linear 1s;
     min-width: 160px;
     text-align: left;
     -webkit-transform: translateY(30px);
@@ -4672,8 +4686,8 @@ button {
     position: absolute;
     z-index: 10;
     background-color: #fff;
-    -webkit-transition: all linear 0.5s;
-    transition: all linear 0.5s;
+    -webkit-transition: all linear 1s;
+    transition: all linear 1s;
     min-width: 250px;
     text-align: left;
     -webkit-box-shadow: 0 0 1px 0 #ddd;
@@ -4859,8 +4873,8 @@ button {
     box-shadow: 0 0 1px 0 #ddd;
     min-width: 160px;
     padding: 20px;
-    -webkit-transition: all linear 0.5s;
-    transition: all linear 0.5s;
+    -webkit-transition: all linear 1s;
+    transition: all linear 1s;
     -webkit-transform: translateY(30px);
     transform: translateY(30px);
     visibility: hidden;
@@ -6757,8 +6771,8 @@ button {
 .sitemap_page ul li a {
     color: #444;
     font-weight: 700;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
     text-transform: capitalize;
 }
 
@@ -6768,8 +6782,8 @@ button {
 
 .sitemap_page ul li a:hover {
     color: #b22827;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .sitemap_page ul ul {
@@ -8087,8 +8101,8 @@ button {
     text-transform: capitalize;
     width: 100%;
     padding: 5px 0;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
     border: none;
     cursor: pointer;
 }
@@ -8100,8 +8114,8 @@ button {
 
 .addtocart_count .product-box:hover .add-button {
     bottom: 0;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .addtocart_count .addtocart_btn {
@@ -8176,8 +8190,8 @@ button {
     bottom: -100%;
     left: 0;
     right: 0;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .metro-block .product-box .product-imgbox .product-detail h6 {
@@ -9065,8 +9079,8 @@ button {
 }
 
 .blog-page .blog-media .blog-left img {
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
     height: 330px;
     width: 100%;
 }
@@ -9170,8 +9184,8 @@ button {
     opacity: 0;
     -webkit-transform: scale(1);
     transform: scale(1);
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
     margin-top: -10px;
 }
 
@@ -9250,8 +9264,8 @@ button {
     opacity: 1;
     -webkit-transform: scale(1.05);
     transform: scale(1.05);
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .product-slick:hover .slick-prev:before,
@@ -9288,8 +9302,8 @@ button {
     display: flex;
     margin: 15px 15px 0 15px;
     border: 1px solid #f1f5f8;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .slider-nav .slick-slide.slick-current>div,
@@ -9297,16 +9311,16 @@ button {
 .slider-right-nav .slick-slide.slick-current>div,
 .rtl-slider-right-nav .slick-slide.slick-current>div {
     border-color: #b22827;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .slider-nav .slick-slide.slick-active,
 .rtl-slider-nav .slick-slide.slick-active,
 .slider-right-nav .slick-slide.slick-active,
 .rtl-slider-right-nav .slick-slide.slick-active {
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .slider-right-nav .slick-slide:first-child>div,
@@ -9508,8 +9522,8 @@ button {
     font-size: 16px;
     padding-left: 20px;
     margin-left: 20px;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .product-right .product-icon .wishlist-btn span {
@@ -9520,8 +9534,8 @@ button {
 
 .product-right .product-icon .wishlist-btn:hover i {
     color: #b22827;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .product-right .payment-card-bottom {
@@ -10329,8 +10343,8 @@ button {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .dashboard-left .block-content ul li.active {
@@ -10365,14 +10379,14 @@ button {
 .dashboard-left .block-content ul li:hover {
     padding-left: 10px;
     color: #b22827;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .dashboard-left .block-content ul li:hover a {
     color: #b22827;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .padding-cls {
@@ -11141,8 +11155,8 @@ button {
     -webkit-animation: fadeInUp 400ms ease-in-out;
     animation: fadeInUp 400ms ease-in-out;
     visibility: visible;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .lookbook .lookbook-block .lookbook-dot:hover span {
@@ -11175,8 +11189,8 @@ button {
     left: 0;
     bottom: 0;
     color: white;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
     text-align: center;
     float: left;
     font-size: 18px;
@@ -11311,8 +11325,8 @@ button {
 }
 
 .portfolio-section .border-portfolio:hover:after {
-    -webkit-animation: portfolio-circle 0.5s ease;
-    animation: portfolio-circle 0.5s ease;
+    -webkit-animation: portfolio-circle 1s ease;
+    animation: portfolio-circle 1s ease;
 }
 
 .portfolio-section .border-portfolio:hover:before {
@@ -11459,8 +11473,8 @@ button {
     display: -ms-flexbox;
     display: flex;
     left: -415px;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
     z-index: 9;
 }
 
@@ -11470,8 +11484,8 @@ button {
 
 .offer-box.toggle-cls {
     left: 0;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .offer-box .heading-right h3 {
@@ -11530,8 +11544,8 @@ button {
 .theme-tab .tab-content .product-tab .tab-box .product-box2 img {
     height: 250px;
     padding: 15px;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .theme-tab .tab-content .product-tab .tab-box .product-box2 .media .media-body .rating {
@@ -11581,8 +11595,8 @@ button {
 .theme-tab .tab-content .product-tab .tab-box:hover .product-box2 img {
     -webkit-transform: scale(1.03);
     transform: scale(1.03);
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .theme-tab .tab-title,
@@ -11627,6 +11641,7 @@ button {
 .theme-tab .tab-title2 li {
     padding-left: 25px;
     padding-right: 25px;
+    margin-bottom: 25px;
 }
 
 .theme-tab .tab-title a,
@@ -11973,8 +11988,8 @@ button {
     position: fixed;
     background-color: #fff;
     z-index: 9999;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .add_to_cart ::-webkit-scrollbar {
@@ -12058,15 +12073,15 @@ button {
     color: #fff;
     text-transform: capitalize;
     font-weight: 700;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
     padding: 10px 12px;
 }
 
 .add_to_cart .cart-inner .cart_media li .buttons a:hover {
     color: #b22827;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .add_to_cart .cart-inner .cart_media li .buttons .checkout {
@@ -12082,14 +12097,14 @@ button {
 .add_to_cart .cart-inner .cart_media .close-circle i {
     color: #444;
     font-size: 16px;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .add_to_cart .cart-inner .cart_media .close-circle i:hover {
     color: #000;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .add_to_cart .cart-inner .cart_top {
@@ -12131,20 +12146,20 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .add_to_cart.open-side {
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .add_to_cart.open-side .overlay {
     opacity: 0.8;
     visibility: visible;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .add_to_cart.left {
@@ -12887,7 +12902,7 @@ button {
 
 .toggle-nav i {
     font-size: 24px;
-    color: #0dc7ff;
+    color: black;
 }
 
 .mega-menu-banner:hover:before {
@@ -13095,8 +13110,8 @@ button {
 .pixelstrap .clothing-menu a h6 {
     font-size: 14px;
     text-align: center;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
     font-weight: 400;
     text-transform: capitalize;
     color: #222222;
@@ -13119,14 +13134,14 @@ button {
 .pixelstrap .clothing-menu a:hover:before {
     width: 50px;
     height: 2px;
-    -webkit-transition: 0.5s ease;
-    transition: 0.5s ease;
+    -webkit-transition: 1s ease;
+    transition: 1s ease;
 }
 
 .pixelstrap .full-mega-menu a:hover h6,
 .pixelstrap .clothing-menu a:hover h6 {
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .pixelstrap .link-section .menu-secon-title h5 {
@@ -13245,8 +13260,8 @@ button {
     top: 0;
     left: -300px;
     background-color: #fff;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .sidenav .sidebar-back {
@@ -13271,8 +13286,8 @@ button {
 
 .sidenav.open-side {
     left: 0;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .sidenav.open-side .sidebar-overlay {
@@ -13540,8 +13555,8 @@ button {
         height: 5px;
         width: 0;
         background-color: #b22827;
-        -webkit-transition: 0.5s ease;
-        transition: 0.5s ease;
+        -webkit-transition: 1s ease;
+        transition: 1s ease;
         opacity: 0.12;
     }
     .pixelstrap ul a,
@@ -13565,8 +13580,8 @@ button {
     .pixelstrap ul a.highlighted:hover:before {
         width: 50px;
         height: 7px;
-        -webkit-transition: 0.5s ease;
-        transition: 0.5s ease;
+        -webkit-transition: 1s ease;
+        transition: 1s ease;
     }
     .pixelstrap ul a .sub-arrow:before {
         content: "\f105";
@@ -14004,6 +14019,12 @@ button {
 }
 
 @media (max-width: 577px) {
+    .layout-header1 .main-menu-block .menu-right .icon-nav ul .mobile-user {
+        margin: 0;
+    }
+    .layout-header1 .main-menu-block .menu-right .icon-nav ul li .cart-item span {
+        display: none;
+    }
     .top-header {
         height: 0;
     }
@@ -14381,8 +14402,8 @@ body.rtl {
 .rtl .product-box,
 .rtl .product-wrap {
     position: relative;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
     vertical-align: middle;
 }
 
@@ -18969,8 +18990,8 @@ body.rtl {
         z-index: 99;
         overflow-y: scroll;
         max-width: 350px;
-        -webkit-transition: all 0.5s ease;
-        transition: all 0.5s ease;
+        -webkit-transition: all 1s ease;
+        transition: all 1s ease;
         -webkit-box-shadow: 1px 0 5px #ddd;
         box-shadow: 1px 0 5px #ddd;
     }
@@ -19113,8 +19134,8 @@ body.rtl {
     .collection-product-wrapper .product-top-filter .popup-filter .sidebar-popup .collection-filter {
         height: 100vh;
         left: -350px;
-        -webkit-transition: all 0.5s ease;
-        transition: all 0.5s ease;
+        -webkit-transition: all 1s ease;
+        transition: all 1s ease;
     }
     .collection-product-wrapper .product-top-filter .popup-filter .search-count {
         width: 100%;
@@ -19170,8 +19191,8 @@ body.rtl {
         z-index: 99;
         padding: 0 35px 35px;
         max-width: 350px;
-        -webkit-transition: all 0.5s ease;
-        transition: all 0.5s ease;
+        -webkit-transition: all 1s ease;
+        transition: all 1s ease;
         -webkit-box-shadow: 0 0 8px 0 #ddd;
         box-shadow: 0 0 8px 0 #ddd;
     }
@@ -24041,6 +24062,11 @@ body.dark {
         border-bottom-color: #3c3c3c;
     }
 }
+@media  (min-width: 1200px) and (max-width: 1480px) {
+    .layout-header1 .main-menu-block {
+        padding: 0 0  0 18px!important ;
+    }
+}
 
 
 /* change logo top width */
@@ -24072,6 +24098,7 @@ body.dark {
     color: #b22827;
     font-weight: 600;
 }
+
 
 
 /* edite hot deals detail btn */

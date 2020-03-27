@@ -95,5 +95,7 @@
     </div>
 </section>
 
+@include('frontend.components.contactbanner')
+
 
 @endsection

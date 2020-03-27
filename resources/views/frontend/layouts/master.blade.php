@@ -19,7 +19,6 @@
     @yield('content')
     
     
-    
     <!--footer-->
     @include('frontend.components.footer')
     <!--End footer-->
@@ -30,6 +29,7 @@
         </div>
     </div>
     
+    @include('frontend.components.addwishlist')
     
     
     <!--add notificationproduct-->

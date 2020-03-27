@@ -171,7 +171,6 @@ class UsersController extends Controller
                         ->where('customers.first_name','like','%'.$search.'%')
                         ->orWhere('customers.last_name','like','%'.$search.'%')
                         ->orWhere('customers.order_email','like','%'.$search.'%')
-                        ->orWhere('customers.email','like','%'.$search.'%')
                         ->orWhere('customers.birth_date','like','%'.$search.'%')
                         ->orWhere('customers.order_mobile','like','%'.$search.'%')
                         ->orWhere('customers.mobile','like','%'.$search.'%')

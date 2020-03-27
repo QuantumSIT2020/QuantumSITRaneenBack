@@ -90,7 +90,7 @@
 }
 
 .nav-cat{
-    height: 668px !important;
+    height: 614px !important;
     overflow-y: auto !important;
 }
 
@@ -179,4 +179,19 @@
         display:inline-block !important;
     }
 }
+
+
+@media(min-width:1367px) and (max-width:1679px)  {
+
+    .nav-cat {
+        height: 656px !important;
+    }
+}
+@media (min-width:1680px)  {
+
+    .nav-cat {
+        height: 686px !important;
+    }
+}
+
 

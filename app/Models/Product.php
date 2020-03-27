@@ -9,14 +9,13 @@ use App\Models\SubCategory;
 use App\Models\Manufacturer;
 use App\Models\Product_sale;
 use App\Models\Review;
+use Auth;
 
 class Product extends Model
 {
     public function WishList(){
         return $this->hasMany(WishList::class);
     }
-
-
 
     public function SubCategory(){
         return $this->belongsTo('App\Models\SubCategory','sub_categories_id');
@@ -37,7 +36,19 @@ class Product extends Model
         return Product_sale::where('product_id',$id)->orderBy('id','desc')->get()->first();
     }
 
+    public function checkWishList()
+    {
+        return WishList::where('product_id',$this->id)->where('user_id',Auth::user()->id)->count();
+    }
 
+    public static function wishLists()
+    {
+        if(isset(Auth::user()->id)){
+            return WishList::where('user_id',Auth::user()->id)->count();
+        }else{
+            return 0;
+        }
+    }
 
 
 }
