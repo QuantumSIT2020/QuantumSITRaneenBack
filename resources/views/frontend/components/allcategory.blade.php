@@ -1,5 +1,7 @@
 <div class="nav-desk">
     <ul class="nav-cat title-font">
+        
+        
         <li class="parentlevel"> <img src="{{ asset('frontend/assets/images/layout-1/nav-img/01.png') }} " alt="catergory-product"> <a>western ware</a>
             <i class="fa fa-angle-right pl-5" aria-hidden="true"></i>
             <ul class="menulevel">
@@ -29,6 +31,7 @@
                 <li> <img src="{{ asset('frontend/assets/images/layout-1/nav-img/02.png') }} " alt="catergory-product"> <a>TV, Appliances</a></li>
             </ul>
         </li>
+
         <li> <img src="{{ asset('frontend/assets/images/layout-1/nav-img/02.png') }} " alt="catergory-product"> <a>TV, Appliances</a></li>
         <li class="parentlevel"> <img src="frontend/assets/images/layout-1/nav-img/03.png " alt="catergory-product"> <a>Pets Products</a>
             <i class="fa fa-angle-right pl-5" aria-hidden="true"></i>
@@ -41,6 +44,12 @@
             </ul>
 
         </li>
+
+
+
+
+
+
         <li> <img src="{{ asset('frontend/assets/images/layout-1/nav-img/02.png') }} " alt="catergory-product"> <a>Car, Motorbike</a></li>
         <li> <img src="{{ asset('frontend/assets/images/layout-1/nav-img/02.png') }} " alt="catergory-product"> <a>Industrial Products</a></li>
         <li> <img src="{{ asset('frontend/assets/images/layout-1/nav-img/02.png') }} " alt="catergory-product"> <a>Beauty, Health Products</a></li>
