@@ -4,14 +4,10 @@
             <ul>
                 <li><a href="#">top brand</a></li>
                 <li><a>:</a></li>
-                <li><a href="#">aerie</a></li>
-                <li><a href="#">baci lingrie</a></li>
-                <li><a href="#">gerbe</a></li>
-                <li><a href="#">jolidon</a></li>
-                <li><a href="#">oysho</a></li>
-                <li><a href="#">ultimo</a></li>
-                <li><a href="#">vassarette</a></li>
-                <li><a href="#">wonderbra</a></li>
+                @foreach($brands  as  $brand)
+                <li><a href="#">{{$brand->en_name}}</a></li>
+                    @endforeach
+
             </ul>
         </div>
     </div>

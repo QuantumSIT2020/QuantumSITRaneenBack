@@ -76,13 +76,7 @@
                                             <a href="{{ route('edit_discount',$sale->id) }}" class="btn btn-warning btn-sm">@lang('tr.Edit')</a>
                                             <a href="{{ route('delete_discount',$sale->id) }}" onclick="return confirm('Are You Sure ?')" class="btn btn-danger btn-sm">@lang('tr.Delete')</a>
 
-                                            <button type="button" class="btn btn-info change_status" productsaleID="{{$sale->id}}">
-                                                @if($sale->isactive ==1)
-                                                    <?="DeActive"?>
-                                                @else
-                                                    <?="Active" ?>
-                                                @endif
-                                            </button>
+
 
                                             <div class="row text-center mt-4">
                                                 <div class="col-lg-6 border-right">
