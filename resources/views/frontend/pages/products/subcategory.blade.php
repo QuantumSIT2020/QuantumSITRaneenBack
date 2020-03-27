@@ -94,10 +94,11 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
+                    <button type="submit" class="btn btn-normal" style="display: block;margin-left: auto;margin-right: auto;"><i class="fa fa-search"></i>&nbsp;@lang('tr.Search')</button>
                     </div>
 
-                    <hr>
-                    <button type="submit" class="btn btn-normal btn-block"><i class="fa fa-search"></i>&nbsp;@lang('tr.Search')</button>
+                    
 
                         </form>
 
