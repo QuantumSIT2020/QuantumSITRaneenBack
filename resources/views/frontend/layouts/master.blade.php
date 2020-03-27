@@ -29,6 +29,7 @@
         </div>
     </div>
     
+    @include('frontend.components.addwishlist')
     
     
     <!--add notificationproduct-->

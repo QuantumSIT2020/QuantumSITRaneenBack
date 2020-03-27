@@ -191,10 +191,11 @@
                                                 
                                         
                                         <li class="mobile-wishlist" onclick="openWishlist()">
-                                            <a href="#">
+                                            <a href="#" title="@lang('tr.Wishlists')">
                                                 <i class="icon-heart"></i>
-                                                <div class="cart-item">
-                                                    <div>0 item<span>wishlist</span></div>
+                                                <div class="cart-item" id="wishList">
+                                                    @php($wishList = \App\Models\Product::wishLists())
+                                                    <div><span id="wishVal">{{ $wishList }}</span></div>
                                                 </div>
                                             </a>
                                         </li>

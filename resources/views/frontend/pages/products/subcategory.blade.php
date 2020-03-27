@@ -244,9 +244,18 @@
                                                                 <button data-toggle="modal" data-target="#addtocart" title="Add to cart">
                                                                     <i class="ti-bag" ></i>
                                                                 </button>
-                                                                <a href="javascript:void(0)" title="Add to Wishlist">
-                                                                    <i class="ti-heart" aria-hidden="true"></i>
-                                                                </a>
+                                                                
+                                                                @if ($product->checkWishList() > 0)
+                                                                <button data-product="{{ $product->id }}" class="addToWishList" title="@lang('tr.Remove From Wishlist')">
+                                                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                                                </button>
+                                                                @else
+                                                                <button data-product="{{ $product->id }}" class="addToWishList" title="@lang('tr.Add to Wishlist')">
+                                                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                                                </button>
+                                                                @endif
+
+                                                                
                                                                 <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
                                                                     <i class="ti-search" aria-hidden="true"></i>
                                                                 </a>
@@ -284,9 +293,90 @@
 @endsection
 
 @section('javascript')
+
+
+
+
 <script>
    $(document).on('input', '.priceRange', function() {
     $('.selectRanage').html($('.priceRange').val()+' EGP');
+});
+
+$(document).ready(function(){
+    var addToWishListUrl = '{{ route("frontend_addwishlist",["id"=>"#id"]) }}';
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+        }
+    });
+    
+    $('.addToWishList').on('click',function(e){
+        e.preventDefault();
+        
+        addToWishListUrl = addToWishListUrl.replace('#id',$(this).data('product'));
+        jQuery.ajax({
+            url: addToWishListUrl,
+            method: 'get',
+        success: function(result){
+            if (result.added == "added") {
+                Command: toastr["success"]('@lang("tr.Add To Wishlist")', "@lang('tr.Done')")
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "300",
+                    "timeOut": "300",
+                    "extendedTimeOut": "300",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+                
+                $('.addToWishList').html('<i class="fa fa-heart" aria-hidden="true"></i>');
+                $('.addToWishList').attr('title','@lang("tr.Remove From Wishlist")');
+                $('#wishVal').html(parseInt($('#wishVal').text()) + 1);
+                
+
+            }if (result.deleted == "deleted") {
+                Command: toastr["warning"]('@lang("tr.Remove From Wishlist")', "@lang('tr.Done')")
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "300",
+                    "timeOut": "300",
+                    "extendedTimeOut": "300",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+
+                $('.addToWishList').html('<i class="fa fa-heart-o" aria-hidden="true"></i>');
+                $('.addToWishList').attr('title','@lang("tr.Add To Wishlist")');
+                
+                if($('#wishVal').text() != 0){
+                    $('#wishVal').html(parseInt($('#wishVal').text()) - 1);
+                }
+            }
+        }});
+    });
+
+
+
+    
 });
     
 </script>

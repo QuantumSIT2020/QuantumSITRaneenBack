@@ -62,5 +62,6 @@
 <script src="{{ asset('frontend/assets/js/script.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/modal.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/productsfilter.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 @yield('javascript')

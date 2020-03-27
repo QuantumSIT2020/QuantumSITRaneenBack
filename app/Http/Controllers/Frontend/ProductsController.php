@@ -10,10 +10,18 @@ use App\Models\SubCategory;
 use App\Models\Product;
 use App\Models\GroupAttributes;
 use App\Models\Attributes;
+use App\Models\User;
+use App\Models\WishList;
+use Auth;
 
 class ProductsController extends Controller
 {
     public $path = 'frontend.pages.products.';
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except('mainCategory','childCategory','subCategory','brandProducts','brandFilter');
+    }
     
     public function mainCategory()
     {
@@ -85,4 +93,33 @@ class ProductsController extends Controller
 
         return view($this->path.'filter',compact('child_category_id','brands','products','attibuteGroups','attributes','latestSixProducts'));
     }
+
+
+    // Functions that need authencation
+
+    public function addToWishList($productid,Request $request)
+    {
+        $user = User::findOrfail(Auth::user()->id);
+        $product = Product::find($productid);
+
+        if ($request->ajax()) {
+            if (WishList::where('product_id',$productid)->where('user_id',Auth::user()->id)->count() > 0) {
+                WishList::where('product_id',$productid)->where('user_id',Auth::user()->id)->delete();
+                return response()->json(['deleted'=>'deleted']);
+            }else{
+                $wish_lists = new WishList();
+
+                $wish_lists->user_id          = $user->id;
+                $wish_lists->product_id       = $product->id;
+                $wish_lists->save();
+    
+                return response()->json(['added'=>'added']);
+            }
+            
+        }
+
+        
+    }
+
+    
 }
