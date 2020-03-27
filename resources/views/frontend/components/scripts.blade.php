@@ -61,3 +61,6 @@
 <script src="{{ asset('frontend/assets/js/slider-animat-three.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/script.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/modal.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/productsfilter.js') }}"></script>
+
+@yield('javascript')

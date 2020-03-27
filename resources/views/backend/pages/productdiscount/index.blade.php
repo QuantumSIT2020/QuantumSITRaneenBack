@@ -131,27 +131,7 @@
 <script>
 
 
-    $(".change_status").click(function () {
-
-        var productsaleID = $(this).attr('productsaleID');
-        var url = '{{route("discount_status", ":id")}}';
-        url=url.replace(":id",productsaleID);
-        jQuery.ajax({
-            type:"get",
-            url: url,
-            data: {},
-            success: function(data) {
-                if (data > 0 ){
-                    alert("update successfully");
-                    location.reload();
-                }
-            },
-            error: function(data) {
-
-            },
-        });
-
-    })
+    
 
 
 

@@ -32,4 +32,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/css/color2.css') }}" media="screen" id="color">
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/css/mystyle.css') }}" media="screen">
 
+    @yield('stylesheet')
+
 </head>

@@ -34,10 +34,24 @@
                                     
                                     @php($langName = \Lang::getLocale().'_name')
                                     @foreach ($brands as $brand)
+                                        @if(isset($_GET['brands']))
+                                            @if(in_array($brand->id,$_GET['brands']))
+                                            <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                <input type="checkbox" name="brands[]" value="{{ $brand->id }}" checked class="custom-control-input brandCheck" id="brand_{{ $brand->id }}">
+                                                <label class="custom-control-label" for="brand_{{ $brand->id }}">{{ $brand->$langName }}</label>
+                                            </div>
+                                            @else
+                                            <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                <input type="checkbox" name="brands[]" value="{{ $brand->id }}" class="custom-control-input brandCheck" id="brand_{{ $brand->id }}">
+                                                <label class="custom-control-label" for="brand_{{ $brand->id }}">{{ $brand->$langName }}</label>
+                                            </div>
+                                            @endif
+                                        @else
                                         <div class="custom-control custom-checkbox collection-filter-checkbox">
                                             <input type="checkbox" name="brands[]" value="{{ $brand->id }}" class="custom-control-input brandCheck" id="brand_{{ $brand->id }}">
                                             <label class="custom-control-label" for="brand_{{ $brand->id }}">{{ $brand->$langName }}</label>
                                         </div>
+                                        @endif
                                     @endforeach
                                     
 
@@ -53,12 +67,24 @@
                                 <div class="collection-brand-filter">
                                     @foreach ($attributes as $attribute)
                                         @if ($group->id == $attribute->attribute_group_id)
-
-                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                            <input type="checkbox" name="product_attributes[]" class="custom-control-input" value="{{ $attribute->id }}" id="attribute_{{ $attribute->id }}">
-                                            <label class="custom-control-label" for="attribute_{{ $attribute->id }}">{{ $attribute->$langName }}</label>
-                                        </div>
-                                            
+                                            @if(isset($_GET['product_attributes']))
+                                                @if(in_array($attribute->id,$_GET['product_attributes']))
+                                                <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                    <input type="checkbox" name="product_attributes[]" checked class="custom-control-input" value="{{ $attribute->id }}" id="attribute_{{ $attribute->id }}">
+                                                    <label class="custom-control-label" for="attribute_{{ $attribute->id }}">{{ $attribute->$langName }}</label>
+                                                </div>
+                                                @else
+                                                <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                    <input type="checkbox" name="product_attributes[]" class="custom-control-input" value="{{ $attribute->id }}" id="attribute_{{ $attribute->id }}">
+                                                    <label class="custom-control-label" for="attribute_{{ $attribute->id }}">{{ $attribute->$langName }}</label>
+                                                </div>
+                                                @endif
+                                            @else
+                                            <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                <input type="checkbox" name="product_attributes[]" class="custom-control-input" value="{{ $attribute->id }}" id="attribute_{{ $attribute->id }}">
+                                                <label class="custom-control-label" for="attribute_{{ $attribute->id }}">{{ $attribute->$langName }}</label>
+                                            </div>
+                                            @endif
                                         @endif
                                     @endforeach
                                 </div>
@@ -72,25 +98,58 @@
                             <h3 class="collapse-block-title">price</h3>
                             <div class="collection-collapse-block-content">
                                 <div class="collection-brand-filter">
-                                    <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                        <input type="checkbox" name="prices[]" class="custom-control-input" value="10,100" id="price_10100">
-                                        <label class="custom-control-label" for="price_10100">@lang('tr.From'): 10&nbsp;&nbsp;@lang('tr.To'):100</label>
-                                    </div>
+                                    @if(isset($_GET['prices']))
+                                        
+                                        @if(in_array('10,100',$_GET['prices']))
+                                            <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                <input type="checkbox" name="prices[]" checked class="custom-control-input" value="10,100" id="price_10100">
+                                                <label class="custom-control-label" for="price_10100">@lang('tr.From'): 10&nbsp;&nbsp;@lang('tr.To'):100</label>
+                                            </div>
+                                        @else
+                                            <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                <input type="checkbox" name="prices[]" class="custom-control-input" value="10,100" id="price_10100">
+                                                <label class="custom-control-label" for="price_10100">@lang('tr.From'): 10&nbsp;&nbsp;@lang('tr.To'):100</label>
+                                            </div>
+                                        @endif
 
-                                    <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                        <input type="checkbox" name="prices[]" class="custom-control-input" value="100,500" id="price_10500">
-                                        <label class="custom-control-label" for="price_10500">@lang('tr.From'): 100&nbsp;&nbsp;@lang('tr.To'):500</label>
-                                    </div>
-                                    
-                                    <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                        <input type="checkbox" name="prices[]" class="custom-control-input" value="500,1000" id="price_5001000">
-                                        <label class="custom-control-label" for="price_5001000">@lang('tr.From'): 500&nbsp;&nbsp;@lang('tr.To'):1000</label>
-                                    </div>
-                                    
-                                    <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                        <input type="checkbox" name="prices[]" class="custom-control-input" value=",1000" id="price_above1000">
-                                        <label class="custom-control-label" for="price_above1000">@lang('tr.Above'): 1000</label>
-                                    </div>
+
+                                        @if(in_array('100,500',$_GET['prices']))
+                                            <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                <input type="checkbox" name="prices[]" checked class="custom-control-input" value="100,500" id="price_10500">
+                                                <label class="custom-control-label" for="price_10500">@lang('tr.From'): 100&nbsp;&nbsp;@lang('tr.To'):500</label>
+                                            </div>
+                                        @else
+                                            <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                <input type="checkbox" name="prices[]" class="custom-control-input" value="100,500" id="price_10500">
+                                                <label class="custom-control-label" for="price_10500">@lang('tr.From'): 100&nbsp;&nbsp;@lang('tr.To'):500</label>
+                                            </div>
+                                        @endif
+
+
+                                        @if(in_array('500,1000',$_GET['prices']))
+                                            <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                <input type="checkbox" name="prices[]" checked class="custom-control-input" value="500,1000" id="price_5001000">
+                                                <label class="custom-control-label" for="price_5001000">@lang('tr.From'): 500&nbsp;&nbsp;@lang('tr.To'):1000</label>
+                                            </div>
+                                        @else
+                                            <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                <input type="checkbox" name="prices[]" class="custom-control-input" value="500,1000" id="price_5001000">
+                                                <label class="custom-control-label" for="price_5001000">@lang('tr.From'): 500&nbsp;&nbsp;@lang('tr.To'):1000</label>
+                                            </div>
+                                        @endif
+                                        
+                                        @if(in_array(',1000',$_GET['prices']))
+                                            <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                <input type="checkbox" checked name="prices[]" class="custom-control-input" value=",1000" id="price_above1000">
+                                                <label class="custom-control-label" for="price_above1000">@lang('tr.Above'): 1000</label>
+                                            </div>
+                                        @else
+                                            <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                <input type="checkbox" name="prices[]" class="custom-control-input" value=",1000" id="price_above1000">
+                                                <label class="custom-control-label" for="price_above1000">@lang('tr.Above'): 1000</label>
+                                            </div>
+                                        @endif
+                                    @endif
                                 </div>
                             </div>
                         </div>
