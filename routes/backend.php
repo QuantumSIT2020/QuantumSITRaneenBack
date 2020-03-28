@@ -246,6 +246,10 @@ Route::group(['middleware' => 'Lang'], function () {
 
 
 
+    
+
+
+
         //slider
 
         Route::get('/sliders','SliderController@index')->name('sliders');
@@ -266,6 +270,9 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::get('/partners/edit/{id}','PartnersController@edit')->name('edit_partners');
         Route::post('/partners/update/{id}','PartnersController@update')->name('update_partners');
         Route::get('/partners/delete/{id}','PartnersController@destroy')->name('delete_partners');
+
+
+
 
     });
     

@@ -65,7 +65,7 @@
                     <ul>
                         <li><a href="{{ route('MainCategory') }}">Main Category</a></li>
                         <li><a href="{{ route('ChildCategory') }}">Child Category</a></li>
-                        <li><a href="{{ route('SubCategory') }}">Sub Category</a></li>
+                        <li><a href="{{ route('SubCategory') }}">Brands</a></li>
 
                     </ul>
                 </li>
@@ -109,7 +109,7 @@
 
                         <li><a href="{{ route('create_products') }}">@lang('tr.Create Products')</a></li>
                         <li><a href="{{ route('products') }}">@lang('tr.Products')</a></li>
-                        <li><a href="{{ route('hotsale_products') }}">@lang('tr.Hot Sale')</a></li>
+{{--                        <li><a href="{{ route('hotsale_products') }}">@lang('tr.Hot Sale')</a></li>--}}
                         <li><a href="{{ route('discount') }}">@lang('tr.Discount')</a></li>
                         <li><a href="{{ route('reviews') }}">@lang('tr.reviews')</a></li>
                     </ul>
