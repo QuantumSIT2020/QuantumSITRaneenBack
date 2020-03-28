@@ -391,7 +391,7 @@ class UsersController extends Controller
     public function updatedataEntries(Request $request)
     {
         $data = DataEntry::findOrfail($request->data_id);
-        $user = User::findOrfail($buyer->user_id);
+        $user = User::findOrfail($data->user_id);
 
         $request->validate([
             'first_name'                                    => 'required|max:255|min:2',
