@@ -22,6 +22,14 @@ Route::get('/sub-category/{id}', 'Frontend\ProductsController@brandProducts')->n
 Route::get('/sub-category/brand-filter/{id}', 'Frontend\ProductsController@brandFilter')->name('frontend_brandfilter');
 Route::get('/addtowishlist/{id}', 'Frontend\ProductsController@addToWishList')->name('frontend_addwishlist');
 
+//Hot Offers
+Route::get('/products/hotoffers', 'Frontend\ProductsController@hotoffers')->name('frontend_hotoffers');
+Route::get('/products/hotoffer/filter', 'Frontend\ProductsController@hotOfferFilter')->name('frontend_hotofferfilter');
+
+//Discount
+Route::get('/products/discounts', 'Frontend\ProductsController@discountsProducts')->name('frontend_discounts');
+Route::get('/products/discounts/filter', 'Frontend\ProductsController@discountsProductsFilter')->name('frontend_discountsfilter');
+
 
 //Pages
 Route::get('/pages/{id}','Frontend\PagesController@index')->name('frontend_pages');

@@ -12,6 +12,8 @@ use App\Models\GroupAttributes;
 use App\Models\Attributes;
 use App\Models\User;
 use App\Models\WishList;
+use App\Models\Product_HotOffer;
+use App\Models\Product_sale;
 use Auth;
 
 class ProductsController extends Controller
@@ -93,6 +95,114 @@ class ProductsController extends Controller
 
         return view($this->path.'filter',compact('child_category_id','brands','products','attibuteGroups','attributes','latestSixProducts'));
     }
+
+
+    //Hot Offers
+    public function hotoffers()
+    {
+        $brands = SubCategory::all();
+        $hotOffers = Product_HotOffer::all();
+        $attibuteGroups = GroupAttributes::all();
+        $attributes = Attributes::all();
+        $latestSixProducts = Product::orderBy('id','desc')->limit(6)->where('isactive',1)->get();
+        return view($this->path.'hotoffers',compact('hotOffers','brands','attibuteGroups','attributes','latestSixProducts'));
+    }
+
+    public function hotOfferFilter(Request $request)
+    {
+        $hotOffers = Product_HotOffer::select('*')->join('products','products.id','product__hot_offers.product_id');
+        
+        if (isset($request->brands)) {
+            if ($request->brands != null) {
+                $hotOffers = $hotOffers->whereIn('products.sub_categories_id',$request->brands);
+            }
+        }
+
+        if (isset($request->product_attributes)) {
+            if ($request->product_attributes != null) {
+                $hotOffers = $hotOffers->join('product_attributes','product_attributes.product_id','products.id')->whereIn('product_attributes.attribute_id',$request->product_attributes);
+            }
+        }
+
+        if(isset($request->prices)){
+            if ($request->prices != null) {
+                for ($i=0; $i < count($request->prices); $i++) { 
+                    if (explode(',',$request->prices[$i])[0] == '') {
+                        $hotOffers = $hotOffers->where('products.price','>',explode(',',$request->prices[$i])[1]);
+                    }else{
+                        $hotOffers = $hotOffers->whereBetween('products.price', [explode(',',$request->prices[$i])[0], explode(',',$request->prices[$i])[1]]);
+                    }
+                }
+            }
+        }
+
+        
+
+
+        $brands = SubCategory::all();
+        $attibuteGroups = GroupAttributes::all();
+        $attributes = Attributes::all();
+        $latestSixProducts = Product::orderBy('id','desc')->limit(6)->where('isactive',1)->get();
+        $hotOffers = $hotOffers->get();
+
+        return view($this->path.'hotofferfilter',compact('brands','hotOffers','attibuteGroups','attributes','latestSixProducts'));
+    }
+
+
+    //Discount
+    public function discountsProducts()
+    {
+        $brands = SubCategory::all();
+        $discounts = Product_sale::all();
+        $attibuteGroups = GroupAttributes::all();
+        $attributes = Attributes::all();
+        $latestSixProducts = Product::orderBy('id','desc')->limit(6)->where('isactive',1)->get();
+        return view($this->path.'discounts',compact('discounts','brands','attibuteGroups','attributes','latestSixProducts'));
+    }
+
+    public function discountsProductsFilter(Request $request)
+    {
+        $discounts = Product_sale::select('*')->join('products','products.id','product_sales.product_id');
+        
+        if (isset($request->brands)) {
+            if ($request->brands != null) {
+                $discounts = $discounts->whereIn('products.sub_categories_id',$request->brands);
+            }
+        }
+
+        if (isset($request->product_attributes)) {
+            if ($request->product_attributes != null) {
+                $discounts = $discounts->join('product_attributes','product_attributes.product_id','products.id')->whereIn('product_attributes.attribute_id',$request->product_attributes);
+            }
+        }
+
+        if(isset($request->prices)){
+            if ($request->prices != null) {
+                for ($i=0; $i < count($request->prices); $i++) { 
+                    if (explode(',',$request->prices[$i])[0] == '') {
+                        $discounts = $discounts->where('products.price','>',explode(',',$request->prices[$i])[1]);
+                    }else{
+                        $discounts = $discounts->whereBetween('products.price', [explode(',',$request->prices[$i])[0], explode(',',$request->prices[$i])[1]]);
+                    }
+                }
+            }
+        }
+
+        
+
+
+        $brands = SubCategory::all();
+        $attibuteGroups = GroupAttributes::all();
+        $attributes = Attributes::all();
+        $latestSixProducts = Product::orderBy('id','desc')->limit(6)->where('isactive',1)->get();
+        $discounts = $discounts->get();
+
+        return view($this->path.'discountfilter',compact('brands','discounts','attibuteGroups','attributes','latestSixProducts'));
+    }
+
+    
+    
+    
 
 
     // Functions that need authencation

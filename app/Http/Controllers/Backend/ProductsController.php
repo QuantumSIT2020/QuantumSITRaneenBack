@@ -98,7 +98,7 @@ class ProductsController extends Controller
             'video' => 'required',
             'price' => 'required',
             'first_quantity' => 'required',
-            'description' => 'required|min:2|max:255',
+            'description' => 'required',
             'product_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4196|required',
         ]);
 
@@ -188,7 +188,7 @@ class ProductsController extends Controller
             'video' => 'required',
             'price' => 'required',
             'first_quantity' => 'required',
-            'description' => 'required|min:2|max:255',
+            'description' => 'required',
 
         ]);
 

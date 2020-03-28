@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('title',__('tr.Products'))
+@section('title',__('tr.Hot Offers'))
 
 @section('stylesheet')
 
@@ -9,6 +9,8 @@
 @section('content')
 
 @section('breads')
+<li><i class="fa fa-angle-double-right"></i></li>
+<li><a href="{{ route('frontend_maincategory') }}">@lang('tr.All Products')</a></li>
 <li><i class="fa fa-angle-double-right"></i></li>
 <li><a href="#">@yield('title')</a></li>
 @endsection
@@ -24,7 +26,7 @@
                     <div class="collection-filter-block creative-card creative-inner category-side">
                         <!-- brand filter start -->
 
-                        <form action="{{ route('frontend_brandfilter',$child_category_id) }}" method="GET">
+                        <form action="{{ route('frontend_hotofferfilter') }}" method="GET">
 
                             <div class="collection-mobile-back"><span class="filter-back"><i class="fa fa-angle-left" aria-hidden="true"></i> back</span></div>
                         <div class="collection-collapse-block open">
@@ -34,24 +36,10 @@
                                     
                                     @php($langName = \Lang::getLocale().'_name')
                                     @foreach ($brands as $brand)
-                                        @if(isset($_GET['brands']))
-                                            @if(in_array($brand->id,$_GET['brands']))
-                                            <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                                <input type="checkbox" name="brands[]" value="{{ $brand->id }}" checked class="custom-control-input brandCheck" id="brand_{{ $brand->id }}">
-                                                <label class="custom-control-label" for="brand_{{ $brand->id }}">{{ $brand->$langName }}</label>
-                                            </div>
-                                            @else
-                                            <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                                <input type="checkbox" name="brands[]" value="{{ $brand->id }}" class="custom-control-input brandCheck" id="brand_{{ $brand->id }}">
-                                                <label class="custom-control-label" for="brand_{{ $brand->id }}">{{ $brand->$langName }}</label>
-                                            </div>
-                                            @endif
-                                        @else
                                         <div class="custom-control custom-checkbox collection-filter-checkbox">
                                             <input type="checkbox" name="brands[]" value="{{ $brand->id }}" class="custom-control-input brandCheck" id="brand_{{ $brand->id }}">
                                             <label class="custom-control-label" for="brand_{{ $brand->id }}">{{ $brand->$langName }}</label>
                                         </div>
-                                        @endif
                                     @endforeach
                                     
 
@@ -67,24 +55,12 @@
                                 <div class="collection-brand-filter">
                                     @foreach ($attributes as $attribute)
                                         @if ($group->id == $attribute->attribute_group_id)
-                                            @if(isset($_GET['product_attributes']))
-                                                @if(in_array($attribute->id,$_GET['product_attributes']))
-                                                <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                                    <input type="checkbox" name="product_attributes[]" checked class="custom-control-input" value="{{ $attribute->id }}" id="attribute_{{ $attribute->id }}">
-                                                    <label class="custom-control-label" for="attribute_{{ $attribute->id }}">{{ $attribute->$langName }}</label>
-                                                </div>
-                                                @else
-                                                <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                                    <input type="checkbox" name="product_attributes[]" class="custom-control-input" value="{{ $attribute->id }}" id="attribute_{{ $attribute->id }}">
-                                                    <label class="custom-control-label" for="attribute_{{ $attribute->id }}">{{ $attribute->$langName }}</label>
-                                                </div>
-                                                @endif
-                                            @else
-                                            <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                                <input type="checkbox" name="product_attributes[]" class="custom-control-input" value="{{ $attribute->id }}" id="attribute_{{ $attribute->id }}">
-                                                <label class="custom-control-label" for="attribute_{{ $attribute->id }}">{{ $attribute->$langName }}</label>
-                                            </div>
-                                            @endif
+
+                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                            <input type="checkbox" name="product_attributes[]" class="custom-control-input" value="{{ $attribute->id }}" id="attribute_{{ $attribute->id }}">
+                                            <label class="custom-control-label" for="attribute_{{ $attribute->id }}">{{ $attribute->$langName }}</label>
+                                        </div>
+                                            
                                         @endif
                                     @endforeach
                                 </div>
@@ -98,82 +74,33 @@
                             <h3 class="collapse-block-title">price</h3>
                             <div class="collection-collapse-block-content">
                                 <div class="collection-brand-filter">
-                                    @if(isset($_GET['prices']))
-                                        
-                                        @if(in_array('10,100',$_GET['prices']))
-                                            <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                                <input type="checkbox" name="prices[]" checked class="custom-control-input" value="10,100" id="price_10100">
-                                                <label class="custom-control-label" for="price_10100">@lang('tr.From'): 10&nbsp;&nbsp;@lang('tr.To'):100</label>
-                                            </div>
-                                        @else
-                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                            <input type="checkbox" name="prices[]" class="custom-control-input" value="10,100" id="price_10100">
-                                            <label class="custom-control-label" for="price_10100">@lang('tr.From'): 10&nbsp;&nbsp;@lang('tr.To'):100</label>
-                                        </div>                                      
-                                        @endif
-
-
-                                        @if(in_array('100,500',$_GET['prices']))
-                                            <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                                <input type="checkbox" name="prices[]" checked class="custom-control-input" value="100,500" id="price_10500">
-                                                <label class="custom-control-label" for="price_10500">@lang('tr.From'): 100&nbsp;&nbsp;@lang('tr.To'):500</label>
-                                            </div>
-                                        @else                                           
-                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                            <input type="checkbox" name="prices[]" class="custom-control-input" value="100,500" id="price_10500">
-                                            <label class="custom-control-label" for="price_10500">@lang('tr.From'): 100&nbsp;&nbsp;@lang('tr.To'):500</label>
-                                        </div>
-                                        @endif
-
-
-                                        @if(in_array('500,1000',$_GET['prices']))
-                                            <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                                <input type="checkbox" name="prices[]" checked class="custom-control-input" value="500,1000" id="price_5001000">
-                                                <label class="custom-control-label" for="price_5001000">@lang('tr.From'): 500&nbsp;&nbsp;@lang('tr.To'):1000</label>
-                                            </div>
-                                        @else
-                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                            <input type="checkbox" name="prices[]" class="custom-control-input" value="500,1000" id="price_5001000">
-                                            <label class="custom-control-label" for="price_5001000">@lang('tr.From'): 500&nbsp;&nbsp;@lang('tr.To'):1000</label>
-                                        </div>                                           
-                                        @endif
-                                        
-                                        @if(in_array(',1000',$_GET['prices']))
-                                            <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                                <input type="checkbox" checked name="prices[]" class="custom-control-input" value=",1000" id="price_above1000">
-                                                <label class="custom-control-label" for="price_above1000">@lang('tr.Above'): 1000</label>
-                                            </div>
-                                        @else
-                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                            <input type="checkbox" name="prices[]" class="custom-control-input" value=",1000" id="price_above1000">
-                                            <label class="custom-control-label" for="price_above1000">@lang('tr.Above'): 1000</label>
-                                        </div>                                           
-                                        @endif
-                                    @else
                                     <div class="custom-control custom-checkbox collection-filter-checkbox">
                                         <input type="checkbox" name="prices[]" class="custom-control-input" value="10,100" id="price_10100">
                                         <label class="custom-control-label" for="price_10100">@lang('tr.From'): 10&nbsp;&nbsp;@lang('tr.To'):100</label>
                                     </div>
+
                                     <div class="custom-control custom-checkbox collection-filter-checkbox">
                                         <input type="checkbox" name="prices[]" class="custom-control-input" value="100,500" id="price_10500">
                                         <label class="custom-control-label" for="price_10500">@lang('tr.From'): 100&nbsp;&nbsp;@lang('tr.To'):500</label>
                                     </div>
+                                    
                                     <div class="custom-control custom-checkbox collection-filter-checkbox">
                                         <input type="checkbox" name="prices[]" class="custom-control-input" value="500,1000" id="price_5001000">
                                         <label class="custom-control-label" for="price_5001000">@lang('tr.From'): 500&nbsp;&nbsp;@lang('tr.To'):1000</label>
                                     </div>
+                                    
                                     <div class="custom-control custom-checkbox collection-filter-checkbox">
                                         <input type="checkbox" name="prices[]" class="custom-control-input" value=",1000" id="price_above1000">
                                         <label class="custom-control-label" for="price_above1000">@lang('tr.Above'): 1000</label>
                                     </div>
-                                    @endif
                                 </div>
                             </div>
                         </div>
+                        <br>
+                    <button type="submit" class="btn btn-normal" style="display: block;margin-left: auto;margin-right: auto;"><i class="fa fa-search"></i>&nbsp;@lang('tr.Search')</button>
                     </div>
 
-                    <hr>
-                    <button type="submit" class="btn btn-normal btn-block"><i class="fa fa-search"></i>&nbsp;@lang('tr.Search')</button>
+                    
 
                         </form>
 
@@ -262,10 +189,9 @@
                                     <div class="product-wrapper-grid product-load-more">
                                         <div class="row" id="normalData">
                                             
-                                            @foreach ($products as $product)
+                                            @foreach ($hotOffers as $offer)
 
-                                            @php($getReview = \App\Models\Product::getReview($product->id))
-                                            @php($getDiscount = \App\Models\Product::checkDiscount($product->id))
+                                            @php($getReview = \App\Models\Product::getReview($offer->product->id))
 
                                             <div class="col-xl-3 col-md-4 col-6 col-grid-box">
                                                 <div class="product">
@@ -273,10 +199,10 @@
                                                         <div class="product-imgbox">
                                                             <a href="product-details-bundels.html">
                                                                 <div class="product-front">
-                                                                    <img style="width: 768px;height: 250px;" src="{{ asset('backend/dashboard_images/Products/'.$product->product_image) }}" class="img-fluid  " alt="product">
+                                                                    <img style="width: 768px;height: 250px;" src="{{ asset('backend/dashboard_images/Products/'.$offer->product->product_image) }}" class="img-fluid  " alt="product">
                                                                 </div>
                                                                 <div class="product-back">
-                                                                    <img style="width: 768px;height: 250px;" src="{{ asset('backend/dashboard_images/Products/'.$product->product_image) }}" class="img-fluid  " alt="product">
+                                                                    <img style="width: 768px;height: 250px;" src="{{ asset('backend/dashboard_images/Products/'.$offer->product->product_image) }}" class="img-fluid  " alt="product">
                                                                 </div>
                                                             </a>
                                                         </div>
@@ -292,37 +218,35 @@
                                                                     </div>
                                                                     <a href="">
                                                                         <h6 class="price-title">
-                                                                            {{ $product->$langName }}
+                                                                            {{ $offer->product->$langName }}
                                                                         </h6>
                                                                     </a>
                                                                 </div>
                                                                 <div class="detail-right">
                                                                     
-                                                                    @if ($getDiscount == null)
-                                                                    <div class="price" style="margin-left:0;">
-                                                                        EGP {{ $product->price }}
-                                                                    </div>
-                                                                    @else
-                                                                    <div class="check-price">
-                                                                        EGP {{ $product->price }}
-                                                                    </div>
-                                                                    <div class="price">
-                                                                        <div class="price">
-                                                                            @php($discount = $product->price - (($getDiscount->discount / 100) * $product->price))
-                                                                            EGP {{ $discount }}
-                                                                        </div>
-                                                                    </div>
-                                                                    @endif
+                                                                    EGP {{ $offer->product->price }}
                                                                     
+                                                                </div>
+                                                                <div class="detail-right">
+                                                                    @lang('tr.From'):&nbsp;<span style="color: #b22827; font-weight: bold;">{{ $offer->start_date }}</span>&nbsp;&nbsp;@lang('tr.To'):&nbsp;<span style="color: #b22827; font-weight: bold;">{{ $offer->end_date }}</span>
                                                                 </div>
                                                             </div>
                                                             <div class="icon-detail">
                                                                 <button data-toggle="modal" data-target="#addtocart" title="Add to cart">
                                                                     <i class="ti-bag" ></i>
                                                                 </button>
-                                                                <a href="javascript:void(0)" title="Add to Wishlist">
-                                                                    <i class="ti-heart" aria-hidden="true"></i>
-                                                                </a>
+                                                                
+                                                                @if ($offer->product->checkWishList() > 0)
+                                                                <button data-product="{{ $offer->product->id }}" class="addToWishList" title="@lang('tr.Remove From Wishlist')">
+                                                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                                                </button>
+                                                                @else
+                                                                <button data-product="{{ $offer->product->id }}" class="addToWishList" title="@lang('tr.Add to Wishlist')">
+                                                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                                                </button>
+                                                                @endif
+
+                                                                
                                                                 <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
                                                                     <i class="ti-search" aria-hidden="true"></i>
                                                                 </a>
@@ -360,9 +284,90 @@
 @endsection
 
 @section('javascript')
+
+
+
+
 <script>
    $(document).on('input', '.priceRange', function() {
     $('.selectRanage').html($('.priceRange').val()+' EGP');
+});
+
+$(document).ready(function(){
+    var addToWishListUrl = '{{ route("frontend_addwishlist",["id"=>"#id"]) }}';
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+        }
+    });
+    
+    $('.addToWishList').on('click',function(e){
+        e.preventDefault();
+        
+        addToWishListUrl = addToWishListUrl.replace('#id',$(this).data('product'));
+        jQuery.ajax({
+            url: addToWishListUrl,
+            method: 'get',
+        success: function(result){
+            if (result.added == "added") {
+                Command: toastr["success"]('@lang("tr.Add To Wishlist")', "@lang('tr.Done')")
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "300",
+                    "timeOut": "300",
+                    "extendedTimeOut": "300",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+                
+                $('.addToWishList').html('<i class="fa fa-heart" aria-hidden="true"></i>');
+                $('.addToWishList').attr('title','@lang("tr.Remove From Wishlist")');
+                $('#wishVal').html(parseInt($('#wishVal').text()) + 1);
+                
+
+            }if (result.deleted == "deleted") {
+                Command: toastr["warning"]('@lang("tr.Remove From Wishlist")', "@lang('tr.Done')")
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "300",
+                    "timeOut": "300",
+                    "extendedTimeOut": "300",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+
+                $('.addToWishList').html('<i class="fa fa-heart-o" aria-hidden="true"></i>');
+                $('.addToWishList').attr('title','@lang("tr.Add To Wishlist")');
+                
+                if($('#wishVal').text() != 0){
+                    $('#wishVal').html(parseInt($('#wishVal').text()) - 1);
+                }
+            }
+        }});
+    });
+
+
+
+    
 });
     
 </script>

@@ -27,7 +27,7 @@
 <!--End product tab-->
 
 <!--product tab-->
-@include('frontend.components.collectionbanner2')
+{{-- @include('frontend.components.collectionbanner2') --}}
 <!--End product tab-->
 
 

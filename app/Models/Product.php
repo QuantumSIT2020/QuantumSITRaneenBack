@@ -10,6 +10,8 @@ use App\Models\Manufacturer;
 use App\Models\Product_sale;
 use App\Models\Review;
 use App\Models\Product_Gallery;
+use App\Models\ChildCategory;
+use App\Models\MainCategory;
 use Auth;
 
 class Product extends Model
@@ -56,6 +58,16 @@ class Product extends Model
         return Product_Gallery::where('product_id',$this->id)->get();
     }
     
+    public function getChildCategory($id)
+    {
+        return ChildCategory::where('id',$id)->get()->first();
+    }
+
+    public function getMainCategory($id)
+    {
+        $child = ChildCategory::where('id',$id)->get()->first();
+        return MainCategory::where('id',$child->main_category_id)->get()->first();
+    }
 
     public static function calculateRemainTime($start,$end)
     {

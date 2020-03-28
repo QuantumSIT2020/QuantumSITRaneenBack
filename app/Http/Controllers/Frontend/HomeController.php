@@ -35,7 +35,7 @@ class HomeController extends Controller
         $lastAftertwoDiscount                    = Product_sale::select('*')->orderBy('id', 'desc')->skip(2)->take(2)->get();
         $lasttwoHotOffer                         = Product_HotOffer::select('*')->orderBy('id', 'desc')->limit(2)->get();
         $lastfourBlogs                           = Blog::select('*')->where('type','blogs')->where('isactive',1)->orderBy('id', 'desc')->limit(4)->get();
-        $LastFourMainCategories                  = MainCategory::select($lang.'_name as name',$lang.'_desc as description','main_image','id')->limit(4)->get();
+        $LastFourMainCategories                  = MainCategory::select($lang.'_name as name',$lang.'_desc as description','main_image','id')->limit(6)->get();
         $allReviews                              = Review::all();
         
         $leatestproduct                          = Product::select('*')->orderBy('id', 'desc')->get();
@@ -43,8 +43,6 @@ class HomeController extends Controller
         $reviews                                 =  DB::select('SELECT product_id, products.en_name, products.ar_name, products.price, products.product_image, AVG(reviews.reviews) AS "review" FROM reviews INNER JOIN products ON products.id = reviews.product_id GROUP BY product_id');
         
         
-        // return view('frontend.index',compact('allReviews','LastFourMainCategories','lastfourBlogs','lasttwoHotOffer','lastAftertwoDiscount','lasttwoDiscount','MainCategories','ChildCategories','subCategories','Sliders','lastHotOffer','beforelastHotOffer','lastdiscounts','brands','lastbeforediscounts'));
-
 
         return view('frontend.index',compact('allReviews','LastFourMainCategories','lastfourBlogs','lasttwoHotOffer',
             'lastAftertwoDiscount','lasttwoDiscount','MainCategories',

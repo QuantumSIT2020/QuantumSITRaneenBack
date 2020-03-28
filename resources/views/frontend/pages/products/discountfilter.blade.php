@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('title',__('tr.Products'))
+@section('title',__('tr.Discount'))
 
 @section('stylesheet')
 
@@ -9,6 +9,8 @@
 @section('content')
 
 @section('breads')
+<li><i class="fa fa-angle-double-right"></i></li>
+<li><a href="{{ route('frontend_maincategory') }}">@lang('tr.All Products')</a></li>
 <li><i class="fa fa-angle-double-right"></i></li>
 <li><a href="#">@yield('title')</a></li>
 @endsection
@@ -24,7 +26,7 @@
                     <div class="collection-filter-block creative-card creative-inner category-side">
                         <!-- brand filter start -->
 
-                        <form action="{{ route('frontend_brandfilter',$child_category_id) }}" method="GET">
+                        <form action="{{ route('frontend_discountsfilter') }}" method="GET">
 
                             <div class="collection-mobile-back"><span class="filter-back"><i class="fa fa-angle-left" aria-hidden="true"></i> back</span></div>
                         <div class="collection-collapse-block open">
@@ -211,61 +213,11 @@
                 </div>
                 <div class="collection-content col">
                     <div class="page-main-content">
-                        <div class="row">
-                            <div class="col-sm-12">
-
-                                <div class="collection-product-wrapper">
-                                    <div class="product-top-filter">
-                                        <div class="row">
-                                            <div class="col-xl-12">
-                                                <div class="filter-main-btn"><span class="filter-btn btn btn-theme"><i class="fa fa-filter" aria-hidden="true"></i> Filter</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="product-filter-content">
-                                                    <div class="search-count">
-                                                        <h5>Showing Products 1-24 of 10 Result</h5>
-                                                    </div>
-                                                    <div class="collection-view">
-                                                        <ul>
-                                                            <li><i class="fa fa-th grid-layout-view"></i></li>
-                                                            <li><i class="fa fa-list-ul list-layout-view"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="collection-grid-view">
-                                                        <ul>
-                                                            <li><img src="{{ asset('frontend/assets/images/category/icon/2.png') }}" alt="" class="product-2-layout-view"></li>
-                                                            <li><img src="{{ asset('frontend/assets/images/category/icon/3.png') }}" alt="" class="product-3-layout-view"></li>
-                                                            <li><img src="{{ asset('frontend/assets/images/category/icon/4.png') }}" alt="" class="product-4-layout-view"></li>
-                                                            <li><img src="{{ asset('frontend/assets/images/category/icon/6.png') }}" alt="" class="product-6-layout-view"></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="product-page-per-view">
-                                                        <select>
-                                                        <option value="High to low">24 Products Par Page</option>
-                                                        <option value="Low to High">50 Products Par Page</option>
-                                                        <option value="Low to High">100 Products Par Page</option>
-                                                    </select>
-                                                    </div>
-                                                    <div class="product-page-filter">
-                                                        <select>
-                                                        <option value="High to low">Sorting items</option>
-                                                        <option value="Low to High">50 Products</option>
-                                                        <option value="Low to High">100 Products</option>
-                                                    </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-wrapper-grid product-load-more">
-                                        <div class="row" id="normalData">
+                        <div class="row" id="normalData">
                                             
-                                            @foreach ($products as $product)
+                                            @foreach ($discounts as $dis)
 
-                                            @php($getReview = \App\Models\Product::getReview($product->id))
-                                            @php($getDiscount = \App\Models\Product::checkDiscount($product->id))
+                                            @php($getReview = \App\Models\Product::getReview($dis->products->id))
 
                                             <div class="col-xl-3 col-md-4 col-6 col-grid-box">
                                                 <div class="product">
@@ -273,10 +225,10 @@
                                                         <div class="product-imgbox">
                                                             <a href="product-details-bundels.html">
                                                                 <div class="product-front">
-                                                                    <img style="width: 768px;height: 250px;" src="{{ asset('backend/dashboard_images/Products/'.$product->product_image) }}" class="img-fluid  " alt="product">
+                                                                    <img style="width: 768px;height: 250px;" src="{{ asset('backend/dashboard_images/Products/'.$dis->products->product_image) }}" class="img-fluid  " alt="product">
                                                                 </div>
                                                                 <div class="product-back">
-                                                                    <img style="width: 768px;height: 250px;" src="{{ asset('backend/dashboard_images/Products/'.$product->product_image) }}" class="img-fluid  " alt="product">
+                                                                    <img style="width: 768px;height: 250px;" src="{{ asset('backend/dashboard_images/Products/'.$dis->products->product_image) }}" class="img-fluid  " alt="product">
                                                                 </div>
                                                             </a>
                                                         </div>
@@ -292,27 +244,13 @@
                                                                     </div>
                                                                     <a href="">
                                                                         <h6 class="price-title">
-                                                                            {{ $product->$langName }}
+                                                                            {{ $dis->products->$langName }}
                                                                         </h6>
                                                                     </a>
                                                                 </div>
                                                                 <div class="detail-right">
                                                                     
-                                                                    @if ($getDiscount == null)
-                                                                    <div class="price" style="margin-left:0;">
-                                                                        EGP {{ $product->price }}
-                                                                    </div>
-                                                                    @else
-                                                                    <div class="check-price">
-                                                                        EGP {{ $product->price }}
-                                                                    </div>
-                                                                    <div class="price">
-                                                                        <div class="price">
-                                                                            @php($discount = $product->price - (($getDiscount->discount / 100) * $product->price))
-                                                                            EGP {{ $discount }}
-                                                                        </div>
-                                                                    </div>
-                                                                    @endif
+                                                                    EGP {{ $dis->products->price }}
                                                                     
                                                                 </div>
                                                             </div>
@@ -320,9 +258,18 @@
                                                                 <button data-toggle="modal" data-target="#addtocart" title="Add to cart">
                                                                     <i class="ti-bag" ></i>
                                                                 </button>
-                                                                <a href="javascript:void(0)" title="Add to Wishlist">
-                                                                    <i class="ti-heart" aria-hidden="true"></i>
-                                                                </a>
+                                                                
+                                                                @if ($dis->products->checkWishList() > 0)
+                                                                <button data-product="{{ $dis->products->id }}" class="addToWishList" title="@lang('tr.Remove From Wishlist')">
+                                                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                                                </button>
+                                                                @else
+                                                                <button data-product="{{ $dis->products->id }}" class="addToWishList" title="@lang('tr.Add to Wishlist')">
+                                                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                                                </button>
+                                                                @endif
+
+                                                                
                                                                 <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
                                                                     <i class="ti-search" aria-hidden="true"></i>
                                                                 </a>
@@ -340,14 +287,6 @@
                                             
                                             
                                         </div>
-
-
-
-                                    </div>
-                                    <div class="load-more-sec"><a href="javascript:void(0)" class="loadMore">load more</a></div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

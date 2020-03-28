@@ -117,18 +117,10 @@
                                         <!--HOME-END-->
 
                                         <!--SHOP-->
-                                        <li>
-                                            <a href="#">offers </a>
-
-                                            <ul>
-                                                <li><a href="bundles.html"> ranen bundles</a></li>
-                                                <li><a href="sale.html">ranen sale </a></li>
-
-                                            </ul>
-                                        </li>
+                                        <li class="mega" id="hover-cls"><a href="{{ route('frontend_discounts') }}">@lang('tr.Discounts')    <span   style="color:#B22827;">%</span>
                                         <!--SHOP-END-->
                                         <!--product-meu start-->
-                                        <li class="mega" id="hover-cls"><a href="hotdeal.html">hot deals    <i   style="color:#B22827;" class="fa fa-hourglass-half"></i>
+                                        <li class="mega" id="hover-cls"><a href="{{ route('frontend_hotoffers') }}">@lang('tr.Hot Deals')    <i   style="color:#B22827;" class="fa fa-hourglass-half"></i>
                                     </a>
 
                                         </li>

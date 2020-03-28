@@ -106,10 +106,10 @@
                                                 <label class="custom-control-label" for="price_10100">@lang('tr.From'): 10&nbsp;&nbsp;@lang('tr.To'):100</label>
                                             </div>
                                         @else
-                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                            <input type="checkbox" name="prices[]" class="custom-control-input" value="10,100" id="price_10100">
-                                            <label class="custom-control-label" for="price_10100">@lang('tr.From'): 10&nbsp;&nbsp;@lang('tr.To'):100</label>
-                                        </div>                                      
+                                            <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                <input type="checkbox" name="prices[]" class="custom-control-input" value="10,100" id="price_10100">
+                                                <label class="custom-control-label" for="price_10100">@lang('tr.From'): 10&nbsp;&nbsp;@lang('tr.To'):100</label>
+                                            </div>
                                         @endif
 
 
@@ -118,11 +118,11 @@
                                                 <input type="checkbox" name="prices[]" checked class="custom-control-input" value="100,500" id="price_10500">
                                                 <label class="custom-control-label" for="price_10500">@lang('tr.From'): 100&nbsp;&nbsp;@lang('tr.To'):500</label>
                                             </div>
-                                        @else                                           
-                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                            <input type="checkbox" name="prices[]" class="custom-control-input" value="100,500" id="price_10500">
-                                            <label class="custom-control-label" for="price_10500">@lang('tr.From'): 100&nbsp;&nbsp;@lang('tr.To'):500</label>
-                                        </div>
+                                        @else
+                                            <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                <input type="checkbox" name="prices[]" class="custom-control-input" value="100,500" id="price_10500">
+                                                <label class="custom-control-label" for="price_10500">@lang('tr.From'): 100&nbsp;&nbsp;@lang('tr.To'):500</label>
+                                            </div>
                                         @endif
 
 
@@ -132,10 +132,10 @@
                                                 <label class="custom-control-label" for="price_5001000">@lang('tr.From'): 500&nbsp;&nbsp;@lang('tr.To'):1000</label>
                                             </div>
                                         @else
-                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                            <input type="checkbox" name="prices[]" class="custom-control-input" value="500,1000" id="price_5001000">
-                                            <label class="custom-control-label" for="price_5001000">@lang('tr.From'): 500&nbsp;&nbsp;@lang('tr.To'):1000</label>
-                                        </div>                                           
+                                            <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                <input type="checkbox" name="prices[]" class="custom-control-input" value="500,1000" id="price_5001000">
+                                                <label class="custom-control-label" for="price_5001000">@lang('tr.From'): 500&nbsp;&nbsp;@lang('tr.To'):1000</label>
+                                            </div>
                                         @endif
                                         
                                         @if(in_array(',1000',$_GET['prices']))
@@ -144,28 +144,11 @@
                                                 <label class="custom-control-label" for="price_above1000">@lang('tr.Above'): 1000</label>
                                             </div>
                                         @else
-                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                            <input type="checkbox" name="prices[]" class="custom-control-input" value=",1000" id="price_above1000">
-                                            <label class="custom-control-label" for="price_above1000">@lang('tr.Above'): 1000</label>
-                                        </div>                                           
+                                            <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                                <input type="checkbox" name="prices[]" class="custom-control-input" value=",1000" id="price_above1000">
+                                                <label class="custom-control-label" for="price_above1000">@lang('tr.Above'): 1000</label>
+                                            </div>
                                         @endif
-                                    @else
-                                    <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                        <input type="checkbox" name="prices[]" class="custom-control-input" value="10,100" id="price_10100">
-                                        <label class="custom-control-label" for="price_10100">@lang('tr.From'): 10&nbsp;&nbsp;@lang('tr.To'):100</label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                        <input type="checkbox" name="prices[]" class="custom-control-input" value="100,500" id="price_10500">
-                                        <label class="custom-control-label" for="price_10500">@lang('tr.From'): 100&nbsp;&nbsp;@lang('tr.To'):500</label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                        <input type="checkbox" name="prices[]" class="custom-control-input" value="500,1000" id="price_5001000">
-                                        <label class="custom-control-label" for="price_5001000">@lang('tr.From'): 500&nbsp;&nbsp;@lang('tr.To'):1000</label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                        <input type="checkbox" name="prices[]" class="custom-control-input" value=",1000" id="price_above1000">
-                                        <label class="custom-control-label" for="price_above1000">@lang('tr.Above'): 1000</label>
-                                    </div>
                                     @endif
                                 </div>
                             </div>
