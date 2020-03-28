@@ -12,7 +12,7 @@
                             <div class="col-md-12">
                                 <div class="masonary-banner-main">
                                     <div class="masonory-banner-img" style="">
-                                        <img src="{{ asset('frontend/450x450.jpg') }}" style="background: rgb(207,185,185);
+                                        <img src="{{ asset('frontend/1.jpg') }}" style="background: rgb(207,185,185);
 background: linear-gradient(180deg, rgba(207,185,185,1) 0%, rgba(178,40,39,1) 100%);"   class="img-fluid bg-img" alt="masonory-banner">
                                     </div>
                                     <div class="masonary-banner-contant p-center">
@@ -31,7 +31,7 @@ background: linear-gradient(180deg, rgba(207,185,185,1) 0%, rgba(178,40,39,1) 10
                     <div class="col-sm-6 pl-3">
                         <div class="masonary-banner-main">
                             <div class="masonory-banner-img masonory-img1" style="">
-                                <img src="{{ asset('frontend/930_tall.jpg') }}"   class="img-fluid bg-img" alt="masonory-banner">
+                                <img src="{{ asset('frontend/5.jpg') }}"   class="img-fluid bg-img" alt="masonory-banner">
                             </div>
                             <div class="masonary-banner-contant p-center">
                                 <div>
@@ -45,6 +45,11 @@ background: linear-gradient(180deg, rgba(207,185,185,1) 0%, rgba(178,40,39,1) 10
                     </div>
                 </div>
             </div>
+
+
+
+
+
             
             
             
@@ -55,7 +60,7 @@ background: linear-gradient(180deg, rgba(207,185,185,1) 0%, rgba(178,40,39,1) 10
                             <div class="col-sm-6 pr-0">
                                 <div class="masonary-banner-main">
                                     <div class="masonory-banner-img" style="">
-                                        <img src="{{ asset('frontend/450x450.jpg') }}" style="background: rgb(207,185,185);
+                                        <img src="{{ asset('frontend/3.jpg') }}" style="background: rgb(207,185,185);
 background: linear-gradient(180deg, rgba(207,185,185,1) 0%, rgba(178,40,39,1) 100%);"  class="img-fluid bg-img" alt="masonory-banner">
                                     </div>
                                     <div class="masonary-banner-contant p-center">
@@ -69,7 +74,7 @@ background: linear-gradient(180deg, rgba(207,185,185,1) 0%, rgba(178,40,39,1) 10
                             <div class="col-sm-6">
                                 <div class="masonary-banner-main">
                                     <div class="masonory-banner-img" style="">
-                                        <img src="{{ asset('frontend/450x450_1.jpg') }}"style="background: rgb(207,185,185);
+                                        <img src="{{ asset('frontend/4.jpg') }}"style="background: rgb(207,185,185);
 background: linear-gradient(180deg, rgba(207,185,185,1) 0%, rgba(178,40,39,1) 100%);"    class="img-fluid bg-img" alt="masonory-banner">
                                     </div>
                                     <div class="masonary-banner-contant p-center">
@@ -85,7 +90,7 @@ background: linear-gradient(180deg, rgba(207,185,185,1) 0%, rgba(178,40,39,1) 10
                     <div class="col-md-12 pr-0">
                         <div class="masonary-banner-main">
                             <div class="masonory-banner-img" style="">
-                                <img src="{{ asset('frontend/930.jpg') }}" style="background: rgb(207,185,185);
+                                <img src="{{ asset('frontend/6.jpg') }}" style="background: rgb(207,185,185);
 background: linear-gradient(180deg, rgba(207,185,185,1) 0%, rgba(178,40,39,1) 100%);"   alt="masonary-banner" class="img-fluid bg-img">
                             </div>
                             <div class="masonary-banner-contant p-right">
