@@ -63,5 +63,11 @@
 <script src="{{ asset('frontend/assets/js/modal.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/productsfilter.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-
+<script>
+    $(document).ready(function(){
+        $('.tab-title li:first').addClass('current');
+        $('.tab-content-cls div:first').addClass('active default');
+        $('.tab-content-cls div:first').css('display','block');
+    });
+</script>
 @yield('javascript')

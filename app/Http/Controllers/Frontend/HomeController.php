@@ -11,6 +11,7 @@ use App\Models\Slider;
 use App\Models\Product;
 use App\Models\Product_sale;
 use App\Models\Product_HotOffer;
+use App\Models\Blog;
 
 
 class HomeController extends Controller
@@ -29,7 +30,12 @@ class HomeController extends Controller
         $beforelastHotOffer                      = Product_HotOffer::select('*')->orderBy('id', 'desc')->skip(1)->take(1)->get()->first();
         $lastdiscounts                           = Product_sale::select('*')->orderBy('id', 'desc')->get()->first();
         $lastbeforediscounts                     = Product_sale::select('*')->orderBy('id', 'desc')->skip(1)->take(1)->get()->first();
-
-        return view('frontend.index',compact('MainCategories','ChildCategories','subCategories','Sliders','lastHotOffer','beforelastHotOffer','lastdiscounts','brands','lastbeforediscounts'));
+        $lasttwoDiscount                         = Product_sale::select('*')->orderBy('id', 'desc')->limit(2)->get();
+        $lastAftertwoDiscount                    = Product_sale::select('*')->orderBy('id', 'desc')->skip(2)->take(2)->get();
+        $lasttwoHotOffer                         = Product_HotOffer::select('*')->orderBy('id', 'desc')->limit(2)->get();
+        $lastfourBlogs                           = Blog::select('*')->where('type','blogs')->where('isactive',1)->orderBy('id', 'desc')->limit(4)->get();
+        
+        
+        return view('frontend.index',compact('lastfourBlogs','lasttwoHotOffer','lastAftertwoDiscount','lasttwoDiscount','MainCategories','ChildCategories','subCategories','Sliders','lastHotOffer','beforelastHotOffer','lastdiscounts','brands','lastbeforediscounts'));
     }
 }
