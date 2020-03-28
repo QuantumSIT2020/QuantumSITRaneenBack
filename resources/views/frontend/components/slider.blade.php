@@ -34,18 +34,36 @@
 
             </div>
 
-            <div class="col-xl-2 col-sm-3 pl-0 offer-banner">
+            
+            @if($lastHotOffer != null)
+            <div class="col-xl-2 col-sm-3 pl-0 offer-banner" style="background:white;">
                 <div class="offer-banner-img">
-                    <img src="{{ asset('backend/dashboard_images/Products/'.$lastHotOffer->product->product_image) }}" alt="offer-banner" class="img-fluid  ">
+                    <img src="{{ asset('backend/dashboard_images/Products/'.$lastHotOffer->product->product_image) }}" style="position: absolute; top: 0; bottom: 0; margin: auto; width: 100%; height: 220px;" alt="offer-banner" class="img-fluid  ">
                 </div>
                 <div class="banner-contain">
                     <div>
-                        <h5>{{$lastHotOffer->product->en_name}}</h5>
-                        <div class="discount-offer">
+                        <h5 style="text-shadow: 2px 2px 2px black;">{{$lastHotOffer->product->en_name}}</h5>
+                        <div class="discount-offer" style="text-shadow: 2px 2px 2px black;">
                             <h1>{{$lastHotOffer->offer}}%</h1></div>
                     </div>
                 </div>
             </div>
+
+            @else
+            <div class="col-xl-2 col-sm-3 pl-0 offer-banner">
+                <div class="offer-banner-img">
+                    <img src="{{ asset('frontend/assets/images/layout-1/offer-banner.png') }}" alt="offer-banner" class="img-fluid  ">
+                </div>
+                <div class="banner-contain">
+                    <div>
+                        <h5>@lang('tr.There is No Latest Offer')</h5>
+                        <div class="discount-offer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
+
         </div>
     </div>
 </section>

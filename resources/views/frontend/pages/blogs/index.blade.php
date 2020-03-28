@@ -56,7 +56,7 @@
                 </div>
 
                 @else
-                <h1 style="text-align: center; font-size: 30px; color: #b22827; font-weight: bold;">@lang('tr.There No Blogs')</h1>
+                <h1 style="text-align: center; font-size: 30px; color: #b22827; font-weight: bold;">@lang('tr.There Are No Blogs')</h1>
                 @endif
 
                                 

@@ -2,6 +2,8 @@
     <div class="custom-container">
         <div class="row collection collection-layout1">
             <div class="col-md-4 offset-xl-2 p-r-md-0">
+                
+                @if($lastbeforediscounts != null)
                 <div class="collection-banner-main p-left">
                     <div class="collection-img">
                         <img src="{{ asset('backend/dashboard_images/Products/'.$lastbeforediscounts->products->product_image) }}" class="img-fluid bg-img  " alt="banner">
@@ -19,8 +21,25 @@
                         </div>
                     </div>
                 </div>
+                @else
+                <div class="collection-banner-main p-left">
+                    <div class="collection-img bg-size" style="background-image: url({{ asset('frontend/assets/images/layout-1/collection-banner/1.jpg') }}); background-size: cover; background-position: center center; display: block;">
+                        <img src="{{ asset('frontend/assets/images/layout-1/collection-banner/1.jpg') }}" class="img-fluid bg-img  " alt="banner" style="display: none;">
+                    </div>
+                    <div class="collection-banner-contain">
+                        <div>
+                            <h3>@lang('tr.No Product')</h3>
+                            <h4>@lang('tr.No Product')</h4>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
             </div>
+
+
             <div class="col-md-4 col-4">
+                @if ($lastdiscounts != null)
                 <div class="collection-banner-main p-left">
                     <div class="collection-img">
                         <img src="{{ asset('backend/dashboard_images/Products/'.$lastdiscounts->products->product_image) }}" class="img-fluid bg-img  " alt="banner">
@@ -38,12 +57,27 @@
                         </div>
                     </div>
                 </div>
+                @else
+                <div class="collection-banner-main p-left">
+                    <div class="collection-img bg-size" style="background-image: url({{ asset('frontend/assets/images/layout-1/collection-banner/2.jpg') }}); background-size: cover; background-position: center center; display: block;">
+                        <img src="{{ asset('frontend/assets/images/layout-1/collection-banner/2.jpg') }}" class="img-fluid bg-img  " alt="banner" style="display: none;">
+                    </div>
+                    <div class="collection-banner-contain">
+                        <div>
+                            <h3>@lang('tr.No Product')</h3>
+                            <h4>@lang('tr.No Product')</h4>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                
             </div>
 
 
 
 
             <div class="col-md-2  pl-md-0">
+                @if ($beforelastHotOffer != null)
                 <div class="collection-banner-main p-top banner-6">
                     <div class="collection-img">
                         <img src="{{ asset('backend/dashboard_images/Products/'.$beforelastHotOffer->product->product_image) }}" class="img-fluid bg-img  " alt="banner">
@@ -55,6 +89,20 @@
                         </div>
                     </div>
                 </div>
+                @else
+                <div class="collection-banner-main p-top banner-6">
+                    <div class="collection-img bg-size" style="background-image: url({{ asset('frontend/assets/images/layout-1/collection-banner/7.jpg') }}); background-size: cover; background-position: center center; display: block;">
+                        <img src="{{ asset('frontend/assets/images/layout-1/collection-banner/7.jpg') }}" class="img-fluid bg-img  " alt="banner" style="display: none;">
+                    </div>
+                    <div class="collection-banner-contain">
+                        <div>
+                            <h6>@lang('tr.No Product')</h6>
+                            <h4>@lang('tr.No Product')</h4>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                
             </div>
 
         </div>
