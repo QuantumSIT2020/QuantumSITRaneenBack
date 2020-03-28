@@ -43,12 +43,29 @@
                 <li>
                     <a href="#myPage" class="has-arrow"><i class="icon-users"></i><span>@lang('tr.Users')</span></a>
                     <ul>
-                        <li><a href="{{ route('create_customers') }}">@lang('tr.Create Customer')</a></li>
+                        @can('create_customers')
+                        <li><a href="{{ route('create_customers') }}">@lang('tr.Create Customer')</a></li>  
+                        @endcan
+
+                        @can('show_customers')
                         <li><a href="{{ route('customers') }}">@lang('tr.All Customers')</a></li>
+                        @endcan
+
+                        @can('create_buyers')
                         <li><a href="{{ route('create_buyers') }}">@lang('tr.Create Buyer')</a></li>
+                        @endcan
+
+                        @can('show_customers')
                         <li><a href="{{ route('buyers') }}">@lang('tr.All Buyers')</a></li>
+                        @endcan
+
+                        @can('create_data_entry')
                         <li><a href="{{ route('create_dataentry') }}">@lang('tr.Create Data Entry')</a></li>
+                        @endcan
+
+                        @can('show_data_entry')
                         <li><a href="{{ route('dataentry') }}">@lang('tr.All Data Entries')</a></li>
+                        @endcan
                     </ul>
                 </li>
 
