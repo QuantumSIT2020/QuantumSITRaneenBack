@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 
-@section('title',__('tr.Create Sub Category'))
+@section('title',__('tr.Create Brand'))
 
 {{-- additional stylesheets --}}
 @section('stylesheet')
@@ -37,9 +37,9 @@
 
 
                                     <div class="form-group">
-                                        <label for="child_category_id">@lang('tr.sub_category'):</label>
+                                        <label for="child_category_id">@lang('tr.child_category'):</label>
                                         <select name="child_category_id" id="child_category_id" class="custom-select" required>
-                                            <option value="">@lang('tr.Select sub_category')</option>
+                                            <option value="">@lang('tr.Select child_category')</option>
                                             @foreach ($ChildCategories as $ChildCategory)
                                                 <option value="{{ $ChildCategory->id }}">{{$ChildCategory->name }}</option>
                                             @endforeach
@@ -68,7 +68,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-lg-4 file">@lang('tr.Select  Sub Image')</label>
+                                    <label class="col-lg-4 file">@lang('tr.Select  Brand Image')</label>
                                     <div class="col-md-8">
                                         <input type="file" id="file"   name="sub_image" aria-label="File browser example" onchange="readURL(this);" />
                                         <img id ="file3"  src="#" alt="@lang('tr.your image')"/>
