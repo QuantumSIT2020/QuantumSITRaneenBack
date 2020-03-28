@@ -15,7 +15,7 @@
                                         <img src="{{ asset('frontend/assets/images/layout-6/masonory-banner/1.jpg') }}" class="img-fluid bg-img" alt="masonory-banner">
                                     </div>
                                     <div class="masonary-banner-contant p-center">
-                                        @if(count($LastFourMainCategories)-1 > $count)
+                                        @if(count($LastFourMainCategories)-1 >= $count)
                                         <h5>{{ $LastFourMainCategories[$i]->name }}</h5>
                                         @php($count = $count + 1)
                                         @endif
@@ -34,7 +34,7 @@
                             </div>
                             <div class="masonary-banner-contant p-center">
                                 <div>
-                                    @if(count($LastFourMainCategories)-1 > $count)
+                                    @if(count($LastFourMainCategories)-1 >= $count)
                                     <h5>{{ $LastFourMainCategories[$count]->name }}</h5>
                                     @php($count = $count + 1)
                                     @endif
@@ -57,7 +57,7 @@
                                         <img src="{{ asset('frontend/assets/images/layout-6/masonory-banner/4.jpg') }}" class="img-fluid bg-img" alt="masonory-banner">
                                     </div>
                                     <div class="masonary-banner-contant p-center">
-                                        @if(count($LastFourMainCategories)-1 > $count)
+                                        @if(count($LastFourMainCategories)-1 >= $count)
                                         <h5>{{ $LastFourMainCategories[$count]->name }}</h5>
                                         @php($count = $count + 1)
                                         @endif
@@ -70,7 +70,7 @@
                                         <img src="{{ asset('frontend/assets/images/layout-6/masonory-banner/5.jpg') }}" class="img-fluid bg-img" alt="masonory-banner">
                                     </div>
                                     <div class="masonary-banner-contant p-center">
-                                        @if(count($LastFourMainCategories)-1 > $count)
+                                        @if(count($LastFourMainCategories)-1 >= $count)
                                         <h5>{{ $LastFourMainCategories[$count]->name }}</h5>
                                         @endif
                                     </div>
@@ -86,7 +86,7 @@
                             <div class="masonary-banner-contant p-right">
                                 <div class="masonary-banner-subcontant">
                                     <div>
-                                        @if(count($LastFourMainCategories)-1 > $count)
+                                        @if(count($LastFourMainCategories)-1 >= $count)
                                         <h5>{{ $LastFourMainCategories[$count]->name }}</h5>
                                         @endif
                                     </div>
