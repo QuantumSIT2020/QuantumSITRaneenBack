@@ -11,13 +11,14 @@
         </div>
         <div class="cart_media">
             <ul class="cart_product">
+            @php($wishListTotal = 0)
+
                 @php($langName = \Lang::getLocale().'_name')
                 
                 @if (isset(Auth::user()->id))
                 @foreach ($user_wishlists as $wish)
                 @if ($wish->user_id == Auth::user()->id)
                 @php($getDiscount = \App\Models\Product::checkDiscount($wish->Product->id))
-                @php($wishListTotal = 0)
                 <li>
                     <div class="media">
                         <a href="#">
