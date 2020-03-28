@@ -60,7 +60,7 @@ background: linear-gradient(180deg, rgba(207,185,185,1) 0%, rgba(178,40,39,1) 10
                             <div class="col-sm-6 pr-0">
                                 <div class="masonary-banner-main">
                                     <div class="masonory-banner-img" style="">
-                                        <img src="{{ asset('frontend/3.jpg') }}" style="background: rgb(207,185,185);
+                                        <img src="{{ asset('frontend/2.jpg') }}" style="background: rgb(207,185,185);
 background: linear-gradient(180deg, rgba(207,185,185,1) 0%, rgba(178,40,39,1) 100%);"  class="img-fluid bg-img" alt="masonory-banner">
                                     </div>
                                     <div class="masonary-banner-contant p-center">
