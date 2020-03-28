@@ -246,7 +246,7 @@ Route::group(['middleware' => 'Lang'], function () {
 
 
 
-    
+
 
 
 
