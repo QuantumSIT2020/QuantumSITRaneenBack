@@ -18,7 +18,6 @@
                 @foreach ($user_wishlists as $wish)
                 @if ($wish->user_id == Auth::user()->id)
                 @php($getDiscount = \App\Models\Product::checkDiscount($wish->Product->id))
-
                 <li>
                     <div class="media">
                         <a href="#">
