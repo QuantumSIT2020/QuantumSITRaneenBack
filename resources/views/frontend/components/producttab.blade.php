@@ -4,12 +4,15 @@
             <div class="col pr-0">
                 <div class="theme-tab product no-arrow">
                     <div class="tab-content-cls ">
-                        
-                        @foreach ($ChildCategories as $child)
 
-                        <div id="tab-{{ $child->main_category_id }}" class="tab-content product">
+                        @foreach ($MainCategories as $main)
+                        <div id="tab-{{ $main->id }}" class="tab-content product">
                             <div class="product-slide-6 product-m no-arrow">
                                 
+                                @foreach ($ChildCategories as $child)
+
+                                @if ($child->main_category_id == $main->id)
+
                                 <div>
                                     <a href="{{ route('frontend_brandcategory',$child->id) }}">
                                         <div class="product-box">
@@ -29,11 +32,18 @@
                                         </div>
                                     </a>
                                 </div>
+                                    
+                                @endif
+
+                                @endforeach
+                                
                                 
                             </div>
                         </div>
-                            
                         @endforeach
+
+                        
+                        
 
                         
                         

@@ -30,6 +30,7 @@ class ProductsController extends Controller
 
     public function index()
     {
+        
         $products = Product::paginate(16);
         $hotSale = Product_HotOffer::all();
         return view($this->path.'index',compact('products','hotSale'));

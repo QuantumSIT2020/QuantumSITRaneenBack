@@ -54,7 +54,11 @@ class LoginController extends Controller
 
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password],$remeber)) {
             if (Auth::user()->active == 1) {
-                return redirect()->route('dashboard_index');
+                if (Auth::user()->hasRole('Customer')) {
+                    return redirect()->route('home');
+                }else{
+                    return redirect()->route('dashboard_index');
+                }
             }
             if(Auth::user()->active == 0){
                 $this->guard()->logout();
