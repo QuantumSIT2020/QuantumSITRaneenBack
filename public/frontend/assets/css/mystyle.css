@@ -1,4 +1,4 @@
-.menulevel{
+.menulevel {
     background: white;
     position: absolute;
     left: 242px;
@@ -8,23 +8,9 @@
     height: 672px;
     padding-top: 15px;
     display: none;
-
 }
 
-.rtl .menulevel{
-    background: white;
-    position: absolute;
-   right: 242px;
-    z-index: 999;
-    width: 100%;
-    top: 87px;
-    height: 672px;
-    padding-top: 15px;
-    display: none;
-
-}
-
-.secondmenulevel{
+.secondmenulevel {
     background: white;
     position: absolute;
     left: 264px;
@@ -36,24 +22,12 @@
     display: none;
 }
 
-.rtl .secondmenulevel{
-    background: white;
-    position: absolute;
-    right: 264px;
-    z-index: 999;
-    width: 100%;
-    top: 0px;
-    height: 672px;
-    padding-top: 15px;
-    display: none;
-}
-.category-header .navbar-menu .category-left .nav-block .nav-left{
-
+.category-header .navbar-menu .category-left .nav-block .nav-left {
     z-index: 999;
     overflow: visible;
 }
 
-.carousel-indicators li{
+.carousel-indicators li {
     width: 13px !important;
     height: 13px !important;
     margin-right: 5px !important;
@@ -62,12 +36,11 @@
     border-radius: 50px !important;
 }
 
-.carousel-indicators .active{
-
+.carousel-indicators .active {
     background-color: #fff !important;
 }
 
-.carousel-indicators{
+.carousel-indicators {
     z-index: 1 !important;
 }
 
@@ -79,7 +52,6 @@
     border-radius: 10px;
 }
 
-
 ::-webkit-scrollbar-thumb {
     background: #c1c1c1bf;
     border-radius: 10px;
@@ -89,109 +61,79 @@
     background: #b22827;
 }
 
-.nav-cat{
+.nav-cat {
     height: 614px !important;
     overflow-y: auto !important;
 }
 
-.slidertl{
-
-
-    margin-left: 1rem !important;}
-
-.rtl .pr-3{
-    padding-left: 3rem !important;
+.slidertl {
+    margin-left: 1rem !important;
 }
 
-.rtl .pl-3{
-    padding-right: 3rem !important;
-}
-
-@media (max-width: 600px){
-
-    #rtlslide{
-
+@media (max-width: 600px) {
+    #rtlslide {
         height: 200px !important;
         width: 100% !important;
         margin: 0 !important;
     }
-
-    .carousel-inner{
-
+    .carousel-inner {
         height: 200px !important;
-
     }
-
-    .carousel-inner img{
-
+    .carousel-inner img {
         height: 200px !important;
-
     }
 }
 
 @media screen and (max-width: 1118px) and (min-width:768px) {
-
-    .offer-banner{
-        display:none !important;
+    .offer-banner {
+        display: none !important;
     }
-    .theme-slider .offset-xl-2{
-        margin-left:0 !important;
-
+    .theme-slider .offset-xl-2 {
+        margin-left: 0 !important;
     }
 }
 
-    @media screen and (max-width:1641px) and (min-width:1119px) {
-
-        .offer-banner{
-            display:inline-block !important;
-        }
-
+@media screen and (max-width:1641px) and (min-width:1119px) {
+    .offer-banner {
+        display: inline-block !important;
     }
-@media screen and (min-width:1680px){
-
-    .carousel-inner img{
-        height:400px !important;
-    }
-
-    .offer-banner{
-        height:400px !important;
-    }
-
-    .collection-banner{
-
-        max-width:100% !important;
-    }
-
 }
+
+@media screen and (min-width:1680px) {
+    .carousel-inner img {
+        height: 400px !important;
+    }
+    .offer-banner {
+        height: 400px !important;
+    }
+    .collection-banner {
+        max-width: 100% !important;
+    }
+}
+
 @media screen and (max-width:1470px) and (min-width:1200px) {
-
-    .theme-slider .offset-xl-2{
-       max-width:calc(83% - 270px)!important;
+    .theme-slider .offset-xl-2 {
+        max-width: calc(83% - 270px)!important;
     }
 }
 
 @media screen and (max-width:1118px) and (min-width:992px) {
-
-    .theme-slider .offset-xl-2{
-        max-width:100%!important;
+    .theme-slider .offset-xl-2 {
+        max-width: 100%!important;
     }
-    .offer-banner{
-        display:inline-block !important;
+    .offer-banner {
+        display: inline-block !important;
     }
 }
 
-
-@media(min-width:1367px) and (max-width:1679px)  {
-
+@media(min-width:1367px) and (max-width:1679px) {
     .nav-cat {
         height: 656px !important;
     }
 }
-@media (min-width:1680px)  {
 
+@media (min-width:1680px) {
     .nav-cat {
         height: 686px !important;
     }
 }
-
-
