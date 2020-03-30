@@ -3,9 +3,9 @@
     <div class="tab-product-main">
         <div class="tab-prodcut-contain">
             <ul class="tabs tab-title">
-                <li class="current"><a href="tab-7">Leatest product</a></li>
-                <li class=""><a href="tab-9">best Sellers</a></li>
-                <li class=""><a href="tab-10">On Sale</a></li>
+                <li class="current"><a href="tab-7">@lang('tr.Latest Product')</a></li>
+                <li class=""><a href="tab-9">@lang('tr.Best Sellers')</a></li>
+                <li class=""><a href="tab-10">@lang('tr.On Sale')</a></li>
             </ul>
         </div>
     </div>
@@ -45,7 +45,8 @@
                                                             <p>
                                                                 {{$product->en_name}}
                                                             </p>
-                                                            <h6>{{$product->price}}</h6>
+                                                            <hr>
+                                                            <a href="{{ route('frontend_product_details',$product->id) }}" style="color: #b22827;font-weight: bold;border:1px solid;padding:5px;">@lang('tr.View')</a>
                                                         </div>
                                                     </div>
                                                 </div>

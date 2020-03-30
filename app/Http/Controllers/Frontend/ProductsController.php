@@ -16,6 +16,7 @@ use App\Models\Product_HotOffer;
 use App\Models\Product_sale;
 use App\Models\Product_attribute;
 use App\Models\Product_Gallery;
+use App\Models\Review;
 use Auth;
 
 class ProductsController extends Controller
@@ -59,19 +60,39 @@ class ProductsController extends Controller
         $child_category_id = $id;
         $brands = SubCategory::where('child_category_id',$id)->get();
         $brandsArray = [];
+        $productsArray = [];
         foreach ($brands as $brand) {
             array_push($brandsArray,$brand->id);
         }
-        $products = Product::where('isactive',1)->whereIn('sub_categories_id', $brandsArray)->get();
+        $hotoffers = Product_HotOffer::select('product_id')->get();
+        $discounts = Product_sale::select('product_id')->get();
+
+        foreach ($hotoffers as $hot) {
+            array_push($productsArray,$hot->product_id);
+        }
+
+        foreach ($discounts as $offer) {
+            array_push($productsArray,$offer->product_id);
+        }
+
+        $products = Product::where('isactive',1)->whereIn('sub_categories_id', $brandsArray)->whereNotIn('id',$productsArray)->get();
         $attibuteGroups = GroupAttributes::all();
         $attributes = Attributes::all();
-        $latestSixProducts = Product::orderBy('id','desc')->limit(6)->where('isactive',1)->get();
+        $latestSixProducts = Product::orderBy('id','desc')->limit(6)->where('isactive',1)->whereNotIn('id',$productsArray)->get();
         return view($this->path.'subcategory',compact('child_category_id','brands','products','attibuteGroups','attributes','latestSixProducts'));
     }
 
     public function brandFilter(Request $request,$id)
     {
         $products = Product::select('*');
+        $productsArray = [];
+        foreach ($hotoffers as $hot) {
+            array_push($productsArray,$hot->product_id);
+        }
+
+        foreach ($discounts as $offer) {
+            array_push($productsArray,$offer->product_id);
+        }
         if (isset($request->brands)) {
             if ($request->brands != null) {
                 $products = $products->whereIn('sub_categories_id',$request->brands);
@@ -101,8 +122,8 @@ class ProductsController extends Controller
         $brands = SubCategory::where('child_category_id',$id)->get();
         $attibuteGroups = GroupAttributes::all();
         $attributes = Attributes::all();
-        $latestSixProducts = Product::orderBy('id','desc')->limit(6)->where('isactive',1)->get();
-        $products = $products->where('isactive',1)->get();
+        $latestSixProducts = Product::orderBy('id','desc')->limit(6)->where('isactive',1)->whereNotIn('id',$productsArray)->get();
+        $products = $products->where('isactive',1)->whereNotIn('id',$productsArray)->get();
 
         return view($this->path.'filter',compact('child_category_id','brands','products','attibuteGroups','attributes','latestSixProducts'));
     }
@@ -218,8 +239,23 @@ class ProductsController extends Controller
         $gallery = Product_Gallery::where('product_id',$id)->get();
         $attibuteGroups = GroupAttributes::all();
         $attributes = Product_attribute::where('product_id',$id)->get();
+        $reviews = Review::where('product_id',$id)->get();
 
-        return view($this->path.'singleproduct',compact('product','attibuteGroups','attributes','gallery'));
+        return view($this->path.'singleproduct',compact('product','attibuteGroups','attributes','gallery','reviews'));
+    }
+
+    //Product Review
+    public function productReview(Request $request,$id)
+    {
+        $review = new Review();
+        $review->reviews           = $request->rate_value;
+        $review->comments          = strip_tags($request->comments);
+        $review->product_id        = $id;
+        $review->user_id           = Auth::user()->id;
+
+        $review->save();
+
+        return back()->with('success',__('tr.Review Saved Successfully'));
     }
     
     
