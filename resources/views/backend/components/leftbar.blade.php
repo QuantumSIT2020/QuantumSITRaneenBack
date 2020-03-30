@@ -135,6 +135,22 @@
 
 
 
+                {{--                Bundles--}}
+
+
+                <li class="header">@lang('tr.Bundles Management') </li>
+                <li>
+                    <a href="#Authentication" class="has-arrow"><i class="fa fa-gears"></i><span>@lang('tr.Bundles')</span></a>
+                    <ul>
+                        <li><a href="{{ route('bundles') }}">Bundles</a></li>
+
+                    </ul>
+                </li>
+
+                <br>
+
+
+
 
 
                 {{-- <li>

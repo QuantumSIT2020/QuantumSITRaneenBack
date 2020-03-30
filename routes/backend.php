@@ -273,6 +273,17 @@ Route::group(['middleware' => 'Lang'], function () {
 
 
 
+        //Product_bundles
+        Route::get('/bundles','BundlesController@index')->name('bundles');
+        Route::get('/bundles/create','BundlesController@create')->name('create_bundles');
+        Route::post('/bundles/store','BundlesController@store')->name('store_bundles');
+        Route::get('/bundles/edit/{id}','BundlesController@edit')->name('edit_bundles');
+        Route::post('/bundles/update/{id}','BundlesController@update')->name('update_bundles');
+        Route::get('/bundles/delete/{id}','BundlesController@destroy')->name('delete_bundles');
+        Route::get('/bundles/show/{id}','BundlesController@show')->name('show_bundles');
+
+        Route::get('/bundles/items/delete/{id}','BundlesController@delete_item_bundle')->name('delete_items_bundle');
+
 
     });
     
