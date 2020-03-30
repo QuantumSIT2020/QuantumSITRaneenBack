@@ -40,14 +40,77 @@
                 <div class="col-lg-7 rtl-text">
                     <div class="product-right">
                         <h2>{{ $product->$langName }}</h2>
-                        @php($getDiscount = \App\Models\Product::checkDiscount($product->id))
-                        @if ($getDiscount == null)
-                        <h3>EGP {{ $product->price }}</h3>
+                        
+                        @if ($product->checkTheLatestDiscountOrHotOffer() != null)
+                        
+                            @if ($product->checkTheLatestDiscountOrHotOffer()->type == 'hotoffer')
+                                
+                                @php($start = \Carbon\Carbon::parse($product->checkTheLatestDiscountOrHotOffer()->end_date))
+                                @php($end = \Carbon\Carbon::parse(date('y-m-d')))
+                                @php($result = $start->diffInDays($end, false))
+
+                                @if ($result < 0)
+
+                                <h4><del>EGP {{ $product->price }}</del><span>{{ $product->checkTheLatestDiscountOrHotOffer()->offer }} @lang('tr.off')</span></h4>
+                                @php($discount = $product->price - (($product->checkTheLatestDiscountOrHotOffer()->offer / 100) * $product->price))
+                                <h3>EGP {{ $discount }}</h3>
+                                <h4>@lang('tr.End Date'): {{ $product->checkTheLatestDiscountOrHotOffer()->end_date }}</h4>
+                                <h4>@lang('tr.Expire In'): {{ abs($result) }}&nbsp;@lang('tr.Day(s)')</h4>
+
+                                @else
+
+                                <h3>EGP {{ $product->price }}</h3>
+                                    
+                                @endif
+                            
+
+                            @else
+
+                            <h4><del>EGP {{ $product->price }}</del><span>{{ $product->checkTheLatestDiscountOrHotOffer()->discount }} @lang('tr.off')</span></h4>
+                            @php($discount = $product->price - (($product->checkTheLatestDiscountOrHotOffer()->discount / 100) * $product->price))
+                            <h3>EGP {{ $discount }}</h3>
+                                
+                            @endif
+
                         @else
-                        <h4><del>EGP {{ $product->price }}</del><span>{{ $getDiscount->discount }} @lang('tr.off')</span></h4>
-                        @php($discount = $product->price - (($getDiscount->discount / 100) * $product->price))
-                        <h3>EGP {{ $discount }}</h3>
+                        <h3>EGP {{ $product->price }}</h3>
                         @endif
+
+
+                        {{-- @if ($getDiscount != null && $getHotOffer != null)
+
+                            @if ($result == $getDiscount->created_at)
+
+                                @if ($getDiscount == null)
+                                <h3>EGP {{ $product->price }}</h3>
+                                @else
+                                <h4><del>EGP {{ $product->price }}</del><span>{{ $getDiscount->discount }} @lang('tr.off')</span></h4>
+                                @php($discount = $product->price - (($getDiscount->discount / 100) * $product->price))
+                                <h3>EGP {{ $discount }}</h3>
+                                @endif
+                            @else
+
+                                @if ($getHotOffer == null)
+                                <h3>EGP {{ $product->price }}</h3>
+                                @else
+                                
+                                @php($start = \Carbon\Carbon::parse($getHotOffer->end_date))
+                                @php($end = \Carbon\Carbon::parse(date('y-m-d')))
+                                @php($expire = $start->diffInDays($end, false))
+
+                                <h4><del>EGP {{ $product->price }}</del><span>{{ $getHotOffer->offer }} @lang('tr.off')</span></h4>
+                                @php($discount = $product->price - (($getHotOffer->discount / 100) * $product->price))
+                                <h3>EGP {{ $discount }}</h3>
+                                <h3>@lang('tr.Expire In'):&nbsp;</h3>
+                                @endif                            
+                            
+                            @endif
+                            
+                        @endif --}}
+
+                        
+
+                        
                         
                         
                         <div class="product-description border-product">
