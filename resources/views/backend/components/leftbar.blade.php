@@ -43,29 +43,29 @@
                 <li>
                     <a href="#myPage" class="has-arrow"><i class="icon-users"></i><span>@lang('tr.Users')</span></a>
                     <ul>
-                        @can('create_customers')
+                        {{-- @can('create_customers') --}}
                         <li><a href="{{ route('create_customers') }}">@lang('tr.Create Customer')</a></li>  
-                        @endcan
+                        {{-- @endcan --}}
 
-                        @can('show_customers')
+                        {{-- @can('show_customers') --}}
                         <li><a href="{{ route('customers') }}">@lang('tr.All Customers')</a></li>
-                        @endcan
+                        {{-- @endcan --}}
 
-                        @can('create_buyers')
+                        {{-- @can('create_buyers') --}}
                         <li><a href="{{ route('create_buyers') }}">@lang('tr.Create Buyer')</a></li>
-                        @endcan
+                        {{-- @endcan --}}
 
-                        @can('show_customers')
+                        {{-- @can('show_customers') --}}
                         <li><a href="{{ route('buyers') }}">@lang('tr.All Buyers')</a></li>
-                        @endcan
+                        {{-- @endcan --}}
 
-                        @can('create_data_entry')
+                        {{-- @can('create_data_entry') --}}
                         <li><a href="{{ route('create_dataentry') }}">@lang('tr.Create Data Entry')</a></li>
-                        @endcan
+                        {{-- @endcan --}}
 
-                        @can('show_data_entry')
+                        {{-- @can('show_data_entry') --}}
                         <li><a href="{{ route('dataentry') }}">@lang('tr.All Data Entries')</a></li>
-                        @endcan
+                        {{-- @endcan --}}
                     </ul>
                 </li>
 
@@ -173,7 +173,6 @@
                         <li><a href="{{route('pages')}}">@lang('tr.Pages')</a></li>
                         <li><a href="{{route('sliders')}}">@lang('tr.sliders')</a></li>
                         <li><a href="{{route('faq')}}">@lang('tr.faq')</a></li>
-
                         <li><a href="{{route('blogs')}}">@lang('tr.Blogs')</a></li>
                         <li><a href="{{ route('testseo_index') }}">@lang('tr.SEO')</a></li>
                         <li><a href="{{ route('soicalmedia_index') }}">@lang('tr.Social Media')</a></li>

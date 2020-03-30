@@ -65,23 +65,27 @@
 
                                 <div>
                                     <div class="media-banner b-g-white1 border-0">
+
                                         @foreach($reviews as $review)
-                                            @if($review->review >= 4)
+                                            {{-- @if($review->review >= 4) --}}
 
                                             <div class="media-banner-box">
                                             <div class="media">
-                                                <img src="{{ asset('backend/dashboard_images/Products/'.$review->product_image) }}" class="img-fluid "  style="width:84px;height:108px;" alt="banner">
+                                                <img src="{{ asset('backend/dashboard_images/Products/'.$review->product->product_image) }}" class="img-fluid "  style="width:84px;height:108px;" alt="banner">
                                                 <div class="media-body">
                                                     <div class="media-contant">
                                                         <div>
-                                                            @for($i=0; $i< $review->review;$i++)
                                                             <i class="fa fa-star"  style="color:orange;"></i>
-                                                            @endfor
+                                                            <i class="fa fa-star"  style="color:orange;"></i>
+                                                            <i class="fa fa-star"  style="color:orange;"></i>
+                                                            <i class="fa fa-star"  style="color:orange;"></i>
+                                                            <i class="fa fa-star"  style="color:orange;"></i>
+                                                            
 
                                                             <p>
-                                                                {{$review->en_name}}
+                                                                {{$review->product->en_name}}
                                                             </p>
-                                                            <h6>{{$review->price}} </h6>
+                                                            <h6>{{$review->product->price}} </h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -89,7 +93,7 @@
                                         </div>
 
 
-                                           @endif
+                                           {{-- @endif --}}
                                             @endforeach
 
                                     </div>

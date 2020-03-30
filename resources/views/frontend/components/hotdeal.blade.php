@@ -95,7 +95,13 @@
                     <div class="slide-1">
                         
                         @foreach ($lasttwoHotOffer as $lasttwo)
-                        
+
+                        @php($start = \Carbon\Carbon::parse($lasttwo->end_date))
+                        @php($end = \Carbon\Carbon::parse(date('y-m-d')))
+                        @php($result = $start->diffInDays($end, false))
+
+                        @if ($result < 0)
+
                         <div>
                             <div class="hot-deal-contain1 border-0">
                                 <div class="hot-deal-heading">
@@ -112,33 +118,13 @@
                                     </div>
                                     <div class="col-lg-6 col-sm-7">
                                         <div class="hot-deal-center">
-                                            @php($getRemainTime = \App\Models\Product::calculateRemainTime($lasttwo->start_date,$lasttwo->end_date))
+                                            
+
                                             
                                             <div>
-                                                <div class="timer">
-                                                    <p id="demo">
-                                                        <span>
-                                                   {{ $getRemainTime[0] }}
-                                                   <span>@lang('tr.days')</span>
-                                                        </span>
-                                                        <span>:</span>
-                                                        <span>
-                                                    {{ $getRemainTime[1] }}
-                                                    <span>@lang('tr.hrs')</span>
-                                                        </span>
-                                                        <span>:</span>
-                                                        <span>
-                                                    {{ $getRemainTime[2] }}
-                                                    <span>@lang('tr.min')</span>
-                                                        </span>
-                                                        <span>:</span>
-                                                        <span>
-                                                    {{ $getRemainTime[3] }}
-                                                    <span>@lang('tr.sec')</span>
-                                                        </span>
-                                                    </p>
-                                                </div>
-                                                
+                                                <h5>@lang('tr.Expire In'): <span style="color:#b22827">{{  abs($result)  }}</span> &nbsp;@lang('tr.Day(s)')</h5>
+                                                <h5>@lang('tr.End Date'): <span style="color:#b22827">{{  $lasttwo->end_date  }}</span></h5>
+                                                <hr>
                                                 @if ($review == 0)
                                                 <div>@lang('tr.Not Rated Yet')</div>
                                                 @else
@@ -159,7 +145,7 @@
                                                     <div class="price">
                                                         <span>EGP {{ $lasttwo->product->price - (($lasttwo->offer / 100) * $lasttwo->product->price) }}</span>
                                                         <span>EGP {{ $lasttwo->product->price }}</span>
-                                                        <a href="product-details-bundels.html" class="details-o"> details</a>
+                                                        <a href="{{ route('frontend_product_details',$lasttwo->product->id) }}" class="details-o"> details</a>
 
                                                     </div>
                                                 </div>
@@ -177,7 +163,9 @@
                                 </div>
                             </div>
                         </div>
-
+                            
+                        @endif
+                        
                         @endforeach
 
                         

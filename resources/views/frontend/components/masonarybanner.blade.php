@@ -12,12 +12,11 @@
                             <div class="col-md-12">
                                 <div class="masonary-banner-main">
                                     <div class="masonory-banner-img" style="">
-                                        <img src="{{ asset('frontend/1.jpg') }}" style="background: rgb(207,185,185);
-background: linear-gradient(180deg, rgba(207,185,185,1) 0%, rgba(178,40,39,1) 100%);"   class="img-fluid bg-img" alt="masonory-banner">
+                                        <img src="{{ asset('frontend/1.jpg') }}"    class="img-fluid bg-img" alt="masonory-banner">
                                     </div>
-                                    <div class="masonary-banner-contant p-center">
+                                    <div class="masonary-banner-contant p-center" style="box-shadow: 2px 2px 2px 2px #b2282717;">
                                         @if(count($LastFourMainCategories)-1 >= $count)
-                                        <h5>{{ $LastFourMainCategories[$i]->name }}</h5>
+                                        <a href="{{ route('frontend_childcategory',$LastFourMainCategories[$i]->id) }}"><h5 style="border: 1px dashed;box-shadow: 1px 1px 1px 1px #b228271f;">{{ $LastFourMainCategories[$i]->name }}</h5></a>
                                         @php($count = $count + 1)
                                         @endif
                                     </div>
@@ -33,10 +32,10 @@ background: linear-gradient(180deg, rgba(207,185,185,1) 0%, rgba(178,40,39,1) 10
                             <div class="masonory-banner-img masonory-img1" style="">
                                 <img src="{{ asset('frontend/5.jpg') }}"   class="img-fluid bg-img" alt="masonory-banner">
                             </div>
-                            <div class="masonary-banner-contant p-center">
+                            <div class="masonary-banner-contant p-center" style="box-shadow: 2px 2px 2px 2px #b2282717;">
                                 <div>
                                     @if(count($LastFourMainCategories)-1 >= $count)
-                                    <h5>{{ $LastFourMainCategories[$count]->name }}</h5>
+                                    <a href="{{ route('frontend_childcategory',$LastFourMainCategories[$count]->id) }}"><h5 style="border: 1px dashed;box-shadow: 1px 1px 1px 1px #b228271f;">{{ $LastFourMainCategories[$count]->name }}</h5></a>
                                     @php($count = $count + 1)
                                     @endif
                                 </div>
@@ -60,12 +59,11 @@ background: linear-gradient(180deg, rgba(207,185,185,1) 0%, rgba(178,40,39,1) 10
                             <div class="col-sm-6 pr-0">
                                 <div class="masonary-banner-main">
                                     <div class="masonory-banner-img" style="">
-                                        <img src="{{ asset('frontend/2.jpg') }}" style="background: rgb(207,185,185);
-background: linear-gradient(180deg, rgba(207,185,185,1) 0%, rgba(178,40,39,1) 100%);"  class="img-fluid bg-img" alt="masonory-banner">
+                                        <img src="{{ asset('frontend/1.jpg') }}"   class="img-fluid bg-img" alt="masonory-banner">
                                     </div>
-                                    <div class="masonary-banner-contant p-center">
+                                    <div class="masonary-banner-contant p-center" style="box-shadow: 2px 2px 2px 2px #b2282717;">
                                         @if(count($LastFourMainCategories)-1 >= $count)
-                                        <h5>{{ $LastFourMainCategories[$count]->name }}</h5>
+                                        <a href="{{ route('frontend_childcategory',$LastFourMainCategories[$count]->id) }}"><h5 style="border: 1px dashed;box-shadow: 1px 1px 1px 1px #b228271f;">{{ $LastFourMainCategories[$count]->name }}</h5></a>
                                         @php($count = $count + 1)
                                         @endif
                                     </div>
@@ -74,12 +72,11 @@ background: linear-gradient(180deg, rgba(207,185,185,1) 0%, rgba(178,40,39,1) 10
                             <div class="col-sm-6">
                                 <div class="masonary-banner-main">
                                     <div class="masonory-banner-img" style="">
-                                        <img src="{{ asset('frontend/4.jpg') }}"style="background: rgb(207,185,185);
-background: linear-gradient(180deg, rgba(207,185,185,1) 0%, rgba(178,40,39,1) 100%);"    class="img-fluid bg-img" alt="masonory-banner">
+                                        <img src="{{ asset('frontend/1.jpg') }}"    class="img-fluid bg-img" alt="masonory-banner">
                                     </div>
-                                    <div class="masonary-banner-contant p-center">
+                                    <div class="masonary-banner-contant p-center" style="box-shadow: 2px 2px 2px 2px #b2282717;">
                                         @if(count($LastFourMainCategories)-1 >= $count)
-                                        <h5>{{ $LastFourMainCategories[$count]->name }}</h5>
+                                        <a href="{{ route('frontend_childcategory',$LastFourMainCategories[$count]->id) }}"><h5 style="border: 1px dashed;box-shadow: 1px 1px 1px 1px #b228271f;">{{ $LastFourMainCategories[$count]->name }}</h5></a>
                                         @php($count = $count + 1)
                                         @endif
                                     </div>
@@ -90,14 +87,13 @@ background: linear-gradient(180deg, rgba(207,185,185,1) 0%, rgba(178,40,39,1) 10
                     <div class="col-md-12 pr-0">
                         <div class="masonary-banner-main">
                             <div class="masonory-banner-img" style="">
-                                <img src="{{ asset('frontend/6.jpg') }}" style="background: rgb(207,185,185);
-background: linear-gradient(180deg, rgba(207,185,185,1) 0%, rgba(178,40,39,1) 100%);"   alt="masonary-banner" class="img-fluid bg-img">
+                                <img src="{{ asset('frontend/6.jpg') }}"    alt="masonary-banner" class="img-fluid bg-img">
                             </div>
-                            <div class="masonary-banner-contant p-right">
+                            <div class="masonary-banner-contant p-right" style="box-shadow: 2px 2px 2px 2px #b2282717;">
                                 <div class="masonary-banner-subcontant">
                                     <div>
                                         @if(count($LastFourMainCategories)-1 >= $count)
-                                        <h5>{{ $LastFourMainCategories[$count]->name }}</h5>
+                                        <a href="{{ route('frontend_childcategory',$LastFourMainCategories[$count]->id) }}"><h5 style="border: 1px dashed;box-shadow: 1px 1px 1px 1px #b228271f;">{{ $LastFourMainCategories[$count]->name }}</h5></a>
                                         @php($count = $count + 1)
                                         @endif
                                     </div>

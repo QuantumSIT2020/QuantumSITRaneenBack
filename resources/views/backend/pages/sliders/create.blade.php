@@ -54,6 +54,46 @@
                                     </div>
                                 </div>
 
+                                <br>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label for="">@lang('tr.Slider Link For')</label>
+                                        @php($langName = \Lang::Locale().'_name')
+                                        <select name="slider_link" id="" class="custom-select">
+                                            
+                                            <optgroup label="@lang('tr.Sub Category')">
+                                                @foreach ($subCategories as $sub)
+                                                    <option value="sub#{{ $sub->id }}">{{ $sub->name }}</option>
+                                                @endforeach
+                                              </optgroup>
+
+                                              <optgroup label="@lang('tr.Hot Offers')">
+                                                <option value="hot#all">@lang('tr.All')</option>
+                                                @foreach ($hotoffers as $offer)
+                                                <option value="hot#{{ $offer->id }}">{{ $offer->product->$langName }}</option>
+                                                @endforeach
+                                              </optgroup>
+                                            
+                                              <optgroup label="@lang('tr.Discount')">
+                                                <option value="discounts#all">@lang('tr.All')</option>
+                                                @foreach ($discounts as $discount)
+                                                <option value="discounts#{{ $discount->id }}">{{ $discount->products->$langName }}</option>
+                                                @endforeach
+                                              </optgroup>
+
+                                              <optgroup label="@lang('tr.Products')">
+                                                @foreach ($products as $product)
+                                                <option value="product#{{ $product->id }}">{{ $product->$langName }}</option>
+                                                @endforeach
+                                              </optgroup>
+
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <hr>
+
 
                                 <button type="submit" class="btn btn-primary">@lang('tr.save')</button>
                             </form>

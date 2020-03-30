@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Slider;
+use App\Models\SubCategory;
+use App\Models\Product_HotOffer;
+use App\Models\Product_sale;
+use App\Models\Product;
 use File;
 
 class SliderController extends Controller
@@ -28,8 +32,12 @@ class SliderController extends Controller
     public function create()
     {
         $lang = \Lang::getLocale();
+        $subCategories = SubCategory::select($lang.'_name as name',$lang.'_desc','id')->get();
+        $discounts = Product_sale::all();
+        $hotoffers = Product_HotOffer::all();
+        $products = Product::all();
         $slider = Slider::select($lang.'_name as name','slider_image')->get();
-        return view('backend.pages.sliders.create',compact('slider'));
+        return view('backend.pages.sliders.create',compact('slider','subCategories','discounts','hotoffers','products'));
     }
 
     /**
@@ -54,6 +62,7 @@ class SliderController extends Controller
 
         $slider->en_name =strip_tags($request->en_name);
         $slider->ar_name =strip_tags($request->ar_name);
+        $slider->slider_link = $request->slider_link;
 
 
         if ($request->hasFile('slider_image')){
@@ -87,8 +96,14 @@ class SliderController extends Controller
      */
     public function edit($id)
     {
+        $lang = \Lang::getLocale();
         $slider = Slider::findOrfail($id);
-        return view('backend.pages.sliders.edit',compact('slider'));
+        $subCategories = SubCategory::select($lang.'_name as name',$lang.'_desc','id')->get();
+        $discounts = Product_sale::all();
+        $hotoffers = Product_HotOffer::all();
+        $products = Product::all();
+        
+        return view('backend.pages.sliders.edit',compact('slider','subCategories','discounts','hotoffers','products'));
     }
 
     /**

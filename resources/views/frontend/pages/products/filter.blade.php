@@ -323,7 +323,7 @@
                                                                 <a href="javascript:void(0)" title="Add to Wishlist">
                                                                     <i class="ti-heart" aria-hidden="true"></i>
                                                                 </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
+                                                                <a href="{{ route('frontend_product_details',$product->id) }}" data-toggle="modal" data-target="#quick-view" title="Quick View">
                                                                     <i class="ti-search" aria-hidden="true"></i>
                                                                 </a>
                                                                 <a href="compare.html" title="Compare">

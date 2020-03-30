@@ -57,43 +57,9 @@
                 <div class="col-md-12">
                     <div class="main-menu-block">
                         <div class="menu-left">
-                            <div class="sm-nav-block">
-                                <span class="sm-nav-btn"><i class="fa fa-bars"></i></span>
-                                <ul class="nav-slide">
-                                    <li>
-                                        <div class="nav-sm-back">
-                                            back <i class="fa fa-angle-right pl-2"></i>
-                                        </div>
-                                    </li>
-                                    <li><a href="#">western ware</a></li>
-                                    <li><a href="#">TV, Appliances</a></li>
-                                    <li><a href="#">Pets Products</a></li>
-                                    <li><a href="#">Car, Motorbike</a></li>
-                                    <li><a href="#">Industrial Products</a></li>
-                                    <li><a href="#">Beauty, Health Products</a></li>
-                                    <li><a href="#">Grocery Products </a></li>
-                                    <li><a href="#">Sports</a></li>
-                                    <li><a href="#">Bags, Luggage</a></li>
-                                    <li><a href="#">Movies, Music </a></li>
-                                    <li><a href="#">Video Games</a></li>
-                                    <li><a href="#">Toys, Baby Products</a></li>
-                                    <li class="mor-slide-open">
-                                        <ul>
-                                            <li><a href="#">Bags, Luggage</a></li>
-                                            <li><a href="#">Movies, Music </a></li>
-                                            <li><a href="#">Video Games</a></li>
-                                            <li><a href="#">Toys, Baby Products</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a class="mor-slide-click">
-                                        mor category
-                                        <i class="fa fa-angle-down pro-down" ></i>
-                                        <i class="fa fa-angle-up pro-up" ></i>
-                                    </a>
-                                    </li>
-                                </ul>
-                            </div>
+                            
+                            @include('frontend.components.allcategorymobile')
+
                             <div class="brand-logo">
 
                                 <a href="#">
@@ -112,29 +78,22 @@
                                         <!--HOME-->
                                         <li>
                                             <a href="{{ route('home') }}">@lang('tr.Home')</a>
-
                                         </li>
                                         <!--HOME-END-->
 
-                                        <!--SHOP-->
-                                        <li class="mega" id="hover-cls"><a href="{{ route('frontend_discounts') }}">@lang('tr.Discounts')    <span   style="color:#B22827;">%</span>
-                                        <!--SHOP-END-->
-                                        <!--product-meu start-->
-                                        <li class="mega" id="hover-cls"><a href="{{ route('frontend_hotoffers') }}">@lang('tr.Hot Deals')    <i   style="color:#B22827;" class="fa fa-hourglass-half"></i>
-                                    </a>
+                                        {{-- Products --}}
+                                        <li>
+                                            <a href="#">@lang('tr.Products')</a>
 
+                                            <ul>
+                                                <li><a href="{{ route('frontend_maincategory') }}">@lang('tr.Products')</a>
+                                                <li><a href="{{ route('frontend_discounts') }}">@lang('tr.Discounts')</a>
+                                                <li><a href="{{ route('frontend_hotoffers') }}">@lang('tr.Hot Deals')</a>
+                                            </ul>
                                         </li>
-                                        <!--product-meu end-->
+                                        {{-- End Products --}}
 
-                                        <!--pages-meu start-->
-                                        <li><a href="{{ route('frontend_maincategory') }}">@lang('tr.Products')</a>
-
-                                        </li>
-                                        <!--product-end end-->
-
-
-                                        <!--mega-meu end-->
-
+                                       
                                         <!--mega-meu start-->
                                         <li>
                                             <a href="#">@lang('tr.Blogs')</a>
@@ -152,7 +111,7 @@
                                             <a href="#">@lang('tr.More')</a>
 
                                             <ul>
-
+                                                <a class="dropdown-item hidden-lg hidden-md" href="{{ route('frontend_faq') }}" target="_blank">@lang('tr.FAQ')</a>
                                                 @php($viewpages =  App\Models\pages::select('page_image','id as id','en_name','ar_name')->orderBy('id', 'asc')->get())
                                                 @foreach($viewpages as $page)
 
@@ -191,25 +150,10 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="mobile-search"><a href="#"><i class="icon-search"></i></a>
-                                            <div class="search-overlay">
-                                                <div>
-                                                    <span class="close-mobile-search">×</span>
-                                                    <div class="overlay-content">
-                                                        <div class="container">
-                                                            <div class="row">
-                                                                <div class="col-xl-12">
-                                                                    <form>
-                                                                        <div class="form-group"><input type="text" class="form-control" id="exampleInputPassword1" placeholder="Search a Product"></div>
-                                                                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
+
+                                        @include('frontend.components.mobilesearch')
+
+                                        
                                         <li class="mobile-setting mobile-setting-hover" onclick="openSetting()"><a href="#"><i class="icon-settings"></i></a>
                                         </li>
                                     </ul>
@@ -247,21 +191,9 @@
                             </div>
                             <div class="input-block">
                                 <div class="input-box">
-                                    <form class="big-deal-form">
-                                        <div class="input-group ">
-                                            <div class="input-group-prepend">
-                                                <span class="search"><i class="fa fa-search"></i></span>
-                                            </div>
-                                            <input type="text" class="form-control" placeholder="Search a Product">
-                                            <div class="input-group-prepend">
-                                                <select>
-                                                <option>All Category</option>
-                                                <option>indurstrial</option>
-                                                <option>sports</option>
-                                            </select>
-                                            </div>
-                                        </div>
-                                    </form>
+                                    
+                                    @include('frontend.components.normalsearch')
+                                    
                                 </div>
                             </div>
                         </div>

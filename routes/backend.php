@@ -271,6 +271,19 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::post('/partners/update/{id}','PartnersController@update')->name('update_partners');
         Route::get('/partners/delete/{id}','PartnersController@destroy')->name('delete_partners');
 
+        //faq
+
+
+        Route::get('/faq','FaqController@index')->name('faq');
+        Route::get('/faq/create','FaqController@create')->name('create_faq');
+        Route::post('/faq/create','FaqController@store')->name('store_faq');
+        Route::get('/faq/edit/{id}','FaqController@edit')->name('edit_faq');
+        Route::post('/faq/update/{id}','FaqController@update')->name('update_faq');
+        Route::get('/faq/show/{id}','FaqController@show')->name('show_faq');
+        Route::get('/faq/delete/{id}','FaqController@destroy')->name('delete_faq');
+        Route::get('/faq/search','FaqController@searchPages')->name('search_faq');
+        Route::get('/faq/viewfaq','FaqController@viewfaq')->name('viewfaq');
+
 
 
         //Product_bundles
