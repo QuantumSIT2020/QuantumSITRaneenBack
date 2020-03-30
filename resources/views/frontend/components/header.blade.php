@@ -112,29 +112,22 @@
                                         <!--HOME-->
                                         <li>
                                             <a href="{{ route('home') }}">@lang('tr.Home')</a>
-
                                         </li>
                                         <!--HOME-END-->
 
-                                        <!--SHOP-->
-                                        <li class="mega" id="hover-cls"><a href="{{ route('frontend_discounts') }}">@lang('tr.Discounts')    <span   style="color:#B22827;">%</span>
-                                        <!--SHOP-END-->
-                                        <!--product-meu start-->
-                                        <li class="mega" id="hover-cls"><a href="{{ route('frontend_hotoffers') }}">@lang('tr.Hot Deals')    <i   style="color:#B22827;" class="fa fa-hourglass-half"></i>
-                                    </a>
+                                        {{-- Products --}}
+                                        <li>
+                                            <a href="#">@lang('tr.Products')</a>
 
+                                            <ul>
+                                                <li><a href="{{ route('frontend_maincategory') }}">@lang('tr.Products')</a>
+                                                <li><a href="{{ route('frontend_discounts') }}">@lang('tr.Discounts')</a>
+                                                <li><a href="{{ route('frontend_hotoffers') }}">@lang('tr.Hot Deals')</a>
+                                            </ul>
                                         </li>
-                                        <!--product-meu end-->
+                                        {{-- End Products --}}
 
-                                        <!--pages-meu start-->
-                                        <li><a href="{{ route('frontend_maincategory') }}">@lang('tr.Products')</a>
-
-                                        </li>
-                                        <!--product-end end-->
-
-
-                                        <!--mega-meu end-->
-
+                                       
                                         <!--mega-meu start-->
                                         <li>
                                             <a href="#">@lang('tr.Blogs')</a>
@@ -152,7 +145,7 @@
                                             <a href="#">@lang('tr.More')</a>
 
                                             <ul>
-
+                                                <a class="dropdown-item hidden-lg hidden-md" href="{{ route('frontend_faq') }}" target="_blank">@lang('tr.FAQ')</a>
                                                 @php($viewpages =  App\Models\pages::select('page_image','id as id','en_name','ar_name')->orderBy('id', 'asc')->get())
                                                 @foreach($viewpages as $page)
 
@@ -191,25 +184,10 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="mobile-search"><a href="#"><i class="icon-search"></i></a>
-                                            <div class="search-overlay">
-                                                <div>
-                                                    <span class="close-mobile-search">×</span>
-                                                    <div class="overlay-content">
-                                                        <div class="container">
-                                                            <div class="row">
-                                                                <div class="col-xl-12">
-                                                                    <form>
-                                                                        <div class="form-group"><input type="text" class="form-control" id="exampleInputPassword1" placeholder="Search a Product"></div>
-                                                                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
+
+                                        @include('frontend.components.mobilesearch')
+
+                                        
                                         <li class="mobile-setting mobile-setting-hover" onclick="openSetting()"><a href="#"><i class="icon-settings"></i></a>
                                         </li>
                                     </ul>
@@ -247,21 +225,9 @@
                             </div>
                             <div class="input-block">
                                 <div class="input-box">
-                                    <form class="big-deal-form">
-                                        <div class="input-group ">
-                                            <div class="input-group-prepend">
-                                                <span class="search"><i class="fa fa-search"></i></span>
-                                            </div>
-                                            <input type="text" class="form-control" placeholder="Search a Product">
-                                            <div class="input-group-prepend">
-                                                <select>
-                                                <option>All Category</option>
-                                                <option>indurstrial</option>
-                                                <option>sports</option>
-                                            </select>
-                                            </div>
-                                        </div>
-                                    </form>
+                                    
+                                    @include('frontend.components.normalsearch')
+                                    
                                 </div>
                             </div>
                         </div>

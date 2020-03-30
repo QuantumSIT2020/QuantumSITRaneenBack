@@ -22,7 +22,15 @@ class ProductsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except('mainCategory','childCategory','subCategory','brandProducts','brandFilter');
+        $this->middleware('auth')->except('mainCategory',
+                                          'childCategory',
+                                          'subCategory',
+                                          'brandProducts',
+                                          'brandFilter',
+                                          'hotoffers',
+                                          'hotOfferFilter',
+                                          'discountsProducts',
+                                          'discountsProductsFilter');
     }
     
     public function mainCategory()

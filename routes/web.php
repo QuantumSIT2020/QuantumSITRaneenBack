@@ -22,6 +22,9 @@ Route::get('/sub-category/{id}', 'Frontend\ProductsController@brandProducts')->n
 Route::get('/sub-category/brand-filter/{id}', 'Frontend\ProductsController@brandFilter')->name('frontend_brandfilter');
 Route::get('/addtowishlist/{id}', 'Frontend\ProductsController@addToWishList')->name('frontend_addwishlist');
 
+
+
+
 //Hot Offers
 Route::get('/products/hotoffers', 'Frontend\ProductsController@hotoffers')->name('frontend_hotoffers');
 Route::get('/products/hotoffer/filter', 'Frontend\ProductsController@hotOfferFilter')->name('frontend_hotofferfilter');
@@ -30,9 +33,15 @@ Route::get('/products/hotoffer/filter', 'Frontend\ProductsController@hotOfferFil
 Route::get('/products/discounts', 'Frontend\ProductsController@discountsProducts')->name('frontend_discounts');
 Route::get('/products/discounts/filter', 'Frontend\ProductsController@discountsProductsFilter')->name('frontend_discountsfilter');
 
+//Search Product
+Route::get('/products/search', 'Frontend\HomeController@search')->name('frontend_search');
+
 
 //Pages
 Route::get('/pages/{id}','Frontend\PagesController@index')->name('frontend_pages');
+
+//FAQ
+Route::get('/faq','Frontend\FaqController@index')->name('frontend_faq');
 
 //Auth
 Route::get('/user/login','Frontend\AuthController@login')->name('frontend_login');
@@ -41,18 +50,7 @@ Route::post('/user/register','Frontend\AuthController@registerPost')->name('fron
 Route::get('/user/forget','Frontend\AuthController@forget')->name('frontend_forget');
 
 
-//faq
 
-
-Route::get('/faq','Frontend\FaqController@index')->name('faq');
-Route::get('/faq/create','Frontend\FaqController@create')->name('create_faq');
-Route::post('/faq/create','Frontend\FaqController@store')->name('store_faq');
-Route::get('/faq/edit/{id}','Frontend\FaqController@edit')->name('edit_faq');
-Route::post('/faq/update/{id}','Frontend\FaqController@update')->name('update_faq');
-Route::get('/faq/show/{id}','Frontend\FaqController@show')->name('show_faq');
-Route::get('/faq/delete/{id}','Frontend\FaqController@destroy')->name('delete_faq');
-Route::get('/faq/search','Frontend\FaqController@searchPages')->name('search_faq');
-Route::get('/faq/viewfaq','Frontend\FaqController@viewfaq')->name('viewfaq');
 
 
 

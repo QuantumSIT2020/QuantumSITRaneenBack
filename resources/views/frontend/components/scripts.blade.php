@@ -70,4 +70,120 @@
         $('.tab-content-cls div:first').css('display','block');
     });
 </script>
+
+{{-- Add To WishList --}}
+
+<script>
+    $(document).ready(function(){
+    var addToWishListUrl = '{{ route("frontend_addwishlist",["id"=>"#id"]) }}';
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+        }
+    });
+    
+    $('.addToWishList').on('click',function(e){
+        e.preventDefault();
+        var self = $(this);
+        addToWishListUrl = addToWishListUrl.replace('#id',$(this).data('product'));
+        jQuery.ajax({
+            url: addToWishListUrl,
+            method: 'get',
+        success: function(result){
+            if (result.added == "added") {
+                Command: toastr["success"]('@lang("tr.Add To Wishlist")', "@lang('tr.Done')")
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "300",
+                    "timeOut": "300",
+                    "extendedTimeOut": "300",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+                
+                $(self).html('<i class="fa fa-heart" aria-hidden="true"></i>');
+                $(self).attr('title','@lang("tr.Remove From Wishlist")');
+                $('#wishVal').html(parseInt($('#wishVal').text()) + 1);
+                
+
+            }if (result.deleted == "deleted") {
+                Command: toastr["warning"]('@lang("tr.Remove From Wishlist")', "@lang('tr.Done')")
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "300",
+                    "timeOut": "300",
+                    "extendedTimeOut": "300",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                // console.log($(self).text());
+                $(self).html('<i class="fa fa-heart-o" aria-hidden="true"></i>');
+                $(self).attr('title','@lang("tr.Add To Wishlist")');
+                
+                if($('#wishVal').text() != 0){
+                    $('#wishVal').html(parseInt($('#wishVal').text()) - 1);
+                }
+            }
+        }});
+    });
+
+
+
+    
+});
+</script>
+
+<script>
+   jQuery(document).ready(function(){
+       $('.searchProduct').on("input", function(){
+           $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
+         jQuery.ajax({
+            url: "{{ route('frontend_search') }}",
+            method: 'get',
+            data: {
+               search: $(this).val(),
+            },
+            success: function(result){
+               if($('#search').val() != ''){
+                   console.log(result.results);
+                   if(result.results.length > 0){
+                       $('#list-results').html('');
+                       $('#search').addClass('afterSearch');
+                       
+                   }else{
+
+                   }
+                   
+                   
+               }else{
+                   
+               }
+            }});
+       });
+   });
+</script>
+
 @yield('javascript')

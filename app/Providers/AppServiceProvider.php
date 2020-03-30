@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\Models\WishList;
+use App\Models\ChildCategory;
 use Auth;
 use View;
 
@@ -28,7 +29,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+        
+        $lang = \Lang::getLocale();
         View::share('user_wishlists',WishList::orderBy('id','desc')->limit(3)->get());
+        View::share('childCategorySearch',ChildCategory::select($lang.'_name as name',$lang.'_desc as description','main_category_id','child_image','id')->get());
         
     }
 }
