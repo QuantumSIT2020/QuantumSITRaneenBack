@@ -89,6 +89,7 @@
                                                 <li><a href="{{ route('frontend_maincategory') }}">@lang('tr.Products')</a>
                                                 <li><a href="{{ route('frontend_discounts') }}">@lang('tr.Discounts')</a>
                                                 <li><a href="{{ route('frontend_hotoffers') }}">@lang('tr.Hot Deals')</a>
+                                                <li><a href="{{ route('frontend_bundles') }}">@lang('tr.Bundles')</a>
                                             </ul>
                                         </li>
                                         {{-- End Products --}}

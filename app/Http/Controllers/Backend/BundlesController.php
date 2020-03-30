@@ -121,6 +121,7 @@ class BundlesController extends Controller
      */
     public function update(Request $request, $id)
     {
+//        dd($request->all());
         $bundle = bundle::findOrfail($id);
         $request->validate([
             'en_name'         => 'required|min:2|max:255',
@@ -145,13 +146,15 @@ class BundlesController extends Controller
 
         $bundle->save();
 
-
-
-        $product_bundle=$request->bundle_product_id;
+        $product_bundle_old = product_bundle::where('bundle_id',$id)->get();
+        foreach ($product_bundle_old as $bundle){
+            $bundle->product_id = $request->product_id;
+            $bundle->save();
+        }
         if(isset($product_bundle)){
             for ($i=0; $i < count($request->bundle_product_id); $i++) {
                 $product_bundle  = new product_bundle();
-                $product_bundle->bundle_id                        = $bundle->id;
+                $product_bundle->bundle_id                        = $id;
                 $product_bundle->product_id                       = $request->product_id;
                 $product_bundle->bundle_product_id                = $request->bundle_product_id[$i];
                 $product_bundle->save();

@@ -58,7 +58,7 @@
                             @foreach ($bundles as $bundle)
                                 <div class="col-lg-4 col-md-4 col-sm-6">
                                     <div class="card c_grid c_yellow">
-                                        
+
                                         <div class="body text-center ribbon">{{date('Y-m-d')}}
                                             @php($start = \Carbon\Carbon::parse($bundle->end))
                                             @php($end = \Carbon\Carbon::parse(date('y-m-d')))

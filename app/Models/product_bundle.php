@@ -16,4 +16,6 @@ class product_bundle extends Model
     public function BundleProduct(){
         return $this->belongsTo('App\Models\Product','bundle_product_id');
     }
+
+
 }

@@ -38,6 +38,16 @@ Route::get('/products/hotoffer/filter', 'Frontend\ProductsController@hotOfferFil
 Route::get('/products/discounts', 'Frontend\ProductsController@discountsProducts')->name('frontend_discounts');
 Route::get('/products/discounts/filter', 'Frontend\ProductsController@discountsProductsFilter')->name('frontend_discountsfilter');
 
+
+
+//Bundles
+
+Route::get('/products/bundles', 'Frontend\ProductsBundlesController@bundlesProducts')->name('frontend_bundles');
+Route::get('/bundles/details/{id}', 'Frontend\ProductsBundlesController@bundles_details')->name('frontend_bundledetails');
+
+
+
+
 //Search Product
 Route::get('/products/search', 'Frontend\HomeController@search')->name('frontend_search');
 
