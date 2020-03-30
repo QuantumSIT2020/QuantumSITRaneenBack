@@ -17,8 +17,8 @@
                                 @php($getDiscount = \App\Models\Product::checkDiscount($product->id))
 
                                 <div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 273px;"><div><div style="width: 100%; display: inline-block;">
-                                    <a href="product-details-bundels.html" tabindex="0">
-                                        </a><div class="product-box"><a href="product-details-bundels.html" tabindex="0">
+                                    <a href="{{ route('frontend_product_details',$product->id) }}" tabindex="0">
+                                        </a><div class="product-box"><a href="{{ route('frontend_product_details',$product->id) }}" tabindex="0">
                                             <div class="product-imgbox">
                                                 <div class="product-front">
                                                     <img src="{{ asset('backend/dashboard_images/Products/'.$product->product_image) }}" style="width:300px;height:200px;" class="img-fluid  " alt="product">
@@ -32,9 +32,9 @@
                                                 </div>
                                                 @endif
                                             </div>
-                                            </a><div class="product-detail detail-center detail-inverse"><a href="product-details-bundels.html" tabindex="0">
-                                                </a><div class="detail-title"><a href="product-details-bundels.html" tabindex="0">
-                                                    </a><div class="detail-left"><a href="product-details-bundels.html" tabindex="0">
+                                            </a><div class="product-detail detail-center detail-inverse"><a href="{{ route('frontend_product_details',$product->id) }}" tabindex="0">
+                                                </a><div class="detail-title"><a href="{{ route('frontend_product_details',$product->id) }}" tabindex="0">
+                                                    </a><div class="detail-left"><a href="{{ route('frontend_product_details',$product->id) }}" tabindex="0">
                                                         @if ($review == 0)
                                                                 <div>@lang('tr.Not Rated Yet')</div>
                                                             @else
@@ -44,7 +44,7 @@
                                                                     @endfor
                                                                 </div>
                                                             @endif
-                                                        </a><a href="" tabindex="0">
+                                                        </a><a href="{{ route('frontend_product_details',$product->id) }}" tabindex="0">
                                                             <h6 class="price-title">
                                                                 {{ $product->$langName }}
                                                             </h6>
@@ -81,7 +81,7 @@
                                                         <i class="fa fa-heart-o" aria-hidden="true"></i>
                                                     </button>
                                                     @endif
-                                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View" tabindex="0">
+                                                    <a href="{{ route('frontend_product_details',$product->id) }}" data-toggle="modal" data-target="#quick-view" title="Quick View" tabindex="0">
                                                         <i class="ti-search" aria-hidden="true"></i>
                                                     </a>
                                                     

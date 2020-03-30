@@ -159,7 +159,7 @@
                                                     <div class="price">
                                                         <span>EGP {{ $lasttwo->product->price - (($lasttwo->offer / 100) * $lasttwo->product->price) }}</span>
                                                         <span>EGP {{ $lasttwo->product->price }}</span>
-                                                        <a href="product-details-bundels.html" class="details-o"> details</a>
+                                                        <a href="{{ route('frontend_product_details',$lasttwo->product->id) }}" class="details-o"> details</a>
 
                                                     </div>
                                                 </div>

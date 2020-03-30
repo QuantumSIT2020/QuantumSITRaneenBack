@@ -50,7 +50,7 @@
                             @endif
 
                             @if ($link[0] == 'product')
-                                <a href="{{ route('frontend_brandcategory',$link[1]) }}">
+                                <a href="{{ route('frontend_product_details',$link[1]) }}">
                                     <img class="d-block w-100 " style="height:400px" src="{{ asset('backend/dashboard_images/sliders/'.$slider->slider_image) }}" alt="First slide">
                                 </a>
                             @endif
@@ -113,11 +113,11 @@
                 <div class="offer-banner-img">
                     <img src="{{ asset('backend/dashboard_images/Products/'.$lastHotOffer->product->product_image) }}" style="position: absolute; top: 0; bottom: 0; margin: auto; width: 100%; height: 220px;" alt="offer-banner" class="img-fluid  ">
                 </div>
-                <div class="banner-contain">
+                <div class="banner-contain" style="border: 2px dashed #b2282729;">
                     <div>
-                        <h5 style="text-shadow: 2px 2px 2px black;">{{$lastHotOffer->product->en_name}}</h5>
-                        <div class="discount-offer" style="text-shadow: 2px 2px 2px black;">
-                            <h1>{{$lastHotOffer->offer}}%</h1></div>
+                        <h5 style="text-align: center; color: #b22827; font-weight: bold; font-size: 31px;">{{$lastHotOffer->product->en_name}}</h5>
+                        <div class="discount-offer" style="margin-top: 229px;">
+                            <h1 style="color:#b22827">{{$lastHotOffer->offer}}%</h1></div>
                     </div>
                 </div>
             </div>

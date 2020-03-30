@@ -41,7 +41,11 @@ class Product extends Model
 
     public function checkWishList()
     {
-        return WishList::where('product_id',$this->id)->where('user_id',Auth::user()->id)->count();
+        if (isset(Auth::user()->id)) {
+            return WishList::where('product_id',$this->id)->where('user_id',Auth::user()->id)->count();
+        }else{
+            return 0;
+        }
     }
 
     public static function wishLists()

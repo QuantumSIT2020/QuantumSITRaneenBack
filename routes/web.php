@@ -20,7 +20,12 @@ Route::get('/main-category/{id}', 'Frontend\ProductsController@childCategory')->
 Route::get('/child-category/{id}', 'Frontend\ProductsController@subCategory')->name('frontend_subcategory');
 Route::get('/sub-category/{id}', 'Frontend\ProductsController@brandProducts')->name('frontend_brandcategory');
 Route::get('/sub-category/brand-filter/{id}', 'Frontend\ProductsController@brandFilter')->name('frontend_brandfilter');
+
+//Add To WishList
 Route::get('/addtowishlist/{id}', 'Frontend\ProductsController@addToWishList')->name('frontend_addwishlist');
+
+//Product Details
+Route::get('/product/details/{id}', 'Frontend\ProductsController@productDetails')->name('frontend_product_details');
 
 
 

@@ -57,43 +57,9 @@
                 <div class="col-md-12">
                     <div class="main-menu-block">
                         <div class="menu-left">
-                            <div class="sm-nav-block">
-                                <span class="sm-nav-btn"><i class="fa fa-bars"></i></span>
-                                <ul class="nav-slide">
-                                    <li>
-                                        <div class="nav-sm-back">
-                                            back <i class="fa fa-angle-right pl-2"></i>
-                                        </div>
-                                    </li>
-                                    <li><a href="#">western ware</a></li>
-                                    <li><a href="#">TV, Appliances</a></li>
-                                    <li><a href="#">Pets Products</a></li>
-                                    <li><a href="#">Car, Motorbike</a></li>
-                                    <li><a href="#">Industrial Products</a></li>
-                                    <li><a href="#">Beauty, Health Products</a></li>
-                                    <li><a href="#">Grocery Products </a></li>
-                                    <li><a href="#">Sports</a></li>
-                                    <li><a href="#">Bags, Luggage</a></li>
-                                    <li><a href="#">Movies, Music </a></li>
-                                    <li><a href="#">Video Games</a></li>
-                                    <li><a href="#">Toys, Baby Products</a></li>
-                                    <li class="mor-slide-open">
-                                        <ul>
-                                            <li><a href="#">Bags, Luggage</a></li>
-                                            <li><a href="#">Movies, Music </a></li>
-                                            <li><a href="#">Video Games</a></li>
-                                            <li><a href="#">Toys, Baby Products</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a class="mor-slide-click">
-                                        mor category
-                                        <i class="fa fa-angle-down pro-down" ></i>
-                                        <i class="fa fa-angle-up pro-up" ></i>
-                                    </a>
-                                    </li>
-                                </ul>
-                            </div>
+                            
+                            @include('frontend.components.allcategorymobile')
+
                             <div class="brand-logo">
 
                                 <a href="#">
