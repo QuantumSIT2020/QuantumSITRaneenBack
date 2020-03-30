@@ -223,7 +223,7 @@
                                                 <div class="product">
                                                     <div class="product-box">
                                                         <div class="product-imgbox">
-                                                            <a href="product-details-bundels.html">
+                                                            <a href="{{ route('frontend_product_details',$dis->products->id) }}">
                                                                 <div class="product-front">
                                                                     <img style="width: 768px;height: 250px;" src="{{ asset('backend/dashboard_images/Products/'.$dis->products->product_image) }}" class="img-fluid  " alt="product">
                                                                 </div>
@@ -270,7 +270,7 @@
                                                                 @endif
 
                                                                 
-                                                                <a href="{{ route('frontend_product_details',$product->id) }}" data-toggle="modal" data-target="#quick-view" title="Quick View">
+                                                                <a href="{{ route('frontend_product_details',$product->id) }}" >
                                                                     <i class="ti-search" aria-hidden="true"></i>
                                                                 </a>
                                                                 {{-- <a href="compare.html" title="Compare">

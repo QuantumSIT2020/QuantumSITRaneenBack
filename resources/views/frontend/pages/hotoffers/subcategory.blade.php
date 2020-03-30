@@ -257,12 +257,13 @@
                                                                 @endif
 
                                                                 
-                                                                <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
+                                                                <a href="{{ route('frontend_product_details',$product->id) }}"  title="Quick View">
                                                                     <i class="ti-search" aria-hidden="true"></i>
                                                                 </a>
-                                                                <a href="compare.html" title="Compare">
+
+                                                                {{-- <a href="compare.html" title="Compare">
                                                                     <i class="fa fa-exchange" aria-hidden="true"></i>
-                                                                </a>
+                                                                </a> --}}
                                                             </div>
                                                         </div>
                                                     </div>

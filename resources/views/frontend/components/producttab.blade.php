@@ -26,11 +26,21 @@
                                                 <div class="product-back">
                                                     <img src="{{ asset('backend/dashboard_images/Products/'.$product->product_image) }}" style="width:300px;height:200px;" class="img-fluid  " alt="product">
                                                 </div>
-                                                @if ($getDiscount != null)
-                                                <div class="new-label3">
-                                                    @lang('tr.On Sale')
-                                                </div>
+
+                                                @if ($product->checkTheLatestDiscountOrHotOffer() != null)
+
+                                                    @if ($product->checkTheLatestDiscountOrHotOffer()->type == 'hotoffer')
+                                                    <div class="new-label3">
+                                                        @lang('tr.Hot Offer')
+                                                    </div>
+                                                    @else
+                                                    <div class="new-label3">
+                                                        @lang('tr.On Sale')
+                                                    </div>
+                                                    @endif
+                                                    
                                                 @endif
+
                                             </div>
                                             </a><div class="product-detail detail-center detail-inverse"><a href="{{ route('frontend_product_details',$product->id) }}" tabindex="0">
                                                 </a><div class="detail-title"><a href="{{ route('frontend_product_details',$product->id) }}" tabindex="0">
@@ -51,21 +61,49 @@
                                                         </a>
                                                     </div>
                                                     <div class="detail-right">
-                                                        @if ($getDiscount == null)
+
+                                                        @if ($product->checkTheLatestDiscountOrHotOffer() != null)
+
+                                                            @if ($product->checkTheLatestDiscountOrHotOffer()->type == 'hotoffer')
+                                                                @php($start = \Carbon\Carbon::parse($product->checkTheLatestDiscountOrHotOffer()->end_date))
+                                                                @php($end = \Carbon\Carbon::parse(date('y-m-d')))
+                                                                @php($result = $start->diffInDays($end, false))
+
+                                                                @if ($result < 0)
+                                                                <div class="check-price">
+                                                                    EGP {{ $product->price }}
+                                                                </div>
+                                                                <div class="price">
+                                                                    <div class="price">
+                                                                        @php($discount = $product->price - (($product->checkTheLatestDiscountOrHotOffer()->offer / 100) * $product->price))
+                                                                        EGP {{ $discount }}
+                                                                    </div>
+                                                                </div>
+                                                                @else
+                                                                <div class="price" style="margin-left:0;">
+                                                                    EGP {{ $product->price }}
+                                                                </div>
+                                                                @endif
+                                                            @else
+                                                            <div class="check-price">
+                                                                EGP {{ $product->price }}
+                                                            </div>
+                                                            <div class="price">
+                                                                <div class="price">
+                                                                    @php($discount = $product->price - (($product->checkTheLatestDiscountOrHotOffer()->discount / 100) * $product->price))
+                                                                    EGP {{ $discount }}
+                                                                </div>
+                                                            </div>
+                                                            @endif
+                                                        
+                                                        @else
+                                                        
                                                         <div class="price" style="margin-left:0;">
                                                             EGP {{ $product->price }}
                                                         </div>
-                                                        @else
-                                                        <div class="check-price">
-                                                            EGP {{ $product->price }}
-                                                        </div>
-                                                        <div class="price">
-                                                            <div class="price">
-                                                                @php($discount = $product->price - (($getDiscount->discount / 100) * $product->price))
-                                                                EGP {{ $discount }}
-                                                            </div>
-                                                        </div>
+
                                                         @endif
+                                                        
                                                     </div>
                                                 </div>
                                                 <div class="icon-detail">
@@ -81,7 +119,7 @@
                                                         <i class="fa fa-heart-o" aria-hidden="true"></i>
                                                     </button>
                                                     @endif
-                                                    <a href="{{ route('frontend_product_details',$product->id) }}" data-toggle="modal" data-target="#quick-view" title="Quick View" tabindex="0">
+                                                    <a href="{{ route('frontend_product_details',$product->id) }}" >
                                                         <i class="ti-search" aria-hidden="true"></i>
                                                     </a>
                                                     

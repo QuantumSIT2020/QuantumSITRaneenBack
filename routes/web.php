@@ -26,6 +26,7 @@ Route::get('/addtowishlist/{id}', 'Frontend\ProductsController@addToWishList')->
 
 //Product Details
 Route::get('/product/details/{id}', 'Frontend\ProductsController@productDetails')->name('frontend_product_details');
+Route::post('/product/review/{id}', 'Frontend\ProductsController@productReview')->name('frontend_product_review');
 
 
 

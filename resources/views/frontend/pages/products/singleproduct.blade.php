@@ -4,6 +4,9 @@
 
 @section('title',$product->$langName)
 
+@section('stylesheet')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+@endsection
 
 @section('content')
 
@@ -77,50 +80,16 @@
                         @endif
 
 
-                        {{-- @if ($getDiscount != null && $getHotOffer != null)
-
-                            @if ($result == $getDiscount->created_at)
-
-                                @if ($getDiscount == null)
-                                <h3>EGP {{ $product->price }}</h3>
-                                @else
-                                <h4><del>EGP {{ $product->price }}</del><span>{{ $getDiscount->discount }} @lang('tr.off')</span></h4>
-                                @php($discount = $product->price - (($getDiscount->discount / 100) * $product->price))
-                                <h3>EGP {{ $discount }}</h3>
-                                @endif
-                            @else
-
-                                @if ($getHotOffer == null)
-                                <h3>EGP {{ $product->price }}</h3>
-                                @else
-                                
-                                @php($start = \Carbon\Carbon::parse($getHotOffer->end_date))
-                                @php($end = \Carbon\Carbon::parse(date('y-m-d')))
-                                @php($expire = $start->diffInDays($end, false))
-
-                                <h4><del>EGP {{ $product->price }}</del><span>{{ $getHotOffer->offer }} @lang('tr.off')</span></h4>
-                                @php($discount = $product->price - (($getHotOffer->discount / 100) * $product->price))
-                                <h3>EGP {{ $discount }}</h3>
-                                <h3>@lang('tr.Expire In'):&nbsp;</h3>
-                                @endif                            
-                            
-                            @endif
-                            
-                        @endif --}}
-
-                        
-
-                        
                         
                         
                         <div class="product-description border-product">
                             <span style="float:right;">
                                 @if ($product->checkWishList() > 0)
-                                <button data-product="{{ $product->id }}" class="addToWishList" title="@lang('tr.Remove From Wishlist')">
+                                <button data-product="{{ $product->id }}" style="border: 0;background: transparent;font-size: 30px;color: #b22827;" class="addToWishList" title="@lang('tr.Remove From Wishlist')">
                                     <i class="fa fa-heart" aria-hidden="true"></i>
                                 </button>
                                 @else
-                                <button data-product="{{ $product->id }}" class="addToWishList" title="@lang('tr.Add to Wishlist')">
+                                <button data-product="{{ $product->id }}" style="border: 0;background: transparent;font-size: 30px;color: #b22827;" class="addToWishList" title="@lang('tr.Add to Wishlist')">
                                     <i class="fa fa-heart-o" aria-hidden="true"></i>
                                 </button>
                                 @endif
@@ -171,6 +140,98 @@
     </div>
 </section>
 
+<br>
+
+<section class=" tab-product  tab-exes">
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-12">
+                <div class="creative-card creative-inner">
+                    <ul class="nav nav-tabs nav-material" id="top-tab" role="tablist">
+                        <li class="nav-item"><a class="nav-link active" id="top-home-tab" data-toggle="tab" href="#top-home" role="tab" aria-selected="true">@lang('tr.Descriptions')</a>
+                            <div class="material-border"></div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" id="profile-top-tab" data-toggle="tab" href="#top-profile" role="tab" aria-selected="false">@lang('tr.Reviews')</a>
+                            <div class="material-border"></div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" id="contact-top-tab" data-toggle="tab" href="#top-contact" role="tab" aria-selected="false">@lang('tr.Video')</a>
+                            <div class="material-border"></div>
+                        </li>
+                        @if (isset(Auth::user()->id))
+                        <li class="nav-item"><a class="nav-link" id="review-top-tab" data-toggle="tab" href="#top-review" role="tab" aria-selected="false">@lang('tr.Write Review')</a>
+                            <div class="material-border"></div>
+                        </li>
+                        @endif
+                    </ul>
+                    <div class="tab-content nav-material" id="top-tabContent">
+                        <div class="tab-pane fade show active" id="top-home" role="tabpanel" aria-labelledby="top-home-tab">
+                            <p>{!! $product->description !!}</p>
+                        </div>
+                        <div class="tab-pane fade" id="top-profile" role="tabpanel" aria-labelledby="profile-top-tab">
+                            
+                            @foreach ($reviews as $review)
+                                <div class="row" style="margin-top:10px;">
+                                    <div class="col-lg-1">
+                                        <img src="{{ asset('frontend/user.png') }}" class="img-fluid rounded-circle " alt="testimonial" style="width:70px;">
+                                    </div>
+
+                                    
+                                    <div class="col-lg-9">
+                                        {{ $review->user->name }}&nbsp;
+                                        @for ($i = 0; $i < $review->reviews; $i++)
+                                        <i class="fa fa-star" style="color:orange"></i>
+                                        @endfor
+                                        
+                                        <br>
+                                        {{ $review->comments }}
+                                    </div>
+                                    
+                                </div>
+                                <hr>
+                            @endforeach
+                            
+                        </div>
+                        <div class="tab-pane fade" id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
+                            <div class="mt-4 text-center">
+                                <a href="{{ $product->video }}" target="_blank" style="color:#b22827;font-size:15px;"><i class="fa fa-file-video-o" style="color:#b22827;font-size:50px;"></i><br><br>@lang('tr.Open Video')</a>
+                            </div>
+                        </div>
+                        
+                        @if (isset(Auth::user()->id))
+                        <div class="tab-pane fade" id="top-review" role="tabpanel" aria-labelledby="review-top-tab">
+                            <form class="theme-form" action="{{ route('frontend_product_review',$product->id) }}" method="post">
+                                <div class="form-row">
+                                    <br>
+                                        @csrf
+                                        <div style="display:block;margin-left:auto;margin-right:auto;margin-top:10px;">
+                                            <div id="rateYo"></div>
+                                            <input type="hidden" name="rate_value" class="rating_val">
+                                        </div>
+                                        <br>
+                                        <div class="col-lg-12" style="margin-top:10px;">
+                                            <textarea name="comments" id="" class="form-control" placeholder="@lang('tr.Your Review')" cols="30" rows="10"></textarea>
+                                        </div>
+    
+                                        <hr>
+                                        
+                                        <div class="col-md-12">
+                                            <button class="btn btn-normal" type="submit">@lang('tr.Review')</button>
+                                        </div>
+                                </div>
+                            </form>
+                        </div>
+                        @endif
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br>
+<br>
+
 
 @include('frontend.components.contactbanner')
 
@@ -179,6 +240,21 @@
 @section('javascript')
 
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e817cf1047b80c5"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
 
+
+<script>
+    $(function () {
+ 
+  $("#rateYo").rateYo({
+         ratedFill: "#b22827",
+        fullStar: true,
+    onSet: function (rating, rateYoInstance) {
+        $('.rating_val').val(rating);
+//       alert("Rating is set to: " + rating);
+    }
+  });
+});
+</script>
 
 @endsection
