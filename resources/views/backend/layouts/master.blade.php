@@ -2,7 +2,7 @@
 <html lang="en">
 
 @include('backend.components.head')
-<body class="theme-cyan font-montserrat light_version theme-red">
+<body class="theme-cyan font-montserrat ">
 
     <!-- Page Loader -->
     <div class="page-loader-wrapper">

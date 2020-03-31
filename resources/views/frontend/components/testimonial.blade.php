@@ -4,17 +4,17 @@
             <div class="col-md-12">
                 <div class="slide-1 no-arrow">
 
-                    @foreach ($allReviews as $review)
+                    @foreach ($testimonials as $testimonial)
 
                     <div>
                         <div class="testimonial-contain">
                             <div class="media">
                                 <div class="testimonial-img">
-                                    <img src="{{ asset('frontend/user.png') }}" class="img-fluid rounded-circle " alt="testimonial">
+                                    <img src="{{ asset('backend/dashboard_images/testimonials/'.$testimonial->image) }}" class="img-fluid rounded-circle " alt="testimonial">
                                 </div>
                                 <div class="media-body">
-                                    <h5>{{ $review->user->name }}</h5>
-                                    <p>{{ $review->comments }}</p>
+                                    <h5>{{ $testimonial->name }}</h5>
+                                    <p>{!! substr($testimonial->description,0,245) !!}</p>
                                 </div>
                             </div>
                         </div>

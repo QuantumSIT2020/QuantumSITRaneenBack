@@ -30,6 +30,9 @@ class PartnersController extends Controller
     {
         $request->validate([
             'partners_logo'                                    =>  'image|mimes:jpeg,png,jpg,gif,svg|max:4196|required',
+            'name' => 'required',
+            'mobile' => 'required',
+            'address' => 'required',
 
         ]);
 
@@ -38,7 +41,9 @@ class PartnersController extends Controller
 
         $partners = new Partners();
 
-        $partners->name = 'partners';
+        $partners->name = $request->name;
+        $partners->mobile = $request->mobile;
+        $partners->address = $request->address;
 
         if ($request->hasFile('partners_logo')){
             $imageName = time().'.'.request()->partners_logo->getClientOriginalExtension();
@@ -48,7 +53,7 @@ class PartnersController extends Controller
 
         $partners->save();
 
-        return redirect()->route('partners')->with('success',__('tr.Partners Added successfully'));
+        return redirect()->route('partners')->with('success',__('tr.Branch Added successfully'));
     }
 
   

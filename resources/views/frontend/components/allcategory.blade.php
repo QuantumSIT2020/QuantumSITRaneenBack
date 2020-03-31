@@ -4,7 +4,7 @@
         @foreach ($MainCategories as $main)
 
         <li class="parentlevel"> <img src="{{ asset('backend/dashboard_images/MainCategory/'.$main->main_image) }} " alt="catergory-product"> <a>{{ $main->name }}</a>
-            <i class="fa fa-angle-right pl-5" aria-hidden="true"></i>
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
             <ul class="menulevel">
 
                 @foreach ($ChildCategories as $child)
@@ -12,7 +12,7 @@
                     @if ($child->main_category_id == $main->id)
 
                         <li class="secondparentlevel"> <img src="{{ asset('backend/dashboard_images/ChildCategory/'.$child->child_image) }}" alt="catergory-product"> <a>{{ $child->name }}</a>
-                            <i class="fa fa-angle-right pl-5" aria-hidden="true"></i>
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
                             
                             <ul class="secondmenulevel">
                                 
