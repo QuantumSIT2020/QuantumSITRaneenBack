@@ -252,7 +252,7 @@
                                                                     
                                                                     EGP {{ $offer->product->price }}
                                                                     
-                                                                </div>
+                                                            </div>
                                                                 <div class="detail-right">
                                                                     @lang('tr.From'):&nbsp;<span style="color: #b22827; font-weight: bold;">{{ $offer->start_date }}</span>&nbsp;&nbsp;@lang('tr.To'):&nbsp;<span style="color: #b22827; font-weight: bold;">{{ $offer->end_date }}</span>
                                                                 </div>
@@ -273,7 +273,7 @@
                                                                 @endif
 
                                                                 
-                                                                <a href="{{ route('frontend_product_details',$product->id) }}" >
+                                                                <a href="{{ route('frontend_product_details',$offer->product->id) }}" >
                                                                     <i class="ti-search" aria-hidden="true"></i>
                                                                 </a>
                                                                 {{-- <a href="compare.html" title="Compare">

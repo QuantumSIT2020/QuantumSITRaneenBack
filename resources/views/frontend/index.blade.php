@@ -36,7 +36,7 @@
 <!--End dealbanner-->
 
 <!--media banner tab start-->
-@include('frontend.components.mediabannertab')
+{{-- @include('frontend.components.mediabannertab') --}}
 <!--End media banner tab start-->
 
 <!--blogs-->
