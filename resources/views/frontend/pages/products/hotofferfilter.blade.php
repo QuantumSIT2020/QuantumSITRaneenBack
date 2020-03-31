@@ -273,7 +273,7 @@
                                                                 @endif
 
                                                                 
-                                                                <a href="{{ route('frontend_product_details',$product->id) }}" >
+                                                                <a href="{{ route('frontend_product_details',$offer->product->id) }}" >
                                                                     <i class="ti-search" aria-hidden="true"></i>
                                                                 </a>
                                                                 {{-- <a href="compare.html" title="Compare">
