@@ -89,6 +89,7 @@
                                                 <li><a href="{{ route('frontend_maincategory') }}">@lang('tr.Products')</a>
                                                 <li><a href="{{ route('frontend_discounts') }}">@lang('tr.Discounts')</a>
                                                 <li><a href="{{ route('frontend_hotoffers') }}">@lang('tr.Hot Deals')</a>
+                                                <li><a href="{{ route('frontend_bundles') }}">@lang('tr.Bundles')</a>
                                             </ul>
                                         </li>
                                         {{-- End Products --}}
@@ -114,9 +115,9 @@
                                                 <a class="dropdown-item hidden-lg hidden-md" href="{{ route('frontend_faq') }}" target="_blank">@lang('tr.FAQ')</a>
                                                 @php($viewpages =  App\Models\pages::select('page_image','id as id','en_name','ar_name')->orderBy('id', 'asc')->get())
                                                 @foreach($viewpages as $page)
-
                                                     <a class="dropdown-item hidden-lg hidden-md" href="{{ route('frontend_pages',$page->id) }}" target="_blank">{{ $page->en_name }}</a>
                                                 @endforeach
+                                                <a class="dropdown-item hidden-lg hidden-md" href="{{ route('frontend_contactus') }}" target="_blank">@lang('tr.Contact Us')</a>
 
                                             </ul>
                                         </li>
@@ -158,7 +159,7 @@
                                         </li>
                                     </ul>
                                     <div class="cart-block mobile-cart cart-hover-div" onclick="openCart()">
-                                        <a href="#"><span class="cart-product">0</span><i class="icon-shopping-cart"></i></a>
+                                    <a href="#"><span class="cart-product">{{ Cart::count() }}</span><i class="icon-shopping-cart"></i></a>
                                     </div>
                                 </div>
                             </div>

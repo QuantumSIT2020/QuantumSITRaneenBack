@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 
-@section('title',__('tr.Create New Partners'))
+@section('title',__('tr.Create New Branches'))
 
 {{-- additional stylesheets --}}
 @section('stylesheet')
@@ -35,16 +35,36 @@
                             <form id="basic-form" style="padding:20px;" action="{{ route('store_partners') }}" method="post" enctype="multipart/form-data">
                                 @csrf
 
+                                <div class="form-group">
+                                    <label class="col-lg-12">@lang('tr.Name')</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="@lang('tr.Name')"  class="form-control"  name="name" required/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-12">@lang('tr.Mobile')</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="@lang('tr.Mobile')"  class="form-control"  name="mobile" required/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-12">@lang('tr.Address')</label>
+                                    <div class="col-md-8">
+                                        <input type="text" placeholder="@lang('tr.Address')"  class="form-control"  name="address" required/>
+                                    </div>
+                                </div>
 
                                 <div class="form-group">
                                     <label class="col-lg-12">@lang('tr.Logo')</label>
                                     <div class="col-md-8">
-                                        <input type="file" id="file"  class="form-control"  name="partners_logo" />
+                                        <input type="file" id="file"  class="form-control"  name="partners_logo" required/>
                                     </div>
                                 </div>
 
 
-                                <button type="submit" class="btn btn-primary">@lang('tr.save')</button>
+                                <button type="submit" class="btn btn-primary">@lang('tr.Save')</button>
                             </form>
                         </div>
                     </div>

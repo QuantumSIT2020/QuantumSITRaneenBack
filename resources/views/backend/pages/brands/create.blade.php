@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 
-@section('title',__('tr.Create New faq'))
+@section('title',__('tr.Create New brand'))
 
 {{-- additional stylesheets --}}
 @section('stylesheet')
@@ -23,7 +23,7 @@
 
                     </div>
                     <div class="col-md-6 col-sm-12 text-right hidden-xs">
-                        <a href="{{route('faq')}}" class="btn btn btn-info" title="Themeforest">@lang('tr.Back To List')</a>
+                        <a href="{{route('brands')}}" class="btn btn btn-info" title="Themeforest">@lang('tr.Back To List')</a>
                     </div>
                 </div>
             </div>
@@ -33,30 +33,22 @@
                     <div class="card">
 
                         <div class="body">
-                            <form id="basic-form" style="padding:20px;" action="{{ route('store_faq') }}" method="post" enctype="multipart/form-data">
+                            <form id="basic-form" style="padding:20px;" action="{{ route('store_brands') }}" method="post" enctype="multipart/form-data">
                                 @csrf
 
-                                <div class="form-group">
-                                    <label for="en_name">@lang('tr.en_name'):</label>
-                                    <input type="text" class="form-control" id ="en_name"  name="en_name"  value="{{ old('en_name') }}" placeholder="@lang('tr.Enter English Name')"/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="ar_name">@lang('tr.ar_name') :</label>
-                                    <input type="text" class="form-control" name="ar_name"  id ="ar_name"  value="{{ old('ar_name') }}"  placeholder="@lang('tr.Enter Arabic Name')"/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="text-input9">@lang('tr.en_description')</label>
-                                    <textarea  name="en_desc">
-
-                            </textarea>
-                                </div>
 
                                 <div class="form-group">
-                                    <div class="form-group">
-                                        <label for="text-input9">@lang('tr.ar_description')</label>
-                                        <textarea  name="ar_desc">
+                                    <label for="name">@lang('tr.name') :</label>
+                                    <input type="text" class="form-control" name="name"  id ="name"  value="{{ old('name') }}"  placeholder="@lang('tr.Enter  Name')"/>
+                                </div>
 
-                            </textarea>
+
+                                <div class="form-group">
+                                    <label class="col-lg-4 file">@lang('tr.Select   Image')</label>
+                                    <div class="col-md-8">
+                                        <input type="file" id="file"   name="image" aria-label="File browser example" onchange="readURL(this);" />
+                                        <img id ="file3"  src="#" alt="@lang('tr.your image')"/>
+                                        <span class="file-custom"></span>
                                     </div>
                                 </div>
 
@@ -85,7 +77,19 @@
 {{-- additional scripts --}}
 @section('javascript')
     <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
+                reader.onload = function (e) {
+                    $(input).siblings("img").attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
     <script>
         CKEDITOR.replace( 'en_desc' );
     </script>

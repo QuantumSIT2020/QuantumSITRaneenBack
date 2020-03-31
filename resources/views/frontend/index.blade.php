@@ -59,9 +59,7 @@
 @include('frontend.components.contactbanner')
     <!--End contact banner-->
 
-<!--add to cart bar-->
-@include('frontend.components.addcartbar')
-<!--End add to cart bar-->
+
 
 <!--news letter modal-->
 @include('frontend.components.newslettermodal')

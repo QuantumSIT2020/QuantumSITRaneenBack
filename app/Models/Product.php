@@ -12,6 +12,7 @@ use App\Models\Review;
 use App\Models\Product_Gallery;
 use App\Models\ChildCategory;
 use App\Models\MainCategory;
+use App\Models\Product_HotOffer;
 use Auth;
 
 class Product extends Model
@@ -37,6 +38,48 @@ class Product extends Model
     public static function checkDiscount($id)
     {
         return Product_sale::where('product_id',$id)->orderBy('id','desc')->get()->first();
+    }
+
+    public static function checkHotOffer($id)
+    {
+        return Product_HotOffer::where('product_id',$id)->orderBy('id','desc')->get()->first();
+    }
+
+    // Check The Latest Date is Discount Or HotOffer
+    public function checkTheLatestDiscountOrHotOffer()
+    {
+        $discount = Product_sale::where('product_id',$this->id)->orderBy('id','desc')->get()->first();
+        $hotoffer = Product_HotOffer::where('product_id',$this->id)->orderBy('id','desc')->get()->first();
+
+        if ($discount != null && $hotoffer != null) {
+            $discountDate = \Carbon\Carbon::parse($discount->created_at);
+            $hotofferDate = \Carbon\Carbon::parse($hotoffer->created_at);
+            $result = $hotofferDate->min($discountDate);
+
+            if ($result == $discount->created_at) {
+                $hotoffer['type'] = 'hotoffer';
+                return $hotoffer;
+            }else{
+                $discount['type'] = 'discount';
+                return $discount;
+            }
+        }
+
+        elseif ($discount != null && $hotoffer == null) {
+            $discount['type'] = 'discount';
+            return $discount;
+        }
+
+        elseif ($discount == null && $hotoffer != null) {
+            $hotoffer['type'] = 'hotoffer';
+            return $hotoffer;
+        }
+
+        else {
+            return null;
+        }
+        
+
     }
 
     public function checkWishList()

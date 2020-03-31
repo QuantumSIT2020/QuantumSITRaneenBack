@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 
-@section('title',__('tr.Create Brand'))
+@section('title',__('tr.Create SubCategory'))
 
 {{-- additional stylesheets --}}
 @section('stylesheet')
@@ -22,7 +22,7 @@
 
                     </div>
                     <div class="col-md-6 col-sm-12 text-right hidden-xs">
-                        <a href="{{route('ChildCategory')}}" class="btn btn btn-info" title="Themeforest">@lang('tr.Back To List')</a>
+                        <a href="{{route('SubCategory')}}" class="btn btn btn-info" title="Themeforest">@lang('tr.Back To List')</a>
                     </div>
                 </div>
             </div>

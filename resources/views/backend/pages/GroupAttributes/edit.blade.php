@@ -38,7 +38,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="en_name">@lang('tr.English Name')</label>
-                                <input type="text" id="en_name" value="{{ GroupAttributes->en_name }}" name="en_name" class="form-control" required="" data-parsley-minlength="2">
+                                <input type="text" id="en_name" value="{{ $GroupAttributes->en_name }}" name="en_name" class="form-control" required="" data-parsley-minlength="2">
                             </div>
                         </div>
                     </div>

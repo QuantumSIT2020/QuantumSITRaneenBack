@@ -177,7 +177,42 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::get('/pages/show/{id}','PagesController@show')->name('show_pages');
         Route::get('/pages/delete/{id}','PagesController@destroy')->name('delete_pages');
         Route::get('/pages/search','PagesController@searchPages')->name('search_pages');
-        
+
+
+        //contactus
+
+
+        Route::get('/contactus','contactUsController@index')->name('contactus');
+        Route::get('/contactus/create','contactUsController@create')->name('create_contactus');
+        Route::post('/contactus/store','contactUsController@store')->name('store_contactus');
+
+
+
+
+        //brands
+
+        Route::get('/brands','BrandsController@index')->name('brands');
+        Route::get('/brands/create','BrandsController@create')->name('create_brands');
+        Route::post('/brands/create','BrandsController@store')->name('store_brands');
+        Route::get('/brands/edit/{id}','BrandsController@edit')->name('edit_brands');
+        Route::post('/brands/update/{id}','BrandsController@update')->name('update_brands');
+        Route::get('/brands/show/{id}','BrandsController@show')->name('show_brands');
+        Route::get('/brands/delete/{id}','BrandsController@destroy')->name('delete_brands');
+
+
+
+
+        //Testimonials
+
+        Route::get('/testimonials','TestimonialsController@index')->name('testimonials');
+        Route::get('/testimonials/create','TestimonialsController@create')->name('create_testimonials');
+        Route::post('/testimonials/store','TestimonialsController@store')->name('store_testimonials');
+        Route::get('/testimonials/edit/{id}','TestimonialsController@edit')->name('edit_testimonials');
+        Route::post('/testimonials/update/{id}','TestimonialsController@update')->name('update_testimonials');
+        Route::get('/testimonials/show/{id}','TestimonialsController@show')->name('show_testimonials');
+        Route::get('/testimonials/delete/{id}','TestimonialsController@destroy')->name('delete_testimonials');
+
+
 
 
 
@@ -285,6 +320,20 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::get('/faq/viewfaq','FaqController@viewfaq')->name('viewfaq');
 
 
+
+        //Product_bundles
+        Route::get('/bundles','BundlesController@index')->name('bundles');
+        Route::get('/bundles/create','BundlesController@create')->name('create_bundles');
+        Route::post('/bundles/store','BundlesController@store')->name('store_bundles');
+        Route::get('/bundles/edit/{id}','BundlesController@edit')->name('edit_bundles');
+        Route::post('/bundles/update/{id}','BundlesController@update')->name('update_bundles');
+        Route::get('/bundles/delete/{id}','BundlesController@destroy')->name('delete_bundles');
+        Route::get('/bundles/show/{id}','BundlesController@show')->name('show_bundles');
+
+        Route::get('/bundles/items/delete/{id}','BundlesController@delete_item_bundle')->name('delete_items_bundle');
+
+        //Orders
+        Route::get('/orders','OrderController@index')->name('orders');
 
 
     });

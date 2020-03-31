@@ -197,7 +197,7 @@
                                                 <div class="product">
                                                     <div class="product-box">
                                                         <div class="product-imgbox">
-                                                            <a href="product-details-bundels.html">
+                                                            <a href="{{ route('frontend_product_details',$offer->product->id) }}">
                                                                 <div class="product-front">
                                                                     <img style="width: 768px;height: 250px;" src="{{ asset('backend/dashboard_images/Products/'.$offer->product->product_image) }}" class="img-fluid  " alt="product">
                                                                 </div>
@@ -232,10 +232,10 @@
                                                                 </div>
                                                             </div>
                                                             <div class="icon-detail">
-                                                                <button data-toggle="modal" data-target="#addtocart" title="Add to cart">
+                                                                {{-- <button data-toggle="modal" data-target="#addtocart" title="Add to cart">
                                                                     <i class="ti-bag" ></i>
                                                                 </button>
-                                                                
+                                                                 --}}
                                                                 @if ($offer->product->checkWishList() > 0)
                                                                 <button data-product="{{ $offer->product->id }}" class="addToWishList" title="@lang('tr.Remove From Wishlist')">
                                                                     <i class="fa fa-heart" aria-hidden="true"></i>
@@ -247,7 +247,7 @@
                                                                 @endif
 
                                                                 
-                                                                <a href="{{ route('frontend_product_details',$product->id) }}" data-toggle="modal" data-target="#quick-view" title="Quick View">
+                                                                <a href="{{ route('frontend_product_details',$product->id) }}" >
                                                                     <i class="ti-search" aria-hidden="true"></i>
                                                                 </a>
                                                                 {{-- <a href="compare.html" title="Compare">

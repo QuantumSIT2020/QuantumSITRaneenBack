@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 
-@section('title',__('tr.Update faq'))
+@section('title',__('tr.Update testimonials'))
 
 {{-- additional stylesheets --}}
 @section('stylesheet')
@@ -17,16 +17,16 @@
                 <h2> @yield('title')</h2>
             </div>
             <div class="col-md-6 col-sm-12 text-right hidden-xs">
-                <a href= "{{route('faq')}}" class="btn btn-sm btn-primary btn-round" title="">@lang('tr.Back To List')</a>
+                <a href= "{{route('testimonials')}}" class="btn btn-sm btn-primary btn-round" title="">@lang('tr.Back To List')</a>
             </div>
 
             <div class="body">
-                <form style="padding:20px;" action="{{ route('update_faq',$Faq->id) }}" method="post" enctype="multipart/form-data">
+                <form style="padding:20px;" action="{{ route('update_testimonials',$testimonial->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label">@lang('tr.en_name')</label>
                         <div class="col-sm-12 col-md-10">
-                            <input class="form-control" name="en_name" id="en_name" type="text" value="{{ $Faq->en_name }}" >
+                            <input class="form-control" name="en_name" id="en_name" type="text" value="{{ $testimonial->en_name }}" >
                         </div>
 
                     </div>
@@ -36,7 +36,7 @@
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label">@lang('tr.ar_name')</label>
                         <div class="col-sm-12 col-md-10">
-                            <input class="form-control" name="ar_name" id="ar_name" type="text" value="{{ $Faq->ar_name }}" >
+                            <input class="form-control" name="ar_name" id="ar_name" type="text" value="{{ $testimonial->ar_name }}" >
                         </div>
 
                     </div>
@@ -46,7 +46,7 @@
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label">@lang('tr.en_description')</label>
                         <div class="col-sm-12 col-md-10">
-                            <textarea name="en_desc" id="en_desc" cols="30" rows="10" class="form-control m-input" value="">{{ $Faq->en_desc}}</textarea>
+                            <textarea name="en_desc" id="en_desc" cols="30" rows="10" class="form-control m-input" value="">{{ $testimonial->en_desc}}</textarea>
                         </div>
 
                     </div>
@@ -57,13 +57,28 @@
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label">@lang('tr.ar_description')</label>
                         <div class="col-sm-12 col-md-10">
-                            <textarea name="ar_desc" id="ar_desc" cols="30" rows="10" class="form-control m-input" value="">{{ $Faq->ar_desc }}</textarea>
+                            <textarea name="ar_desc" id="ar_desc" cols="30" rows="10" class="form-control m-input" value="">{{ $testimonial->ar_desc }}</textarea>
 
                         </div>
 
                     </div>
 
                     <hr>
+
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-md-2 col-form-label">@lang('tr.Select another Image')</label>
+                        <div class="col-sm-12 col-md-10">
+                            <input type="file" name="image" id="file" aria-label="File browser example"  onchange="readURL(this);"  />
+                            <img src="{{ URL::to('/') }}/backend/dashboard_images/testimonials/{{ $testimonial->image }}" class="img-thumbnail" width="100" />
+
+                            <img id="blah" src="#" alt="@lang('tr.your image')" />
+                            <span class="file-custom"></span>
+                        </div>
+
+                    </div>
+
+                    <hr>
+
 
                     <div class="form-group row">
                         <input type="submit" value="@lang('tr.Update')" class="btn btn-primary col-sm-12 col-md-2">

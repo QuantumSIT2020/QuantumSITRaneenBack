@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 
-@section('title',__('tr.ChildCategory Details'))
+@section('title',__('tr.SubCategory Details'))
 
 {{-- additional stylesheets --}}
 @section('stylesheet')
@@ -16,7 +16,7 @@
             <div class="row clearfix">
 
                 <div class="col-md-6 col-sm-12">
-                    <h2>@lang('tr.MainCategory Details')</h2>
+                    <h2>@lang('tr.SubCategory Details')</h2>
                 </div>
                 <div class="col-md-6 col-sm-12 text-right hidden-xs">
                     <a href="{{route('SubCategory')}}" class="btn btn btn-info" title="Themeforest">@lang('tr.Back To List')</a>

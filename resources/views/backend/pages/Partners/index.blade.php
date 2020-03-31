@@ -32,24 +32,13 @@
             <div class="body">
 
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="body">
-                                <h4>@lang('tr.Partners')</h4><hr>
-                                <div id="lightgallery" class="row clearfix lightGallery">
-                                    @foreach ($partners as $partner)
-                                    <div id="lightgallery" class="row clearfix lightGallery">
-                                        <div class="col-lg-3 col-md-6 m-b-30">
-                                            <a class="light-link" href="{{ asset('backend/dashboard_images/Partners/'.$partner->partners_logo) }}"><img style="width:800px;height:200px;" class="img-fluid rounded" src="{{ asset('backend/dashboard_images/Partners/'.$partner->partners_logo) }}" alt=""></a>
-                                            <a href="{{ route('delete_partners',$partner->id) }}" onclick="return confirm('tr.Are You Sure?')" class="btn btn-danger btn-block" style="margin-top:10px;">@lang('tr.Delete')</a>
-                                        </div>
-                                        
-                                    </div>
-                                    @endforeach
-                                </div>
+                    <h4>@lang('tr.Partners')</h4><hr>
+                        @foreach ($partners as $partner)
+                            <div class="col-lg-2">
+                                <img style="width:800px;height:200px;" class="img-fluid rounded" src="{{ asset('backend/dashboard_images/Partners/'.$partner->partners_logo) }}" alt="">
+                                <a href="{{ route('delete_partners',$partner->id) }}" onclick="return confirm('tr.Are You Sure?')" class="btn btn-danger btn-block" style="margin-top:10px;">@lang('tr.Delete')</a>
                             </div>
-                        </div>
-                    </div>
+                        @endforeach
                  </div>
 
 
