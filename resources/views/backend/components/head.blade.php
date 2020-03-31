@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{{ asset('backend/assets/vendor/toastr/toastr.min.css') }}">
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{{ asset('backend/assets/css/site.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/mydash.css') }}">
+
 
     <style>
         .c_grid .circle img {
