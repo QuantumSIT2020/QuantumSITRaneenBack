@@ -115,9 +115,9 @@
                                                 <a class="dropdown-item hidden-lg hidden-md" href="{{ route('frontend_faq') }}" target="_blank">@lang('tr.FAQ')</a>
                                                 @php($viewpages =  App\Models\pages::select('page_image','id as id','en_name','ar_name')->orderBy('id', 'asc')->get())
                                                 @foreach($viewpages as $page)
-
                                                     <a class="dropdown-item hidden-lg hidden-md" href="{{ route('frontend_pages',$page->id) }}" target="_blank">{{ $page->en_name }}</a>
                                                 @endforeach
+                                                <a class="dropdown-item hidden-lg hidden-md" href="{{ route('frontend_contactus') }}" target="_blank">@lang('tr.Contact Us')</a>
 
                                             </ul>
                                         </li>

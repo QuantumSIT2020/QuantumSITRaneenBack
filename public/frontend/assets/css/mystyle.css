@@ -1,5 +1,5 @@
 .menulevel {
-    background: white;
+    background: #2d2d2d ;
     position: absolute;
     left: 242px;
     z-index: 999;
@@ -11,7 +11,7 @@
 }
 
 .secondmenulevel {
-    background: white;
+    background: #2d2d2d ;
     position: absolute;
     left: 264px;
     z-index: 999;
@@ -28,8 +28,8 @@
 }
 
 .carousel-indicators li {
-    width: 13px !important;
-    height: 13px !important;
+    width: 25px !important;
+    height: 5px !important;
     margin-right: 5px !important;
     margin-left: 5px !important;
     background-color: rgb(178, 40, 39) !important;
@@ -127,13 +127,13 @@
 }
 
 @media(min-width:1367px) and (max-width:1679px) {
-    .nav-cat {
+    .nav-cat,.secondmenulevel,.menulevel {
         height: 656px !important;
     }
 }
 
 @media (min-width:1680px) {
-    .nav-cat {
+    .nav-cat,.secondmenulevel,.menulevel {
         height: 686px !important;
     }
 }
@@ -146,7 +146,7 @@
     float: right !important;
     padding-top: 14px !important;   
     padding-right:22px !important;
-    color: #b22827 !important;
+    color: #fff !important;
 }
 
 .offer-banner-img img{
@@ -157,12 +157,18 @@
 .category-header .navbar-menu .category-left .nav-block .nav-left .nav-cat{
 
     box-shadow: 2px 2px 8px 0px #c1b4b43b !important;
+    background-color: #2d2d2d  !important;
+    cursor: pointer;
 }
 .category-header .navbar-menu .category-left .nav-block .nav-left .nav-cat li a{
-    color: #b22827 !important;
+    color: #fff !important;
+    font-weight: bold !important;
 
 }
+.category-header .navbar-menu .category-left .nav-block .nav-left .nav-cat li {
+    margin-bottom: 12px !important;
+}
 
-.category-header .navbar-menu .category-left .nav-block .nav-left .nav-cat li img{
+/* .category-header .navbar-menu .category-left .nav-block .nav-left .nav-cat li img{ */
     /* border: 2px solid #b22827 !important; */
-}
+/* } */

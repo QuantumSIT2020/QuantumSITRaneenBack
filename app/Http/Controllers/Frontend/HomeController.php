@@ -15,6 +15,7 @@ use App\Models\Blog;
 use App\Models\Review;
 use App\Models\GroupAttributes;
 use App\Models\Attributes;
+use App\Models\Testimonial;
 use DB;
 
 class HomeController extends Controller
@@ -43,7 +44,7 @@ class HomeController extends Controller
         $leatestproduct                          = Product::select('*')->orderBy('id', 'desc')->get();
         $discounts                               = Product_sale::select('*')->get();
         $reviews                                 = Review::all();
-        
+        $testimonials                            = Testimonial::select($lang.'_name as name',$lang.'_desc as description','image','id')->get();
 
         
         
@@ -52,7 +53,7 @@ class HomeController extends Controller
             'lastAftertwoDiscount','lasttwoDiscount','MainCategories',
             'ChildCategories','subCategories','Sliders','lastHotOffer',
             'beforelastHotOffer','lastdiscounts','brands',
-            'lastbeforediscounts','leatestproduct','discounts','reviews','products'));
+            'lastbeforediscounts','leatestproduct','discounts','reviews','products','testimonials'));
     }
 
     public function search(Request $request)

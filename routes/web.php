@@ -62,6 +62,10 @@ Route::get('/pages/{id}','Frontend\PagesController@index')->name('frontend_pages
 //FAQ
 Route::get('/faq','Frontend\FaqController@index')->name('frontend_faq');
 
+//Contact Us
+Route::get('/contactus','Frontend\ContactUsController@index')->name('frontend_contactus');
+Route::post('/contactus/send','Frontend\ContactUsController@store')->name('frontend_send_contact');
+
 //Auth
 Route::get('/user/login','Frontend\AuthController@login')->name('frontend_login');
 Route::get('/user/register','Frontend\AuthController@register')->name('frontend_register');

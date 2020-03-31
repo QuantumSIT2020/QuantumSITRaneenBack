@@ -1668,6 +1668,12 @@ ul {
     text-align: center;
 }
 
+.collection-banner .collection-banner-main {
+    box-shadow: -1px 3px 8px 2px grey;
+    -o-box-shadow: -1px 3px 8px 2px grey;
+    -webkit-box-shadow: -1px 3px 8px 2px grey;
+    -moz-box-shadow: -1px 3px 8px 2px grey;
+}
 .collection3>div:last-child {
     padding-left: 0;
     padding-right: 0;
@@ -1686,6 +1692,17 @@ ul {
     text-align: center;
 }
 
+.blog .blog-contain {
+    margin-left: 15px;
+    margin-right: 15px;
+    position: relative;
+    box-shadow: 1px 4px 11px -3px grey;
+    -moz-box-shadow: 1px 4px 11px -3px grey;
+    -webkit-box-shadow: 1px 4px 11px -3px grey;
+    -o-box-shadow: 1px 4px 11px -3px grey;
+
+    margin-bottom: 15px
+}
 .blog .blog-contain .blog-img {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
@@ -3023,4 +3040,15 @@ ul {
 
 .form-group_3 {
     text-align: right !important;
+}
+
+
+
+/* omar editing final */
+.hot-deal {
+    box-shadow: 1px 4px 11px -3px grey;
+   -o-box-shadow: 1px 4px 11px -3px grey;
+    -moz-box-shadow: 1px 4px 11px -3px grey;
+    -webkit-box-shadow: 1px 4px 11px -3px grey;
+
 }

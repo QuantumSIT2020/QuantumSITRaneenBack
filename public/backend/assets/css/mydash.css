@@ -1,0 +1,31 @@
+#left-sidebar .navbar-brand .logo{
+    width: 136px !important;
+    height: 55px !important;
+}
+
+#main-content{
+    margin-top: 86px !important;
+}
+
+.top-navbar{
+    height: 87px !important;
+}
+
+.navbar-nav .icon-menu i{
+    font-size: 22px !important;
+    color:white !important;
+}
+
+
+.block-header h1{
+    color:white !important;
+}
+
+.form-control{
+    border-color: #ffffff78 !important;
+}
+
+.form-control:focus{
+    box-shadow: rgba(200, 187, 187, 0.25) 0px 0px 5px 0px !important;
+    color: #ffffff78 !important;
+}
