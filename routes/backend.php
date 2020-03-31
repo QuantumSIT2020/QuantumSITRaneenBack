@@ -177,7 +177,42 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::get('/pages/show/{id}','PagesController@show')->name('show_pages');
         Route::get('/pages/delete/{id}','PagesController@destroy')->name('delete_pages');
         Route::get('/pages/search','PagesController@searchPages')->name('search_pages');
-        
+
+
+        //contactus
+
+
+        Route::get('/contactus','contactUsController@index')->name('contactus');
+        Route::get('/contactus/create','contactUsController@create')->name('create_contactus');
+        Route::post('/contactus/store','contactUsController@store')->name('store_contactus');
+
+
+
+
+        //brands
+
+        Route::get('/brands','BrandsController@index')->name('brands');
+        Route::get('/brands/create','BrandsController@create')->name('create_brands');
+        Route::post('/brands/create','BrandsController@store')->name('store_brands');
+        Route::get('/brands/edit/{id}','BrandsController@edit')->name('edit_brands');
+        Route::post('/brands/update/{id}','BrandsController@update')->name('update_brands');
+        Route::get('/brands/show/{id}','BrandsController@show')->name('show_brands');
+        Route::get('/brands/delete/{id}','BrandsController@destroy')->name('delete_brands');
+
+
+
+
+        //Testimonials
+
+        Route::get('/testimonials','TestimonialsController@index')->name('testimonials');
+        Route::get('/testimonials/create','TestimonialsController@create')->name('create_testimonials');
+        Route::post('/testimonials/store','TestimonialsController@store')->name('store_testimonials');
+        Route::get('/testimonials/edit/{id}','TestimonialsController@edit')->name('edit_testimonials');
+        Route::post('/testimonials/update/{id}','TestimonialsController@update')->name('update_testimonials');
+        Route::get('/testimonials/show/{id}','TestimonialsController@show')->name('show_testimonials');
+        Route::get('/testimonials/delete/{id}','TestimonialsController@destroy')->name('delete_testimonials');
+
+
 
 
 

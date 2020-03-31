@@ -1,9 +1,10 @@
 @extends('backend.layouts.master')
 
-@section('title',__('tr.Create SubCategory'))
+@section('title',__('tr.Create New testimonial'))
 
 {{-- additional stylesheets --}}
 @section('stylesheet')
+
 
 @endsection
 {{-- end additional stylesheets --}}
@@ -22,7 +23,7 @@
 
                     </div>
                     <div class="col-md-6 col-sm-12 text-right hidden-xs">
-                        <a href="{{route('SubCategory')}}" class="btn btn btn-info" title="Themeforest">@lang('tr.Back To List')</a>
+                        <a href="{{route('testimonials')}}" class="btn btn btn-info" title="Themeforest">@lang('tr.Back To List')</a>
                     </div>
                 </div>
             </div>
@@ -32,20 +33,8 @@
                     <div class="card">
 
                         <div class="body">
-                            <form id="basic-form" style="padding:20px;" action="{{ route('store_SubCategory') }}" method="post" enctype="multipart/form-data">
+                            <form id="basic-form" style="padding:20px;" action="{{ route('store_testimonials') }}" method="post" enctype="multipart/form-data">
                                 @csrf
-
-
-                                    <div class="form-group">
-                                        <label for="child_category_id">@lang('tr.child_category'):</label>
-                                        <select name="child_category_id" id="child_category_id" class="custom-select" required>
-                                            <option value="">@lang('tr.Select child_category')</option>
-                                            @foreach ($ChildCategories as $ChildCategory)
-                                                <option value="{{ $ChildCategory->id }}">{{$ChildCategory->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-
 
                                 <div class="form-group">
                                     <label for="en_name">@lang('tr.en_name'):</label>
@@ -56,21 +45,29 @@
                                     <input type="text" class="form-control" name="ar_name"  id ="ar_name"  value="{{ old('ar_name') }}"  placeholder="@lang('tr.Enter Arabic Name')"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="en_desc">@lang('tr.en_description'):</label>
-                                    <textarea name="en_desc" id="en_desc" cols="30" rows="5" class="form-control m-input" placeholder="@lang('tr.Enter English description')" required>{{ old('en_desc') }}</textarea>
+                                    <label for="text-input9">@lang('tr.en_description')</label>
+                                    <textarea  name="en_desc">
 
+                            </textarea>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="ar_desc">@lang('tr.ar_description'):</label>
-                                    <textarea name="ar_desc" id="ar_desc" cols="30" rows="5" class="form-control m-input" placeholder="@lang('tr.Enter Arabic description')" required>{{ old('ar_desc') }}</textarea>
+                                    <div class="form-group">
+                                        <label for="text-input9">@lang('tr.ar_description')</label>
+                                        <textarea  name="ar_desc">
 
+                            </textarea>
+                                    </div>
                                 </div>
 
+
+
+
+
                                 <div class="form-group">
-                                    <label class="col-lg-4 file">@lang('tr.Select  Brand Image')</label>
+                                    <label class="col-lg-4 file">@lang('tr.Select   Image')</label>
                                     <div class="col-md-8">
-                                        <input type="file" id="file"   name="sub_image" aria-label="File browser example" onchange="readURL(this);" />
+                                        <input type="file" id="file"   name="image" aria-label="File browser example" onchange="readURL(this);" />
                                         <img id ="file3"  src="#" alt="@lang('tr.your image')"/>
                                         <span class="file-custom"></span>
                                     </div>
@@ -99,22 +96,51 @@
 
 
 {{-- additional scripts --}}
-@section('stylesheet')
+@section('javascript')
+    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
+                reader.onload = function (e) {
+                    $(input).siblings("img").attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+    <script>
+        CKEDITOR.replace( 'en_desc' );
+    </script>
+
+    <script>
+        CKEDITOR.replace( 'ar_desc' );
+    </script>
 @endsection
 {{-- end additional scripts --}}
 
-<script type="text/javascript">
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
 
-            reader.onload = function (e) {
-                $(input).siblings("img").attr('src', e.target.result);
-            }
 
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

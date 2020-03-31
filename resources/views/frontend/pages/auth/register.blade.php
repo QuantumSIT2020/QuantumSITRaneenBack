@@ -2,6 +2,12 @@
 
 @section('title',__('tr.Register'))
 
+@section('stylesheet')
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
+</script>
+@endsection
+
 @section('content')
 
 @section('breads')
@@ -158,9 +164,27 @@
                 </div>
             </div>
         </div>
+
+            <div class="g-recaptcha" data-sitekey="your_site_key"></div>
+
     </div>
 </section>
+
+
 
 @include('frontend.components.contactbanner')
 
 @endsection
+
+
+@section('javascript')
+    <script type="text/javascript">
+        var onloadCallback = function() {
+            alert("grecaptcha is ready!");
+        };
+    </script>
+@endsection
+
+
+
+
