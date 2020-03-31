@@ -43,16 +43,6 @@
                 <div class="col-lg-7 rtl-text">
                     <div class="product-right">
                         <h2>{{ $product->$langName }}</h2>
-<<<<<<< HEAD
-                        @php($getDiscount = \App\Models\Product::checkDiscount($product->id))
-                        @if ($getDiscount == null)
-                        <h3>EGP {{ $product->price }}</h3>
-                        @else
-                        <h4><del>EGP {{ $product->price }}</del><span>{{ $getDiscount->discount }} @lang('tr.off')</span></h4>
-                        @php($discount = $product->price - (($getDiscount->discount / 100) * $product->price))
-                        <h3>EGP {{ $discount }}</h3>
-                        @endif
-=======
                         <form action="{{ route('cart_store') }}" method="post">
                         @if ($product->checkTheLatestDiscountOrHotOffer() != null)
                         
@@ -92,54 +82,20 @@
                         @endif
 
 
->>>>>>> 5c9157bb28ce134b58ce05888258437cb708bf59
                         
                         
                         <div class="product-description border-product">
                             <span style="float:right;">
                                 @if ($product->checkWishList() > 0)
-<<<<<<< HEAD
-                                <button data-product="{{ $product->id }}" class="addToWishList" title="@lang('tr.Remove From Wishlist')">
-                                    <i class="fa fa-heart" aria-hidden="true"></i>
-                                </button>
-                                @else
-                                <button data-product="{{ $product->id }}" class="addToWishList" title="@lang('tr.Add to Wishlist')">
-=======
                                 <button data-product="{{ $product->id }}" style="border: 0;background: transparent;font-size: 30px;color: #b22827;" class="addToWishList" title="@lang('tr.Remove From Wishlist')">
                                     <i class="fa fa-heart" aria-hidden="true"></i>
                                 </button>
                                 @else
                                 <button data-product="{{ $product->id }}" style="border: 0;background: transparent;font-size: 30px;color: #b22827;" class="addToWishList" title="@lang('tr.Add to Wishlist')">
->>>>>>> 5c9157bb28ce134b58ce05888258437cb708bf59
                                     <i class="fa fa-heart-o" aria-hidden="true"></i>
                                 </button>
                                 @endif
                             </span>
-<<<<<<< HEAD
-                            @foreach ($attibuteGroups as $group)
-                                
-                                @foreach ($attributes as $attribute)
-
-                                    @if ($attribute->attribute->attribute_group_id == $group->id)
-
-                                    <h6 class="product-title size-text">{{ $group->$langName }}</h6>
-                                    <br>
-                                    <ul>
-                                        <li>
-                                            <input type="checkbox" name="" id="{{ $attribute->id}}">
-                                            <label for="{{ $attribute->id}}">{{ $attribute->attribute->$langName }}</label>
-                                        </li>
-
-                                    </ul>
-                                        
-                                    @endif
-
-                                    
-                                @endforeach
-                            
-                            @endforeach
-
-=======
 
                             
 
@@ -158,22 +114,11 @@
 
                             <hr>
 
->>>>>>> 5c9157bb28ce134b58ce05888258437cb708bf59
                             
 
                             
                             <h6 class="product-title">@lang('tr.Quantity')</h6>
                             <div class="qty-box">
-<<<<<<< HEAD
-                                <div class="input-group"><span class="input-group-prepend"><button type="button" class="btn quantity-left-minus" data-type="minus" data-field=""><i class="ti-angle-left"></i></button> </span>
-                                    <input type="text" name="quantity" max="{{ $product->quantity }}" class="form-control input-number" value="1"> <span class="input-group-prepend"><button type="button" class="btn quantity-right-plus" data-type="plus" data-field=""><i class="ti-angle-right"></i></button></span></div>
-                            </div>
-                        </div>
-                        <div class="product-buttons"><a href="#" data-toggle="modal" data-target="#addtocart" class="btn btn-normal">add to cart</a> <a href="#" class="btn btn-normal">buy now</a></div>
-                        <div class="border-product">
-                            <h6 class="product-title">@lang('tr.Product Details')</h6>
-                            <p>{!! $product->description !!}</p>
-=======
                                 <div class="input-group">
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                                     <input type="hidden" name="type" value="product">
@@ -188,7 +133,6 @@
                         <div class="border-product">
                             <h6 class="product-title">@lang('tr.Product Details')</h6>
                             <p>{!! substr($product->description,0,400) !!}</p>
->>>>>>> 5c9157bb28ce134b58ce05888258437cb708bf59
                         </div>
                         
                         
@@ -199,8 +143,6 @@
     </div>
 </section>
 
-<<<<<<< HEAD
-=======
 <br>
 
 <section class=" tab-product  tab-exes">
@@ -293,7 +235,6 @@
 <br>
 <br>
 
->>>>>>> 5c9157bb28ce134b58ce05888258437cb708bf59
 
 @include('frontend.components.contactbanner')
 
@@ -302,9 +243,6 @@
 @section('javascript')
 
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e817cf1047b80c5"></script>
-<<<<<<< HEAD
-
-=======
 <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
 
 
@@ -321,6 +259,5 @@
   });
 });
 </script>
->>>>>>> 5c9157bb28ce134b58ce05888258437cb708bf59
 
 @endsection

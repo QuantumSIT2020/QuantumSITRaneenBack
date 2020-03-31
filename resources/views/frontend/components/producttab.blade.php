@@ -61,29 +61,6 @@
                                                         </a>
                                                     </div>
                                                     <div class="detail-right">
-<<<<<<< HEAD
-                                                        @if ($getDiscount == null)
-                                                        <div class="price" style="margin-left:0;">
-                                                            EGP {{ $product->price }}
-                                                        </div>
-                                                        @else
-                                                        <div class="check-price">
-                                                            EGP {{ $product->price }}
-                                                        </div>
-                                                        <div class="price">
-                                                            <div class="price">
-                                                                @php($discount = $product->price - (($getDiscount->discount / 100) * $product->price))
-                                                                EGP {{ $discount }}
-                                                            </div>
-                                                        </div>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                                <div class="icon-detail">
-                                                    <button onclick="openCart()" type="button" tabindex="0">
-                                                <i class="ti-bag"></i>
-                                            </button>
-=======
 
                                                         @if ($product->checkTheLatestDiscountOrHotOffer() != null)
 
@@ -133,7 +110,6 @@
                                                     {{-- <button onclick="openCart()" type="button" tabindex="0">
                                                 <i class="ti-bag"></i>
                                             </button> --}}
->>>>>>> 5c9157bb28ce134b58ce05888258437cb708bf59
                                                     @if ($product->checkWishList() > 0)
                                                     <button data-product="{{ $product->id }}" class="addToWishList" title="@lang('tr.Remove From Wishlist')">
                                                         <i class="fa fa-heart" aria-hidden="true"></i>
@@ -143,11 +119,7 @@
                                                         <i class="fa fa-heart-o" aria-hidden="true"></i>
                                                     </button>
                                                     @endif
-<<<<<<< HEAD
-                                                    <a href="{{ route('frontend_product_details',$product->id) }}" data-toggle="modal" data-target="#quick-view" title="Quick View" tabindex="0">
-=======
                                                     <a href="{{ route('frontend_product_details',$product->id) }}" >
->>>>>>> 5c9157bb28ce134b58ce05888258437cb708bf59
                                                         <i class="ti-search" aria-hidden="true"></i>
                                                     </a>
                                                     

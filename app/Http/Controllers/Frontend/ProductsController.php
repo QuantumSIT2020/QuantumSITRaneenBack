@@ -16,10 +16,7 @@ use App\Models\Product_HotOffer;
 use App\Models\Product_sale;
 use App\Models\Product_attribute;
 use App\Models\Product_Gallery;
-<<<<<<< HEAD
-=======
 use App\Models\Review;
->>>>>>> 5c9157bb28ce134b58ce05888258437cb708bf59
 use Auth;
 
 class ProductsController extends Controller
@@ -242,10 +239,6 @@ class ProductsController extends Controller
         $gallery = Product_Gallery::where('product_id',$id)->get();
         $attibuteGroups = GroupAttributes::all();
         $attributes = Product_attribute::where('product_id',$id)->get();
-<<<<<<< HEAD
-
-        return view($this->path.'singleproduct',compact('product','attibuteGroups','attributes','gallery'));
-=======
         $reviews = Review::where('product_id',$id)->get();
 
         return view($this->path.'singleproduct',compact('product','attibuteGroups','attributes','gallery','reviews'));
@@ -263,7 +256,6 @@ class ProductsController extends Controller
         $review->save();
 
         return back()->with('success',__('tr.Review Saved Successfully'));
->>>>>>> 5c9157bb28ce134b58ce05888258437cb708bf59
     }
     
     
