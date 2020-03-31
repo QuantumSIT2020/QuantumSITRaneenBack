@@ -47,11 +47,17 @@
                         <h2>{{$main_product->MainProduct->en_name}}</h2>
                         <h3>{{$main_product->MainProduct->price}}</h3>
 
-
-                        <div class="product-buttons"><a href="#" data-toggle="modal" data-target="#addtocart" class="btn btn-normal">add to cart</a> <a href="#" class="btn btn-normal">buy now</a></div>
+                        <form action="{{ route('cart_store') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="bundle_id" value="{{ $bundle->id }}">
+                                    <input type="hidden" name="type" value="bundle">
+                                    <input type="number" step="1" name="quantity"  style="width: 150px; border-right: 1px solid lightgray;" class="form-control" min="1" value="1" required><br>
+                        <div class="product-buttons"><button type="submit" class="btn btn-normal">add to cart</button>
+                        </div>
+                        </form>
                         <div class="border-product">
                             <h6 class="product-title">product details</h6>
-                            <p>{!! $main_product->MainProduct->description !!}</p>
+                            <p>{!! substr($main_product->MainProduct->description,0,300) !!}</p>
                         </div>
 
                         <div class="border-product pb-0">
@@ -144,7 +150,7 @@
 
                             <div class="single-product-tables">
 
-                                <table class="table table-bordered">
+                                <table class="table table-bordered" style="width:100%;">
                                     <thead>
                                     <tr>
                                         <th class="border_cell">@lang('tr.Image')                   </th>

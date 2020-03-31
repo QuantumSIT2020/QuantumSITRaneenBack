@@ -159,7 +159,7 @@
                                         </li>
                                     </ul>
                                     <div class="cart-block mobile-cart cart-hover-div" onclick="openCart()">
-                                        <a href="#"><span class="cart-product">0</span><i class="icon-shopping-cart"></i></a>
+                                    <a href="#"><span class="cart-product">{{ Cart::count() }}</span><i class="icon-shopping-cart"></i></a>
                                     </div>
                                 </div>
                             </div>

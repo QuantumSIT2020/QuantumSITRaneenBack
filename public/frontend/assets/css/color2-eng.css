@@ -21322,3 +21322,152 @@ body.dark {
     border: none !important;
     border-bottom: 2px solid #dc3545 !important;
 }
+/******** Nahla update edit  *****************/
+
+.nave_tab_2 {
+    background: #fff;
+    height: 100%;
+}
+
+.nave_tab_2 .nav-item {
+    width: 100%;
+}
+
+.tab-product .nav-material.nave_tab_2 .nav-link.active,
+.product-full-tab .nav-material.nave_tab_2 .nav-link.active {
+    color: #ffffff !important;
+    background: #b22827 !important;
+}
+
+.tab-product .nav-material.nave_tab_2 .nav-item .nav-link,
+.tab-product .nav-material.nave_tab_2 {
+    text-align: left !important;
+    -webkit-box-align: left !important;
+    -ms-flex-align: left !important;
+    align-items: left !important;
+}
+
+.form-group_2 {
+    margin-top: 20px;
+}
+
+.form-group_2 .form-control_2 {
+    display: block;
+    width: 95%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #4f4545;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #ddd;
+    -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+.form-group_2 .form-control_2:hover,
+.form-group_2 .form-control_2:active,
+.form-group_2 .form-control_2:link,
+.form-group_2 .form-control_2:focus {
+    border-bottom: 2px solid #b22827;
+    /* background-color: rgba(255, 239, 239, 0.57); */
+    color: #b22827;
+}
+
+.save_btn {
+    width: 100%;
+    color: #fff;
+    background: #b22827;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 15px 0px;
+    height: 45px;
+    outline: none;
+    border: none;
+    outline: none;
+    border: none;
+}
+
+.add_btns {
+    float: right;
+    width: 25%;
+    color: #fff;
+    background: #b22827;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 15px 0px;
+    height: 45px;
+    outline: none;
+    border: none;
+    outline: none;
+    border: none;
+}
+
+.icons_header {
+    text-align: right;
+}
+
+.icons_header a {
+    color: #b22827;
+    font-size: 15px;
+    margin: 10px;
+    font-size: 15px;
+}
+
+.review-box .header {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(221, 221, 221, 0.21);
+}
+
+.review-message_2 {
+    text-align: left;
+}
+
+.review-box {
+    margin-bottom: 25px;
+}
+
+.pw_icon {
+    position: absolute;
+    top: 40px;
+    right: 70px;
+    color: #b22827;
+}
+
+.cartt_2 {
+    padding: 10px;
+    background: #b22827;
+    color: #fff !important;
+}
+
+.success-text i {
+    font-size: 50px;
+    color: #17a2b8;
+}
+
+.sorry-text i {
+    font-size: 50px;
+    color: #b22827 !important;
+}
+
+.order_cards {
+    background-color: #f8f9fa;
+    box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.24);
+    padding: 30px;
+}
+
+.canclee_btn {
+    width: 75%;
+    color: #fff;
+    background: #b22827;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 15px 0px;
+    height: 45px;
+    outline: none;
+    border: none;
+    outline: none;
+    border: none;
+}

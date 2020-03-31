@@ -18,7 +18,10 @@
 
     @yield('content')
     
-    
+    <!--add to cart bar-->
+    @include('frontend.components.addcartbar')
+    <!--End add to cart bar-->
+
     <!--footer-->
     @include('frontend.components.footer')
     <!--End footer-->
@@ -39,5 +42,8 @@
 
 
     @include('frontend.components.scripts')
+    
+    
+    
 </body>
 </html>

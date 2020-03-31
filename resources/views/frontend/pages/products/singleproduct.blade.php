@@ -43,7 +43,7 @@
                 <div class="col-lg-7 rtl-text">
                     <div class="product-right">
                         <h2>{{ $product->$langName }}</h2>
-                        
+                        <form action="{{ route('cart_store') }}" method="post">
                         @if ($product->checkTheLatestDiscountOrHotOffer() != null)
                         
                             @if ($product->checkTheLatestDiscountOrHotOffer()->type == 'hotoffer')
@@ -59,10 +59,11 @@
                                 <h3>EGP {{ $discount }}</h3>
                                 <h4>@lang('tr.End Date'): {{ $product->checkTheLatestDiscountOrHotOffer()->end_date }}</h4>
                                 <h4>@lang('tr.Expire In'): {{ abs($result) }}&nbsp;@lang('tr.Day(s)')</h4>
-
+                                <input type="hidden" name="price" value="{{ $discount }}">
                                 @else
 
                                 <h3>EGP {{ $product->price }}</h3>
+                                <input type="hidden" name="price" value="{{ $product->price }}">
                                     
                                 @endif
                             
@@ -72,11 +73,12 @@
                             <h4><del>EGP {{ $product->price }}</del><span>{{ $product->checkTheLatestDiscountOrHotOffer()->discount }} @lang('tr.off')</span></h4>
                             @php($discount = $product->price - (($product->checkTheLatestDiscountOrHotOffer()->discount / 100) * $product->price))
                             <h3>EGP {{ $discount }}</h3>
-                                
+                            <input type="hidden" name="price" value="{{ $discount }}">
                             @endif
 
                         @else
                         <h3>EGP {{ $product->price }}</h3>
+                        <input type="hidden" name="price" value="{{ $product->price }}">
                         @endif
 
 
@@ -94,42 +96,43 @@
                                 </button>
                                 @endif
                             </span>
-                            @foreach ($attibuteGroups as $group)
-                                
-                                @foreach ($attributes as $attribute)
 
-                                    @if ($attribute->attribute->attribute_group_id == $group->id)
-
-                                    <h6 class="product-title size-text">{{ $group->$langName }}</h6>
-                                    <br>
-                                    <ul>
-                                        <li>
-                                            <input type="checkbox" name="" id="{{ $attribute->id}}">
-                                            <label for="{{ $attribute->id}}">{{ $attribute->attribute->$langName }}</label>
-                                        </li>
-
-                                    </ul>
-                                        
-                                    @endif
-
-                                    
-                                @endforeach
                             
+
+                                @csrf
+
+                            @foreach ($attibuteGroups as $group)
+                            <p class="product-title size-text">{{ $group->$langName }}</h6>
+                                    <select name="product_attributes[]" id="" class="form-control">
+                                    @foreach ($attributes as $attribute)
+                                    @if ($attribute->attribute->attribute_group_id == $group->id)
+                                    <option value="{{ $attribute->attribute->id }}">{{ $attribute->attribute->$langName }}</option>
+                                    @endif
+                                    @endforeach
+                                    </select>
                             @endforeach
+
+                            <hr>
 
                             
 
                             
                             <h6 class="product-title">@lang('tr.Quantity')</h6>
                             <div class="qty-box">
-                                <div class="input-group"><span class="input-group-prepend"><button type="button" class="btn quantity-left-minus" data-type="minus" data-field=""><i class="ti-angle-left"></i></button> </span>
-                                    <input type="text" name="quantity" max="{{ $product->quantity }}" class="form-control input-number" value="1"> <span class="input-group-prepend"><button type="button" class="btn quantity-right-plus" data-type="plus" data-field=""><i class="ti-angle-right"></i></button></span></div>
+                                <div class="input-group">
+                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                    <input type="hidden" name="type" value="product">
+                                    <input type="number" step="1" name="quantity" max="{{ $product->quantity }}" style="width: 150px; border-right: 1px solid lightgray;" class="form-control" min="1" value="1" required>
+                                </div>
                             </div>
                         </div>
-                        <div class="product-buttons"><a href="#" data-toggle="modal" data-target="#addtocart" class="btn btn-normal">add to cart</a> <a href="#" class="btn btn-normal">buy now</a></div>
+                        <div class="product-buttons">
+                            <button type="submit" class="btn btn-normal">@lang('tr.Add To Cart')</button>
+                        </div>
+                        </form>
                         <div class="border-product">
                             <h6 class="product-title">@lang('tr.Product Details')</h6>
-                            <p>{!! $product->description !!}</p>
+                            <p>{!! substr($product->description,0,400) !!}</p>
                         </div>
                         
                         

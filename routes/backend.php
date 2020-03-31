@@ -297,6 +297,9 @@ Route::group(['middleware' => 'Lang'], function () {
 
         Route::get('/bundles/items/delete/{id}','BundlesController@delete_item_bundle')->name('delete_items_bundle');
 
+        //Orders
+        Route::get('/orders','OrderController@index')->name('orders');
+
 
     });
     

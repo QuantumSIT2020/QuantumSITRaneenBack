@@ -300,9 +300,9 @@
                                                                 </div>
                                                             </div>
                                                             <div class="icon-detail">
-                                                                <button data-toggle="modal" data-target="#addtocart" title="Add to cart">
+                                                                {{-- <button data-toggle="modal" data-target="#addtocart" title="Add to cart">
                                                                     <i class="ti-bag" ></i>
-                                                                </button>
+                                                                </button> --}}
                                                                 @if ($product->checkWishList() > 0)
                                                                 <button data-product="{{ $product->id }}" class="addToWishList" title="@lang('tr.Remove From Wishlist')">
                                                                     <i class="fa fa-heart" aria-hidden="true"></i>

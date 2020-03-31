@@ -19,7 +19,7 @@
                             @foreach ($lasttwoDiscount as $lasttwo)
                             <div class="media-banner-box">
                                 <div class="media">
-                                    <img src="{{ asset('backend/dashboard_images/Products/'.$lasttwo->products->product_image) }}" style="width:84px;height:108px;" class="img-fluid  " alt="banner">
+                                    <img src="{{ asset('backend/dashboard_images/Products/'.$lasttwo->products->product_image) }}"  class="img-fluid  " alt="banner">
                                     <div class="media-body">
                                         <div class="media-contant">
                                             @php($review = \App\Models\Product::getReview($lasttwo->products->id))

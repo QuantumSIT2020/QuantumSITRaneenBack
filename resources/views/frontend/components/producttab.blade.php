@@ -107,9 +107,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="icon-detail">
-                                                    <button onclick="openCart()" type="button" tabindex="0">
+                                                    {{-- <button onclick="openCart()" type="button" tabindex="0">
                                                 <i class="ti-bag"></i>
-                                            </button>
+                                            </button> --}}
                                                     @if ($product->checkWishList() > 0)
                                                     <button data-product="{{ $product->id }}" class="addToWishList" title="@lang('tr.Remove From Wishlist')">
                                                         <i class="fa fa-heart" aria-hidden="true"></i>

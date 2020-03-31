@@ -129,6 +129,7 @@
 {{--                        <li><a href="{{ route('hotsale_products') }}">@lang('tr.Hot Sale')</a></li>--}}
                         <li><a href="{{ route('discount') }}">@lang('tr.Discount')</a></li>
                         <li><a href="{{ route('reviews') }}">@lang('tr.reviews')</a></li>
+                        <li><a href="{{ route('orders') }}">@lang('tr.Orders')</a></li>
                     </ul>
                 </li>
 
