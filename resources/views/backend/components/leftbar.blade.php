@@ -82,7 +82,7 @@
                     <ul>
                         <li><a href="{{ route('MainCategory') }}">Main Category</a></li>
                         <li><a href="{{ route('ChildCategory') }}">Child Category</a></li>
-                        <li><a href="{{ route('SubCategory') }}">Brands</a></li>
+                        <li><a href="{{ route('SubCategory') }}">Sub Category</a></li>
 
                     </ul>
                 </li>
@@ -112,6 +112,20 @@
                     <ul>
                         <li><a href="{{ route('create_manufacturers') }}">@lang('tr.Create Manufacturer')</a></li>
                         <li><a href="{{ route('manufacturers') }}">@lang('tr.Manufacturer')</a></li>
+
+                    </ul>
+                </li>
+
+
+
+
+                <li class="header">@lang('tr.Brand Management')</li>
+
+                <li>
+                    <a href="#Authentication" class="has-arrow"><i class="fa fa-industry"></i><span>@lang('tr.Brand')</span></a>
+                    <ul>
+                        <li><a href="{{ route('create_brands') }}">@lang('tr.Create brand')</a></li>
+                        <li><a href="{{ route('brands') }}">@lang('tr.Brand')</a></li>
 
                     </ul>
                 </li>
@@ -174,7 +188,9 @@
                         <li><a href="{{route('pages')}}">@lang('tr.Pages')</a></li>
                         <li><a href="{{route('sliders')}}">@lang('tr.sliders')</a></li>
                         <li><a href="{{route('faq')}}">@lang('tr.faq')</a></li>
-                        <li><a href="{{route('blogs')}}">@lang('tr.Blogs')</a></li>
+{{--                        <li><a href="{{route('blogs')}}">@lang('tr.Blogs')</a></li>--}}
+                        <li><a href="{{route('testimonials')}}">@lang('tr.testimonials')</a></li>
+                        <li><a href="{{route('contactus')}}">@lang('tr.contact us')</a></li>
                         <li><a href="{{ route('testseo_index') }}">@lang('tr.SEO')</a></li>
                         <li><a href="{{ route('soicalmedia_index') }}">@lang('tr.Social Media')</a></li>
                     </ul>

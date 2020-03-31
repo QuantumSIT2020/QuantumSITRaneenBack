@@ -4,6 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "113c733f36a1c1e7ddc4f5ff6ac93475",
     "packages": [
         {
@@ -123,6 +124,11 @@
             "time": "2019-08-30T16:05:59+00:00"
         },
         {
+=======
+    "content-hash": "67d2bc24c19da10a7b6ba8b5c2d2b925",
+    "packages": [
+        {
+>>>>>>> ee877d22f353cafaba76a8531fcd121895a43efe
             "name": "darryldecode/cart",
             "version": "4.1.2",
             "source": {

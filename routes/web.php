@@ -58,6 +58,7 @@ Route::get('/cart/invoices', 'Frontend\CartController@invoices')->name('cart_inv
 //Pages
 Route::get('/pages/{id}','Frontend\PagesController@index')->name('frontend_pages');
 
+
 //FAQ
 Route::get('/faq','Frontend\FaqController@index')->name('frontend_faq');
 
@@ -66,6 +67,9 @@ Route::get('/user/login','Frontend\AuthController@login')->name('frontend_login'
 Route::get('/user/register','Frontend\AuthController@register')->name('frontend_register');
 Route::post('/user/register','Frontend\AuthController@registerPost')->name('frontend_register_post');
 Route::get('/user/forget','Frontend\AuthController@forget')->name('frontend_forget');
+
+
+
 
 
 
