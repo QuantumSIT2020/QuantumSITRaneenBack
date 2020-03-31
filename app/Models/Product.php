@@ -41,7 +41,11 @@ class Product extends Model
 
     public function checkWishList()
     {
-        return WishList::where('product_id',$this->id)->where('user_id',Auth::user()->id)->count();
+        if (isset(Auth::user()->id)) {
+            return WishList::where('product_id',$this->id)->where('user_id',Auth::user()->id)->count();
+        }else{
+            return 0;
+        }
     }
 
     public static function wishLists()
@@ -65,7 +69,8 @@ class Product extends Model
 
     public function getMainCategory($id)
     {
-        $child = ChildCategory::where('id',$id)->get()->first();
+        $sub = SubCategory::where('id',$id)->get()->first();
+        $child = ChildCategory::where('id',$sub->child_category_id)->get()->first();
         return MainCategory::where('id',$child->main_category_id)->get()->first();
     }
 

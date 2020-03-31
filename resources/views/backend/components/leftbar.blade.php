@@ -1,15 +1,13 @@
 <div id="left-sidebar" class="sidebar">
     <div class="navbar-brand">
-        <a href="{{ route('dashboard_index') }}"><img src="{{ asset('backend/assets/images/icon.svg') }}" alt="Raneen Logo" class="img-fluid logo"><span>Raneen</span></a>
-        <button type="button" class="btn-toggle-offcanvas btn btn-sm float-right"><i class="lnr lnr-menu icon-close"></i></button>
+        <a href="{{ route('dashboard_index') }}"><img src="http://164.68.111.29/QuantumSITRaneenBack/public/frontend/assets/images/layout-2/logo/logo-ranen.png" alt="Raneen Logo" class="img-fluid logo"></a>
     </div>
     <div class="sidebar-scroll">
         <div class="user-account">
             <div class="user_div">
                 <img src="{{ asset('backend/assets/images/user.png') }}" class="user-photo" alt="User Profile Picture">
             </div>
-            <div class="dropdown">
-                <span>@lang('tr.Welcome'),</span>
+            <div class="dropdown mt-2">
                 <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>{{ Auth::user()->name }}</strong></a>
                 <ul class="dropdown-menu dropdown-menu-right account vivify flipInY">
                     <li><a href="page-profile.html"><i class="icon-user"></i>My Profile</a></li>
@@ -43,29 +41,29 @@
                 <li>
                     <a href="#myPage" class="has-arrow"><i class="icon-users"></i><span>@lang('tr.Users')</span></a>
                     <ul>
-                        @can('create_customers')
+                        {{-- @can('create_customers') --}}
                         <li><a href="{{ route('create_customers') }}">@lang('tr.Create Customer')</a></li>  
-                        @endcan
+                        {{-- @endcan --}}
 
-                        @can('show_customers')
+                        {{-- @can('show_customers') --}}
                         <li><a href="{{ route('customers') }}">@lang('tr.All Customers')</a></li>
-                        @endcan
+                        {{-- @endcan --}}
 
-                        @can('create_buyers')
+                        {{-- @can('create_buyers') --}}
                         <li><a href="{{ route('create_buyers') }}">@lang('tr.Create Buyer')</a></li>
-                        @endcan
+                        {{-- @endcan --}}
 
-                        @can('show_customers')
+                        {{-- @can('show_customers') --}}
                         <li><a href="{{ route('buyers') }}">@lang('tr.All Buyers')</a></li>
-                        @endcan
+                        {{-- @endcan --}}
 
-                        @can('create_data_entry')
+                        {{-- @can('create_data_entry') --}}
                         <li><a href="{{ route('create_dataentry') }}">@lang('tr.Create Data Entry')</a></li>
-                        @endcan
+                        {{-- @endcan --}}
 
-                        @can('show_data_entry')
+                        {{-- @can('show_data_entry') --}}
                         <li><a href="{{ route('dataentry') }}">@lang('tr.All Data Entries')</a></li>
-                        @endcan
+                        {{-- @endcan --}}
                     </ul>
                 </li>
 
@@ -157,7 +155,6 @@
                         <li><a href="{{route('pages')}}">@lang('tr.Pages')</a></li>
                         <li><a href="{{route('sliders')}}">@lang('tr.sliders')</a></li>
                         <li><a href="{{route('faq')}}">@lang('tr.faq')</a></li>
-
                         <li><a href="{{route('blogs')}}">@lang('tr.Blogs')</a></li>
                         <li><a href="{{ route('testseo_index') }}">@lang('tr.SEO')</a></li>
                         <li><a href="{{ route('soicalmedia_index') }}">@lang('tr.Social Media')</a></li>

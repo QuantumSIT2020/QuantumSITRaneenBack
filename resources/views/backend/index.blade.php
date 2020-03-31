@@ -17,7 +17,7 @@
             <div class="col-lg-6 col-md-6">
                 <div class="card-wrapper flip-left">
                     <div class="card s-widget-top">
-                        <div class="front p-3 px-4">
+                        <div class="back p-3 px-4">
                             <div>Income status</div>
                             <div class="py-4 m-0 text-center h2 text-info">$2,258</div>
                             <div class="d-flex">
@@ -25,8 +25,8 @@
                                 <div class="ml-auto">0%</div>
                             </div>
                         </div>
-                        <div class="back p-3 px-4 bg-info text-center">
-                            <p class="text-light">This Week</p>
+                        <div class="front p-3 px-4 bg-info text-center">
+                            <p class="text-light">Income status</p>
                             <span id="minibar-chart2" class="mini-bar-chart"></span>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
             <div class="col-lg-6 col-md-6">
                 <div class="card-wrapper flip-left">
                     <div class="card s-widget-top">
-                        <div class="front p-3 px-4">
+                        <div class="back p-3 px-4">
                             <div>Total revenue</div>
                             <div class="py-4 m-0 text-center h2 text-success">$9,653</div>
                             <div class="d-flex">
@@ -79,8 +79,8 @@
                                 <div class="ml-auto"><i class="fa fa-caret-up text-success"></i>4%</div>
                             </div>
                         </div>
-                        <div class="back p-3 px-4 bg-success text-center">
-                            <p class="text-light">This Week</p>
+                        <div class="front p-3 px-4 bg-success text-center">
+                            <p class="text-light">Total revenue</p>
                             <span id="minibar-chart1" class="mini-bar-chart"></span>
                         </div>
                     </div>

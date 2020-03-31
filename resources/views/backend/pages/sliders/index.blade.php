@@ -19,31 +19,6 @@
 {{-- content --}}
 @section('content')
 
-
-
-{{--    <div class="col-lg-12">--}}
-{{--        <div class="card">--}}
-{{--            <div class="header">--}}
-{{--                @lang('tr.Search')--}}
-{{--            </div>--}}
-{{--            <div class="body">--}}
-{{--                <div class="row">--}}
-{{--                    <div class="col-lg-12">--}}
-{{--                        <form  action="{{ route('search_pages') }}" method="GET">--}}
-{{--                            <div class="input-group mb-3">--}}
-{{--                                <input type="text" class="form-control" name="search" placeholder="@lang('tr.Search')" aria-label="@lang('tr.Search')" aria-describedby="basic-addon2">--}}
-{{--                                <div class="input-group-append">--}}
-{{--                                    <button class="btn btn-primary" type="submit">@lang('tr.Search')</button>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </form>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-
-
     <div class="col-lg-12">
         <div class="card">
             <div class="header">

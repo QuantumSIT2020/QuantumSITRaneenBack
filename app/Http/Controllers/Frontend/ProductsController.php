@@ -14,6 +14,8 @@ use App\Models\User;
 use App\Models\WishList;
 use App\Models\Product_HotOffer;
 use App\Models\Product_sale;
+use App\Models\Product_attribute;
+use App\Models\Product_Gallery;
 use Auth;
 
 class ProductsController extends Controller
@@ -22,7 +24,16 @@ class ProductsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except('mainCategory','childCategory','subCategory','brandProducts','brandFilter');
+        $this->middleware('auth')->except('mainCategory',
+                                          'childCategory',
+                                          'subCategory',
+                                          'brandProducts',
+                                          'brandFilter',
+                                          'hotoffers',
+                                          'hotOfferFilter',
+                                          'discountsProducts',
+                                          'discountsProductsFilter',
+                                          'productDetails');
     }
     
     public function mainCategory()
@@ -200,7 +211,16 @@ class ProductsController extends Controller
         return view($this->path.'discountfilter',compact('brands','discounts','attibuteGroups','attributes','latestSixProducts'));
     }
 
-    
+    //Product Details
+    public function productDetails($id)
+    {
+        $product = Product::findOrfail($id);
+        $gallery = Product_Gallery::where('product_id',$id)->get();
+        $attibuteGroups = GroupAttributes::all();
+        $attributes = Product_attribute::where('product_id',$id)->get();
+
+        return view($this->path.'singleproduct',compact('product','attibuteGroups','attributes','gallery'));
+    }
     
     
 
