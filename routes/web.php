@@ -58,6 +58,11 @@ Route::get('/cart/invoices', 'Frontend\CartController@invoices')->name('cart_inv
 //Pages
 Route::get('/pages/{id}','Frontend\PagesController@index')->name('frontend_pages');
 
+
+//FAQ
+Route::get('/faq','Frontend\FaqController@index')->name('frontend_faq');
+
+//Contact Us
 Route::get('/contactus','Frontend\ContactUsController@index')->name('frontend_contactus');
 Route::post('/contactus/send','Frontend\ContactUsController@store')->name('frontend_send_contact');
 
@@ -71,5 +76,10 @@ Route::get('/user/forget','Frontend\AuthController@forget')->name('frontend_forg
 
 
 
+
+
+
+
+Auth::routes();
 
 
