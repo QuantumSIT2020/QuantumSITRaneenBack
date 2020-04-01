@@ -121,6 +121,23 @@
 
                                             </ul>
                                         </li>
+
+                                        @if (isset(Auth::user()->id))
+                                            @if (Auth::user()->id != null)
+                                                <li>
+                                                    <a href="#">@lang('tr.Account')</a>
+        
+                                                    <ul>
+                                                        <a class="dropdown-item hidden-lg hidden-md" href="{{ route('frontend_dashboard') }}" target="_blank">@lang('tr.Dashboard')</a>
+                                                        <a  href="{{ route('logout') }}" class="dropdown-item hidden-lg hidden-md" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">@lang('tr.Logout')</a>
+                                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                            @csrf
+                                                        </form>  
+                                                    </ul>
+                                                </li>
+                                            @endif
+                                        @endif
+                                        
                                         <!--blog-meu end-->
                                     </ul>
                                 </nav>
@@ -130,10 +147,8 @@
                                     <ul>
                                         @if(isset(Auth::user()->id))
                                             @if(Auth::user()->id != null)
-                                            <li class="mobile-user onhover-dropdown"><a  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="icon-user"></i> <div class="cart-item"><div> <span>{{ Auth::user()->name }}</span></div></div></a></li>
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                    @csrf
-                                                </form>    
+                                            <li class="mobile-user onhover-dropdown"><i class="icon-user"></i> <div class="cart-item"><div> <span>{{ Auth::user()->name }}</span></div></div></a></li>
+                                                  
                                             @else
                                                 <li class="mobile-user onhover-dropdown" ><a href="{{ route('frontend_login') }}"><i class="icon-user"></i> <div class="cart-item"><div> <span>login</span></div></div></a></li>
                                             @endif

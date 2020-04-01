@@ -100,7 +100,7 @@
 </head>
 
 <body>
-    <div class="invoice-box">
+    <div class="invoice-box" id="printDiv">
         <table cellpadding="0" cellspacing="0">
             <tr class="top">
                 <td colspan="2">
@@ -111,9 +111,10 @@
                             </td>
                             
                             <td>
-                                @lang('tr.Invoice')<br>
-                                Created: January 1, 2015<br>
-                                Due: February 1, 2015
+                                @php($datetime = DateTime::createFromFormat('YmdHi', '201308131830'))
+                                @lang('tr.Invoice'): {{ $mainOrder->code }}<br>
+                                @lang('tr.Day'): {{ $datetime->format('d').'-'.$datetime->format('D').'-'.$datetime->format('Y') }}<br>
+                                @lang('tr.Time'): {{ explode(' ',$mainOrder->created_at)[1] }}<br>
                             </td>
                         </tr>
                     </table>
@@ -125,89 +126,73 @@
                     <table>
                         <tr>
                             <td>
-                                Sparksuite, Inc.<br>
-                                12345 Sunny Road<br>
-                                Sunnyville, CA 12345
+                                @lang('tr.Client Name')<br>
+                                @lang('tr.Email')
                             </td>
                             
                             <td>
-                                Acme Corp.<br>
-                                John Doe<br>
-                                john@example.com
+                                {{ $mainOrder->user->name }}<br>
+                                {{ $mainOrder->user->email }}<br>
                             </td>
                         </tr>
                     </table>
                 </td>
             </tr>
             
+                        
             <tr class="heading">
                 <td>
-                    Payment Method
+                    @lang('tr.Item')
                 </td>
                 
-                <td>
-                    Check #
-                </td>
-            </tr>
-            
-            <tr class="details">
-                <td>
-                    Check
-                </td>
                 
                 <td>
-                    1000
+                    @lang('tr.Price')
                 </td>
             </tr>
-            
-            <tr class="heading">
-                <td>
-                    Item
-                </td>
-                
-                <td>
-                    Price
-                </td>
-            </tr>
-            
+
+            @foreach ($order as $item)
+
             <tr class="item">
                 <td>
-                    Website design
+                    {{ $item->name.' x '.$item->quantity }}
                 </td>
-                
                 <td>
-                    $300.00
+                    {{ $item->price / $item->quantity }}
                 </td>
             </tr>
+                
+            @endforeach
             
-            <tr class="item">
-                <td>
-                    Hosting (3 months)
-                </td>
-                
-                <td>
-                    $75.00
-                </td>
-            </tr>
+
             
-            <tr class="item last">
-                <td>
-                    Domain name (1 year)
-                </td>
-                
-                <td>
-                    $10.00
-                </td>
-            </tr>
+            
             
             <tr class="total">
                 <td></td>
                 
                 <td>
-                   Total: $385.00
+                   @lang('tr.Total'): EGP {{ $mainOrder->price }}
                 </td>
             </tr>
         </table>
     </div>
+
+    <button id="doPrint" style="display: block; text-align: center; margin-left: auto; margin-right: auto; margin-top: 22px; font-size: 25px;">Print</button>
+    <br>
+    <h3><a href="{{ route('home') }}" id="website" style="display: block; text-align: center; margin-left: auto; margin-right: auto; margin-top: 22px; font-size: 25px;">@lang('tr.Website')</a></h3>
+
+    <script>
+        document.getElementById("doPrint").addEventListener("click", function() {
+            var x = document.getElementById("doPrint");
+            var y = document.getElementById("website");
+            x.style.display = "none";
+            y.style.display = "none";
+            window.print();
+            x.style.display = "block";
+            y.style.display = "block";
+        });
+    </script>
+
 </body>
 </html>
