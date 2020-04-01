@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\contactUs;
+use App\Models\subscribe;
 
 class contactUsController extends Controller
 {
@@ -15,11 +16,13 @@ class contactUsController extends Controller
     public function index()
     {
 
-        $contactUs = contactUs::select('name','id','email','message')->get();
-
+        $contactUs = contactUs::select('*')->paginate(5);
         return view('backend.pages.contactus.index',compact('contactUs'));
 
     }
+
+    
+
 
     /**
      * Show the form for creating a new resource.

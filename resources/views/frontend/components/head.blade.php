@@ -7,6 +7,8 @@
     <meta name="keywords" content="big-deal">
     <meta name="author" content="big-deal">
     <link rel="icon" href="{{ asset('frontend/assets/images/favicon/favicon.png') }}" type="image/x-icon">
+
+
     <link rel="shortcut icon" href="{{ asset('frontend/assets/images/favicon/favicon.png') }}" type="image/x-icon">
 
     <!--Google font-->

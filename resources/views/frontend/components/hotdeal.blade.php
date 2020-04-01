@@ -16,7 +16,7 @@
                             </div>
 
                             @foreach ($lasttwoDiscount as $two)
-                            @php($reviews = \App\Models\Product::getReview($two->products->id))
+                            @php($review = \App\Models\Product::getReview($two->products->id))
                             <div class="media-banner-box">
                                 <div class="media">
                                     <img src="{{ asset('backend/dashboard_images/Products/'.$two->products->product_image) }}" class="img-fluid  " alt="banner">
@@ -61,18 +61,14 @@
                             </div>
 
                             @foreach ($lastAftertwoDiscount as $lasttwo)
-                            @php($reviews = \App\Models\Product::getReview($lasttwo->products->id))
                             <div class="media-banner-box">
-                                <div class="media">
-                                    <img src="{{ asset('backend/dashboard_images/Products/'.$lasttwo->products->product_image) }}" class="img-fluid  " alt="banner">
-                                    <div class="media-body">
                                         <div class="media-contant">
                                             <div>
                                                 @if ($reviews == 0)
                                                 <div>@lang('tr.Not Rated Yet')</div>
                                                 @else
                                                 <div>
-                                                    @for ($i = 0; $i < $reviews; $i++)
+                                                    @for ($i = 0; $i < $review; $i++)
                                                     <i class="fa fa-star" style="color:orange"></i>
                                                     @endfor
                                                 </div>
@@ -110,15 +106,9 @@
                 <div class="hot-deal">
                     <div class="hot-deal-box">
                         <div class="slide-1">
-
-                            @foreach ($lasttwoHotOffer as $lasttwo)
-
-                            @php($start = \Carbon\Carbon::parse($lasttwo->end_date))
-                            @php($end = \Carbon\Carbon::parse(date('y-m-d')))
                             @php($result = $start->diffInDays($end, false))
                         
                             
-                        
                             <div>
                                 <div class="hot-deal-contain1 hot-deal-banner-1">
                                     <div class="hot-deal-heading">

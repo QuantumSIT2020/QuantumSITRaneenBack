@@ -19,22 +19,24 @@
 {{-- content --}}
 @section('content')
 
-<div class="col-lg-12">
-    <div class="card">
-        <div class="header">
-            @lang('tr.Search')
-        </div>
-        <div class="body">
-            <div class="row">
-                <div class="col-lg-12">
-                    <form  action="{{ route('search_products') }}" method="GET">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="search" placeholder="@lang('tr.Search')" aria-label="@lang('tr.Search')" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="submit">@lang('tr.Search')</button>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="header">
+                @lang('tr.Search')
+            </div>
+            <div class="body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form  action="{{ route('search_products') }}" method="GET">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" name="search" placeholder="@lang('tr.Search')" aria-label="@lang('tr.Search')" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">@lang('tr.Search')</button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -57,7 +59,7 @@
                     <div class="row">
                         @foreach ($products as $product)
                             <div class="col-lg-6 col-md-4 col-sm-6">
-                                <div class="card c_grid c_yellow">
+                                <div class="card c_grid c_yellow" style="">
                                     <div class="body text-center ribbon">
                                         <div class="ribbon-box info">{{ $product->created_at->diffForHumans() }}</div>
                                         <div class="circle">
@@ -87,7 +89,7 @@
 
                                         <div class="row text-center mt-4">
                                             <div class="col-lg-6 border-right">
-                                                <label class="mb-0">@lang('tr.Brand')</label>
+                                                <label class="mb-0">@lang('tr.Sub Category')</label>
                                                 @if(\Lang::getLocale() == 'en')
                                                     <h4 class="font-20">{{ $product->SubCategory->en_name }}</h4>
                                                 @else
@@ -98,9 +100,17 @@
                                             <div class="col-lg-6">
                                                 <label class="mb-0">@lang('tr.Manufacturer') </label>
                                                 @if(\Lang::getLocale() == 'en')
-                                                    <h4 class="font-20">{{ $product->Manufacturer->en_name }}</h4>
+                                                    @if ($product->Manufacturer != null)
+                                                        <h4 class="font-20">{{ $product->Manufacturer->en_name }}</h4>
+                                                    @else
+                                                        <h4 class="font-20">@lang('tr.No Manufacturer')</h4>
+                                                    @endif
                                                 @else
-                                                    <h4 class="font-20">{{ $product->Manufacturer->ar_name }}</h4>
+                                                    @if ($product->Manufacturer != null)
+                                                        <h4 class="font-20">{{ $product->Manufacturer->ar_name }}</h4>
+                                                    @else
+                                                        <h4 class="font-20">@lang('tr.No Manufacturer')</h4>
+                                                    @endif
                                                 @endif
                                             </div>
                                         </div>
@@ -155,7 +165,7 @@
             data: {},
             success: function(data) {
                 if (data > 0 ){
-                    // alert("update successfully");
+                     alert("update successfully");
                     location.reload();
                 }
             },

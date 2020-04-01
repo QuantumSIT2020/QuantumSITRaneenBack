@@ -52,7 +52,7 @@ Route::get('/cart/remove/{id}', 'Frontend\CartController@remove')->name('cart_re
 Route::get('/cart/destroy', 'Frontend\CartController@destroy')->name('cart_destroy');
 Route::get('/cart/checkout', 'Frontend\CartController@checkout')->name('cart_checkout');
 Route::post('/cart/checkout', 'Frontend\CartController@checkoutPost')->name('cart_checkout_post');
-Route::get('/cart/invoices', 'Frontend\CartController@invoices')->name('cart_invoices');
+Route::get('/cart/invoices/{id}', 'Frontend\CartController@invoices')->name('cart_invoices');
 
 
 //Pages
@@ -66,13 +66,20 @@ Route::get('/faq','Frontend\FaqController@index')->name('frontend_faq');
 Route::get('/contactus','Frontend\ContactUsController@index')->name('frontend_contactus');
 Route::post('/contactus/send','Frontend\ContactUsController@store')->name('frontend_send_contact');
 
+
+//subscribe
+Route::get('/subscribe','Frontend\SubscribesController@index')->name('frontend_subscribe');
+Route::post('/subscribe/send','Frontend\SubscribesController@store')->name('frontend_send_subscribe');
+
 //Auth
 Route::get('/user/login','Frontend\AuthController@login')->name('frontend_login');
 Route::get('/user/register','Frontend\AuthController@register')->name('frontend_register');
 Route::post('/user/register','Frontend\AuthController@registerPost')->name('frontend_register_post');
 Route::get('/user/forget','Frontend\AuthController@forget')->name('frontend_forget');
 
-
+//User
+Route::get('/my-dashboard','Frontend\UserController@dashboard')->name('frontend_dashboard');
+Route::post('/my-dashboard/account/update','Frontend\UserController@updateProfile')->name('frontend_update_profile');
 
 
 

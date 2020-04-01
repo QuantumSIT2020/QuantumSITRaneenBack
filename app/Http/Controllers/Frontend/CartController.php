@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\bundle;
 use Cart;
 use App\Models\Order;
+use App\Models\MainOrder;
 use Auth;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 
@@ -35,6 +36,7 @@ class CartController extends Controller
     public function store(Request $request)
     {
         
+        
         if ($request->type == 'product') {
             $product = Product::findOrfail($request->product_id);
             $options = [];
@@ -49,7 +51,7 @@ class CartController extends Controller
                 $product->id,
                 $product->en_name.' | '.$product->ar_name,
                 $request->quantity,
-                $request->quantity * $request->price,
+                $request->price,
                 $options
             );
 
@@ -65,7 +67,7 @@ class CartController extends Controller
                 $bundle->id,
                 $bundle->en_name.' | '.$bundle->ar_name,
                 $request->quantity,
-                $request->quantity * $bundle->price,
+                $bundle->price,
                 $options
             );
 
@@ -113,7 +115,7 @@ class CartController extends Controller
     public function checkoutPost(Request $request)
     {
         $total = Cart::subtotal();
-
+        
         $charge = Stripe::charges()->create([
             'currency' => 'USD',
             'source' =>  $request->stripeToken,
@@ -124,10 +126,19 @@ class CartController extends Controller
 
         //  Cart::store('Order#'.rand(1,999));
 
+         $mainOrder = new MainOrder();
+         $mainOrder->code = 'ORDER #'.rand(1,999);
+         $mainOrder->user_id = Auth::user()->id;
+         $mainOrder->mobile = $request->mobile;
+         $mainOrder->address = $request->address.' , City : '.$request->city.' , Country : '.$request->country;
+         $mainOrder->quantity = Cart::count();
+         $mainOrder->price = Cart::subtotal();
+         $mainOrder->save();
+
 
          foreach (Cart::content() as $item) {
              $order = new Order();
-             $order->user_id = Auth::user()->id;
+             $order->main_order_id = $mainOrder->id;
              $order->order_id = $item->id;
              $order->name = $item->name;
              $order->options = $item->options;
@@ -139,14 +150,16 @@ class CartController extends Controller
 
          
          Cart::destroy();
-         return redirect()->route('home')->with('success',__('tr.Payment Process is Done'));
+         return redirect()->route('cart_invoices',['id'=>$mainOrder->id])->with('success',__('tr.Payment Process is Done'));
 
         
     }
 
     public function invoices($id)
     {
-        return view($this->path.'invoices');
+        $mainOrder = MainOrder::findOrfail($id);
+        $order = Order::where('main_order_id',$id)->get();
+        return view($this->path.'invoices',compact('mainOrder','order'));
     }
 
 }

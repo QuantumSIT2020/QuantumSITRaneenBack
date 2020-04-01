@@ -7,14 +7,29 @@
            <span>newsletter</span>
             </span>
         </div>
-        <div class="subscribe-block">
-            <div class="input-group ">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-email"></i></span>
+
+        <form action="{{ route('frontend_send_subscribe') }}" class="theme-form theme-form_2" method="POST">
+            @csrf
+
+            <div class="subscribe-block">
+                <div class="input-group ">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="icon-email"></i></span>
+                    </div>
+{{--                    <input type="email" placeholder="ENTER YOUR EMAIL....">--}}
+                    <input type="email"  id="email" placeholder="@lang('tr.ENTER YOUR EMAIL')" name="email" required="">
+
                 </div>
-                <input type="text" placeholder="ENTER YOUR EMAIL....">
+{{--                <a class="btn-normal">subscribe</a>--}}
+
+                <button class="btn btn-normal" type="submit">@lang('tr.subscribe')</button>
+
             </div>
-            <a class="btn-normal">subscribe</a>
-        </div>
+        </form>
+
+
+
+
+
     </div>
 </section>

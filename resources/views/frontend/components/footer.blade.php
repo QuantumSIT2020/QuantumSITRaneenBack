@@ -45,6 +45,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-7 p-l-md-0">
+                                                    <form action="{{ route('frontend_send_subscribe') }}" class="theme-form theme-form_2" method="POST">
+                                                        @csrf
+
+
                                                     <div class="subscribe-block">
                                                         <div class="subscrib-contant">
                                                             <div class="input-group">
@@ -52,14 +56,20 @@
                                                                     <span class="input-group-text"><i
                                                                         class="fa fa-envelope-o"></i></span>
                                                                 </div>
-                                                                <input type="text" class="form-control" placeholder="your email">
+{{--                                                                <input type="email"  id="email" class="form-control" placeholder="your email">--}}
+                                                                <input type="email"  id="email" class="form-control" placeholder="@lang('tr.ENTER YOUR EMAIL')" name="email" required="">
+
                                                                 <div class="input-group-prepend">
-                                                                    <span class="input-group-text telly"><i
-                                                                        class="fa fa-telegram"></i></span>
+
+                                                                    <button class="btn btn-normal" type="submit">@lang('tr.subscribe')</button>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
+
+
+                                                    </form>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -77,8 +87,8 @@
                                                                 <li><a href="#">about us</a></li>
                                                                 <li><a href="#">contact us</a></li>
                                                                 <li><a href="#">terms & conditions</a></li>
-                                                                <li><a href="#">returns & exchanges</a></li>
-                                                                <li><a href="#">shipping & delivery</a></li>
+{{--                                                                <li><a href="#">returns & exchanges</a></li>--}}
+{{--                                                                <li><a href="#">shipping & delivery</a></li>--}}
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -108,13 +118,13 @@
                                                             <ul class="contact-list">
                                                                 <li><i class="fa fa-map-marker"></i><span>big deal
                                                                 store demo store <br> <span>
-                                                                    india-3654123</span></span>
+                                                                    {{ \App\Models\Soicalmedia::findOrfail(1)->address }}</span></span>
                                                                 </li>
                                                                 <li><i class="fa fa-phone"></i><span>call us:
-                                                                123-456-7898</span></li>
+                                                                {{ \App\Models\Soicalmedia::findOrfail(1)->phone_number }}</span></li>
                                                                 <li><i class="fa fa-envelope-o"></i><span>email us:
-                                                                support@bigdeal.com</span></li>
-                                                                <li><i class="fa fa-fax"></i><span>fax 123456</span>
+                                                                {{ \App\Models\Soicalmedia::findOrfail(1)->gmail }}</span></li>
+
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -126,6 +136,11 @@
                                 </div>
                             </div>
                         </div>
+
+
+
+
+
                     </div>
                 </div>
             </div>
@@ -151,7 +166,6 @@
                                 <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa fa-rss"></i></a></li>
                             </ul>
                         </div>
                     </div>

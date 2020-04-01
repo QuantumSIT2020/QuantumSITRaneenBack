@@ -43,8 +43,12 @@
                             <input type="text" class="form-control" id ="footer"  name="footer"  value="@if(isset($seo_data->footer)) {{ $seo_data->footer }} @endif"/>
                         </div>
                         <div class="form-group">
-                            <label for="descriptions">@lang('tr.descriptions'):</label>
-                            <input type="text" class="form-control" id ="descriptions"  name="descriptions"  value="@if(isset($seo_data->descriptions)) {{ $seo_data->descriptions }} @endif"/>
+                            <label for="descriptions">@lang('tr.Terms  & Conditions'):</label>
+
+                            <textarea  name="descriptions">
+                          @if(isset($seo_data->descriptions)) {{ $seo_data->descriptions }} @endif
+                                </textarea>
+
 
                         </div>
 
@@ -66,7 +70,7 @@
 
 {{-- additional scripts --}}
 @section('javascript')
-
+    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
@@ -111,6 +115,10 @@
                 ]
             } );
         } );
+    </script>
+
+    <script>
+        CKEDITOR.replace( 'descriptions' );
     </script>
 @endsection
 {{-- end additional scripts --}}

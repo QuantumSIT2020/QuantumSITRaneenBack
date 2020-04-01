@@ -17,7 +17,7 @@
     <div class="header">
         
         <h2>{{ $role->name }}&nbsp;@lang('tr.Role') : &nbsp;&nbsp;&nbsp;&nbsp;
-        <span style="background: white; padding: 10px; border: 1px solid;">
+        <span>
             <input type="checkbox" id="checkAll">&nbsp;<label for="checkAll">@lang('tr.Check All')</label>
         </span>
         </h2>
@@ -27,7 +27,7 @@
             @csrf
                 <div class="row">
                     @foreach ($role->permissions as $role_permission) 
-                        <div class="col-lg-2" style="background: white; padding: 10px; margin-bottom: 10px;box-shadow: 2px 2px 2px 2px #b5b5b587;line-height: 5px;margin-right:5px;">
+                        <div class="col-lg-2 role-card">
                             <span>
                                 <input type="checkbox" name="permission_id[]" id="permission_{{$role_permission->id}}" value="{{ $role_permission->id }}" checked>
                                 <label for="permission_{{$role_permission->id}}">{{ ucwords(str_replace('_',' ',$role_permission->name)) }}</label>
@@ -38,7 +38,7 @@
             
                 <div class="row">
                     @foreach ($permissions as $permission)
-                    <div class="col-lg-2" style="background: white; padding: 10px; margin-bottom: 10px;box-shadow: 2px 2px 2px 2px #b5b5b587;line-height: 5px;margin-right:5px;">
+                    <div class="col-lg-2">
                         <span>
                             <input type="checkbox" name="permission_id[]" id="permission_{{$permission->id}}" value="{{ $permission->id }}" >
                             <label for="permission_{{$permission->id}}">{{ ucwords(str_replace('_',' ',$permission->name)) }}</label>

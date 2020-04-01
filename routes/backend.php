@@ -179,13 +179,7 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::get('/pages/search','PagesController@searchPages')->name('search_pages');
 
 
-        //contactus
-
-
-        Route::get('/contactus','contactUsController@index')->name('contactus');
-        Route::get('/contactus/create','contactUsController@create')->name('create_contactus');
-        Route::post('/contactus/store','contactUsController@store')->name('store_contactus');
-
+        
 
 
 
@@ -262,6 +256,9 @@ Route::group(['middleware' => 'Lang'], function () {
 
         Route::get('/products/status/{id}', 'ProductsController@status')->name('products_status');
 
+
+
+
         //reviews
 
         Route::get('/reviews','ProductsController@viewReview')->name('reviews');
@@ -334,6 +331,17 @@ Route::group(['middleware' => 'Lang'], function () {
 
         //Orders
         Route::get('/orders','OrderController@index')->name('orders');
+
+        
+        //contactus
+        Route::get('/contactus','contactUsController@index')->name('contactus');
+        Route::get('/contactus/create','contactUsController@create')->name('create_contactus');
+        Route::post('/contactus/store','contactUsController@store')->name('store_contactus');
+
+        //subscribe
+        Route::get('/Subscribe','SubscribesController@index')->name('Subscribe');
+        Route::get('/Subscribe/create','SubscribesController@create')->name('create_Subscribe');
+        Route::post('/Subscribe/store','SubscribesController@store')->name('store_Subscribe');
 
 
     });

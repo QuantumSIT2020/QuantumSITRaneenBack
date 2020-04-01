@@ -119,6 +119,11 @@
                         @endif
                     </div>
                 </li>
+
+                <li>
+                    <h5>@lang('tr.Welcome')&nbsp;{{ Auth::user()->getRoleNames()[0] }}</h5>
+                </li>
+
                 <!-- <li><a href="javascript:void(0);" class="megamenu_toggle icon-menu" title="Mega Menu">Mega</a></li> -->
                 <!-- <li class="p_social"><a href="page-social.html" class="social icon-menu" title="News">Social</a></li> -->
                 <!-- <li class="p_news"><a href="page-news.html" class="news icon-menu" title="News">News</a></li> -->

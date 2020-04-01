@@ -248,10 +248,11 @@
 
 <script>
     $(function () {
- 
+        $('.rating_val').val(1);
   $("#rateYo").rateYo({
-         ratedFill: "#b22827",
+        ratedFill: "#b22827",
         fullStar: true,
+        rating: 1,
     onSet: function (rating, rateYoInstance) {
         $('.rating_val').val(rating);
 //       alert("Rating is set to: " + rating);

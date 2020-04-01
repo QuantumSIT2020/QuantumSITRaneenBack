@@ -6,11 +6,7 @@
 @section('stylesheet')
 <link rel="stylesheet" href="{{ asset('backend/assets/vendor/jquery-steps/jquery.steps.css') }}">
 <link rel="stylesheet" href="{{ asset('backend/assets/imageUpload/image-uploader.min.css') }}">
-<style>
-    .wizard > .content{
-        min-height: 35em;
-    }
-</style>
+
 @endsection
 {{-- end additional stylesheets --}}
 

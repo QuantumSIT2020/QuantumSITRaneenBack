@@ -26,7 +26,43 @@
             max-width: 100%;
             height: 100%;
         }
+        .wizard > .content{
+        min-height: 35em;
+        background: #282b2f;
+    }
+
+    .c_yellow{
+        box-shadow: 1px 1px 1px 1px #0000003d; 
+    }
+
+    .card .body{
+        border: 1px dashed #ffffff42;
+    }
+
+    .btn{
+        background: #b22827;
+        color: white;
+        border-color: #b22827;
+    }
+
+    .btn:hover{
+        background:#711211;
+        border-color:#711211;
+        color:white;
+    }
+
+    .header>h2{
+        color:white;
+    }
+
+    .role-card{
+        background: transparent;
+        border: 1px dotted #ffffff42;
+        padding: 5px;
+        color: #969595;
+    }
     </style>
+
 
     @yield('stylesheet')
 

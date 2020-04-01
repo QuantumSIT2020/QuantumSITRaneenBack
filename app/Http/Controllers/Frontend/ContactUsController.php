@@ -21,7 +21,7 @@ class ContactUsController extends Controller
     {
         $request->validate([
             'name'                                          => 'required|max:255|min:2',
-            'email'                                         => 'required|',
+            'email'                                         => 'required|email|unique:contact_us',
 
         ]);
 

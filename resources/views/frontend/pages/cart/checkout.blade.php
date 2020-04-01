@@ -59,17 +59,17 @@
 
                                     <div class="form-group col-md-6 col-sm-12 col-xs-12">
                                         <label>@lang('tr.Name')</label>
-                                        <p style="width: 100%; padding: 0 22px; height: 45px; border: 1px solid #ddd;"></p>
+                                        <p style="width: 100%; padding: 0 22px; height: 45px; border: 1px solid #ddd;">{{ Auth::user()->name }}</p>
                                     </div>
                                     
                                     <div class="form-group col-md-6 col-sm-12 col-xs-12">
                                         <label>@lang('tr.Email')</label>
-                                        <p style="width: 100%; padding: 0 22px; height: 45px; border: 1px solid #ddd;"></p>
+                                        <p style="width: 100%; padding: 0 22px; height: 45px; border: 1px solid #ddd;">{{ Auth::user()->email }}</p>
                                     </div>
 
                                     <div class="form-group col-md-6 col-sm-12 col-xs-12">
                                         <label>@lang('tr.Mobile')</label>
-                                        <p style="width: 100%; padding: 0 22px; height: 45px; border: 1px solid #ddd;"></p>
+                                        <input type="text" name="mobile" value="" placeholder="Mobile" required>
                                     </div>
                                     
                                     <div class="form-group col-md-6 col-sm-12 col-xs-12">

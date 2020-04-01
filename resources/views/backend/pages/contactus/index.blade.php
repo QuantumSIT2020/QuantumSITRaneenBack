@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 
-@section('title',__('tr.contact us'))
+@section('title',__('tr.Contact Us'))
 
 {{-- additional stylesheets --}}
 @section('stylesheet')
@@ -19,54 +19,59 @@
 {{-- content --}}
 @section('content')
 
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="header">
-                    <h2>@yield('title')</h2>
-                    <ul class="header-dropdown dropdown">
-
-                        <li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
-                    </ul>
+<div class="row clearfix">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="mail-inbox">
+                <div class="mobile-left">
+                    <a href="javascript:void(0);" class="btn btn-primary toggle-email-nav"><i class="fa fa-bars"></i></a>
                 </div>
-                <div class="body">
-                    <div class="table-responsive">
-                        <table id="example" class="display" style="width:100%">
-                            <thead>
-                            <tr>
-
-                                <th class="border_cell">@lang('tr.name')           </th>
-                                <th class="border_cell">@lang('tr.email')          </th>
-                                <th class="border_cell">@lang('tr.message')        </th>
-
-                            </tr>
-                            </thead>
-
-                            <tbody>
-                            @foreach ($contactUs as $index => $data)
-                                <tr>
-
-                                    <td  class="border_cell">{{ $data->name }}</td>
-                                    <td  class="border_cell">{{ $data->email }}</td>
-                                    <td  class="border_cell">{{ $data->message }}</td>
-
-                                </tr>
-                            @endforeach
-                            </tbody>
-
-                            <tfoot>
-                            <tr>
-                                <th class="border_cell">@lang('tr.name')           </th>
-                                <th class="border_cell">@lang('tr.email')          </th>
-                                <th class="border_cell">@lang('tr.message')        </th>
-
-                            </tr>
-                            </tfoot>
-                        </table>
+                <div class="body mail-left">
+                    <div class="mail-compose m-b-20">
+                        <a href="#" class="btn btn-danger btn-block btn-round">Compose</a>
                     </div>
+                    <div class="mail-side">
+                        <ul class="nav">
+                            <li class="active"><a href="{{ route('contactus') }}"><i class="icon-drawer"></i>@lang('tr.Contact Us')<span class="badge badge-primary float-right">{{ \App\Models\contactUs::count() }}</span></a></li>
+                            <li><a href="{{ route('Subscribe') }}"><i class="icon-cursor"></i>@lang('tr.Subscribes')<span class="badge badge-warning float-right">{{ \App\Models\subscribe::count() }}</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="body mail-right check-all-parent">
+                    
+                    <div class="mail-action clearfix m-l-15">
+                        <div class="pull-left">
+                            <h5>@lang('tr.Contact Us')</h5>
+                        </div>
+                    </div>
+                    <div class="mail-list">
+                        <ul class="list-unstyled">
+                            
+                            @foreach ($contactUs as $contact)
+
+                            <li class="clearfix">
+                                <div class="md-right">
+                                    <img class="rounded" src="{{ asset('backend/assets/images/xs/avatar1.jpg') }}" alt="">
+                                    <p class="sub"><a href="#" class="mail-detail-expand">{{ $contact->name }}</a></p>
+                                    <p class="dep">{{ substr($contact->message,0,100) }}</p>
+                                    <span class="time">{{ $contact->created_at->diffForHumans() }}</span>
+                                </div>
+                            </li>
+                                
+                            @endforeach
+                            
+                            
+                        </ul>
+                    </div>
+
+                    <ul class="pagination mb-0">
+                        {{ $contactUs->links() }}
+                    </ul>
                 </div>
             </div>
         </div>
-
+    </div>
+</div>
 
 
 @endsection
