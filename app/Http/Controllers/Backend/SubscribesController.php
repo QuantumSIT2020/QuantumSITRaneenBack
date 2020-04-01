@@ -15,8 +15,7 @@ class SubscribesController extends Controller
     public function index()
     {
 
-        $subscribe = subscribe::select('id','email')->get();
-
+        $subscribe = subscribe::select('*')->paginate(5);
         return view('backend.pages.subscribe.index',compact('subscribe'));
     }
 

@@ -28,15 +28,14 @@
         </div>
         <div class="body">
             <div class="table-responsive">
+                
                 <table id="example" class="display" style="width:100%">
                     <thead>
                         <tr>
+                            <th class="border_cell">@lang('tr.Code')</th>
                             <th class="border_cell">@lang('tr.User Name')</th>
-                            <th class="border_cell">@lang('tr.Order')</th>
-                            <th class="border_cell">@lang('tr.Type')</th>
                             <th class="border_cell">@lang('tr.Quantity')</th>
                             <th class="border_cell">@lang('tr.Price')</th>
-                            <th class="border_cell">@lang('tr.Total')</th>
                             <th class="border_cell">@lang('tr.Created At')</th>
                             <th class="border_cell">@lang('tr.Action')</th>
                         </tr>
@@ -47,25 +46,12 @@
                         <tr>
                             
                             <td class="border_cell">{{ $order->user->name }}</td>
-                            <td class="border_cell">
-                                @if ($order->options[2] == 'p')
-                                    <a href="{{ route('show_products',$order->order_id) }}">{{ $order->name }}</a>
-                                @else
-                                    <a href="{{ route('show_bundles',$order->order_id) }}">{{ $order->name }}</a>
-                                @endif
-                                
-                            </td>
-                            @if ($order->options[2] == 'p')
-                            <td class="border_cell">@lang('tr.Product')</td>
-                            @else
-                            <td class="border_cell">@lang('tr.Bundle')</td>
-                            @endif
+                            <td class="border_cell">{{ $order->code }}</td>
                             <td class="border_cell">{{ $order->quantity }}</td>
                             <td class="border_cell">{{ $order->price }}</td>
-                            <td class="border_cell">{{ $order->price * $order->quantity }}</td>
                             <td class="border_cell">{{ $order->created_at }}</td>
                             <td class="border_cell">
-                                {{-- <a href="{{ route('show_roles',$order->id) }}" class="btn btn-primary" style="border-radius: 0;font-weight: bold;font-size: 10px;"  title="@lang('tr.Show Role')"><i class="fa fa-eye"></i></a> --}}
+                                <a href="{{ route('cart_invoices',$order->id) }}" target="_blank" class="btn btn-primary" style="border-radius: 0;font-weight: bold;font-size: 10px;"  title="@lang('tr.Show Role')"><i class="fa fa-eye"></i></a>
                             </td>
                         </tr>
                         @endforeach
@@ -73,12 +59,10 @@
 
                     <tfoot>
                         <tr>
+                            <th class="border_cell">@lang('tr.Code')</th>
                             <th class="border_cell">@lang('tr.User Name')</th>
-                            <th class="border_cell">@lang('tr.Order')</th>
-                            <th class="border_cell">@lang('tr.Type')</th>
                             <th class="border_cell">@lang('tr.Quantity')</th>
                             <th class="border_cell">@lang('tr.Price')</th>
-                            <th class="border_cell">@lang('tr.Total')</th>
                             <th class="border_cell">@lang('tr.Created At')</th>
                             <th class="border_cell">@lang('tr.Action')</th>
                         </tr>

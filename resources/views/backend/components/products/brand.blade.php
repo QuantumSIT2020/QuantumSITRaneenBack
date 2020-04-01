@@ -5,7 +5,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="en_name">@lang('tr.Manufacturer')(optional)</label>
-                                {!! Form::select('manufacturer_id', $mans, null, ['class'=>'custom-select required']) !!}
+                                {!! Form::select('manufacturer_id', $mans, null, ['class'=>'custom-select','placeholder'=>__("tr.Select Manufacturer")]) !!}
                             </div>
                         </div>
                     </div>
@@ -17,7 +17,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="en_name">@lang('tr.Brand')(optional)</label>
-                                {!! Form::select('brand_id', $brands, null, ['class'=>'custom-select']) !!}
+                                {!! Form::select('brand_id', $brands, null, ['class'=>'custom-select','placeholder'=>__("tr.Select Brand")]) !!}
                             </div>
                         </div>
                     </div>

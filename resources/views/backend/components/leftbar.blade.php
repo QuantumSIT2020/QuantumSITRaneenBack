@@ -67,16 +67,12 @@
                     </ul>
                 </li>
 
+                {{-- Products --}}
 
 
-
-
-{{--                categories--}}
-
-
-                <li class="header">@lang('tr.Categories Management')</li>
+                <li class="header">@lang('tr.Product Management')</li>
                 <li>
-                    <a href="#Authentication" class="has-arrow"><i class="icon-lock"></i><span>@lang('tr.Categories')</span></a>
+                    <a href="#Authentication" class="has-arrow"><i class="fa fa-list-ol"></i><span>@lang('tr.Categories')</span></a>
                     <ul>
                         <li><a href="{{ route('MainCategory') }}">Main Category</a></li>
                         <li><a href="{{ route('ChildCategory') }}">Child Category</a></li>
@@ -85,25 +81,13 @@
                     </ul>
                 </li>
 
-
-                <br>
-
-
-                {{--                GroupAttributes--}}
-
-
-                <li class="header">@lang('tr.Attribute Management') </li>
                 <li>
-                    <a href="#Authentication" class="has-arrow"><i class="fa fa-gears"></i><span>@lang('tr.GroupAttributes')</span></a>
+                    <a href="#Authentication" class="has-arrow"><i class="fa fa-list-ul"></i><span>@lang('tr.GroupAttributes')</span></a>
                     <ul>
                         <li><a href="{{ route('GroupAttributes') }}">GroupAttributes</a></li>
                         <li><a href="{{ route('Attributes') }}">Attributes</a></li>
                     </ul>
                 </li>
-
-                <br>
-
-                <li class="header">@lang('tr.manufacturer Management')</li>
 
                 <li>
                     <a href="#Authentication" class="has-arrow"><i class="fa fa-industry"></i><span>@lang('tr.Manufacturer')</span></a>
@@ -114,11 +98,6 @@
                     </ul>
                 </li>
 
-
-
-
-                <li class="header">@lang('tr.Brand Management')</li>
-
                 <li>
                     <a href="#Authentication" class="has-arrow"><i class="fa fa-industry"></i><span>@lang('tr.Brand')</span></a>
                     <ul>
@@ -128,14 +107,9 @@
                     </ul>
                 </li>
 
-
-
-                <li class="header">@lang('tr.products Management')</li>
-
                 <li>
-                    <a href="#Authentication" class="has-arrow"><i class="fa fa-industry"></i><span>@lang('tr.Products')</span></a>
+                    <a href="#Authentication" class="has-arrow"><i class="fa fa-product-hunt"></i><span>@lang('tr.Products')</span></a>
                     <ul>
-
                         <li><a href="{{ route('create_products') }}">@lang('tr.Create Products')</a></li>
                         <li><a href="{{ route('products') }}">@lang('tr.Products')</a></li>
 {{--                        <li><a href="{{ route('hotsale_products') }}">@lang('tr.Hot Sale')</a></li>--}}
@@ -145,25 +119,48 @@
                     </ul>
                 </li>
 
-
-
-
-                {{--                Bundles--}}
-
-
-                <li class="header">@lang('tr.Bundles Management') </li>
                 <li>
-                    <a href="#Authentication" class="has-arrow"><i class="fa fa-gears"></i><span>@lang('tr.Bundles')</span></a>
+                    <a href="#Authentication" class="has-arrow"><i class="fa fa-gift"></i><span>@lang('tr.Bundles')</span></a>
                     <ul>
                         <li><a href="{{ route('bundles') }}">Bundles</a></li>
 
                     </ul>
                 </li>
 
-                <br>
+                <li class="header">@lang('tr.Content Management')</li>
+                <li>
+                    <a href="#Authentication" class="has-arrow"><i class="fa fa-file-word-o"></i><span>@lang('tr.Content')</span></a>
+                    <ul>
+                        <li><a href="{{route('pages')}}">@lang('tr.Pages')</a></li>
+                        <li><a href="{{route('sliders')}}">@lang('tr.sliders')</a></li>
+                        <li><a href="{{route('faq')}}">@lang('tr.faq')</a></li>
+                        <li><a href="{{route('blogs')}}">@lang('tr.Blogs')</a></li>
+                    </ul>
+                </li>
 
 
 
+                <li class="header">@lang('tr.Settings') </li>
+                <li>
+                    <a href="#Authentication" class="has-arrow"><i class="fa fa-gears"></i><span>@lang('tr.Others')</span></a>
+                    <ul>
+                        <li><a href="{{route('partners')}}">@lang('tr.Partners')</a></li>
+                        <li><a href="{{route('testimonials')}}">@lang('tr.Testimonials')</a></li>
+                        <li><a href="{{route('contactus')}}">@lang('tr.Contacts')</a></li>
+                        <li><a href="{{ route('testseo_index') }}">@lang('tr.SEO')</a></li>
+                        <li><a href="{{ route('soicalmedia_index') }}">@lang('tr.Social Media')</a></li>
+                    </ul>
+                </li>
+
+
+                
+
+
+
+            </ul>
+        </nav>
+    </div>
+</div>
 
 
                 {{-- <li>
@@ -174,34 +171,3 @@
 
                     </ul>
                 </li> --}}
-
-                <br>
-
-                {{--                pages--}}
-
-                <li>
-                    <a href="#Authentication" class="has-arrow"><i class="fa fa-file"></i><span>@lang('tr.Others')</span></a>
-                    <ul>
-                        <li><a href="{{route('partners')}}">@lang('tr.Partners')</a></li>
-                        <li><a href="{{route('pages')}}">@lang('tr.Pages')</a></li>
-                        <li><a href="{{route('sliders')}}">@lang('tr.sliders')</a></li>
-                        <li><a href="{{route('faq')}}">@lang('tr.faq')</a></li>
-
-                        <li><a href="{{route('blogs')}}">@lang('tr.Blogs')</a></li>
-
-{{--                        <li><a href="{{route('blogs')}}">@lang('tr.Blogs')</a></li>--}}
-                        <li><a href="{{route('testimonials')}}">@lang('tr.testimonials')</a></li>
-                        <li><a href="{{route('contactus')}}">@lang('tr.contact us')</a></li>
-                        <li><a href="{{route('Subscribe')}}">@lang('tr.Subscribe')</a></li>
-
-                        <li><a href="{{ route('testseo_index') }}">@lang('tr.SEO')</a></li>
-                        <li><a href="{{ route('soicalmedia_index') }}">@lang('tr.Social Media')</a></li>
-                    </ul>
-                </li>
-
-
-
-            </ul>
-        </nav>
-    </div>
-</div>
