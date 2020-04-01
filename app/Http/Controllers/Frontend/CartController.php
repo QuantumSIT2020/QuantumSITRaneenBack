@@ -115,7 +115,7 @@ class CartController extends Controller
     public function checkoutPost(Request $request)
     {
         $total = Cart::subtotal();
-        dd($total);
+        
         $charge = Stripe::charges()->create([
             'currency' => 'USD',
             'source' =>  $request->stripeToken,
