@@ -12,6 +12,7 @@ use App\Models\Attributes;
 use App\Models\Product_Gallery;
 use App\Models\Product_attribute;
 use App\Models\Review;
+use App\Models\Brand;
 use File;
 use Auth;
 use App\Models\User;
@@ -83,9 +84,10 @@ class ProductsController extends Controller
         $lang = \Lang::locale();
         $mans = Manufacturer::select('*')->pluck($lang.'_name','id');
         $subs = SubCategory::select('*')->pluck($lang.'_name','id');
+        $brands = Brand::select('*')->pluck('name','id');
         $groups = GroupAttributes::select('id',$lang.'_name as name')->get();
         $attributes = Attributes::select('id',$lang.'_name as name','attribute_group_id')->get();
-        return view($this->path.'create',compact('mans','subs','groups','attributes'));
+        return view($this->path.'create',compact('mans','subs','groups','attributes','brands'));
     }
 
     
@@ -95,7 +97,7 @@ class ProductsController extends Controller
         $request->validate([
             'en_name' => 'required|min:2|max:255',
             'ar_name' => 'required|min:2|max:255',
-            'video' => 'required',
+            'video' => 'nullable',
             'price' => 'required',
             'first_quantity' => 'required',
             'description' => 'required',
@@ -117,6 +119,7 @@ class ProductsController extends Controller
         $product->quantity = $request->first_quantity;
         $product->manufacturer_id = $request->manufacturer_id;
         $product->sub_categories_id = $request->sub_categories_id;
+        $product->brand_id              = $request->brand_id;
         $product->user_id = Auth::user()->id;
         
         if ($request->hasFile('product_image')){
@@ -169,11 +172,12 @@ class ProductsController extends Controller
         $product = Product::findOrfail($id);
         $mans = Manufacturer::select('*')->pluck($lang.'_name','id');
         $subs = SubCategory::select('*')->pluck($lang.'_name','id');
+        $brands = Brand::select('*')->pluck('name','id');
         $groups = GroupAttributes::select('id',$lang.'_name as name')->get();
         $attributes = Attributes::select('id',$lang.'_name as name','attribute_group_id')->get();
         $Product_Gallery = Product_Gallery::where('product_id', $id)->get();
         $Product_attribute = Product_attribute::where('product_id', $id)->get();
-        return view($this->path.'edit',compact('mans','subs','groups','attributes','Product_Gallery','product','Product_attribute'));
+        return view($this->path.'edit',compact('mans','subs','groups','attributes','Product_Gallery','product','Product_attribute','brands'));
     }
 
    
@@ -181,12 +185,12 @@ class ProductsController extends Controller
     {
         $product = Product::findOrfail($id);
         $request->validate([
-            'en_name' => 'required|min:2|max:255',
-            'ar_name' => 'required|min:2|max:255',
-            'video' => 'required',
-            'price' => 'required',
-            'first_quantity' => 'required',
-            'description' => 'required',
+            'en_name'          => 'required|min:2|max:255',
+            'ar_name'          => 'required|min:2|max:255',
+            'video'            => 'nullable',
+            'price'            => 'required',
+            'first_quantity'   => 'required',
+            'description'      => 'required',
 
         ]);
 
@@ -205,6 +209,7 @@ class ProductsController extends Controller
         $product->quantity              = $request->first_quantity;
         $product->manufacturer_id       = $request->manufacturer_id;
         $product->sub_categories_id     = $request->sub_categories_id;
+        $product->brand_id              = $request->brand_id;
 
         if ($request->hasFile('product_image')){
             $imageName = time().'.'.request()->product_image->getClientOriginalExtension();

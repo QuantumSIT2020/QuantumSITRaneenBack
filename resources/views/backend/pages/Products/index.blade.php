@@ -155,7 +155,7 @@
             data: {},
             success: function(data) {
                 if (data > 0 ){
-                    // alert("update successfully");
+                     alert("update successfully");
                     location.reload();
                 }
             },

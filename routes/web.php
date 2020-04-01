@@ -66,6 +66,11 @@ Route::get('/faq','Frontend\FaqController@index')->name('frontend_faq');
 Route::get('/contactus','Frontend\ContactUsController@index')->name('frontend_contactus');
 Route::post('/contactus/send','Frontend\ContactUsController@store')->name('frontend_send_contact');
 
+
+//subscribe
+Route::get('/subscribe','Frontend\SubscribesController@index')->name('frontend_subscribe');
+Route::post('/subscribe/send','Frontend\SubscribesController@store')->name('frontend_send_subscribe');
+
 //Auth
 Route::get('/user/login','Frontend\AuthController@login')->name('frontend_login');
 Route::get('/user/register','Frontend\AuthController@register')->name('frontend_register');

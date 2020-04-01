@@ -29,7 +29,7 @@
                         
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label for="video">@lang('tr.Video')</label>
+                                <label for="video">@lang('tr.Video')(optional)</label>
                                 <input type="url" name="video" id="video" class="form-control" value="{{ $product->video }}">
                             </div>
                         </div>
@@ -50,7 +50,14 @@
 
                     </div>
 
-                   
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="en_name">@lang('tr.sub_categories')</label>
+                                {!! Form::select('sub_categories_id', $subs, $product->sub_categories_id, ['class'=>'custom-select required']) !!}
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="col-lg-12">

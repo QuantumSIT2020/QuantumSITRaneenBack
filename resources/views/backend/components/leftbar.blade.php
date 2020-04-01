@@ -186,13 +186,14 @@
                         <li><a href="{{route('pages')}}">@lang('tr.Pages')</a></li>
                         <li><a href="{{route('sliders')}}">@lang('tr.sliders')</a></li>
                         <li><a href="{{route('faq')}}">@lang('tr.faq')</a></li>
-<<<<<<< HEAD
+
                         <li><a href="{{route('blogs')}}">@lang('tr.Blogs')</a></li>
-=======
+
 {{--                        <li><a href="{{route('blogs')}}">@lang('tr.Blogs')</a></li>--}}
                         <li><a href="{{route('testimonials')}}">@lang('tr.testimonials')</a></li>
                         <li><a href="{{route('contactus')}}">@lang('tr.contact us')</a></li>
->>>>>>> 5c9157bb28ce134b58ce05888258437cb708bf59
+                        <li><a href="{{route('Subscribe')}}">@lang('tr.Subscribe')</a></li>
+
                         <li><a href="{{ route('testseo_index') }}">@lang('tr.SEO')</a></li>
                         <li><a href="{{ route('soicalmedia_index') }}">@lang('tr.Social Media')</a></li>
                     </ul>

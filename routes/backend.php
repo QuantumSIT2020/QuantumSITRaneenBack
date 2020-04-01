@@ -186,6 +186,12 @@ Route::group(['middleware' => 'Lang'], function () {
         Route::get('/contactus/create','contactUsController@create')->name('create_contactus');
         Route::post('/contactus/store','contactUsController@store')->name('store_contactus');
 
+          //subscribe
+
+
+        Route::get('/Subscribe','SubscribesController@index')->name('Subscribe');
+        Route::get('/Subscribe/create','SubscribesController@create')->name('create_Subscribe');
+        Route::post('/Subscribe/store','SubscribesController@store')->name('store_Subscribe');
 
 
 
@@ -261,6 +267,9 @@ Route::group(['middleware' => 'Lang'], function () {
         //isActive
 
         Route::get('/products/status/{id}', 'ProductsController@status')->name('products_status');
+
+
+
 
         //reviews
 
