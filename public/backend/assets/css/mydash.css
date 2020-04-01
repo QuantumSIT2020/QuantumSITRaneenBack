@@ -29,3 +29,7 @@
     box-shadow: rgba(200, 187, 187, 0.25) 0px 0px 5px 0px !important;
     color: #ffffff78 !important;
 }
+
+.sidebar-nav .metismenu>li.active{
+    background: #ffffff3d !important;
+}

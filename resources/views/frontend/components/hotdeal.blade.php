@@ -1,34 +1,78 @@
-<section class="section-pb-space ">
-    <div class="custom-container">
-        <div class="row layout-3-hotdeal">
-            @php($langName = \Lang::getLocale().'_name')
-            @php($langDesc = \Lang::getLocale().'_desc')
-            
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                <div class="media-banner banner-inverse b-g-white1 border-0">
-                    <div class="media-banner-box">
-                        <div class="media-heading">
-                            <h5>@lang('tr.on sale')</h5>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="row">
-                        <div class="co-lg-6 col-md-6 col-sm-6">
-                            
-                            @foreach ($lasttwoDiscount as $lasttwo)
+@php($langName = \Lang::getLocale().'_name')
+@php($langDesc = \Lang::getLocale().'_desc')
+
+<!--media banner start-->
+<section class=" b-g-white section-big-pt-space">
+    <div class="container">
+        <div class="row hot-1">
+            <div class="col-lg-3 col-sm-6  col-12  ">
+                <div class="slide-1   no-arrow">
+                    <div>
+                        <div class="media-banner">
+                            <div class="media-banner-box">
+                                <div class="media-heading">
+                                    <h5>@lang('tr.On Sale')</h5>
+                                </div>
+                            </div>
+
+                            @foreach ($lasttwoDiscount as $two)
+                            @php($reviews = \App\Models\Product::getReview($two->products->id))
                             <div class="media-banner-box">
                                 <div class="media">
-                                    <img src="{{ asset('backend/dashboard_images/Products/'.$lasttwo->products->product_image) }}"  class="img-fluid  " alt="banner">
+                                    <img src="{{ asset('backend/dashboard_images/Products/'.$two->products->product_image) }}" class="img-fluid  " alt="banner">
                                     <div class="media-body">
                                         <div class="media-contant">
-                                            @php($review = \App\Models\Product::getReview($lasttwo->products->id))
                                             <div>
-                                                @if ($review == 0)
+                                                @if ($reviews == 0)
                                                 <div>@lang('tr.Not Rated Yet')</div>
                                                 @else
                                                 <div>
-                                                    @for ($i = 0; $i < $review; $i++)
+                                                    @for ($i = 0; $i < $reviews; $i++)
+                                                    <i class="fa fa-star" style="color:orange"></i>
+                                                    @endfor
+                                                </div>
+                                                @endif
+                                                <p>
+                                                    {{ $two->products->$langName }}
+                                                </p>
+                                                <h6>EGP {{ $two->products->price - (($two->discount / 100) * $two->products->price) }} / <span>EGP {{ $two->products->price }}</span></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            @endforeach
+
+
+                            <div class="media-banner-box">
+                                <div class="media-view">
+                                    <h5><a href="{{ route('frontend_discounts') }}">@lang('tr.View More')</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="media-banner">
+                            <div class="media-banner-box">
+                                <div class="media-heading">
+                                    <h5>@lang('tr.On Sale')</h5>
+                                </div>
+                            </div>
+
+                            @foreach ($lastAftertwoDiscount as $lasttwo)
+                            @php($reviews = \App\Models\Product::getReview($lasttwo->products->id))
+                            <div class="media-banner-box">
+                                <div class="media">
+                                    <img src="{{ asset('backend/dashboard_images/Products/'.$lasttwo->products->product_image) }}" class="img-fluid  " alt="banner">
+                                    <div class="media-body">
+                                        <div class="media-contant">
+                                            <div>
+                                                @if ($reviews == 0)
+                                                <div>@lang('tr.Not Rated Yet')</div>
+                                                @else
+                                                <div>
+                                                    @for ($i = 0; $i < $reviews; $i++)
                                                     <i class="fa fa-star" style="color:orange"></i>
                                                     @endfor
                                                 </div>
@@ -36,100 +80,71 @@
                                                 <p>
                                                     {{ $lasttwo->products->$langName }}
                                                 </p>
-                                                
                                                 <h6>EGP {{ $lasttwo->products->price - (($lasttwo->discount / 100) * $lasttwo->products->price) }} / <span>EGP {{ $lasttwo->products->price }}</span></h6>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                                
                             @endforeach
-                        </div>
-        
-                        <div class="co-lg-6 col-md-6 col-sm-6">
-                            @php($langName = \Lang::getLocale().'_name')
-                            @foreach ($lastAftertwoDiscount as $lastaftertwo)
+                            
                             <div class="media-banner-box">
-                                <div class="media">
-                                    <img src="{{ asset('backend/dashboard_images/Products/'.$lastaftertwo->products->product_image) }}" style="width:84px;height:108px;" class="img-fluid  " alt="banner">
-                                    <div class="media-body">
-                                        <div class="media-contant">
-                                            @php($review = \App\Models\Product::getReview($lastaftertwo->products->id))
-                                            <div>
-                                                @if ($review == 0)
-                                                <div>@lang('tr.Not Rated Yet')</div>
-                                                @else
-                                                <div>
-                                                    @for ($i = 0; $i < $review; $i++)
-                                                    <i class="fa fa-star"></i>
-                                                    @endfor
-                                                </div>
-                                                @endif
-                                                <p>
-                                                    {{ $lastaftertwo->products->$langName }}
-                                                </p>
-                                                
-                                                <h6>EGP {{ $lastaftertwo->products->price - (($lastaftertwo->discount / 100) * $lastaftertwo->products->price) }} / <span>EGP {{ $lastaftertwo->products->price }}</span></h6>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="media-view">
+                                    <h5><a href="{{ route('frontend_discounts') }}">@lang('tr.View More')</a></h5>
                                 </div>
                             </div>
-                            @endforeach
                         </div>
-
                     </div>
-                    
-                   
                 </div>
             </div>
-
-
-
-
-
-
-
-            <div class="col-xl-6 col-lg-12 col-md-12">
+            <div class="col-lg-2 col-sm-6  col-12">
+                <div class="Jewellery-banner" style="background-image:url({{ asset('frontend/lastbundle.jpg') }})">
+                    <a style="color:white;text-align:center;">@lang('tr.Last Bundle')</a>
+                    @if ($lastBundle != null)
+                    <h6 style="color:white;text-align:center;">{{ $lastBundle->$langName }}</h6>
+                    @endif
+                </div>
+            </div>
+            <div class="col-lg-7  col-sm-12 col-12  ">
                 <div class="hot-deal">
-                    <div class="slide-1">
+                    <div class="hot-deal-box">
+                        <div class="slide-1">
+
+                            @foreach ($lasttwoHotOffer as $lasttwo)
+
+                            @php($start = \Carbon\Carbon::parse($lasttwo->end_date))
+                            @php($end = \Carbon\Carbon::parse(date('y-m-d')))
+                            @php($result = $start->diffInDays($end, false))
                         
-                        @foreach ($lasttwoHotOffer as $lasttwo)
-
-                        @php($start = \Carbon\Carbon::parse($lasttwo->end_date))
-                        @php($end = \Carbon\Carbon::parse(date('y-m-d')))
-                        @php($result = $start->diffInDays($end, false))
-
-                        @if ($result < 0)
-
-                        <div>
-                            <div class="hot-deal-contain1 border-0">
-                                <div class="hot-deal-heading">
-                                    <h5>@lang('tr.Last Hot Deal')</h5>
-                                </div>
-                                <div class="row hot-deal-subcontain">
-                                    <div class="col-lg-4 col-sm-3 ">
-                                        <div class="hotdeal-right-slick-1 no-arrow">
-                                            <div class="right-slick-img"><img style="width:205px;height:263px;" src="{{ asset('backend/dashboard_images/Products/'.$lasttwo->product->product_image) }}" alt="hot-deal" class="img-fluid  "></div>
-                                            @foreach ($lasttwo->product->getGalleryImages() as $image)
-                                                <div class="right-slick-img"><img style="width:205px;height:263px;" src="{{ asset('backend/dashboard_images/Products/'.$image->image) }}" alt="hot-deal" class="img-fluid  "></div>
-                                            @endforeach
-                                        </div>
+                            
+                        
+                            <div>
+                                <div class="hot-deal-contain1 hot-deal-banner-1">
+                                    <div class="hot-deal-heading">
+                                        <h5>@lang('tr.Last Hot Deal')</h5>
                                     </div>
-                                    <div class="col-lg-6 col-sm-7">
-                                        <div class="hot-deal-center">
-                                            
+                                    <div class="row hot-deal-subcontain">
+                                        <div class="col-lg-4 col-sm-4 col-12">
+                                            <div class="hotdeal-right-slick-1 no-arrow">
+                                                <div class="right-slick-img"><img style="width:205px;height:263px;" src="{{ asset('backend/dashboard_images/Products/'.$lasttwo->product->product_image) }}" alt="hot-deal" class="img-fluid  "></div>
+                                                @foreach ($lasttwo->product->getGalleryImages() as $image)
+                                                    <div class="right-slick-img"><img style="width:205px;height:263px;" src="{{ asset('backend/dashboard_images/Products/'.$image->image) }}" alt="hot-deal" class="img-fluid  "></div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-sm-6">
 
-                                            
                                             <div>
                                                 <h5>@lang('tr.Expire In'): <span style="color:#b22827">{{  abs($result)  }}</span> &nbsp;@lang('tr.Day(s)')</h5>
                                                 <h5>@lang('tr.End Date'): <span style="color:#b22827">{{  $lasttwo->end_date  }}</span></h5>
                                                 <hr>
-                                                @if ($review == 0)
+                                                
+                                                @if ($reviews[0]->reviews == 0)
                                                 <div>@lang('tr.Not Rated Yet')</div>
                                                 @else
                                                 <div>
-                                                    @for ($i = 0; $i < $review; $i++)
+                                                    @for ($i = 0; $i < $reviews[0]->reviews; $i++)
                                                     <i class="fa fa-star" style="color:orange"></i>
                                                     @endfor
                                                 </div>
@@ -145,36 +160,33 @@
                                                     <div class="price">
                                                         <span>EGP {{ $lasttwo->product->price - (($lasttwo->offer / 100) * $lasttwo->product->price) }}</span>
                                                         <span>EGP {{ $lasttwo->product->price }}</span>
-                                                        <a href="{{ route('frontend_product_details',$lasttwo->product->id) }}" class="details-o"> details</a>
+                                                        <br>
+                                                        <a href="{{ route('frontend_product_details',$lasttwo->product->id) }}" class="details-o">@lang('tr.Details')</a>
 
                                                     </div>
                                                 </div>
                                             </div>
+                                            
                                         </div>
-                                    </div>
-                                    <div class="col-lg-2  col-sm-2">
-                                        <div class="hotdeal-right-nav-1">
-                                            <div class="right-slick-img"><img style="width:63px;height:81px;" src="{{ asset('backend/dashboard_images/Products/'.$lasttwo->product->product_image) }}" alt="hot-deal" class="img-fluid  "></div>
-                                            @foreach ($lasttwo->product->getGalleryImages() as $image)
-                                                <div class="right-slick-img"><img style="width:63px;height:81px;" src="{{ asset('backend/dashboard_images/Products/'.$image->image) }}" alt="hot-deal" class="img-fluid  "></div>
-                                            @endforeach
+                                        <div class="col-lg-2 col-sm-2 p-l-md-0">
+                                            <div class="hotdeal-right-nav-1">
+                                                <div class="right-slick-img"><img style="width:63px;height:81px;" src="{{ asset('backend/dashboard_images/Products/'.$lasttwo->product->product_image) }}" alt="hot-deal" class="img-fluid  "></div>
+                                                @foreach ($lasttwo->product->getGalleryImages() as $image)
+                                                    <div class="right-slick-img"><img style="width:63px;height:81px;" src="{{ asset('backend/dashboard_images/Products/'.$image->image) }}" alt="hot-deal" class="img-fluid  "></div>
+                                                @endforeach
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                             
-                        @endif
+                            @endforeach
                         
-                        @endforeach
-
-                        
-
+                        </div>
                     </div>
                 </div>
             </div>
-           
-            
         </div>
     </div>
 </section>
+<!--media banner end-->

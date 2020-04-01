@@ -1754,6 +1754,7 @@ button {
 
 .product .product-box .product-imgbox img {
     margin: 0 auto;
+    height: 290px;
 }
 
 .product .product-box .product-imgbox .product-front {

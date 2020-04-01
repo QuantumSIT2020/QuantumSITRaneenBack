@@ -871,7 +871,7 @@ button {
 
 .deal-banner {
     margin-bottom: 30px;
-    background-color: #2d2d2d;
+    background-color: #b22827;
     padding: 40px 0;
 }
 
@@ -981,7 +981,7 @@ button {
 }
 
 .contact-banner {
-    background-color: #2d2d2d;
+    background-color: #B22827;
     padding: 20px 0;
 }
 
@@ -1766,6 +1766,7 @@ button {
 
 .product .product-box .product-imgbox img {
     margin: 0 auto;
+    height: 290px;
 }
 
 .product .product-box .product-imgbox .product-front {
