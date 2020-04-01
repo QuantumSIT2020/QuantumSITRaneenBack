@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('ar_name');
             $table->string('product_image');
             $table->text('description');
-            $table->text('video');
+            $table->text('video')->nullable();
             $table->integer('price');
             $table->integer('quantity');
             $table->boolean('isactive')->default(0); //0 not active - 1 active
