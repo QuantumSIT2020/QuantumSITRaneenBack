@@ -30,7 +30,7 @@
                     <td><a href="{{ route('frontend_product_details',$product->id) }}"><img src="{{  asset('backend/dashboard_images/Products/'.$main_product->MainProduct->product_image)   }}" alt="cart" class=" "></a></td>
                     @endif
                     <td>{{ $item->name }}</td>
-                    <td>{{ $item->price }}</td>
+                    <td>{{ $item->price / $item->qty }}</td>
                     <td>
                         <div class="qty-box">
                             <div class="input-group">
@@ -65,7 +65,7 @@
                     
                     <td><a href="{{ route('cart_remove',$item->rowId) }}" onclick="return confirm('tr.Are You Sure ?')" class="icon"><i class="ti-trash"></i></a></td>
                     <td>
-                        <h2 class="td-color">EGP {{ $item->price* $item->qty }}
+                        <h2 class="td-color">EGP {{ $item->price * $item->qty }}
                             @if (($product->price * $item->qty) != $item->price)
                             <br>
                             <small class="delete_price"> EGP {{ $product->price * $item->qty  }} </small>
@@ -92,5 +92,6 @@
 <div class="row cart-buttons">
     <div class="col-12">
         <a href="{{ route('cart_checkout') }}" class="btn btn-normal ml-3">@lang('tr.Check Out')</a>
+        <a href="{{ route('cart_destroy') }}" class="btn btn-normal ml-3">@lang('tr.Empty Cart')</a>
     </div>
 </div>
