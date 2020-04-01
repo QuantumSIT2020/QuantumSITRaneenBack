@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0960f54d-98e9-43ee-b7f0-ab5e168da537" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/subscribe/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/subscribe/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/ProductsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ContactUsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ContactUsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/components/leftbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/components/leftbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/components/products/brand.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/components/products/brand.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/components/products/mainInfo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/components/products/mainInfo.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/components/products_update/brand.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/components/products_update/brand.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/components/products_update/mainInfo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/components/products_update/mainInfo.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/pages/Products/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/pages/Products/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/pages/seo/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/pages/seo/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/components/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/components/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/components/head.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/components/head.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/components/newsletter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/components/newsletter.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/backend.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/backend.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_23_001929_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_23_001929_create_products_table.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,38 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/backend/components/products/mainInfo.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="30" column="79" selection-start-line="30" selection-start-column="69" selection-end-line="30" selection-end-column="79" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/backend/components/products/brand.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="18" column="80" selection-start-line="18" selection-start-column="80" selection-end-line="18" selection-end-column="80" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/backend/components/products_update/brand.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="15" column="80" selection-start-line="15" selection-start-column="80" selection-end-line="15" selection-end-column="80" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/backend/components/products_update/mainInfo.blade.php">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_23_001929_create_products_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="55" column="77" selection-start-line="55" selection-start-column="77" selection-end-line="55" selection-end-column="77" />
+            <state relative-caret-position="220">
+              <caret line="21" column="46" lean-forward="true" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -95,7 +52,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Models/product_bundle.php" />
         <option value="$PROJECT_DIR$/resources/views/frontend/pages/products/bundles.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/components/product_bundle_update/bundle.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/BundlesController.php" />
@@ -146,6 +102,7 @@
         <option value="$PROJECT_DIR$/resources/views/backend/components/products/brand.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/components/products_update/brand.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/components/products_update/mainInfo.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_03_23_001929_create_products_table.php" />
       </list>
     </option>
   </component>
@@ -292,54 +249,18 @@
             <path>
               <item name="QuantumSITRaneenBack" type="b2602c69:ProjectViewProjectNode" />
               <item name="QuantumSITRaneenBack" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="QuantumSITRaneenBack" type="b2602c69:ProjectViewProjectNode" />
+              <item name="QuantumSITRaneenBack" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="QuantumSITRaneenBack" type="b2602c69:ProjectViewProjectNode" />
               <item name="QuantumSITRaneenBack" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="QuantumSITRaneenBack" type="b2602c69:ProjectViewProjectNode" />
-              <item name="QuantumSITRaneenBack" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="QuantumSITRaneenBack" type="b2602c69:ProjectViewProjectNode" />
-              <item name="QuantumSITRaneenBack" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="QuantumSITRaneenBack" type="b2602c69:ProjectViewProjectNode" />
-              <item name="QuantumSITRaneenBack" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="products" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="QuantumSITRaneenBack" type="b2602c69:ProjectViewProjectNode" />
-              <item name="QuantumSITRaneenBack" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="products_update" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="QuantumSITRaneenBack" type="b2602c69:ProjectViewProjectNode" />
-              <item name="QuantumSITRaneenBack" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -417,12 +338,12 @@
       <workItem from="1585654546101" duration="3412000" />
       <workItem from="1585665228309" duration="5344000" />
       <workItem from="1585701292487" duration="11425000" />
-      <workItem from="1585753262608" duration="643000" />
+      <workItem from="1585753262608" duration="1343000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="313476000" />
+    <option name="totallyTimeSpent" value="314176000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -475,13 +396,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/brands/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/brands/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-251">
@@ -808,17 +722,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/components/products/mainInfo.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/components/products_update/mainInfo.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="30" column="79" selection-start-line="30" selection-start-column="69" selection-end-line="30" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/components/products/brand.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="80" selection-start-line="18" selection-start-column="80" selection-end-line="18" selection-end-column="80" />
+        <state relative-caret-position="176">
+          <caret line="50" column="26" lean-forward="true" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -829,10 +736,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/components/products_update/mainInfo.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/components/products/brand.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="55" column="77" selection-start-line="55" selection-start-column="77" selection-end-line="55" selection-end-column="77" />
+        <state relative-caret-position="396">
+          <caret line="18" column="80" selection-start-line="18" selection-start-column="80" selection-end-line="18" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/components/products/mainInfo.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="30" column="79" selection-start-line="30" selection-start-column="69" selection-end-line="30" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_23_001929_create_products_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="21" column="46" lean-forward="true" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
         </state>
       </provider>
     </entry>
