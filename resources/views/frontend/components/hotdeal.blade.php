@@ -23,11 +23,11 @@
                                     <div class="media-body">
                                         <div class="media-contant">
                                             <div>
-                                                @if ($reviews == 0)
+                                                @if ($reviews[0]->reviews == 0)
                                                 <div>@lang('tr.Not Rated Yet')</div>
                                                 @else
                                                 <div>
-                                                    @for ($i = 0; $i < $reviews; $i++)
+                                                    @for ($i = 0; $i < $reviews[0]->reviews; $i++)
                                                     <i class="fa fa-star" style="color:orange"></i>
                                                     @endfor
                                                 </div>
@@ -64,11 +64,11 @@
                             <div class="media-banner-box">
                                         <div class="media-contant">
                                             <div>
-                                                @if ($reviews == 0)
+                                                @if ($reviews[0]->reviews == 0)
                                                 <div>@lang('tr.Not Rated Yet')</div>
                                                 @else
                                                 <div>
-                                                    @for ($i = 0; $i < $review; $i++)
+                                                    @for ($i = 0; $i < $reviews[0]->reviews; $i++)
                                                     <i class="fa fa-star" style="color:orange"></i>
                                                     @endfor
                                                 </div>
@@ -106,8 +106,13 @@
                 <div class="hot-deal">
                     <div class="hot-deal-box">
                         <div class="slide-1">
-                            @php($result = $start->diffInDays($end, false))
+                            
                         
+                            @foreach ($lasttwoHotOffer as $lasttwo)
+                            
+                            @php($start = \Carbon\Carbon::parse($lasttwo->end))
+                            @php($end = \Carbon\Carbon::parse(date('y-m-d')))
+                            @php($result = $start->diffInDays($end, false))
                             
                             <div>
                                 <div class="hot-deal-contain1 hot-deal-banner-1">
